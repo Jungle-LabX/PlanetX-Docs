@@ -4,6 +4,7 @@ import path from "node:path";
 const ROOT = process.cwd();
 const SOURCE_ROOT = path.join(ROOT, "source-docs");
 const CONTENT_DIR = path.join(ROOT, "content");
+const DOWNLOAD_DIR = path.join(ROOT, "public", "downloads");
 const MIGRATION_DIR = path.join(ROOT, "migration");
 const GENERATED_DOCS = path.join(CONTENT_DIR, "generated-docs.json");
 const INVENTORY_FILE = path.join(MIGRATION_DIR, "source-inventory.json");
@@ -355,6 +356,42 @@ function buildUnresolvedReport(allFiles, unresolvedLinks, documents) {
   return `${lines.join("\n")}\n`;
 }
 
+function buildDownloadDocument(doc, headingLevel = 1) {
+  const titlePrefix = "#".repeat(headingLevel);
+  const content = headingLevel === 1
+    ? doc.content.trim()
+    : doc.content.trim().replace(/^(#{2,5})(\s+)/gm, "$1#$2");
+  return `${titlePrefix} ${doc.title}\n\n${doc.description}\n\n${content}\n`;
+}
+
+async function writeMarkdownDownloads(documents) {
+  await mkdir(DOWNLOAD_DIR, { recursive: true });
+
+  for (const lang of ["en", "ko"]) {
+    const languageDocuments = documents.filter((doc) => doc.lang === lang && doc.public);
+    const languageDirectory = path.join(DOWNLOAD_DIR, lang);
+    await mkdir(languageDirectory, { recursive: true });
+
+    for (const doc of languageDocuments) {
+      await writeFile(
+        path.join(languageDirectory, `${doc.slug}.md`),
+        buildDownloadDocument(doc),
+        "utf8",
+      );
+    }
+
+    const editionName = lang === "ko" ? "PlanetX 공식 문서" : "PlanetX Official Documentation";
+    const combined = [
+      `# ${editionName}`,
+      "",
+      `Version 1.0 · Last reviewed ${LAST_REVIEWED}`,
+      "",
+      ...languageDocuments.flatMap((doc) => [buildDownloadDocument(doc, 2).trim(), ""]),
+    ].join("\n");
+    await writeFile(path.join(DOWNLOAD_DIR, `planetx-docs-${lang}.md`), `${combined.trim()}\n`, "utf8");
+  }
+}
+
 async function main() {
   const allFiles = {
     en: await listMarkdownFiles("en"),
@@ -373,6 +410,7 @@ async function main() {
 
   await mkdir(CONTENT_DIR, { recursive: true });
   await mkdir(MIGRATION_DIR, { recursive: true });
+  await writeMarkdownDownloads(documents);
   await writeFile(GENERATED_DOCS, `${JSON.stringify(documents, null, 2)}\n`, "utf8");
   await writeFile(INVENTORY_FILE, `${JSON.stringify(buildSourceInventory(allFiles, documents), null, 2)}\n`, "utf8");
   await writeFile(DOCUMENT_MAP_FILE, `${JSON.stringify(buildDocumentMap(allFiles, documents), null, 2)}\n`, "utf8");

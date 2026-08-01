@@ -53,6 +53,21 @@ test("renders FAQ and Known Issues in both supported languages", async () => {
   assert.match(await responses[3].text(), /알려진 문제/);
 });
 
+test("publishes page and complete-edition documentation downloads", async () => {
+  const [home, englishPrint, englishMarkdown, koreanMarkdown] = await Promise.all([
+    render("/docs/"),
+    render("/docs/en/print/"),
+    readFile(new URL("../public/downloads/planetx-docs-en.md", import.meta.url), "utf8"),
+    readFile(new URL("../public/downloads/planetx-docs-ko.md", import.meta.url), "utf8"),
+  ]);
+  assert.equal(home.status, 200);
+  assert.match(await home.text(), /downloads\/planetx-docs-en\.md/);
+  assert.equal(englishPrint.status, 200);
+  assert.match(await englishPrint.text(), /Complete documentation PDF/);
+  assert.match(englishMarkdown, /^# PlanetX Official Documentation/m);
+  assert.match(koreanMarkdown, /^# PlanetX /m);
+});
+
 test("keeps the starter preview removed", async () => {
   const [page, layout, packageJson] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),

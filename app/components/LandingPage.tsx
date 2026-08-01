@@ -324,6 +324,29 @@ export function LandingPage() {
                 <span className="planet-light" />
                 <span className="planet-scan" />
               </div>
+              <div className="hero-transition-land" aria-hidden="true">
+                <svg className="hero-transition-land__mesh" viewBox="0 0 420 230" role="presentation">
+                  <defs>
+                    <linearGradient id="transition-surface" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stopColor="var(--accent)" stopOpacity=".3" />
+                      <stop offset="1" stopColor="#071929" stopOpacity=".82" />
+                    </linearGradient>
+                  </defs>
+                  <path className="hero-transition-land__surface" d="M56 42 Q210 -4 364 42 Q388 108 376 184 Q210 118 44 184 Q32 108 56 42Z" />
+                  <g className="hero-transition-land__grid">
+                    <path d="M49 76 Q210 20 371 76" />
+                    <path d="M44 112 Q210 48 376 112" />
+                    <path d="M42 148 Q210 79 378 148" />
+                    <path d="M104 29 Q75 108 88 197" />
+                    <path d="M157 11 Q143 105 151 151" />
+                    <path d="M210 2 L210 118" />
+                    <path d="M263 11 Q277 105 269 151" />
+                    <path d="M316 29 Q345 108 332 197" />
+                  </g>
+                  <path className="hero-transition-land__ridge" d="M55 165 L93 126 L127 145 L174 78 L213 126 L253 96 L298 149 L347 116 L377 181 Q210 119 44 184Z" />
+                </svg>
+                <i className="hero-transition-land__beacon" />
+              </div>
               <div className="orbital-node orbital-node--active"><span>{activeState + 1}</span></div>
               </div>
             </div>
@@ -333,7 +356,7 @@ export function LandingPage() {
               <span className="hero-ground-plane__ridge hero-ground-plane__ridge--two" />
               <i className="hero-ground-plane__beacon" />
             </div>
-            <div className="hero-telemetry hero-telemetry--top"><small>MODE</small><strong>{state.name.toUpperCase()}</strong></div>
+            <div className="hero-telemetry hero-telemetry--top"><small>STATE</small><strong>{state.name.toUpperCase()}</strong></div>
             <div className="hero-telemetry hero-telemetry--side"><small>{text.scale}</small><strong>6,371 KM</strong><span>RADIUS MODEL</span></div>
             <div className="hero-state-dock" aria-label={text.statePrompt}>
               {planetaryStates[language].map((item, index) => (

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader } from "../components/SiteHeader";
+import { DocumentationDownloads } from "../components/DocumentationDownloads";
 
 export const metadata: Metadata = {
   title: "Documentation",
@@ -15,6 +16,7 @@ export default function DocumentationHome() {
         <span className="eyebrow">PlanetX Documentation · Version 1.0</span>
         <h1>Build your first proxy.<br />Connect the full journey.</h1>
         <p>Choose a language to open the official technical documentation. Both editions preserve the reviewed source material; translation gaps remain visible.</p>
+        <DocumentationDownloads scope="collection" />
         <div className="docs-home__languages">
           <Link href="/docs/en/overview">
             <span>EN</span><div><strong>English</strong><small>13 documents · reviewed public guide</small></div><i>→</i>

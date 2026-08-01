@@ -5,6 +5,7 @@ import { DocsSidebar } from "./DocsSidebar";
 import { DocsToc } from "./DocsToc";
 import { MarkdownContent } from "./MarkdownContent";
 import { SiteHeader } from "./SiteHeader";
+import { DocumentationDownloads } from "./DocumentationDownloads";
 import { getCanonicalCategoryTitle, getCanonicalDocDescription, getCanonicalDocTitle } from "@/content/navigation";
 
 export function DocsPage({ doc }: { doc: DocRecord }) {
@@ -55,6 +56,7 @@ export function DocsPage({ doc }: { doc: DocRecord }) {
             </div>
             <h1>{title}</h1>
             <p>{description}</p>
+            <DocumentationDownloads language={doc.lang} slug={doc.slug} scope="page" />
             {doc.translation.status === "language-only" ? (
               <aside className="translation-note">
                 <strong>{isKorean ? "영문 번역 대기 중" : "Translation pending"}</strong>
