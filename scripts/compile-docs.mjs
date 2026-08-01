@@ -234,7 +234,7 @@ async function buildDocument(lang, file, allFiles, unresolvedLinks) {
   }
 
   const absolutePath = path.join(SOURCE_ROOT, lang, file);
-  const raw = await readFile(absolutePath, "utf8");
+  const raw = (await readFile(absolutePath, "utf8")).replace(/\r\n?/g, "\n");
   const content = stripSourceChrome(transformLinks(raw, lang, unresolvedLinks));
   const title = extractTitle(raw, file);
   const isLanguageOnly = lang === "ko" && !allFiles.en.includes(file);
