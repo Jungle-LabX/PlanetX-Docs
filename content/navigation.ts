@@ -8,10 +8,10 @@ export const primaryNavigation: Array<{
   href: (lang: DocLanguage) => string;
 }> = [
   { id: "product", label: { en: "Product", ko: "제품" }, href: () => "/#product" },
-  { id: "documentation", label: { en: "Documentation", ko: "문서" }, href: () => "/docs" },
+  { id: "documentation", label: { en: "Documentation", ko: "문서" }, href: () => "/docs#main-content" },
   { id: "compatibility", label: { en: "Compatibility", ko: "호환성" }, href: () => "/#compatibility" },
-  { id: "known-issues", label: { en: "Known Issues", ko: "알려진 문제" }, href: (lang) => `/docs/${lang}/known-issues` },
-  { id: "faq", label: { en: "FAQ", ko: "FAQ" }, href: (lang) => `/docs/${lang}/faq` },
+  { id: "known-issues", label: { en: "Known Issues", ko: "알려진 문제" }, href: (lang) => `/docs/${lang}/known-issues#main-content` },
+  { id: "faq", label: { en: "FAQ", ko: "FAQ" }, href: (lang) => `/docs/${lang}/faq#main-content` },
 ];
 
 export const canonicalDocTitles: Record<string, LocalizedLabel> = {

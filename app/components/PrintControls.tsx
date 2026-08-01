@@ -32,7 +32,7 @@ export function PrintControls({ language }: { language: DocLanguage }) {
         <span>{isKorean ? "인쇄 창에서 ‘PDF로 저장’을 선택하십시오." : "Choose “Save as PDF” in the print dialog."}</span>
       </div>
       <button type="button" onClick={() => window.print()}>{isKorean ? "인쇄 창 열기" : "Open print dialog"}</button>
-      <Link href="/docs">{isKorean ? "문서 홈" : "Documentation home"}</Link>
+      <Link href="/docs#main-content">{isKorean ? "문서 홈" : "Documentation home"}</Link>
     </div>
   );
 }

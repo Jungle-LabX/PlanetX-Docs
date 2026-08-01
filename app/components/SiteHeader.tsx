@@ -16,7 +16,7 @@ type SiteHeaderProps = {
 export function SiteHeader({
   tone = "dark",
   language = "en",
-  alternateHref = "/docs/ko/overview",
+  alternateHref = "/docs/ko/overview#main-content",
   onLanguageChange,
 }: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);

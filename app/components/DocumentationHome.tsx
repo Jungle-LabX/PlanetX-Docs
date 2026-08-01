@@ -47,18 +47,18 @@ export function DocumentationHome() {
       <SiteHeader
         tone="light"
         language={language}
-        alternateHref={`/docs/${alternateLanguage}/overview`}
+        alternateHref={`/docs/${alternateLanguage}/overview#main-content`}
       />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1}>
         <span className="eyebrow">{text.eyebrow}</span>
         <h1>{text.title}</h1>
         <p>{text.intro}</p>
         <DocumentationDownloads language={language} scope="collection" />
         <div className="docs-home__languages">
-          <Link href="/docs/en/overview" onClick={() => window.sessionStorage.setItem("planetx-language", "en")}>
+          <Link href="/docs/en/overview#main-content" onClick={() => window.sessionStorage.setItem("planetx-language", "en")}>
             <span>EN</span><div><strong>English</strong><small>13 documents · reviewed public guide</small></div><i>→</i>
           </Link>
-          <Link href="/docs/ko/overview" onClick={() => window.sessionStorage.setItem("planetx-language", "ko")}>
+          <Link href="/docs/ko/overview#main-content" onClick={() => window.sessionStorage.setItem("planetx-language", "ko")}>
             <span>KO</span><div><strong>한국어</strong><small>15개 문서 · API 및 Runtime 심화 가이드 포함</small></div><i>→</i>
           </Link>
         </div>
@@ -68,7 +68,7 @@ export function DocumentationHome() {
               <span>{String(index + 1).padStart(2, "0")}</span>
               <h2>{title}</h2>
               <p>{description}</p>
-              <Link href={`/docs/${language}/${slug}`}>{label} →</Link>
+              <Link href={`/docs/${language}/${slug}#main-content`}>{label} →</Link>
             </article>
           ))}
         </div>

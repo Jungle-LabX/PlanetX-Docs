@@ -165,7 +165,7 @@ export function SearchDialog() {
           {results.length ? results.map((result) => (
             <Link
               key={result.id}
-              href={result.href}
+              href={`${result.href}#main-content`}
               className={`search-result${result.kind === "term" ? " search-result--term" : ""}`}
               onClick={closeDialog}
             >

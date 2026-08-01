@@ -295,7 +295,7 @@ export function LandingPage() {
             <h1 id="hero-title">{text.heroTitleA}<br /><em>{text.heroTitleB}</em></h1>
             <p>{text.heroBody}</p>
             <div className="hero-actions">
-              <Link className="button button--primary" href={`/docs/${language}/getting-started`}>{text.primaryCta}<span>↗</span></Link>
+              <Link className="button button--primary" href={`/docs/${language}/getting-started#main-content`}>{text.primaryCta}<span>↗</span></Link>
               <a className="button button--ghost" href="#product">{text.secondaryCta}<span>↓</span></a>
             </div>
             <div className="hero-proof" aria-label="Verified product facts">
@@ -416,7 +416,7 @@ export function LandingPage() {
             <span className="section-kicker">{text.proxyKicker}</span>
             <h2>{text.proxyTitle}</h2>
             <p>{text.proxyBody}</p>
-            <Link className="text-link" href={`/docs/${language}/editor-workflow`}>{text.proxyLink}<span>↗</span></Link>
+            <Link className="text-link" href={`/docs/${language}/editor-workflow#main-content`}>{text.proxyLink}<span>↗</span></Link>
           </div>
           <div className="projection-demo" data-reveal>
             <div className="projection-demo__stage" aria-label={projection.caption}>
@@ -467,7 +467,7 @@ export function LandingPage() {
             <span className="section-kicker">{text.coordinatesKicker}</span>
             <h2>{text.coordinatesTitle}</h2>
             <p>{text.coordinatesBody}</p>
-            <Link className="text-link" href={`/docs/${language}/core-concepts`}>{text.conceptsLink}<span>↗</span></Link>
+            <Link className="text-link" href={`/docs/${language}/core-concepts#main-content`}>{text.conceptsLink}<span>↗</span></Link>
           </div>
           <div className="coordinate-stack" aria-label="World to Planet to Surface to Section hierarchy" data-reveal>
             <div><small>01</small><strong>WORLD</strong><span>Unreal transform</span></div>
@@ -499,7 +499,7 @@ export function LandingPage() {
 
         <section className="docs-cta" data-reveal>
           <div><span className="section-kicker">{text.docsKicker}</span><h2>{text.docsTitle}</h2></div>
-          <div><p>{text.docsBody}</p><div className="docs-cta__actions"><Link className="button button--light" href={`/docs/${language}/getting-started`}>{text.openDocs}</Link><Link className="button button--outline-light" href={`/docs/${language === "en" ? "ko" : "en"}/overview`}>{text.otherLanguageDocs}</Link></div></div>
+          <div><p>{text.docsBody}</p><div className="docs-cta__actions"><Link className="button button--light" href={`/docs/${language}/getting-started#main-content`}>{text.openDocs}</Link><Link className="button button--outline-light" href={`/docs/${language === "en" ? "ko" : "en"}/overview#main-content`}>{text.otherLanguageDocs}</Link></div></div>
         </section>
 
         <section className="fab-cta" data-reveal>

@@ -85,6 +85,24 @@ test("renders the shared LabX footer across product, docs, print, and error rout
   }
 });
 
+test("routes documentation navigation to a focusable main region", async () => {
+  const response = await render("/docs/en/overview/");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /id="main-content"[^>]*tabindex="-1"/i);
+  assert.match(html, /\/docs\/en\/getting-started#main-content/);
+  assert.match(html, /\/docs\/en\/known-issues#main-content/);
+
+  const [focusSource, sidebarSource] = await Promise.all([
+    readFile(new URL("../app/components/MainContentFocus.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/DocsSidebar.tsx", import.meta.url), "utf8"),
+  ]);
+  assert.match(focusSource, /main\.focus\(\{ preventScroll: true \}\)/);
+  assert.match(focusSource, /main\.scrollIntoView/);
+  assert.match(sidebarSource, /sidebar\.scrollTo/);
+  assert.match(sidebarSource, /activeLinkRef/);
+});
+
 test("keeps the starter preview removed", async () => {
   const [page, layout, packageJson] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),

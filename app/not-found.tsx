@@ -25,7 +25,7 @@ export default function NotFound() {
       <h1>{isKorean ? "현재 항로에서 찾을 수 없는 경로입니다." : "This route is outside the current chart."}</h1>
       <p>{isKorean ? "문서가 이동했거나 해당 언어의 번역이 아직 제공되지 않을 수 있습니다." : "The document may have moved, or the translation may not exist yet."}</p>
       <div>
-        <Link className="button button--primary" href="/docs">{isKorean ? "문서 열기" : "Open documentation"}</Link>
+        <Link className="button button--primary" href="/docs#main-content">{isKorean ? "문서 열기" : "Open documentation"}</Link>
         <Link className="button button--ghost" href="/">{isKorean ? "메인으로 돌아가기" : "Return home"}</Link>
       </div>
     </main>

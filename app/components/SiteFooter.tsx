@@ -55,9 +55,9 @@ export function SiteFooter() {
       <div className="site-footer__brand"><BrandMark size={40} /><span><strong>PlanetX</strong><small>by LabX</small></span></div>
       <p>{text.tagline}</p>
       <nav aria-label={language === "ko" ? "Footer 탐색" : "Footer navigation"}>
-        <Link href="/docs">{text.docs}</Link>
-        <Link href={`/docs/${language}/support-release-notes`}>{text.releases}</Link>
-        <Link href={`/docs/${language}/troubleshooting`}>{text.support}</Link>
+        <Link href="/docs#main-content">{text.docs}</Link>
+        <Link href={`/docs/${language}/support-release-notes#main-content`}>{text.releases}</Link>
+        <Link href={`/docs/${language}/troubleshooting#main-content`}>{text.support}</Link>
         <a href="https://github.com/Jungle-LabX/PlanetX-Docs" target="_blank" rel="noreferrer">GitHub</a>
       </nav>
       <p className="site-footer__disclaimer">{text.disclaimer}</p>

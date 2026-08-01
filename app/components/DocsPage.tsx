@@ -21,7 +21,7 @@ export function DocsPage({ doc }: { doc: DocRecord }) {
       <SiteHeader
         tone="light"
         language={doc.lang}
-        alternateHref={alternate ? `/docs/${alternate.lang}/${alternate.slug}` : `/docs/${doc.lang === "en" ? "ko" : "en"}/overview`}
+        alternateHref={alternate ? `/docs/${alternate.lang}/${alternate.slug}#main-content` : `/docs/${doc.lang === "en" ? "ko" : "en"}/overview#main-content`}
       />
 
       <div className="docs-utility-bar">
@@ -38,10 +38,10 @@ export function DocsPage({ doc }: { doc: DocRecord }) {
       <div className="docs-layout">
         <DocsSidebar lang={doc.lang} activeSlug={doc.slug} />
 
-        <main className="docs-main" id="main-content">
+        <main className="docs-main" id="main-content" tabIndex={-1}>
           <nav className="breadcrumbs" aria-label="Breadcrumb">
             <Link href="/">PlanetX</Link><span>/</span>
-            <Link href="/docs">Docs</Link><span>/</span>
+            <Link href="/docs#main-content">Docs</Link><span>/</span>
             <span aria-current="page">{title}</span>
           </nav>
 
@@ -74,13 +74,13 @@ export function DocsPage({ doc }: { doc: DocRecord }) {
             </div>
             <nav className="doc-pagination" aria-label="Document pagination">
               {adjacent.previous ? (
-                <Link href={`/docs/${adjacent.previous.lang}/${adjacent.previous.slug}`}>
+                <Link href={`/docs/${adjacent.previous.lang}/${adjacent.previous.slug}#main-content`}>
                   <small>← {isKorean ? "이전" : "Previous"}</small>
                   <strong>{getCanonicalDocTitle(adjacent.previous.slug, adjacent.previous.lang, adjacent.previous.title)}</strong>
                 </Link>
               ) : <span />}
               {adjacent.next ? (
-                <Link href={`/docs/${adjacent.next.lang}/${adjacent.next.slug}`}>
+                <Link href={`/docs/${adjacent.next.lang}/${adjacent.next.slug}#main-content`}>
                   <small>{isKorean ? "다음" : "Next"} →</small>
                   <strong>{getCanonicalDocTitle(adjacent.next.slug, adjacent.next.lang, adjacent.next.title)}</strong>
                 </Link>
