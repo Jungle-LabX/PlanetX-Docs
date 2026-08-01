@@ -241,7 +241,7 @@ export function LandingPage() {
           <Link href="/docs">Documentation</Link>
           <Link href="/docs/en/support-release-notes">Release notes</Link>
           <Link href="/docs/en/troubleshooting">Support</Link>
-          <span>GitHub URL pending</span>
+          <a href="https://github.com/Jungle-LabX/PlanetX-Docs" target="_blank" rel="noreferrer">GitHub</a>
         </nav>
         <small>© 2026 Yongin Aerospace Industries. PlanetX documentation version 1.0.</small>
       </footer>
