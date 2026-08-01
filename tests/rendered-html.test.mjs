@@ -17,9 +17,10 @@ test("server-renders the PlanetX product landing page", async () => {
   const response = await render("/");
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /Build the ground/);
+  assert.match(html, /Author the ground/);
   assert.match(html, /Reveal the planet/);
   assert.match(html, /PlanetX 1\.0/);
+  assert.match(html, /independently developed by LabX/);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|react-loading-skeleton/i);
 });
 
@@ -30,10 +31,26 @@ test("renders English and Korean documentation routes", async () => {
   ]);
   assert.equal(english.status, 200);
   assert.equal(korean.status, 200);
-  assert.match(await english.text(), /PlanetX Overview/);
+  const englishHtml = await english.text();
+  assert.match(englishHtml, /Overview/);
+  assert.match(englishHtml, /mermaid-diagram__canvas/);
   const koreanHtml = await korean.text();
   assert.match(koreanHtml, /PlanetX 사용자 제공 API/);
   assert.match(koreanHtml, /영문 번역 대기 중/);
+});
+
+test("renders FAQ and Known Issues in both supported languages", async () => {
+  const responses = await Promise.all([
+    render("/docs/en/faq/"),
+    render("/docs/ko/faq/"),
+    render("/docs/en/known-issues/"),
+    render("/docs/ko/known-issues/"),
+  ]);
+  for (const response of responses) assert.equal(response.status, 200);
+  assert.match(await responses[0].text(), /Frequently Asked Questions|FAQ/);
+  assert.match(await responses[1].text(), /자주 묻는 질문/);
+  assert.match(await responses[2].text(), /Known Issues/);
+  assert.match(await responses[3].text(), /알려진 문제/);
 });
 
 test("keeps the starter preview removed", async () => {

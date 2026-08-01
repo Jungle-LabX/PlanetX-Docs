@@ -17,10 +17,10 @@ export default function DocumentationHome() {
         <p>Choose a language to open the official technical documentation. Both editions preserve the reviewed source material; translation gaps remain visible.</p>
         <div className="docs-home__languages">
           <Link href="/docs/en/overview">
-            <span>EN</span><div><strong>English</strong><small>11 documents · canonical public overview</small></div><i>→</i>
+            <span>EN</span><div><strong>English</strong><small>13 documents · reviewed public guide</small></div><i>→</i>
           </Link>
           <Link href="/docs/ko/overview">
-            <span>KO</span><div><strong>한국어</strong><small>13개 문서 · API 및 Runtime 심화 가이드 포함</small></div><i>→</i>
+            <span>KO</span><div><strong>한국어</strong><small>15개 문서 · API 및 Runtime 심화 가이드 포함</small></div><i>→</i>
           </Link>
         </div>
         <div className="docs-home__paths">

@@ -5,6 +5,7 @@ import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { CodeBlock } from "./CodeBlock";
 import { ImageLightbox } from "./ImageLightbox";
+import { MermaidDiagram } from "./MermaidDiagram";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH?.replace(/\/$/, "") ?? "";
 
@@ -60,6 +61,9 @@ export function MarkdownContent({ content }: { content: string }) {
       }>;
       const code = nodeText(child.props.children).replace(/\n$/, "");
       const language = child.props.className?.replace("language-", "");
+      if (language?.toLocaleLowerCase() === "mermaid") {
+        return <MermaidDiagram code={code} />;
+      }
       return <CodeBlock code={code} language={language} />;
     },
     img({ src = "", alt = "" }) {

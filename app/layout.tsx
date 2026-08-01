@@ -1,10 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { SearchDialog } from "./components/SearchDialog";
+import { BackToTop } from "./components/BackToTop";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH?.replace(/\/$/, "") ?? "";
 const siteRoot = `${(process.env.NEXT_PUBLIC_SITE_URL ?? `http://localhost:3000${basePath}`).replace(/\/$/, "")}/`;
-const iconUrl = new URL("brand/planetx-icon.png", siteRoot).toString();
+const iconUrl = new URL("brand/planetx-mark.svg", siteRoot).toString();
 const socialImageUrl = new URL("og.png", siteRoot).toString();
 
 export const metadata: Metadata = {
@@ -46,11 +47,19 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var stored=localStorage.getItem('planetx-theme');var theme=stored==='light'||stored==='dark'?stored:(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.dataset.theme=theme;document.documentElement.style.colorScheme=theme;}catch(e){document.documentElement.dataset.theme='dark';}})();`,
+          }}
+        />
+      </head>
       <body>
         <a className="skip-link" href="#main-content">Skip to content</a>
         {children}
         <SearchDialog />
+        <BackToTop />
       </body>
     </html>
   );

@@ -5,11 +5,15 @@ import { DocsSidebar } from "./DocsSidebar";
 import { DocsToc } from "./DocsToc";
 import { MarkdownContent } from "./MarkdownContent";
 import { SiteHeader } from "./SiteHeader";
+import { getCanonicalCategoryTitle, getCanonicalDocDescription, getCanonicalDocTitle } from "@/content/navigation";
 
 export function DocsPage({ doc }: { doc: DocRecord }) {
   const alternate = getAlternateDoc(doc);
   const adjacent = getAdjacentDocs(doc);
   const isKorean = doc.lang === "ko";
+  const title = getCanonicalDocTitle(doc.slug, doc.lang, doc.title);
+  const description = getCanonicalDocDescription(doc.slug, doc.lang, doc.description);
+  const category = getCanonicalCategoryTitle(doc.category, doc.lang);
 
   return (
     <div className="docs-site">
@@ -37,18 +41,20 @@ export function DocsPage({ doc }: { doc: DocRecord }) {
           <nav className="breadcrumbs" aria-label="Breadcrumb">
             <Link href="/">PlanetX</Link><span>/</span>
             <Link href="/docs">Docs</Link><span>/</span>
-            <span aria-current="page">{doc.title}</span>
+            <span aria-current="page">{title}</span>
           </nav>
 
           <header className="doc-header">
             <div className="doc-header__eyebrow">
-              <span>{doc.category}</span>
+              <span>{category}</span>
               <span className={`review-state review-state--${doc.verificationStatus}`}>
-                {doc.verificationStatus === "verified" ? "Source verified" : "Product review required"}
+                {doc.verificationStatus === "verified"
+                  ? (isKorean ? "원문 검증 완료" : "Source verified")
+                  : (isKorean ? "제품 검증 필요" : "Product review required")}
               </span>
             </div>
-            <h1>{doc.title}</h1>
-            <p>{doc.description}</p>
+            <h1>{title}</h1>
+            <p>{description}</p>
             {doc.translation.status === "language-only" ? (
               <aside className="translation-note">
                 <strong>{isKorean ? "영문 번역 대기 중" : "Translation pending"}</strong>
@@ -68,13 +74,13 @@ export function DocsPage({ doc }: { doc: DocRecord }) {
               {adjacent.previous ? (
                 <Link href={`/docs/${adjacent.previous.lang}/${adjacent.previous.slug}`}>
                   <small>← {isKorean ? "이전" : "Previous"}</small>
-                  <strong>{adjacent.previous.title}</strong>
+                  <strong>{getCanonicalDocTitle(adjacent.previous.slug, adjacent.previous.lang, adjacent.previous.title)}</strong>
                 </Link>
               ) : <span />}
               {adjacent.next ? (
                 <Link href={`/docs/${adjacent.next.lang}/${adjacent.next.slug}`}>
                   <small>{isKorean ? "다음" : "Next"} →</small>
-                  <strong>{adjacent.next.title}</strong>
+                  <strong>{getCanonicalDocTitle(adjacent.next.slug, adjacent.next.lang, adjacent.next.title)}</strong>
                 </Link>
               ) : null}
             </nav>

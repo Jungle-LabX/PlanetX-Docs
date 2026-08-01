@@ -25,6 +25,8 @@ const sharedMap = [
   ["08_Reference.md", "reference", "Reference", "Public symbols and CVars"],
   ["09_Troubleshooting.md", "troubleshooting", "Troubleshooting", "Exact messages and recovery steps"],
   ["10_Support_and_Release_Notes.md", "support-release-notes", "Support", "Support channel and release facts"],
+  ["13_FAQ.md", "faq", "Support", "Keep answers aligned with canonical terminology and verified product scope"],
+  ["14_Known_Issues.md", "known-issues", "Support", "Keep issue status current and avoid publishing unverified defects"],
 ];
 
 const languageOnlyMap = [

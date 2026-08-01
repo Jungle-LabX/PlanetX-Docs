@@ -1,10 +1,10 @@
 {
   "auditDate": "2026-08-01",
   "counts": {
-    "en": 11,
-    "ko": 13,
-    "total": 24,
-    "sharedSubjects": 11,
+    "en": 13,
+    "ko": 15,
+    "total": 28,
+    "sharedSubjects": 13,
     "languageOnlySubjects": 2
   },
   "languages": {
@@ -150,6 +150,32 @@
         "headings": 2,
         "public": true,
         "verificationStatus": "needs-product-review",
+        "translationStatus": "current"
+      },
+      {
+        "file": "13_FAQ.md",
+        "path": "source-docs/en/13_FAQ.md",
+        "slug": "faq",
+        "id": "en-faq",
+        "title": "Frequently Asked Questions",
+        "category": "Support",
+        "order": 11,
+        "headings": 9,
+        "public": true,
+        "verificationStatus": "verified",
+        "translationStatus": "current"
+      },
+      {
+        "file": "14_Known_Issues.md",
+        "path": "source-docs/en/14_Known_Issues.md",
+        "slug": "known-issues",
+        "id": "en-known-issues",
+        "title": "Known Issues",
+        "category": "Support",
+        "order": 12,
+        "headings": 5,
+        "public": true,
+        "verificationStatus": "verified",
         "translationStatus": "current"
       }
     ],
@@ -304,7 +330,7 @@
         "id": "ko-user-api",
         "title": "PlanetX 사용자 제공 API",
         "category": "Reference",
-        "order": 11,
+        "order": 13,
         "headings": 38,
         "public": true,
         "verificationStatus": "needs-product-review",
@@ -317,11 +343,37 @@
         "id": "ko-runtime-actor-integration",
         "title": "Runtime Actor 통합 가이드: Blueprint로 우주선과 캐릭터 연결하기",
         "category": "Runtime",
-        "order": 12,
+        "order": 14,
         "headings": 49,
         "public": true,
         "verificationStatus": "needs-product-review",
         "translationStatus": "language-only"
+      },
+      {
+        "file": "13_FAQ.md",
+        "path": "source-docs/ko/13_FAQ.md",
+        "slug": "faq",
+        "id": "ko-faq",
+        "title": "자주 묻는 질문",
+        "category": "Support",
+        "order": 11,
+        "headings": 9,
+        "public": true,
+        "verificationStatus": "verified",
+        "translationStatus": "current"
+      },
+      {
+        "file": "14_Known_Issues.md",
+        "path": "source-docs/ko/14_Known_Issues.md",
+        "slug": "known-issues",
+        "id": "ko-known-issues",
+        "title": "알려진 문제",
+        "category": "Support",
+        "order": 12,
+        "headings": 5,
+        "public": true,
+        "verificationStatus": "verified",
+        "translationStatus": "current"
       }
     ]
   }

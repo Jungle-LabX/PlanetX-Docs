@@ -209,8 +209,46 @@
     "translationStatus": "current"
   },
   {
-    "slug": "user-api",
+    "slug": "faq",
     "order": 11,
+    "category": "Support",
+    "reviewFocus": "Keep answers aligned with canonical terminology and verified product scope",
+    "routes": {
+      "en": "/docs/en/faq",
+      "ko": "/docs/ko/faq"
+    },
+    "sources": {
+      "en": "source-docs/en/13_FAQ.md",
+      "ko": "source-docs/ko/13_FAQ.md"
+    },
+    "ids": {
+      "en": "en-faq",
+      "ko": "ko-faq"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "known-issues",
+    "order": 12,
+    "category": "Support",
+    "reviewFocus": "Keep issue status current and avoid publishing unverified defects",
+    "routes": {
+      "en": "/docs/en/known-issues",
+      "ko": "/docs/ko/known-issues"
+    },
+    "sources": {
+      "en": "source-docs/en/14_Known_Issues.md",
+      "ko": "source-docs/ko/14_Known_Issues.md"
+    },
+    "ids": {
+      "en": "en-known-issues",
+      "ko": "ko-known-issues"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "user-api",
+    "order": 13,
     "category": "Reference",
     "reviewFocus": "Validate every public symbol before release",
     "routes": {
@@ -226,7 +264,7 @@
   },
   {
     "slug": "runtime-actor-integration",
-    "order": 12,
+    "order": 14,
     "category": "Runtime",
     "reviewFocus": "Requires Unreal Editor walkthrough QA",
     "routes": {

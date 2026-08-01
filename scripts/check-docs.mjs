@@ -5,7 +5,7 @@ const ROOT = process.cwd();
 const GENERATED_DOCS = path.join(ROOT, "content", "generated-docs.json");
 const INVENTORY_FILE = path.join(ROOT, "migration", "source-inventory.json");
 const DOCUMENT_MAP_FILE = path.join(ROOT, "migration", "document-map.json");
-const EXPECTED_COUNTS = { en: 11, ko: 13, total: 24, sharedSubjects: 11, languageOnlySubjects: 2 };
+const EXPECTED_COUNTS = { en: 13, ko: 15, total: 28, sharedSubjects: 13, languageOnlySubjects: 2 };
 const REQUIRED_FIELDS = [
   "id",
   "lang",
@@ -148,7 +148,7 @@ function validateCounts(docs, inventory, documentMap, errors) {
   }
 
   if (!Array.isArray(documentMap) || documentMap.length !== EXPECTED_COUNTS.sharedSubjects + EXPECTED_COUNTS.languageOnlySubjects) {
-    fail(errors, `Document map should contain 13 entries, got ${Array.isArray(documentMap) ? documentMap.length : "non-array"}`);
+    fail(errors, `Document map should contain 15 entries, got ${Array.isArray(documentMap) ? documentMap.length : "non-array"}`);
   }
 }
 

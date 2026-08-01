@@ -1,23 +1,32 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useEffect, useState } from "react";
-
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH?.replace(/\/$/, "") ?? "";
+import { BrandMark } from "./BrandMark";
+import { ThemeToggle } from "./ThemeToggle";
+import { primaryNavigation } from "@/content/navigation";
 
 type SiteHeaderProps = {
   tone?: "light" | "dark";
   language?: "en" | "ko";
   alternateHref?: string;
+  onLanguageChange?: (language: "en" | "ko") => void;
 };
 
 export function SiteHeader({
   tone = "dark",
   language = "en",
   alternateHref = "/docs/ko/overview",
+  onLanguageChange,
 }: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+    if (window.location.pathname.includes(`/docs/${language}/`)) {
+      window.sessionStorage.setItem("planetx-language", language);
+    }
+  }, [language]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -32,20 +41,52 @@ export function SiteHeader({
     window.dispatchEvent(new CustomEvent("planetx:open-search"));
   };
 
+  const isKorean = language === "ko";
+  const nextLanguage = isKorean ? "en" : "ko";
+  const labels = isKorean
+    ? {
+        search: "문서 검색",
+        toggleNavigation: "메뉴 열기/닫기",
+      }
+    : {
+        search: "Search documentation",
+        toggleNavigation: "Toggle navigation",
+      };
+
+  const languageControl = onLanguageChange ? (
+    <button
+      className="language-link"
+      type="button"
+      onClick={() => onLanguageChange(nextLanguage)}
+      aria-label={isKorean ? "Switch landing page to English" : "메인 페이지를 한국어로 전환"}
+      aria-pressed={isKorean}
+    >
+      {language.toUpperCase()}
+    </button>
+  ) : (
+    <Link
+      className="language-link"
+      href={alternateHref}
+      hrefLang={nextLanguage}
+      aria-label={isKorean ? "Switch documentation to English" : "문서를 한국어로 전환"}
+      onClick={() => window.sessionStorage.setItem("planetx-language", nextLanguage)}
+    >
+      {language.toUpperCase()}
+    </Link>
+  );
+
   return (
     <header className={`site-header site-header--${tone}`}>
       <div className="site-header__inner">
         <Link className="brand" href="/" aria-label="PlanetX home">
-          <Image src={`${basePath}/brand/planetx-icon.png`} alt="" width={34} height={34} priority />
-          <span>PlanetX</span>
+          <BrandMark className="brand__mark" size={38} />
+          <span>PlanetX <small>by LabX</small></span>
         </Link>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
-          <Link href="/#product">Product</Link>
-          <Link href="/docs">Documentation</Link>
-          <Link href="/#compatibility">Compatibility</Link>
-          <Link href="/docs/en/support-release-notes">Release notes</Link>
-          <Link href="/docs/en/troubleshooting">Support</Link>
+          {primaryNavigation.map((item) => (
+            <Link key={item.id} href={item.href(language)}>{item.label[language]}</Link>
+          ))}
         </nav>
 
         <div className="site-header__actions">
@@ -53,15 +94,14 @@ export function SiteHeader({
             className="search-trigger"
             type="button"
             onClick={openSearch}
-            aria-label="Search documentation"
+            aria-label={labels.search}
           >
             <span aria-hidden="true">⌕</span>
-            <span className="search-trigger__label">Search</span>
-            <kbd>⌘ K</kbd>
+            <span className="search-trigger__label">{isKorean ? "검색" : "Search"}</span>
+            <kbd>⌘K</kbd>
           </button>
-          <Link className="language-link" href={alternateHref} hrefLang={language === "en" ? "ko" : "en"}>
-            {language === "en" ? "KO" : "EN"}
-          </Link>
+          {languageControl}
+          <ThemeToggle />
           <button
             className="menu-trigger"
             type="button"
@@ -69,7 +109,7 @@ export function SiteHeader({
             aria-controls="mobile-navigation"
             onClick={() => setMenuOpen((value) => !value)}
           >
-            <span className="sr-only">Toggle navigation</span>
+            <span className="sr-only">{labels.toggleNavigation}</span>
             <span aria-hidden="true">{menuOpen ? "×" : "☰"}</span>
           </button>
         </div>
@@ -77,11 +117,9 @@ export function SiteHeader({
 
       {menuOpen ? (
         <nav id="mobile-navigation" className="mobile-nav" aria-label="Mobile navigation">
-          <Link href="/#product" onClick={() => setMenuOpen(false)}>Product</Link>
-          <Link href="/docs" onClick={() => setMenuOpen(false)}>Documentation</Link>
-          <Link href="/#compatibility" onClick={() => setMenuOpen(false)}>Compatibility</Link>
-          <Link href="/docs/en/support-release-notes" onClick={() => setMenuOpen(false)}>Release notes</Link>
-          <Link href="/docs/en/troubleshooting" onClick={() => setMenuOpen(false)}>Support</Link>
+          {primaryNavigation.map((item) => (
+            <Link key={item.id} href={item.href(language)} onClick={() => setMenuOpen(false)}>{item.label[language]}</Link>
+          ))}
         </nav>
       ) : null}
     </header>

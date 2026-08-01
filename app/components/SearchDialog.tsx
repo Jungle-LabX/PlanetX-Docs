@@ -2,16 +2,61 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { docs } from "@/content/docs";
+import { docs, type DocLanguage } from "@/content/docs";
+import { getCanonicalCategoryTitle, getCanonicalDocDescription, getCanonicalDocTitle } from "@/content/navigation";
+import { canonicalSearchAliases, glossaryEntries } from "@/content/search";
 
-const searchable = docs.map((doc) => ({
-  ...doc,
-  haystack: `${doc.title} ${doc.description} ${doc.content}`.toLocaleLowerCase(),
-}));
+type SearchResult = {
+  id: string;
+  kind: "document" | "term";
+  href: string;
+  title: string;
+  description: string;
+  meta: string;
+  haystack: string;
+  order: number;
+};
+
+const featuredSlugs = ["overview", "getting-started", "faq", "known-issues"];
+
+function buildResults(language: DocLanguage): SearchResult[] {
+  const documentResults = docs
+    .filter((doc) => doc.public)
+    .map((doc) => {
+      const title = getCanonicalDocTitle(doc.slug, doc.lang, doc.title);
+      const category = getCanonicalCategoryTitle(doc.category, doc.lang);
+      const description = getCanonicalDocDescription(doc.slug, doc.lang, doc.description);
+      const aliases = canonicalSearchAliases[doc.slug] ?? [];
+      return {
+        id: doc.id,
+        kind: "document" as const,
+        href: `/docs/${doc.lang}/${doc.slug}`,
+        title,
+        description,
+        meta: `${doc.lang.toUpperCase()} · ${category}`,
+        haystack: `${title} ${doc.title} ${description} ${doc.description} ${doc.content} ${aliases.join(" ")}`.toLocaleLowerCase(),
+        order: doc.order,
+      };
+    });
+
+  const glossaryResults = glossaryEntries.map((entry, index) => ({
+    id: `term-${entry.id}-${language}`,
+    kind: "term" as const,
+    href: `/docs/${language}/${entry.route}`,
+    title: language === "ko" ? entry.ko : entry.term,
+    description: entry.definition[language],
+    meta: language === "ko" ? "용어 · 표준 용어" : "TERM · CANONICAL",
+    haystack: `${entry.term} ${entry.ko} ${entry.definition.en} ${entry.definition.ko} ${entry.aliases.join(" ")}`.toLocaleLowerCase(),
+    order: -100 + index,
+  }));
+
+  return [...glossaryResults, ...documentResults];
+}
 
 export function SearchDialog() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [language, setLanguage] = useState<DocLanguage>("en");
   const inputRef = useRef<HTMLInputElement>(null);
   const returnFocusRef = useRef<HTMLElement | null>(null);
 
@@ -23,6 +68,7 @@ export function SearchDialog() {
   useEffect(() => {
     const show = () => {
       returnFocusRef.current = document.activeElement as HTMLElement;
+      setLanguage(document.documentElement.lang === "ko" ? "ko" : "en");
       setOpen(true);
     };
     const onKey = (event: KeyboardEvent) => {
@@ -52,19 +98,44 @@ export function SearchDialog() {
   }, [open]);
 
   const results = useMemo(() => {
+    const allResults = buildResults(language);
     const terms = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
-    if (!terms.length) return searchable.slice(0, 8);
-    return searchable
-      .filter((doc) => terms.every((term) => doc.haystack.includes(term)))
+    if (!terms.length) {
+      return allResults
+        .filter((result) => result.kind === "document" && result.href.startsWith(`/docs/${language}/`) && featuredSlugs.some((slug) => result.href.endsWith(`/${slug}`)))
+        .sort((left, right) => featuredSlugs.indexOf(left.href.split("/").at(-1) ?? "") - featuredSlugs.indexOf(right.href.split("/").at(-1) ?? ""));
+    }
+
+    return allResults
+      .filter((result) => terms.every((term) => result.haystack.includes(term)))
       .sort((left, right) => {
         const leftTitle = terms.some((term) => left.title.toLocaleLowerCase().includes(term));
         const rightTitle = terms.some((term) => right.title.toLocaleLowerCase().includes(term));
-        return Number(rightTitle) - Number(leftTitle) || left.order - right.order;
+        const languageBoost = Number(right.href.startsWith(`/docs/${language}/`)) - Number(left.href.startsWith(`/docs/${language}/`));
+        return Number(rightTitle) - Number(leftTitle) || languageBoost || left.order - right.order;
       })
-      .slice(0, 12);
-  }, [query]);
+      .slice(0, 14);
+  }, [language, query]);
 
   if (!open) return null;
+
+  const labels = language === "ko"
+    ? {
+        input: "PlanetX 문서, 기능, 용어 검색",
+        dialog: "문서 검색",
+        results: "검색 결과",
+        empty: "일치하는 항목이 없습니다. Proxy Bake, Transition, Section 같은 표준 용어로 검색해 보세요.",
+        privacy: "로컬 색인 · 검색어는 기기를 떠나지 않습니다",
+        navigation: "Tab 이동 · Enter 열기",
+      }
+    : {
+        input: "Search PlanetX docs, features, and terms",
+        dialog: "Documentation search",
+        results: "Search results",
+        empty: "No matches. Try a canonical term such as Proxy Bake, Transition, or Section.",
+        privacy: "Local index · documents, aliases, and canonical terms",
+        navigation: "Tab Navigate · Enter Open",
+      };
 
   return (
     <div className="dialog-backdrop" role="presentation" onMouseDown={closeDialog}>
@@ -77,37 +148,37 @@ export function SearchDialog() {
       >
         <div className="search-dialog__input-row">
           <span aria-hidden="true">⌕</span>
-          <label className="sr-only" htmlFor="docs-search">Search documentation</label>
+          <label className="sr-only" htmlFor="docs-search">{labels.input}</label>
           <input
             id="docs-search"
             ref={inputRef}
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search PlanetX documentation"
+            placeholder={labels.input}
             autoComplete="off"
           />
           <button type="button" onClick={closeDialog} aria-label="Close search">Esc</button>
         </div>
-        <h2 id="search-dialog-title" className="sr-only">Documentation search</h2>
-        <div className="search-results" role="listbox" aria-label="Search results">
-          {results.length ? results.map((doc) => (
+        <h2 id="search-dialog-title" className="sr-only">{labels.dialog}</h2>
+        <div className="search-results" role="listbox" aria-label={labels.results}>
+          {results.length ? results.map((result) => (
             <Link
-              key={doc.id}
-              href={`/docs/${doc.lang}/${doc.slug}`}
-              className="search-result"
+              key={result.id}
+              href={result.href}
+              className={`search-result${result.kind === "term" ? " search-result--term" : ""}`}
               onClick={closeDialog}
             >
-              <span className="search-result__meta">{doc.lang.toUpperCase()} · {doc.category}</span>
-              <strong>{doc.title}</strong>
-              <span>{doc.description}</span>
+              <span className="search-result__meta">{result.meta}</span>
+              <strong>{result.title}</strong>
+              <span>{result.description}</span>
             </Link>
           )) : (
-            <p className="search-empty">No matching documents. Try a product term such as “Proxy”, “Transition”, or “Section”.</p>
+            <p className="search-empty">{labels.empty}</p>
           )}
         </div>
         <footer className="search-dialog__footer">
-          <span>Local index · no query leaves your device</span>
-          <span>↑↓ Navigate · Enter Open</span>
+          <span>{labels.privacy}</span>
+          <span>{labels.navigation}</span>
         </footer>
       </section>
     </div>
