@@ -1,0 +1,243 @@
+[
+  {
+    "slug": "overview",
+    "order": 0,
+    "category": "Introduction",
+    "reviewFocus": "Product positioning and requirement summary",
+    "routes": {
+      "en": "/docs/en/overview",
+      "ko": "/docs/ko/overview"
+    },
+    "sources": {
+      "en": "source-docs/en/00_Overview.md",
+      "ko": "source-docs/ko/00_Overview.md"
+    },
+    "ids": {
+      "en": "en-overview",
+      "ko": "ko-overview"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "getting-started",
+    "order": 1,
+    "category": "Getting Started",
+    "reviewFocus": "Reproduce every editor step and screenshot",
+    "routes": {
+      "en": "/docs/en/getting-started",
+      "ko": "/docs/ko/getting-started"
+    },
+    "sources": {
+      "en": "source-docs/en/01_Getting_Started.md",
+      "ko": "source-docs/ko/01_Getting_Started.md"
+    },
+    "ids": {
+      "en": "en-getting-started",
+      "ko": "ko-getting-started"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "editor-workflow",
+    "order": 2,
+    "category": "Workflows",
+    "reviewFocus": "UI labels, bake modes, output states",
+    "routes": {
+      "en": "/docs/en/editor-workflow",
+      "ko": "/docs/ko/editor-workflow"
+    },
+    "sources": {
+      "en": "source-docs/en/02_Editor_Workflow.md",
+      "ko": "source-docs/ko/02_Editor_Workflow.md"
+    },
+    "ids": {
+      "en": "en-editor-workflow",
+      "ko": "ko-editor-workflow"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "runtime-integration",
+    "order": 3,
+    "category": "Runtime",
+    "reviewFocus": "Actor/component behavior and travel ownership",
+    "routes": {
+      "en": "/docs/en/runtime-integration",
+      "ko": "/docs/ko/runtime-integration"
+    },
+    "sources": {
+      "en": "source-docs/en/03_Runtime_Integration.md",
+      "ko": "source-docs/ko/03_Runtime_Integration.md"
+    },
+    "ids": {
+      "en": "en-runtime-integration",
+      "ko": "ko-runtime-integration"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "core-concepts",
+    "order": 4,
+    "category": "Core Concepts",
+    "reviewFocus": "Projection, IDs, partitions, generated assets",
+    "routes": {
+      "en": "/docs/en/core-concepts",
+      "ko": "/docs/ko/core-concepts"
+    },
+    "sources": {
+      "en": "source-docs/en/04_Core_Concepts.md",
+      "ko": "source-docs/ko/04_Core_Concepts.md"
+    },
+    "ids": {
+      "en": "en-core-concepts",
+      "ko": "ko-core-concepts"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "supported-content",
+    "order": 5,
+    "category": "Compatibility",
+    "reviewFocus": "Supported/conditional/unsupported matrix",
+    "routes": {
+      "en": "/docs/en/supported-content",
+      "ko": "/docs/ko/supported-content"
+    },
+    "sources": {
+      "en": "source-docs/en/05_Supported_Content.md",
+      "ko": "source-docs/ko/05_Supported_Content.md"
+    },
+    "ids": {
+      "en": "en-supported-content",
+      "ko": "ko-supported-content"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "large-world-world-partition",
+    "order": 6,
+    "category": "Workflows",
+    "reviewFocus": "Discovery, checkpoints, large bake guidance",
+    "routes": {
+      "en": "/docs/en/large-world-world-partition",
+      "ko": "/docs/ko/large-world-world-partition"
+    },
+    "sources": {
+      "en": "source-docs/en/06_Large_World_and_World_Partition.md",
+      "ko": "source-docs/ko/06_Large_World_and_World_Partition.md"
+    },
+    "ids": {
+      "en": "en-large-world-world-partition",
+      "ko": "ko-large-world-world-partition"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "performance-optimization",
+    "order": 7,
+    "category": "Optimization",
+    "reviewFocus": "Measured values and tuning order",
+    "routes": {
+      "en": "/docs/en/performance-optimization",
+      "ko": "/docs/ko/performance-optimization"
+    },
+    "sources": {
+      "en": "source-docs/en/07_Performance_and_Optimization.md",
+      "ko": "source-docs/ko/07_Performance_and_Optimization.md"
+    },
+    "ids": {
+      "en": "en-performance-optimization",
+      "ko": "ko-performance-optimization"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "reference",
+    "order": 8,
+    "category": "Reference",
+    "reviewFocus": "Public symbols and CVars",
+    "routes": {
+      "en": "/docs/en/reference",
+      "ko": "/docs/ko/reference"
+    },
+    "sources": {
+      "en": "source-docs/en/08_Reference.md",
+      "ko": "source-docs/ko/08_Reference.md"
+    },
+    "ids": {
+      "en": "en-reference",
+      "ko": "ko-reference"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "troubleshooting",
+    "order": 9,
+    "category": "Troubleshooting",
+    "reviewFocus": "Exact messages and recovery steps",
+    "routes": {
+      "en": "/docs/en/troubleshooting",
+      "ko": "/docs/ko/troubleshooting"
+    },
+    "sources": {
+      "en": "source-docs/en/09_Troubleshooting.md",
+      "ko": "source-docs/ko/09_Troubleshooting.md"
+    },
+    "ids": {
+      "en": "en-troubleshooting",
+      "ko": "ko-troubleshooting"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "support-release-notes",
+    "order": 10,
+    "category": "Support",
+    "reviewFocus": "Support channel and release facts",
+    "routes": {
+      "en": "/docs/en/support-release-notes",
+      "ko": "/docs/ko/support-release-notes"
+    },
+    "sources": {
+      "en": "source-docs/en/10_Support_and_Release_Notes.md",
+      "ko": "source-docs/ko/10_Support_and_Release_Notes.md"
+    },
+    "ids": {
+      "en": "en-support-release-notes",
+      "ko": "ko-support-release-notes"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "user-api",
+    "order": 11,
+    "category": "Reference",
+    "reviewFocus": "Validate every public symbol before release",
+    "routes": {
+      "ko": "/docs/ko/user-api"
+    },
+    "sources": {
+      "ko": "source-docs/ko/11_User_API.md"
+    },
+    "ids": {
+      "ko": "ko-user-api"
+    },
+    "translationStatus": "language-only"
+  },
+  {
+    "slug": "runtime-actor-integration",
+    "order": 12,
+    "category": "Runtime",
+    "reviewFocus": "Requires Unreal Editor walkthrough QA",
+    "routes": {
+      "ko": "/docs/ko/runtime-actor-integration"
+    },
+    "sources": {
+      "ko": "source-docs/ko/12_Runtime_Actor_Integration.md"
+    },
+    "ids": {
+      "ko": "ko-runtime-actor-integration"
+    },
+    "translationStatus": "language-only"
+  }
+]

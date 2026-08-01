@@ -1,0 +1,75 @@
+{
+  "lastReviewed": "2026-08-01",
+  "terms": [
+    {
+      "en": "Planet Asset",
+      "ko": "Planet Asset",
+      "note": "Keep product object names in English."
+    },
+    {
+      "en": "Section",
+      "ko": "Section",
+      "note": "Stable PlanetX authoring unit."
+    },
+    {
+      "en": "Level Pair",
+      "ko": "Level Pair",
+      "note": "Pairing term used in runtime and bake docs."
+    },
+    {
+      "en": "Proxy Bake",
+      "ko": "Proxy Bake",
+      "note": "Feature name; do not translate literally."
+    },
+    {
+      "en": "Runtime Preview",
+      "ko": "Runtime Preview",
+      "note": "Engine feature state."
+    },
+    {
+      "en": "Same World",
+      "ko": "Same World",
+      "note": "Runtime mode label."
+    },
+    {
+      "en": "External Level",
+      "ko": "External Level",
+      "note": "Runtime mode label."
+    },
+    {
+      "en": "Travel",
+      "ko": "Travel",
+      "note": "Unreal-level transition term."
+    },
+    {
+      "en": "Bake Data",
+      "ko": "Bake Data",
+      "note": "Generated runtime data asset."
+    },
+    {
+      "en": "Source Review",
+      "ko": "Source Review",
+      "note": "Editor panel name."
+    },
+    {
+      "en": "Output Plan",
+      "ko": "Output Plan",
+      "note": "Editor panel name."
+    },
+    {
+      "en": "World Partition",
+      "ko": "World Partition",
+      "note": "Unreal Engine feature name."
+    },
+    {
+      "en": "MeshPage",
+      "ko": "MeshPage",
+      "note": "PlanetX generated content type."
+    },
+    {
+      "en": "InstanceBatch",
+      "ko": "InstanceBatch",
+      "note": "PlanetX generated content type."
+    }
+  ]
+}

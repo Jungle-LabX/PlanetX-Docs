@@ -1,0 +1,1476 @@
+[
+  {
+    "id": "en-overview",
+    "lang": "en",
+    "slug": "overview",
+    "title": "PlanetX Overview",
+    "description": "PlanetX converts an existing Unreal Engine Level into a curved planetary representation and supports transitions between Ground and Orbit presentation.",
+    "category": "Introduction",
+    "order": 0,
+    "sourceFile": "00_Overview.md",
+    "sourcePath": "source-docs/en/00_Overview.md",
+    "content": "\r\n[Documentation Home](/docs/en/overview) · [Next: Quick Start](/docs/en/getting-started)\r\n\r\nPlanetX converts an existing Unreal Engine Level into a curved planetary representation and supports transitions between Ground and Orbit presentation.\r\n\r\n## What it solves\r\n\r\n- Reuses existing Landscapes and Static Meshes on a planet\r\n- Generates orbit-scale proxies\r\n- Connects Ground/Orbit coordinates and presentation\r\n- Supports Same World and cross-Level travel\r\n- Bakes large World Partition sources\r\n\r\n```mermaid\r\nflowchart LR\r\n    A[\"Existing Level\"] --> B[\"Planet Asset\"]\r\n    B --> C[\"Refresh\"]\r\n    C --> D[\"Review / Plan\"]\r\n    D --> E[\"Bake\"]\r\n    E --> F[\"Section + Bake Data\"]\r\n    F --> G[\"Planet Actor\"]\r\n    G --> H[\"Ground ↔ Orbit\"]\r\n```\r\n\r\n## Requirements summary\r\n\r\n| Item | Current status |\r\n|---|---|\r\n| Dependency | GeometryProcessing |\r\n| Bake | Editor-only |\r\n| Main sources | Static Mesh, Landscape, ISM/HISM, Foliage |\r\n| World Partition | Supported |\r\n| Multiplayer | The game owns travel and replication |\r\n| Engine/Platform | Use combinations built and validated by the current project |\r\n| Demo Map | No bundled user demo |\r\n\r\nContinue with [Create Your First Planet Proxy](/docs/en/getting-started).\r\n\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "PlanetX Overview",
+        "id": "planetx-overview"
+      },
+      {
+        "level": 2,
+        "title": "What it solves",
+        "id": "what-it-solves"
+      },
+      {
+        "level": 2,
+        "title": "Requirements summary",
+        "id": "requirements-summary"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "verified",
+    "screenshotRequirements": [],
+    "translation": {
+      "status": "current",
+      "counterpartId": "ko-overview"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "ko-overview",
+    "lang": "ko",
+    "slug": "overview",
+    "title": "PlanetX 개요",
+    "description": "PlanetX는 기존 Unreal Engine Level을 곡면 행성 표현으로 변환하고 Ground와 Orbit 표현 사이의 전환을 제공하는 플러그인입니다.",
+    "category": "Introduction",
+    "order": 0,
+    "sourceFile": "00_Overview.md",
+    "sourcePath": "source-docs/ko/00_Overview.md",
+    "content": "\r\n[문서 홈](/docs/ko/overview) · [다음: Quick Start](/docs/ko/getting-started)\r\n\r\nPlanetX는 기존 Unreal Engine Level을 곡면 행성 표현으로 변환하고 Ground와 Orbit 표현 사이의 전환을 제공하는 플러그인입니다.\r\n\r\n## 해결하는 문제\r\n\r\n- 기존 Landscape와 Static Mesh를 행성 표면으로 재사용\r\n- 우주용 Proxy 생성\r\n- Ground/Orbit 좌표와 표시 전환\r\n- Same World 및 서로 다른 Level 간 이동\r\n- World Partition 대형 Bake\r\n\r\n```mermaid\r\nflowchart LR\r\n    A[\"기존 Level\"] --> B[\"Planet Asset\"]\r\n    B --> C[\"Refresh\"]\r\n    C --> D[\"Review / Plan\"]\r\n    D --> E[\"Bake\"]\r\n    E --> F[\"Section + Bake Data\"]\r\n    F --> G[\"Planet Actor\"]\r\n    G --> H[\"Ground ↔ Orbit\"]\r\n```\r\n\r\n## 요구사항 요약\r\n\r\n| 항목 | 현재 상태 |\r\n|---|---|\r\n| 의존 플러그인 | GeometryProcessing |\r\n| Bake | Editor 전용 |\r\n| 주요 Source | Static Mesh, Landscape, ISM/HISM, Foliage |\r\n| World Partition | 지원 |\r\n| Multiplayer | Travel과 replication은 게임에서 구현 |\r\n| Engine/Platform | 현재 프로젝트에서 빌드·검증한 조합 사용 |\r\n| Demo Map | 사용자용 번들 Demo 없음 |\r\n\r\n바로 시작하려면 [첫 Planet Proxy 만들기](/docs/ko/getting-started)로 이동하십시오.\r\n\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "PlanetX 개요",
+        "id": "planetx-개요"
+      },
+      {
+        "level": 2,
+        "title": "해결하는 문제",
+        "id": "해결하는-문제"
+      },
+      {
+        "level": 2,
+        "title": "요구사항 요약",
+        "id": "요구사항-요약"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "verified",
+    "screenshotRequirements": [],
+    "translation": {
+      "status": "current",
+      "counterpartId": "en-overview"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "en-getting-started",
+    "lang": "en",
+    "slug": "getting-started",
+    "title": "Quick Start: Create Your First Planet Proxy",
+    "description": "Step Action Expected Result Common Failure Screenshot/Landmark : 1 Enable PlanetX in Edit Plugins, then restart Tools PlanetX appears Old or duplicate plugin binary Plugins wind...",
+    "category": "Getting Started",
+    "order": 1,
+    "sourceFile": "01_Getting_Started.md",
+    "sourcePath": "source-docs/en/01_Getting_Started.md",
+    "content": "\r\n[Previous: Overview](/docs/en/overview) · [Documentation Home](/docs/en/overview) · [Next: Editor Workflow](/docs/en/editor-workflow)\r\n\r\n| Step | Action | Expected Result | Common Failure | Screenshot/Landmark |\r\n|---:|---|---|---|---|\r\n| 1 | Enable PlanetX in `Edit > Plugins`, then restart | `Tools > PlanetX` appears | Old or duplicate plugin binary | Plugins window |\r\n| 2 | Open the Ground Map to bake | Current World matches the source | Untitled or Orbit Map opened | Level viewport |\r\n| 3 | Create `Add > Miscellaneous > PlanetX Planet Asset` | Dedicated Asset Editor opens | Duplicate Planet ID or bad Radius | Create Planet Asset |\r\n| 4 | Open `Tools > PlanetX > Proxy Bake Editor` | Bake window appears | Latest Editor module not loaded | Proxy Bake header |\r\n| 5 | Select Planet Asset, Runtime Role, and Source Scope | Target World and source range resolve | Empty Selected Actors | Setup area |\r\n| 6 | Run `Refresh` | Source Review and Output Plan appear | Hidden, NoBake, or unsupported source | [Current screen](/images/proxy-bake-refresh-review.png) |\r\n| 7 | Review `ManualReview`, `Unsupported`, and Reason | Sources have valid roles | WPO/displacement or missing source LOD | Source Review |\r\n| 8 | Confirm Target Section Name and `NEW OUTPUT` | Output path and partitions resolve | TARGET CONFLICT or SCAN OUT OF DATE | Output Plan |\r\n| 9 | Select `BAKE IN EDITOR` | Bake Data and Section are linked automatically | Unsaved asset, memory, or save failure | ACTIVE BAKE |\r\n| 10 | Place a `PlanetX Planet Actor` and assign the Asset | Runtime planet instance registers | Planet Binding collision | Actor Details |\r\n| 11 | Check Sections/Diagnostics and run PIE | Proxy and Level Pair are valid | Missing Bake/Preview link | Planet Asset Editor |\r\n\r\n> The old `Scan Sources` action is now `Refresh`. A successful Bake links its result to the Planet Asset automatically.\r\n\r\n## Completion check\r\n\r\n- The Planet Asset contains a Section.\r\n- Bake Data is linked.\r\n- An External Level has a Runtime Preview World link.\r\n- The Planet Actor references the same Asset.\r\n- Diagnostics has no blocking Error.\r\n\r\nFor C++, add `\"PlanetX\"` to the game module's `Build.cs`. Do not add `PlanetXEditor` to a runtime module.\r\n\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Quick Start: Create Your First Planet Proxy",
+        "id": "quick-start-create-your-first-planet-proxy"
+      },
+      {
+        "level": 2,
+        "title": "Completion check",
+        "id": "completion-check"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "needs-product-review",
+    "screenshotRequirements": [
+      "Use supplied Proxy Bake Refresh Review screenshot.",
+      "Capture reviewed Unreal Editor workflow screenshots before public release."
+    ],
+    "translation": {
+      "status": "current",
+      "counterpartId": "ko-getting-started"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "ko-getting-started",
+    "lang": "ko",
+    "slug": "getting-started",
+    "title": "Quick Start: 첫 Planet Proxy 만들기",
+    "description": "아래 순서로 기존 Level에서 첫 Proxy를 만듭니다.",
+    "category": "Getting Started",
+    "order": 1,
+    "sourceFile": "01_Getting_Started.md",
+    "sourcePath": "source-docs/ko/01_Getting_Started.md",
+    "content": "\r\n[이전: 개요](/docs/ko/overview) · [문서 홈](/docs/ko/overview) · [다음: Editor Workflow](/docs/ko/editor-workflow)\r\n\r\n아래 순서로 기존 Level에서 첫 Proxy를 만듭니다.\r\n\r\n| 단계 | Action | Expected Result | Common Failure | Screenshot/확인 위치 |\r\n|---:|---|---|---|---|\r\n| 1 | `Edit > Plugins`에서 PlanetX 활성화 후 재시작 | `Tools > PlanetX` 메뉴 표시 | 오래된/중복 plugin binary | Plugins 창 |\r\n| 2 | Bake할 Ground Map 열기 | 현재 World가 Source World와 일치 | Untitled 또는 Orbit Map을 엶 | Level viewport |\r\n| 3 | `Add > Miscellaneous > PlanetX Planet Asset` 생성 | 전용 Asset Editor가 열림 | 중복 Planet ID, 잘못된 Radius | Create Planet Asset |\r\n| 4 | `Tools > PlanetX > Proxy Bake Editor` 열기 | Bake 창 표시 | 최신 Editor module 미로드 | Proxy Bake 상단 |\r\n| 5 | Planet Asset, Runtime Role, Source Scope 선택 | 대상 World와 Source 범위 확정 | Selected Actors가 비어 있음 | Setup 영역 |\r\n| 6 | `Refresh` 실행 | Source Review와 Output Plan 생성 | hidden/NoBake/미지원 Source | [현재 화면](/images/proxy-bake-refresh-review.png) |\r\n| 7 | `ManualReview`, `Unsupported`, Reason 확인 | 사용할 Source가 유효 Role로 분류 | WPO/displacement, source LOD 없음 | Source Review |\r\n| 8 | Target Section Name과 `NEW OUTPUT` 확인 | 출력 경로와 파티션 확정 | TARGET CONFLICT, SCAN OUT OF DATE | Output Plan |\r\n| 9 | `BAKE IN EDITOR` 실행 | Bake Data와 Section 자동 등록 | 미저장 Asset, 메모리/저장 실패 | ACTIVE BAKE |\r\n| 10 | `PlanetX Planet Actor` 배치 후 Planet Asset 지정 | Proxy를 표시할 runtime 인스턴스 등록 | Planet Binding 충돌 | Actor Details |\r\n| 11 | Sections/Diagnostics 확인 후 PIE | Proxy와 Level Pair가 유효 | Bake/Preview link 누락 | Planet Asset Editor |\r\n\r\n> 예전 `Scan Sources` 버튼은 현재 `Refresh`입니다. Bake Data는 성공 시 Planet Asset에 자동 연결됩니다.\r\n\r\n## 완료 조건\r\n\r\n- Planet Asset에 Section이 존재합니다.\r\n- Section에 Bake Data가 연결됩니다.\r\n- External Level이면 Runtime Preview World가 연결됩니다.\r\n- Planet Actor가 같은 Planet Asset을 참조합니다.\r\n- Diagnostics에 차단 Error가 없습니다.\r\n\r\nC++ 프로젝트는 게임 module `Build.cs`에 `\"PlanetX\"`를 추가합니다. `PlanetXEditor`는 runtime module에 추가하지 않습니다.\r\n\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Quick Start: 첫 Planet Proxy 만들기",
+        "id": "quick-start-첫-planet-proxy-만들기"
+      },
+      {
+        "level": 2,
+        "title": "완료 조건",
+        "id": "완료-조건"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "needs-product-review",
+    "screenshotRequirements": [
+      "Use supplied Proxy Bake Refresh Review screenshot.",
+      "Capture reviewed Unreal Editor workflow screenshots before public release."
+    ],
+    "translation": {
+      "status": "current",
+      "counterpartId": "en-getting-started"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "en-editor-workflow",
+    "lang": "en",
+    "slug": "editor-workflow",
+    "title": "Editor Workflow",
+    "description": "Basic flow",
+    "category": "Workflows",
+    "order": 2,
+    "sourceFile": "02_Editor_Workflow.md",
+    "sourcePath": "source-docs/en/02_Editor_Workflow.md",
+    "content": "\r\n[Previous: Quick Start](/docs/en/getting-started) · [Documentation Home](/docs/en/overview) · [Next: Runtime Integration](/docs/en/runtime-integration)\r\n\r\n## Basic flow\r\n\r\n```text\r\nRefresh → Source Review → Output Plan → Bake → Sections/Diagnostics\r\n```\r\n\r\n## Source Scope\r\n\r\n| Scope | Use |\r\n|---|---|\r\n| Selected Actors | Test a small set |\r\n| Current Level | Bake the current Level |\r\n| Loaded Levels | Bake loaded Levels |\r\n| Reviewed Set | Reuse confirmed source membership |\r\n\r\nUse `Refresh` after changing selection, tags, Levels, or settings.\r\n\r\n`PlanetX.NoBake` and `PlanetX.ProxyBakePreview` exclude an Actor or Component.\r\n\r\n## Source roles\r\n\r\n| Role | Processing |\r\n|---|---|\r\n| ProxyGeometry | Curved proxy geometry |\r\n| LandscapeProxy | Landscape-specific path |\r\n| InstanceBatch | ISM/HISM, Foliage, repeated or small rigid meshes |\r\n| Discard | User exclusion, tiny detail, or world-scale helper |\r\n| ManualReview | User decision required, such as WPO/displacement |\r\n| Unsupported | Unsupported Component or invalid payload/LOD |\r\n\r\nNon-instanced Static Meshes at or below 80 cm maximum size are discarded as Tiny. ISM/HISM and Foliage remain InstanceBatch candidates.\r\n\r\n## Main settings\r\n\r\n| Setting | Purpose | Recommended start |\r\n|---|---|---|\r\n| Planet Radius | AEQD curvature, edited on Planet Asset | Real planet radius |\r\n| Surface Datum World Z | Altitude zero | Auto |\r\n| Source Grid | Original Landscape vertex grid | Off for preview |\r\n| Partition X/Y | Output region size | Automatic plan |\r\n| Memory Budget | Bake RAM limit | Auto + Safe |\r\n| Workers | Geometry worker count | 0 (automatic) |\r\n\r\nSmaller partitions reduce loading granularity but create more assets, seams, and finalization work.\r\n\r\n## Bake modes\r\n\r\n- `BAKE IN EDITOR`: rapid iteration and small-to-medium sources\r\n- `BAKE IN EXTERNAL PROCESS`: large World Partition and high-memory work\r\n\r\nSave Maps and assets before External Bake. Use `ACTIVE BAKE`, `Saved/Logs`, and `Saved/PlanetXProxyBake` for status.\r\n\r\n## Output states\r\n\r\n| State | Action |\r\n|---|---|\r\n| NEW OUTPUT | Bake a new result |\r\n| UP TO DATE | Use it or confirm Force Rebuild |\r\n| REBAKE REQUIRED | SourceHash changed; bake again |\r\n| LEGACY HASH | Refresh to the current contract |\r\n| TARGET CONFLICT | Resolve the path/identity conflict |\r\n| SCAN OUT OF DATE | Refresh |\r\n\r\n## Section management\r\n\r\n- A new In Editor Bake applies `Target Section Name` when the Section is created.\r\n- `Rename` changes only an existing Section's Display Name.\r\n- Internal Section ID includes a source World path hash and remains stable.\r\n- `Delete Selected Section` removes the Section and Level Pair, not generated asset files.\r\n- A Planet Asset can have at most one enabled Same World Level Pair.\r\n\r\nSupporting tools:\r\n\r\n- `PlanetX Mode`: Planet/Compare/Level views and authoring palettes\r\n- `Visual Editor`: Section Placement, Surface Correction, and visual preview\r\n\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Editor Workflow",
+        "id": "editor-workflow"
+      },
+      {
+        "level": 2,
+        "title": "Basic flow",
+        "id": "basic-flow"
+      },
+      {
+        "level": 2,
+        "title": "Source Scope",
+        "id": "source-scope"
+      },
+      {
+        "level": 2,
+        "title": "Source roles",
+        "id": "source-roles"
+      },
+      {
+        "level": 2,
+        "title": "Main settings",
+        "id": "main-settings"
+      },
+      {
+        "level": 2,
+        "title": "Bake modes",
+        "id": "bake-modes"
+      },
+      {
+        "level": 2,
+        "title": "Output states",
+        "id": "output-states"
+      },
+      {
+        "level": 2,
+        "title": "Section management",
+        "id": "section-management"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "needs-product-review",
+    "screenshotRequirements": [
+      "Capture reviewed Unreal Editor workflow screenshots before public release."
+    ],
+    "translation": {
+      "status": "current",
+      "counterpartId": "ko-editor-workflow"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "ko-editor-workflow",
+    "lang": "ko",
+    "slug": "editor-workflow",
+    "title": "Editor Workflow",
+    "description": "기본 흐름",
+    "category": "Workflows",
+    "order": 2,
+    "sourceFile": "02_Editor_Workflow.md",
+    "sourcePath": "source-docs/ko/02_Editor_Workflow.md",
+    "content": "\r\n[이전: Quick Start](/docs/ko/getting-started) · [문서 홈](/docs/ko/overview) · [다음: Runtime Integration](/docs/ko/runtime-integration)\r\n\r\n## 기본 흐름\r\n\r\n```text\r\nRefresh → Source Review → Output Plan → Bake → Sections/Diagnostics\r\n```\r\n\r\n## Source Scope\r\n\r\n| 범위 | 용도 |\r\n|---|---|\r\n| Selected Actors | 소수 Actor 테스트 |\r\n| Current Level | 현재 Level 전체 |\r\n| Loaded Levels | 로드된 Level 전체 |\r\n| Reviewed Set | Review에서 확정한 Source 집합 |\r\n\r\n선택, Tag, Level 또는 설정을 바꾸면 다시 `Refresh`하십시오.\r\n\r\n`PlanetX.NoBake`와 `PlanetX.ProxyBakePreview` 태그는 Actor/Component를 제외합니다.\r\n\r\n## Source 분류\r\n\r\n| Role | 처리 |\r\n|---|---|\r\n| ProxyGeometry | 곡면 Proxy geometry |\r\n| LandscapeProxy | Landscape 전용 처리 |\r\n| InstanceBatch | ISM/HISM, Foliage, 반복·소형 rigid mesh |\r\n| Discard | 사용자 제외, tiny 또는 world-scale helper |\r\n| ManualReview | WPO/displacement 등 사용자 판단 필요 |\r\n| Unsupported | 미지원 Component 또는 유효 payload/LOD 없음 |\r\n\r\n일반 Static Mesh 중 최대 크기 80cm 이하는 자동 Tiny Discard입니다. ISM/HISM과 Foliage는 크기와 관계없이 InstanceBatch 후보입니다.\r\n\r\n## 주요 설정\r\n\r\n| 설정 | 설명 | 권장 시작 |\r\n|---|---|---|\r\n| Planet Radius | AEQD 곡률 기준, Planet Asset에서 변경 | 실제 행성 반지름 |\r\n| Surface Datum World Z | altitude 0 기준 | Auto |\r\n| Source Grid | Landscape 원본 vertex grid | 빠른 검토 Off |\r\n| Partition X/Y | 출력 분할 크기 | Auto plan |\r\n| Memory Budget | Bake RAM 한도 | Auto + Safe |\r\n| Workers | geometry worker 수 | 0(자동) |\r\n\r\n작은 partition은 loading 단위를 줄이지만 Asset, seam과 finalize 비용을 늘립니다.\r\n\r\n## Bake 방식\r\n\r\n- `BAKE IN EDITOR`: 빠른 반복과 중소 규모\r\n- `BAKE IN EXTERNAL PROCESS`: 대형 WP와 높은 메모리 작업\r\n\r\nExternal Bake 전에는 Map과 Asset을 저장해야 합니다. 작업 상태는 `ACTIVE BAKE`, 로그는 `Saved/Logs`와 `Saved/PlanetXProxyBake`에서 확인합니다.\r\n\r\n## Output 상태\r\n\r\n| 상태 | 대응 |\r\n|---|---|\r\n| NEW OUTPUT | 새 Bake |\r\n| UP TO DATE | 그대로 사용 또는 Force Rebuild |\r\n| REBAKE REQUIRED | SourceHash 변경, 다시 Bake |\r\n| LEGACY HASH | 현재 contract로 갱신 |\r\n| TARGET CONFLICT | 경로/identity 충돌 해결 |\r\n| SCAN OUT OF DATE | Refresh |\r\n\r\n## Section 관리\r\n\r\n- 새 In Editor Bake의 `Target Section Name`은 생성 시 적용됩니다.\r\n- 기존 Section은 `Rename`으로 Display Name만 변경합니다.\r\n- 내부 Section ID는 Source World 경로 hash를 포함하며 변경되지 않습니다.\r\n- `Delete Selected Section`은 Section과 Level Pair만 제거하고 생성 Asset 파일은 남깁니다.\r\n- 한 Planet Asset에는 활성 Same World Level Pair를 최대 하나만 둘 수 있습니다.\r\n\r\n## 보조 Editor\r\n\r\n- `PlanetX Mode`: Planet/Compare/Level 보기, Placement, Runtime, Transition, Environment, Validate\r\n- `Visual Editor`: Section Placement, Surface Correction, completion/padding Preview\r\n\r\nVisual Editor 변경은 `Apply to Asset` 전까지 edit buffer에만 있습니다.\r\n\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Editor Workflow",
+        "id": "editor-workflow"
+      },
+      {
+        "level": 2,
+        "title": "기본 흐름",
+        "id": "기본-흐름"
+      },
+      {
+        "level": 2,
+        "title": "Source Scope",
+        "id": "source-scope"
+      },
+      {
+        "level": 2,
+        "title": "Source 분류",
+        "id": "source-분류"
+      },
+      {
+        "level": 2,
+        "title": "주요 설정",
+        "id": "주요-설정"
+      },
+      {
+        "level": 2,
+        "title": "Bake 방식",
+        "id": "bake-방식"
+      },
+      {
+        "level": 2,
+        "title": "Output 상태",
+        "id": "output-상태"
+      },
+      {
+        "level": 2,
+        "title": "Section 관리",
+        "id": "section-관리"
+      },
+      {
+        "level": 2,
+        "title": "보조 Editor",
+        "id": "보조-editor"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "needs-product-review",
+    "screenshotRequirements": [
+      "Capture reviewed Unreal Editor workflow screenshots before public release."
+    ],
+    "translation": {
+      "status": "current",
+      "counterpartId": "en-editor-workflow"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "en-runtime-integration",
+    "lang": "en",
+    "slug": "runtime-integration",
+    "title": "Runtime Integration",
+    "description": "Planet Actor",
+    "category": "Runtime",
+    "order": 3,
+    "sourceFile": "03_Runtime_Integration.md",
+    "sourcePath": "source-docs/en/03_Runtime_Integration.md",
+    "content": "\r\n[Previous: Editor Workflow](/docs/en/editor-workflow) · [Documentation Home](/docs/en/overview) · [Next: Core Concepts](/docs/en/core-concepts)\r\n\r\n## Planet Actor\r\n\r\n1. Place `APlanetXPlanetActor`.\r\n2. Assign the Planet Asset to its Planet Component.\r\n3. Normally keep Auto Register Runtime enabled.\r\n4. Set a stable Planet Binding ID when several instances use the same Planet Asset.\r\n\r\n## Runtime Role\r\n\r\n| Role | Behavior |\r\n|---|---|\r\n| Same World | Switches Ground/Orbit presentation in one World |\r\n| External Level | The game travels between Worlds; PlanetX hands off pose/state |\r\n\r\nPlanetX does not own `OpenLevel`, spawning, possession, or GameMode.\r\n\r\n## Same World\r\n\r\nBlueprint:\r\n\r\n- `Enter Ground Same World(World Context, Request Actor, Surface Query)`\r\n- `Return To Orbit Same World(World Context, Request Actor)`\r\n\r\nCoordinate Component can also opt into automatic Same World entry/return.\r\n\r\n## External Level\r\n\r\n```text\r\nPrepare Travel\r\n→ game stores Ticket/Route\r\n→ game performs World travel\r\n→ Target Actor is spawned and possessed\r\n→ Resume Pending Travel\r\n```\r\n\r\n`UPlanetXTravelReceiverComponent` can attempt automatic resume on arrival.\r\n\r\n## Main Components\r\n\r\n| Component | Purpose |\r\n|---|---|\r\n| Coordinate Component | Planet/Section identity and PlanetX pose |\r\n| Movement Component | Optional native surface movement |\r\n| Viewpoint Component | Camera/player observer and transition driver |\r\n| Travel Receiver | Applies arrival pose/state |\r\n\r\nAttaching Coordinate Component does not force-move the Actor every frame.\r\n\r\n## Runtime Preview\r\n\r\n- Load Runtime Preview\r\n- Set Runtime Preview Visible\r\n- Unload Runtime Preview\r\n- Get Runtime Preview Status\r\n\r\n## C++ entry point\r\n\r\n```cpp\r\n#include \"PlanetX/Runtime/PlanetXSubsystem.h\"\r\n\r\nUPlanetXSubsystem* PlanetX =\r\n    GetGameInstance()->GetSubsystem<UPlanetXSubsystem>();\r\n```\r\n\r\nUse `PrepareTravel`, let the game perform travel, then call `ResumePendingTravel`. Game code should depend on the public `UPlanetXSubsystem` facade, not internal runtime services.\r\n\r\nTransition and environment:\r\n\r\n- `APlanetXTransitionEndpoint`: Orbit/Ground boundary for a Planet/Section/Level Pair\r\n- `APlanetXEnvironmentManager`: Cloud/Atmosphere binding and Ground/Orbit environment transition\r\n\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Runtime Integration",
+        "id": "runtime-integration"
+      },
+      {
+        "level": 2,
+        "title": "Planet Actor",
+        "id": "planet-actor"
+      },
+      {
+        "level": 2,
+        "title": "Runtime Role",
+        "id": "runtime-role"
+      },
+      {
+        "level": 2,
+        "title": "Same World",
+        "id": "same-world"
+      },
+      {
+        "level": 2,
+        "title": "External Level",
+        "id": "external-level"
+      },
+      {
+        "level": 2,
+        "title": "Main Components",
+        "id": "main-components"
+      },
+      {
+        "level": 2,
+        "title": "Runtime Preview",
+        "id": "runtime-preview"
+      },
+      {
+        "level": 2,
+        "title": "C++ entry point",
+        "id": "c-entry-point"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "needs-product-review",
+    "screenshotRequirements": [
+      "Capture reviewed Unreal Editor workflow screenshots before public release."
+    ],
+    "translation": {
+      "status": "current",
+      "counterpartId": "ko-runtime-integration"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "ko-runtime-integration",
+    "lang": "ko",
+    "slug": "runtime-integration",
+    "title": "Runtime Integration",
+    "description": "Planet Actor",
+    "category": "Runtime",
+    "order": 3,
+    "sourceFile": "03_Runtime_Integration.md",
+    "sourcePath": "source-docs/ko/03_Runtime_Integration.md",
+    "content": "\r\n[이전: Editor Workflow](/docs/ko/editor-workflow) · [문서 홈](/docs/ko/overview) · [다음: Core Concepts](/docs/ko/core-concepts)\r\n\r\n## Planet Actor\r\n\r\n1. World에 `APlanetXPlanetActor`를 배치합니다.\r\n2. Planet Component에 Planet Asset을 지정합니다.\r\n3. 일반적으로 Auto Register Runtime을 유지합니다.\r\n4. 같은 Planet Asset의 여러 인스턴스가 있으면 안정적인 Planet Binding ID를 지정합니다.\r\n\r\n## Runtime Role\r\n\r\n| Role | 사용 방식 |\r\n|---|---|\r\n| Same World | 같은 World에서 Ground/Orbit 표현 전환 |\r\n| External Level | 게임이 World Travel하고 PlanetX가 pose/state를 Handoff |\r\n\r\nPlanetX는 `OpenLevel`, spawn, possession과 GameMode를 소유하지 않습니다.\r\n\r\n## Same World\r\n\r\nBlueprint:\r\n\r\n- `Enter Ground Same World(World Context, Request Actor, Surface Query)`\r\n- `Return To Orbit Same World(World Context, Request Actor)`\r\n\r\nCoordinate Component의 Automatic Same World Entry/Return을 사용할 수도 있습니다.\r\n\r\n## External Level\r\n\r\n```text\r\nPrepare Travel\r\n→ 게임이 Ticket/Route 보관\r\n→ 게임이 World Travel\r\n→ Target Actor 생성·Possess\r\n→ Resume Pending Travel\r\n```\r\n\r\n도착 Actor의 `UPlanetXTravelReceiverComponent`는 자동 resume를 시도할 수 있습니다.\r\n\r\n## 주요 Component\r\n\r\n| Component | 용도 |\r\n|---|---|\r\n| Coordinate Component | Planet/Section identity와 PlanetX pose |\r\n| Movement Component | 선택적 행성 표면 native movement |\r\n| Viewpoint Component | 카메라/플레이어 관찰자와 transition driver |\r\n| Travel Receiver | External Travel 도착 pose/state 적용 |\r\n\r\nCoordinate Component만 붙여도 Actor가 매 프레임 자동 이동하지는 않습니다.\r\n\r\n## Runtime Preview\r\n\r\nExternal Level의 Bake Preview를 실제 Travel 없이 표시할 때 사용합니다.\r\n\r\n- Load Runtime Preview\r\n- Set Runtime Preview Visible\r\n- Unload Runtime Preview\r\n- Get Runtime Preview Status\r\n\r\n## C++ 시작점\r\n\r\n```cpp\r\n#include \"PlanetX/Runtime/PlanetXSubsystem.h\"\r\n\r\nUPlanetXSubsystem* PlanetX =\r\n    GetGameInstance()->GetSubsystem<UPlanetXSubsystem>();\r\n```\r\n\r\n```cpp\r\nPlanetX->EnterGroundSameWorld(this, RequestActor, SurfaceQuery);\r\nPlanetX->ReturnToOrbitSameWorld(this, RequestActor);\r\n```\r\n\r\nExternal Travel은 `PrepareTravel` 후 게임 Travel을 수행하고, 도착 후 `ResumePendingTravel`을 호출합니다.\r\n\r\n내부 Runtime Service가 아니라 `UPlanetXSubsystem` 공개 facade를 사용하십시오.\r\n\r\n## Transition과 Environment\r\n\r\n- `APlanetXTransitionEndpoint`: Planet/Section/Level Pair의 Orbit/Ground 경계 등록\r\n- `APlanetXEnvironmentManager`: Cloud/Atmosphere binding과 Ground/Orbit 환경 전환\r\n\r\nPIE에서는 PlanetX Mode의 Runtime 팔레트로 Actor context, Movement state와 Transition result를 확인합니다.\r\n\r\n전체 Blueprint/C++ 함수, 반환 타입과 실패 처리 방법은 [사용자 제공 API](/docs/ko/user-api)를 참고하십시오.\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Runtime Integration",
+        "id": "runtime-integration"
+      },
+      {
+        "level": 2,
+        "title": "Planet Actor",
+        "id": "planet-actor"
+      },
+      {
+        "level": 2,
+        "title": "Runtime Role",
+        "id": "runtime-role"
+      },
+      {
+        "level": 2,
+        "title": "Same World",
+        "id": "same-world"
+      },
+      {
+        "level": 2,
+        "title": "External Level",
+        "id": "external-level"
+      },
+      {
+        "level": 2,
+        "title": "주요 Component",
+        "id": "주요-component"
+      },
+      {
+        "level": 2,
+        "title": "Runtime Preview",
+        "id": "runtime-preview"
+      },
+      {
+        "level": 2,
+        "title": "C++ 시작점",
+        "id": "c-시작점"
+      },
+      {
+        "level": 2,
+        "title": "Transition과 Environment",
+        "id": "transition과-environment"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "needs-product-review",
+    "screenshotRequirements": [
+      "Capture reviewed Unreal Editor workflow screenshots before public release."
+    ],
+    "translation": {
+      "status": "current",
+      "counterpartId": "en-runtime-integration"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "en-core-concepts",
+    "lang": "en",
+    "slug": "core-concepts",
+    "title": "Core Concepts",
+    "description": "Concept Meaning Ground World Flat Level containing gameplay and original sources Planet Proxy Curved representation shown from Orbit Planet Asset Stores Planet ID, Radius, Secti...",
+    "category": "Core Concepts",
+    "order": 4,
+    "sourceFile": "04_Core_Concepts.md",
+    "sourcePath": "source-docs/en/04_Core_Concepts.md",
+    "content": "\r\n[Previous: Runtime Integration](/docs/en/runtime-integration) · [Documentation Home](/docs/en/overview) · [Next: Supported Content](/docs/en/supported-content)\r\n\r\n| Concept | Meaning |\r\n|---|---|\r\n| Ground World | Flat Level containing gameplay and original sources |\r\n| Planet Proxy | Curved representation shown from Orbit |\r\n| Planet Asset | Stores Planet ID, Radius, Sections, Level Pairs, and settings |\r\n| Section | One Ground region and its placement on the planet |\r\n| Level Pair | Connects Ground/Orbit Worlds and entry mode |\r\n| Bake Data | Manifest for partitions, MeshPages, instances, and transition data |\r\n\r\n```mermaid\r\nflowchart TD\r\n    PA[\"Planet Asset\"] --> S[\"Section\"]\r\n    PA --> LP[\"Level Pair\"]\r\n    S --> BD[\"Bake Data\"]\r\n    LP --> OW[\"Orbit World\"]\r\n    LP --> GW[\"Ground World\"]\r\n    LP --> PW[\"Runtime Preview\"]\r\n    BD --> P[\"Partitions\"]\r\n    P --> M[\"MeshPages\"]\r\n    BD --> I[\"Instance Batches\"]\r\n```\r\n\r\nIdentity:\r\n\r\n- Planet ID: stable planet identity\r\n- Section ID: `{SourceMap}_{FullSourceWorldPath CRC32}`\r\n- Display Name: renameable UI label\r\n- Planet Binding ID: identifies a World instance of the same Planet ID\r\n\r\nThe current projection is AEQD. Planet Radius controls curvature and Surface Datum defines altitude zero.\r\n\r\nPartitions divide source regions; MeshPages are independent revision Static Mesh artifacts. Smaller partitions improve loading granularity but increase asset and seam cost.\r\n\r\nGenerated assets:\r\n\r\n```text\r\n/Game/PlanetX/ProxyBake/{PlanetAsset}/{GroundLevel}/\r\n├─ DA_PXBake_{BakeId}\r\n└─ Revisions/{RevisionId}/\r\n   ├─ Meshes/\r\n   └─ Payloads/\r\n```\r\n\r\nAvoid arbitrary moves or renames of generated assets.\r\n\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Core Concepts",
+        "id": "core-concepts"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "verified",
+    "screenshotRequirements": [],
+    "translation": {
+      "status": "current",
+      "counterpartId": "ko-core-concepts"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "ko-core-concepts",
+    "lang": "ko",
+    "slug": "core-concepts",
+    "title": "Core Concepts",
+    "description": "개념 의미 Ground World 실제 gameplay와 원본 Source가 있는 평면 Level Planet Proxy Orbit에서 표시하는 곡면 표현 Planet Asset Planet ID, Radius, Sections, Level Pairs와 설정을 보관 Section 하나의 Ground 영역과 행성 표면...",
+    "category": "Core Concepts",
+    "order": 4,
+    "sourceFile": "04_Core_Concepts.md",
+    "sourcePath": "source-docs/ko/04_Core_Concepts.md",
+    "content": "\r\n[이전: Runtime Integration](/docs/ko/runtime-integration) · [문서 홈](/docs/ko/overview) · [다음: Supported Content](/docs/ko/supported-content)\r\n\r\n| 개념 | 의미 |\r\n|---|---|\r\n| Ground World | 실제 gameplay와 원본 Source가 있는 평면 Level |\r\n| Planet Proxy | Orbit에서 표시하는 곡면 표현 |\r\n| Planet Asset | Planet ID, Radius, Sections, Level Pairs와 설정을 보관 |\r\n| Section | 하나의 Ground 영역과 행성 표면 배치 |\r\n| Level Pair | Ground/Orbit World와 진입 모드 연결 |\r\n| Bake Data | partition, MeshPage, instance와 transition manifest |\r\n\r\n```mermaid\r\nflowchart TD\r\n    PA[\"Planet Asset\"] --> S[\"Section\"]\r\n    PA --> LP[\"Level Pair\"]\r\n    S --> BD[\"Bake Data\"]\r\n    LP --> OW[\"Orbit World\"]\r\n    LP --> GW[\"Ground World\"]\r\n    LP --> PW[\"Runtime Preview\"]\r\n    BD --> P[\"Partitions\"]\r\n    P --> M[\"MeshPages\"]\r\n    BD --> I[\"Instance Batches\"]\r\n```\r\n\r\n## ID와 이름\r\n\r\n- Planet ID: 행성의 안정 identity\r\n- Section ID: `{SourceMap}_{FullSourceWorldPath CRC32}`\r\n- Display Name: UI용 이름, Rename 가능\r\n- Planet Binding ID: 같은 Planet ID의 World instance 구분\r\n\r\n## Projection과 좌표\r\n\r\n현재 projection은 AEQD입니다. Planet Radius가 곡률, Surface Datum이 altitude 0을 결정합니다.\r\n\r\n주요 좌표:\r\n\r\n- Unreal World\r\n- Planet Local\r\n- Geographic(latitude/longitude/altitude)\r\n- Section tangent frame\r\n- World-independent PlanetX Transform\r\n\r\n## Partition과 MeshPage\r\n\r\nPartition은 Source 영역을 나누는 계획 단위이고 MeshPage는 revision 아래 생성되는 독립 Static Mesh 결과입니다. 작은 partition은 세밀한 로딩에 유리하지만 Asset과 seam 비용이 늘어납니다.\r\n\r\n## Generated Asset\r\n\r\n```text\r\n/Game/PlanetX/ProxyBake/{PlanetAsset}/{GroundLevel}/\r\n├─ DA_PXBake_{BakeId}\r\n└─ Revisions/{RevisionId}/\r\n   ├─ Meshes/\r\n   └─ Payloads/\r\n```\r\n\r\n경로와 이름은 identity/revision에 사용되므로 임의 이동·Rename을 피하십시오.\r\n\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Core Concepts",
+        "id": "core-concepts"
+      },
+      {
+        "level": 2,
+        "title": "ID와 이름",
+        "id": "id와-이름"
+      },
+      {
+        "level": 2,
+        "title": "Projection과 좌표",
+        "id": "projection과-좌표"
+      },
+      {
+        "level": 2,
+        "title": "Partition과 MeshPage",
+        "id": "partition과-meshpage"
+      },
+      {
+        "level": 2,
+        "title": "Generated Asset",
+        "id": "generated-asset"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "verified",
+    "screenshotRequirements": [],
+    "translation": {
+      "status": "current",
+      "counterpartId": "en-core-concepts"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "en-supported-content",
+    "lang": "en",
+    "slug": "supported-content",
+    "title": "Supported Content",
+    "description": "Source Status Processing Static Mesh Component Supported ProxyGeometry or InstanceBatch Landscape / Streaming Proxy Supported LandscapeProxy ISM/HISM Supported InstanceBatch Fol...",
+    "category": "Compatibility",
+    "order": 5,
+    "sourceFile": "05_Supported_Content.md",
+    "sourcePath": "source-docs/en/05_Supported_Content.md",
+    "content": "\r\n[Previous: Core Concepts](/docs/en/core-concepts) · [Documentation Home](/docs/en/overview) · [Next: Large World](/docs/en/large-world-world-partition)\r\n\r\n| Source | Status | Processing |\r\n|---|---|---|\r\n| Static Mesh Component | Supported | ProxyGeometry or InstanceBatch |\r\n| Landscape / Streaming Proxy | Supported | LandscapeProxy |\r\n| ISM/HISM | Supported | InstanceBatch |\r\n| Foliage | Supported | Foliage InstanceBatch |\r\n| PCG output | Conditional | Actual Static Mesh/ISM/HISM Components must exist |\r\n| Level Instance / Packed Level | Supported | Discovers contained supported Components |\r\n| World Partition HLOD | Conditional | Valid HLOD preferred, raw-source fallback |\r\n| Skeletal Mesh / Cloth | Unsupported | Excluded during discovery |\r\n| Spline deformation | Unsupported | Convert to Static Mesh |\r\n| Dynamic runtime mesh | Unsupported | Convert to persistent Static Mesh |\r\n\r\nImportant conditions:\r\n\r\n- Static Mesh requires a valid source LOD.\r\n- Negative scale winding and normal sign are corrected.\r\n- Source Nanite clusters are not copied; new MeshPages are built from source LOD data.\r\n- Foliage and ISM/HISM remain InstanceBatch candidates even when tiny.\r\n- A regular Static Mesh at or below 80 cm maximum size is discarded automatically.\r\n- Live WPO/displacement becomes `ManualReview` for projected Orbit/Morph output.\r\n- `PlanetX.NoBake`, `PlanetX.ProxyBakePreview`, hidden-in-game, transient, and editor-only sources are excluded.\r\n\r\nDiagnose one source with `Selected Actors → Refresh → inspect Role/Reason`.\r\n\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Supported Content",
+        "id": "supported-content"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "needs-product-review",
+    "screenshotRequirements": [],
+    "translation": {
+      "status": "current",
+      "counterpartId": "ko-supported-content"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "ko-supported-content",
+    "lang": "ko",
+    "slug": "supported-content",
+    "title": "Supported Content",
+    "description": "Source 상태 처리 Static Mesh Component 지원 ProxyGeometry 또는 InstanceBatch Landscape / Streaming Proxy 지원 LandscapeProxy ISM/HISM 지원 InstanceBatch Foliage 지원 Foliage InstanceBatch PCG...",
+    "category": "Compatibility",
+    "order": 5,
+    "sourceFile": "05_Supported_Content.md",
+    "sourcePath": "source-docs/ko/05_Supported_Content.md",
+    "content": "\r\n[이전: Core Concepts](/docs/ko/core-concepts) · [문서 홈](/docs/ko/overview) · [다음: Large World](/docs/ko/large-world-world-partition)\r\n\r\n| Source | 상태 | 처리 |\r\n|---|---|---|\r\n| Static Mesh Component | 지원 | ProxyGeometry 또는 InstanceBatch |\r\n| Landscape / Streaming Proxy | 지원 | LandscapeProxy |\r\n| ISM/HISM | 지원 | InstanceBatch |\r\n| Foliage | 지원 | Foliage InstanceBatch |\r\n| PCG 결과 | 조건부 | 실제 Static Mesh/ISM/HISM Component가 존재해야 함 |\r\n| Level Instance / Packed Level | 지원 | 내부 지원 Component 검색 |\r\n| World Partition HLOD | 조건부 | 유효 HLOD 우선, raw source fallback |\r\n| Skeletal Mesh / Cloth | 미지원 | 검색에서 제외 |\r\n| Spline deformation | 미지원 | Static Mesh로 변환 권장 |\r\n| Dynamic runtime mesh | 미지원 | 영속 Static Mesh로 변환 필요 |\r\n\r\n## 중요 조건\r\n\r\n- Static Mesh는 유효 source LOD가 필요합니다.\r\n- Negative Scale은 winding과 normal sign을 보정합니다.\r\n- Source Nanite cluster를 복사하는 것이 아니라 source LOD에서 새 MeshPage를 만듭니다.\r\n- Foliage와 ISM/HISM은 tiny여도 InstanceBatch 후보입니다.\r\n- 일반 Static Mesh의 최대 크기가 80cm 이하면 자동 Discard됩니다.\r\n- live WPO/displacement는 projected Orbit/Morph에서 `ManualReview`가 됩니다.\r\n- `PlanetX.NoBake`, `PlanetX.ProxyBakePreview`, hidden-in-game, transient, editor-only Source는 제외됩니다.\r\n\r\n문제 Source는 `Selected Actors → Refresh → Role/Reason 확인`으로 가장 빠르게 진단할 수 있습니다.\r\n\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Supported Content",
+        "id": "supported-content"
+      },
+      {
+        "level": 2,
+        "title": "중요 조건",
+        "id": "중요-조건"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "needs-product-review",
+    "screenshotRequirements": [],
+    "translation": {
+      "status": "current",
+      "counterpartId": "en-supported-content"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "en-large-world-world-partition",
+    "lang": "en",
+    "slug": "large-world-world-partition",
+    "title": "Large World and World Partition",
+    "description": "Source discovery",
+    "category": "Workflows",
+    "order": 6,
+    "sourceFile": "06_Large_World_and_World_Partition.md",
+    "sourcePath": "source-docs/en/06_Large_World_and_World_Partition.md",
+    "content": "\r\n[Previous: Supported Content](/docs/en/supported-content) · [Documentation Home](/docs/en/overview) · [Next: Optimization](/docs/en/performance-optimization)\r\n\r\n## Source discovery\r\n\r\nWorld Partition actors do not all have to be loaded manually.\r\n\r\n```text\r\nEnumerate descriptors\r\n→ select eligible actors/HLODs\r\n→ temporarily load chunks of 64\r\n→ capture Component payloads\r\n→ release references\r\n→ classify and build the Plan\r\n```\r\n\r\n- Valid current top-level HLODs are preferred.\r\n- Stale or invalid HLODs fall back to original sources.\r\n- Data Layer membership is recorded but does not limit the Bake to currently active Data Layers.\r\n- Use `PlanetX.NoBake` for deterministic exclusion.\r\n- Level Instance/Packed Level cycles and load failures are diagnosed.\r\n\r\n## Large Bake recommendation\r\n\r\n1. Save Maps and assets.\r\n2. Refresh with `Current Level` or a confirmed `Reviewed Set`.\r\n3. Keep automatic partitions.\r\n4. Use `Auto Memory Budget + Safe`.\r\n5. Use `BAKE IN EXTERNAL PROCESS`.\r\n6. Inspect `ACTIVE BAKE` and `Saved/Logs`.\r\n\r\n## Checkpoints\r\n\r\n- Static geometry spool can be reused for an identical contract.\r\n- Landscape currently disables geometry checkpoint reuse.\r\n- This is exact-contract geometry reuse, not arbitrary full-pipeline resume.\r\n- A successful publish removes the checkpoint.\r\n\r\nMain temporary paths:\r\n\r\n```text\r\nSaved/PlanetX/ProxyBake/PartitionSpool\r\nSaved/PlanetX/ProxyBakeRollback\r\nSaved/PlanetXProxyBake\r\nSaved/Logs\r\n```\r\n\r\nSmaller partitions can reduce packet RAM but increase MeshPages, seams, packages, and finalization work.\r\n\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Large World and World Partition",
+        "id": "large-world-and-world-partition"
+      },
+      {
+        "level": 2,
+        "title": "Source discovery",
+        "id": "source-discovery"
+      },
+      {
+        "level": 2,
+        "title": "Large Bake recommendation",
+        "id": "large-bake-recommendation"
+      },
+      {
+        "level": 2,
+        "title": "Checkpoints",
+        "id": "checkpoints"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "needs-product-review",
+    "screenshotRequirements": [],
+    "translation": {
+      "status": "current",
+      "counterpartId": "ko-large-world-world-partition"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "ko-large-world-world-partition",
+    "lang": "ko",
+    "slug": "large-world-world-partition",
+    "title": "Large World와 World Partition",
+    "description": "Source 검색",
+    "category": "Workflows",
+    "order": 6,
+    "sourceFile": "06_Large_World_and_World_Partition.md",
+    "sourcePath": "source-docs/ko/06_Large_World_and_World_Partition.md",
+    "content": "\r\n[이전: Supported Content](/docs/ko/supported-content) · [문서 홈](/docs/ko/overview) · [다음: Optimization](/docs/ko/performance-optimization)\r\n\r\n## Source 검색\r\n\r\nWorld Partition은 unloaded actor를 미리 전부 열 필요가 없습니다.\r\n\r\n```text\r\nDescriptor 열거\r\n→ 유효 Actor/HLOD 선택\r\n→ 64개 단위 임시 로드\r\n→ Component payload 캡처\r\n→ 참조 해제\r\n→ 분류와 Plan 생성\r\n```\r\n\r\n- 유효하고 최신인 top-level HLOD를 우선 사용합니다.\r\n- stale/invalid HLOD는 original source로 fallback합니다.\r\n- Data Layer membership은 통계에 기록되지만 활성 Data Layer만으로 자동 제한하지 않습니다.\r\n- 확실한 제외에는 visibility보다 `PlanetX.NoBake`를 사용합니다.\r\n- Level Instance/Packed Level의 순환과 로드 실패는 진단에 기록됩니다.\r\n\r\n## 대형 Bake 권장\r\n\r\n1. Map과 Asset을 저장합니다.\r\n2. `Current Level` 또는 확정한 `Reviewed Set`으로 Refresh합니다.\r\n3. Auto Partition을 유지합니다.\r\n4. `Auto Memory Budget + Safe`를 사용합니다.\r\n5. `BAKE IN EXTERNAL PROCESS`를 사용합니다.\r\n6. `ACTIVE BAKE`와 `Saved/Logs`를 확인합니다.\r\n\r\n## Checkpoint\r\n\r\n- 동일 contract의 static geometry spool은 재사용될 수 있습니다.\r\n- Landscape가 포함되면 현재 geometry checkpoint는 비활성화됩니다.\r\n- 전체 pipeline 임의 지점 resume가 아니라 exact-contract geometry 재사용입니다.\r\n- 성공 publish 후 checkpoint는 정리됩니다.\r\n\r\n주요 임시 경로:\r\n\r\n```text\r\nSaved/PlanetX/ProxyBake/PartitionSpool\r\nSaved/PlanetX/ProxyBakeRollback\r\nSaved/PlanetXProxyBake\r\nSaved/Logs\r\n```\r\n\r\n작은 partition은 packet RAM을 줄일 수 있지만 MeshPage, seam, package와 finalize 수를 늘립니다.\r\n\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Large World와 World Partition",
+        "id": "large-world와-world-partition"
+      },
+      {
+        "level": 2,
+        "title": "Source 검색",
+        "id": "source-검색"
+      },
+      {
+        "level": 2,
+        "title": "대형 Bake 권장",
+        "id": "대형-bake-권장"
+      },
+      {
+        "level": 2,
+        "title": "Checkpoint",
+        "id": "checkpoint"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "needs-product-review",
+    "screenshotRequirements": [],
+    "translation": {
+      "status": "current",
+      "counterpartId": "en-large-world-world-partition"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "en-performance-optimization",
+    "lang": "en",
+    "slug": "performance-optimization",
+    "title": "Performance and Optimization",
+    "description": "Recommended starting points",
+    "category": "Optimization",
+    "order": 7,
+    "sourceFile": "07_Performance_and_Optimization.md",
+    "sourcePath": "source-docs/en/07_Performance_and_Optimization.md",
+    "content": "\r\n[Previous: Large World](/docs/en/large-world-world-partition) · [Documentation Home](/docs/en/overview) · [Next: Reference](/docs/en/reference)\r\n\r\n## Recommended starting points\r\n\r\n| Use | Settings |\r\n|---|---|\r\n| Preview | Auto Partition, Source Grid Off, In Editor, Auto + Safe |\r\n| General production | Auto Partition, Auto + Safe |\r\n| High-quality Landscape | Compare Source Grid On, prefer External |\r\n| Large World Partition | Auto Partition, External, Workers 0 |\r\n| Dedicated bake machine | Select High Utilization only after measurement |\r\n\r\n`High Utilization` is not a quality setting. It reduces the reserved RAM from 4 GiB to 1 GiB.\r\n\r\n## High-impact changes\r\n\r\n| Change | Impact |\r\n|---|---|\r\n| Source Grid On | More triangles, RAM, and disk |\r\n| Smaller partitions | Smaller packets; more assets, seams, and finalization |\r\n| Larger partitions | Fewer assets; higher peak RAM and loading unit |\r\n| More Workers/Queue | Potential throughput and peak-RAM increase |\r\n| Unnecessary instances | Larger payload and Runtime Preview cost |\r\n\r\nOptimization order:\r\n\r\n1. Remove unnecessary and ManualReview sources.\r\n2. Create a baseline with Auto Partition + Safe.\r\n3. Check largest packet, peak RAM, and output bytes.\r\n4. Change one setting at a time.\r\n5. Profile Runtime Preview, MeshPages, InstanceBatches, and transition.\r\n\r\nThe current Basic UI has no general user-facing Simplify ratio slider. Do not hard-code undocumented internal values.\r\n\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Performance and Optimization",
+        "id": "performance-and-optimization"
+      },
+      {
+        "level": 2,
+        "title": "Recommended starting points",
+        "id": "recommended-starting-points"
+      },
+      {
+        "level": 2,
+        "title": "High-impact changes",
+        "id": "high-impact-changes"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "needs-product-review",
+    "screenshotRequirements": [],
+    "translation": {
+      "status": "current",
+      "counterpartId": "ko-performance-optimization"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "ko-performance-optimization",
+    "lang": "ko",
+    "slug": "performance-optimization",
+    "title": "Performance와 Optimization",
+    "description": "권장 시작점",
+    "category": "Optimization",
+    "order": 7,
+    "sourceFile": "07_Performance_and_Optimization.md",
+    "sourcePath": "source-docs/ko/07_Performance_and_Optimization.md",
+    "content": "\r\n[이전: Large World](/docs/ko/large-world-world-partition) · [문서 홈](/docs/ko/overview) · [다음: Reference](/docs/ko/reference)\r\n\r\n## 권장 시작점\r\n\r\n| 용도 | 설정 |\r\n|---|---|\r\n| Preview | Auto Partition, Source Grid Off, In Editor, Auto + Safe |\r\n| 일반 제작 | Auto Partition, Auto + Safe |\r\n| 고품질 Landscape | Source Grid On 비교, External 권장 |\r\n| 대형 WP | Auto Partition, External, Workers 0 |\r\n| 전용 Bake 머신 | 측정 후 High Utilization 선택 |\r\n\r\n`High Utilization`은 품질 설정이 아니라 RAM reserve를 4 GiB에서 1 GiB로 줄이는 실행 설정입니다.\r\n\r\n## 영향이 큰 옵션\r\n\r\n| 변경 | 영향 |\r\n|---|---|\r\n| Source Grid On | triangle, RAM, disk 증가 |\r\n| 작은 Partition | packet은 작아지고 Asset/seam/finalize 증가 |\r\n| 큰 Partition | Asset은 줄고 peak RAM/loading 단위 증가 |\r\n| Workers/Queue 증가 | 처리량과 동시 peak RAM 증가 가능 |\r\n| 불필요한 Instance 포함 | payload와 Runtime Preview 비용 증가 |\r\n\r\n## 최적화 순서\r\n\r\n1. 불필요 Source와 ManualReview를 정리합니다.\r\n2. Auto Partition + Safe로 기준 Bake를 만듭니다.\r\n3. largest packet, peak RAM, output bytes를 확인합니다.\r\n4. 설정을 한 번에 하나만 바꿉니다.\r\n5. Runtime Preview, MeshPage, InstanceBatch와 transition을 profile합니다.\r\n\r\n현재 Basic UI에는 임의 비율의 단일 Simplify slider가 없습니다. 내부 값을 추측해 고정하지 말고 노출된 Plan과 설정만 사용하십시오.\r\n\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Performance와 Optimization",
+        "id": "performance와-optimization"
+      },
+      {
+        "level": 2,
+        "title": "권장 시작점",
+        "id": "권장-시작점"
+      },
+      {
+        "level": 2,
+        "title": "영향이 큰 옵션",
+        "id": "영향이-큰-옵션"
+      },
+      {
+        "level": 2,
+        "title": "최적화 순서",
+        "id": "최적화-순서"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "needs-product-review",
+    "screenshotRequirements": [],
+    "translation": {
+      "status": "current",
+      "counterpartId": "en-performance-optimization"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "en-reference",
+    "lang": "en",
+    "slug": "reference",
+    "title": "Reference",
+    "description": "Proxy Bake UI",
+    "category": "Reference",
+    "order": 8,
+    "sourceFile": "08_Reference.md",
+    "sourcePath": "source-docs/en/08_Reference.md",
+    "content": "\r\n[Previous: Optimization](/docs/en/performance-optimization) · [Documentation Home](/docs/en/overview) · [Next: Troubleshooting](/docs/en/troubleshooting)\r\n\r\n## Proxy Bake UI\r\n\r\n| Area | Main items |\r\n|---|---|\r\n| Target | Planet Asset, Target Section Name, Rename/Use on Bake |\r\n| Runtime Role | Same World, External Level, Ground/Orbit World |\r\n| Source Scope | Selected Actors, Current Level, Loaded Levels, Reviewed Set |\r\n| Output Plan | Sources, partitions, geometry mix, Bake ID, output path |\r\n| Review | Use, Owner, Component, Role, Assignment, Reason, Partitions |\r\n| Advanced | Partition X/Y, Planet Radius, Source Grid, Surface Datum |\r\n| Budget | Auto Memory, Safe/High Utilization, Workers, Queue, GT Finalize |\r\n| Actions | Refresh, Plan, Clear, Logs, In Editor/External Bake |\r\n\r\n## Planet Asset Editor\r\n\r\n| Tab | Purpose |\r\n|---|---|\r\n| Overview | Identity and readiness |\r\n| Sections | Rename, Delete, Runtime Role, Bake/Level Pair |\r\n| Configuration | Authoring and visual settings |\r\n| Preview | Saved-result preview |\r\n| Diagnostics | Topology and link validation |\r\n\r\n## Main runtime types\r\n\r\n- `APlanetXPlanetActor`\r\n- `APlanetXTransitionEndpoint`\r\n- `APlanetXEnvironmentManager`\r\n- `UPlanetXCoordinateComponent`\r\n- `UPlanetXMovementComponent`\r\n- `UPlanetXViewpointComponent`\r\n- `UPlanetXTravelReceiverComponent`\r\n\r\n## Public API\r\n\r\nGame code uses `UPlanetXSubsystem`.\r\n\r\nEntry/Travel:\r\n\r\n- EnterGroundSameWorld / ReturnToOrbitSameWorld\r\n- PrepareTravel / ResumePendingTravel\r\n- Begin/Resolve/Complete/Cancel LevelHandoff\r\n\r\nRuntime Preview:\r\n\r\n- LoadRuntimePreview\r\n- SetRuntimePreviewVisible\r\n- UnloadRuntimePreview\r\n- GetRuntimePreviewStatus\r\n\r\nCoordinate/Surface:\r\n\r\n- CaptureActorPlanetXTransform\r\n- ResolvePlanetXTransform\r\n- ApplyPlanetXTransformToActor\r\n- QuerySurfaceAtWorldRay/Geo/PlanetXTransform\r\n- BuildLandingTransform\r\n\r\nQuery/Diagnostics:\r\n\r\n- GetActorRuntimeContext\r\n- GetMovementRuntimeState\r\n- GetTransitionRuntimeResult\r\n- GetSectionDesc/GetSectionTransform\r\n- GetLevelPair/GetLevelPairForSection\r\n- ValidatePlanetAsset\r\n- DiagnoseProxySync\r\n- ResolvePlanetAlignmentForSection\r\n\r\n## Console Variables\r\n\r\n| CVar | Purpose |\r\n|---|---|\r\n| `PlanetX.MemoryBudgetMB` | PlanetX memory-stat budget |\r\n| `px.Material.DebugMode` | Development material-debug override |\r\n| `px.Material.UseLegacyPath` | Development legacy-path comparison |\r\n\r\n## Generated layout\r\n\r\n```text\r\n/Game/PlanetX/ProxyBake/{PlanetAsset}/{GroundLevel}/\r\n├─ DA_PXBake_{BakeId}\r\n├─ {BakeDataName}_RuntimePreview\r\n└─ Revisions/{RevisionId}/\r\n   ├─ Meshes/\r\n   └─ Payloads/\r\n```\r\n\r\nLogs and jobs:\r\n\r\n```text\r\nSaved/Logs\r\nSaved/PlanetXProxyBake\r\nSaved/PlanetX/ProxyBake/PartitionSpool\r\nSaved/PlanetX/ProxyBakeRollback\r\n```\r\n\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Reference",
+        "id": "reference"
+      },
+      {
+        "level": 2,
+        "title": "Proxy Bake UI",
+        "id": "proxy-bake-ui"
+      },
+      {
+        "level": 2,
+        "title": "Planet Asset Editor",
+        "id": "planet-asset-editor"
+      },
+      {
+        "level": 2,
+        "title": "Main runtime types",
+        "id": "main-runtime-types"
+      },
+      {
+        "level": 2,
+        "title": "Public API",
+        "id": "public-api"
+      },
+      {
+        "level": 2,
+        "title": "Console Variables",
+        "id": "console-variables"
+      },
+      {
+        "level": 2,
+        "title": "Generated layout",
+        "id": "generated-layout"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "needs-product-review",
+    "screenshotRequirements": [
+      "Capture reviewed Unreal Editor workflow screenshots before public release."
+    ],
+    "translation": {
+      "status": "current",
+      "counterpartId": "ko-reference"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "ko-reference",
+    "lang": "ko",
+    "slug": "reference",
+    "title": "Reference",
+    "description": "Proxy Bake UI",
+    "category": "Reference",
+    "order": 8,
+    "sourceFile": "08_Reference.md",
+    "sourcePath": "source-docs/ko/08_Reference.md",
+    "content": "\r\n[이전: Optimization](/docs/ko/performance-optimization) · [문서 홈](/docs/ko/overview) · [다음: Troubleshooting](/docs/ko/troubleshooting)\r\n\r\n## Proxy Bake UI\r\n\r\n| 영역 | 주요 항목 |\r\n|---|---|\r\n| Target | Planet Asset, Target Section Name, Rename/Use on Bake |\r\n| Runtime Role | Same World, External Level, Ground/Orbit World |\r\n| Source Scope | Selected Actors, Current Level, Loaded Levels, Reviewed Set |\r\n| Output Plan | Source/partition/geometry mix/Bake ID/output path |\r\n| Review | Use, Owner, Component, Role, Assignment, Reason, Partitions |\r\n| Advanced | Partition X/Y, Planet Radius, Source Grid, Surface Datum |\r\n| Budget | Auto Memory, Safe/High Utilization, Workers, Queue, GT Finalize |\r\n| Actions | Refresh, Plan, Clear, Logs, Bake In Editor/External Process |\r\n\r\n## Planet Asset Editor\r\n\r\n| 탭 | 기능 |\r\n|---|---|\r\n| Overview | identity와 readiness |\r\n| Sections | Rename, Delete, Runtime Role, Bake/Level Pair |\r\n| Configuration | authoring/visual 설정 |\r\n| Preview | 저장 결과 Preview |\r\n| Diagnostics | topology와 link 검증 |\r\n\r\n## 주요 Runtime Actor/Component\r\n\r\n- `APlanetXPlanetActor`: Planet Asset runtime 인스턴스\r\n- `APlanetXTransitionEndpoint`: transition 경계\r\n- `APlanetXEnvironmentManager`: Cloud/Atmosphere 환경\r\n- `UPlanetXCoordinateComponent`: 좌표 identity와 pose\r\n- `UPlanetXMovementComponent`: 선택적 native movement\r\n- `UPlanetXViewpointComponent`: 관찰자\r\n- `UPlanetXTravelReceiverComponent`: Travel 도착 적용\r\n\r\n## Public API\r\n\r\n게임 코드는 `UPlanetXSubsystem`을 사용합니다.\r\n\r\n함수별 용도, C++ 예제, Component API와 실패 처리 계약은 [사용자 제공 API](/docs/ko/user-api)에 정리되어 있습니다.\r\n\r\n### Entry/Travel\r\n\r\n- EnterGroundSameWorld\r\n- ReturnToOrbitSameWorld\r\n- PrepareTravel\r\n- ResumePendingTravel\r\n- Begin/Resolve/Complete/Cancel LevelHandoff\r\n\r\n### Runtime Preview\r\n\r\n- LoadRuntimePreview\r\n- SetRuntimePreviewVisible\r\n- UnloadRuntimePreview\r\n- GetRuntimePreviewStatus\r\n\r\n### Coordinate/Surface\r\n\r\n- CaptureActorPlanetXTransform\r\n- ResolvePlanetXTransform\r\n- ApplyPlanetXTransformToActor\r\n- QuerySurfaceAtWorldRay/Geo/PlanetXTransform\r\n- BuildLandingTransform\r\n\r\n### Query/Diagnostics\r\n\r\n- GetActorRuntimeContext\r\n- GetMovementRuntimeState\r\n- GetTransitionRuntimeResult\r\n- GetSectionDesc/GetSectionTransform\r\n- GetLevelPair/GetLevelPairForSection\r\n- ValidatePlanetAsset\r\n- DiagnoseProxySync\r\n- ResolvePlanetAlignmentForSection\r\n\r\n## Console Variables\r\n\r\n| CVar | 용도 |\r\n|---|---|\r\n| `PlanetX.MemoryBudgetMB` | PlanetX memory stat budget |\r\n| `px.Material.DebugMode` | 개발용 material debug override |\r\n| `px.Material.UseLegacyPath` | 개발 비교용 legacy path |\r\n\r\n## 생성 경로\r\n\r\n```text\r\n/Game/PlanetX/ProxyBake/{PlanetAsset}/{GroundLevel}/\r\n├─ DA_PXBake_{BakeId}\r\n├─ {BakeDataName}_RuntimePreview\r\n└─ Revisions/{RevisionId}/\r\n   ├─ Meshes/\r\n   └─ Payloads/\r\n```\r\n\r\n## 로그 경로\r\n\r\n```text\r\nSaved/Logs\r\nSaved/PlanetXProxyBake\r\nSaved/PlanetX/ProxyBake/PartitionSpool\r\nSaved/PlanetX/ProxyBakeRollback\r\n```\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Reference",
+        "id": "reference"
+      },
+      {
+        "level": 2,
+        "title": "Proxy Bake UI",
+        "id": "proxy-bake-ui"
+      },
+      {
+        "level": 2,
+        "title": "Planet Asset Editor",
+        "id": "planet-asset-editor"
+      },
+      {
+        "level": 2,
+        "title": "주요 Runtime Actor/Component",
+        "id": "주요-runtime-actor-component"
+      },
+      {
+        "level": 2,
+        "title": "Public API",
+        "id": "public-api"
+      },
+      {
+        "level": 3,
+        "title": "Entry/Travel",
+        "id": "entry-travel"
+      },
+      {
+        "level": 3,
+        "title": "Runtime Preview",
+        "id": "runtime-preview"
+      },
+      {
+        "level": 3,
+        "title": "Coordinate/Surface",
+        "id": "coordinate-surface"
+      },
+      {
+        "level": 3,
+        "title": "Query/Diagnostics",
+        "id": "query-diagnostics"
+      },
+      {
+        "level": 2,
+        "title": "Console Variables",
+        "id": "console-variables"
+      },
+      {
+        "level": 2,
+        "title": "생성 경로",
+        "id": "생성-경로"
+      },
+      {
+        "level": 2,
+        "title": "로그 경로",
+        "id": "로그-경로"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "needs-product-review",
+    "screenshotRequirements": [
+      "Capture reviewed Unreal Editor workflow screenshots before public release."
+    ],
+    "translation": {
+      "status": "current",
+      "counterpartId": "en-reference"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "en-troubleshooting",
+    "lang": "en",
+    "slug": "troubleshooting",
+    "title": "Troubleshooting",
+    "description": "Symptom Likely Cause / Check Solution No Scan Sources button The action was renamed Use Refresh Refresh finds 0 sources Empty selection, hidden/NoBake, unsupported Component Try...",
+    "category": "Troubleshooting",
+    "order": 9,
+    "sourceFile": "09_Troubleshooting.md",
+    "sourcePath": "source-docs/en/09_Troubleshooting.md",
+    "content": "\r\n[Previous: Reference](/docs/en/reference) · [Documentation Home](/docs/en/overview) · [Next: Support](/docs/en/support-release-notes)\r\n\r\n| Symptom | Likely Cause / Check | Solution |\r\n|---|---|---|\r\n| No `Scan Sources` button | The action was renamed | Use `Refresh` |\r\n| Refresh finds 0 sources | Empty selection, hidden/NoBake, unsupported Component | Try Current Level, then isolate with Selected Actors |\r\n| Landscape missing | Hidden/tag/WP load/LandscapeInfo issue | Inspect `LandscapeDiscovery` and failed WP loads |\r\n| Target Section Name disabled | Target identity unresolved | Select Planet Asset and Refresh |\r\n| Name missing after External Bake | Staged naming is In Editor-only | Refresh after completion and Rename |\r\n| `TARGET CONFLICT` | Another identity occupies the output path | Resolve existing asset/path conflict |\r\n| Excessive memory | Source Grid, large packet, too many workers/queue | Auto + Safe, Workers 0, External |\r\n| Appears stuck at `RootManifestBuild` | Large manifest or real hang | Check logs, CPU/RAM/disk, and timestamps together |\r\n| Visible seam or hole | Clipping/topology invariant failure | Stop using output; preserve source/partition/full log |\r\n| Mirrored mesh inside-out | Old Bake or material tangent issue | Rebake with current code and isolate the mesh |\r\n| WPO material blocked | Live deformation cannot project safely | Flatten, replace, or Discard |\r\n| WP actor missing | Descriptor/HLOD/Level Instance/load failure | Inspect WP/HLOD metrics and external actor package |\r\n| Save/Publish failure | Read-only, disk, unsaved data, rollback failure | Check out, save, free disk, retry |\r\n| Empty Preview | Bake Data/Runtime Preview/Level Pair link missing | Inspect Sections and Diagnostics |\r\n| Cannot change to Same World | Another Same World Pair is enabled | Keep only one |\r\n| Wrong location after travel | Binding/Ticket/Target timing mismatch | Inspect resume result and identities |\r\n\r\nImportant errors:\r\n\r\n```text\r\nAlign Section failed: ... target placement is unchanged or violates placement constraints.\r\n```\r\n\r\nThe target is unchanged or violates placement constraints. Check Ground Sync Mapping, Section Placement, and Planet Actor transform.\r\n\r\n```text\r\nCanonical seam coverage mismatch ... owners=1\r\n```\r\n\r\nCanonical seam ownership failed after clipping. Do not use the output. Preserve triangle, axis, boundary, partition, and the full log for a pipeline report.\r\n\r\nUse `Logs` and `ACTIVE BAKE` first. Attach the full run from `Saved/Logs` to support requests.\r\n\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Troubleshooting",
+        "id": "troubleshooting"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "needs-product-review",
+    "screenshotRequirements": [
+      "Capture reviewed Unreal Editor workflow screenshots before public release."
+    ],
+    "translation": {
+      "status": "current",
+      "counterpartId": "ko-troubleshooting"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "ko-troubleshooting",
+    "lang": "ko",
+    "slug": "troubleshooting",
+    "title": "Troubleshooting",
+    "description": "Symptom Likely Cause / 확인 Solution Scan Sources 버튼이 없음 현재 이름이 변경됨 왼쪽 Refresh 사용 Refresh 결과 0 sources 빈 선택, hidden/NoBake, 미지원 Component Current Level로 확인 후 Selected Actors로 격리 L...",
+    "category": "Troubleshooting",
+    "order": 9,
+    "sourceFile": "09_Troubleshooting.md",
+    "sourcePath": "source-docs/ko/09_Troubleshooting.md",
+    "content": "\r\n[이전: Reference](/docs/ko/reference) · [문서 홈](/docs/ko/overview) · [다음: Support](/docs/ko/support-release-notes)\r\n\r\n| Symptom | Likely Cause / 확인 | Solution |\r\n|---|---|---|\r\n| `Scan Sources` 버튼이 없음 | 현재 이름이 변경됨 | 왼쪽 `Refresh` 사용 |\r\n| Refresh 결과 0 sources | 빈 선택, hidden/NoBake, 미지원 Component | Current Level로 확인 후 Selected Actors로 격리 |\r\n| Landscape 누락 | hidden/tag/WP actor load/LandscapeInfo 문제 | `LandscapeDiscovery` 로그와 failed WP load 확인 |\r\n| Target Section Name 비활성 | target identity 미확정 | Planet Asset 선택 후 Refresh |\r\n| External Bake 후 이름 미적용 | staged 이름은 In Editor 경로 전용 | 완료 후 Refresh하고 Rename |\r\n| `TARGET CONFLICT` | 다른 identity가 output path 점유 | 기존 Asset/경로 확인 후 충돌 해결 |\r\n| 메모리 과다 | Source Grid, 큰 packet, worker/queue 과다 | Auto + Safe, Workers 0, External 사용 |\r\n| `RootManifestBuild` 정지처럼 보임 | 큰 manifest 또는 실제 hang | Logs, CPU/RAM/disk와 timestamp를 함께 확인 |\r\n| seam/구멍 | clipping/topology 불변식 실패 | 출력 사용 중단, Source/partition/전체 log 보존 |\r\n| mirrored mesh inside-out | 구 Bake 또는 material tangent 문제 | 최신 코드로 재Bake, 문제 Mesh 격리 |\r\n| WPO material 차단 | projected morph에 live deformation 불가 | flatten/교체/Discard |\r\n| WP Actor 누락 | descriptor/HLOD/Level Instance/load 실패 | WP/HLOD metrics와 external actor package 확인 |\r\n| Save/Publish 실패 | read-only, disk, unsaved, rollback 실패 | checkout, 저장, 공간 확보 후 재시도 |\r\n| Preview 비어 있음 | Bake Data/Runtime Preview/Level Pair link 누락 | Sections와 Diagnostics 확인 |\r\n| Same World 변경 실패 | 이미 활성 Same World Pair 존재 | topology를 하나로 정리 |\r\n| Travel 후 위치 오류 | Binding/Ticket/Target Actor timing 불일치 | Resume 결과와 identity 확인 |\r\n\r\n## 주요 오류\r\n\r\n```text\r\nAlign Section failed: ... target placement is unchanged or violates placement constraints.\r\n```\r\n\r\n현재 위치와 계산 위치가 같거나 placement constraint 위반입니다. Ground Sync Mapping, Section Placement와 Planet Actor transform을 확인합니다.\r\n\r\n```text\r\nCanonical seam coverage mismatch ... owners=1\r\n```\r\n\r\npartition clipping 후 canonical seam ownership이 깨진 결과입니다. 해당 output을 사용하지 말고 triangle, axis, boundary, partition과 전체 로그를 보존해 pipeline 문제로 보고합니다.\r\n\r\n## 로그\r\n\r\n우선 `Logs`와 `ACTIVE BAKE`를 사용하고, 지원 요청에는 `Saved/Logs`의 전체 실행 로그를 첨부하십시오.\r\n\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Troubleshooting",
+        "id": "troubleshooting"
+      },
+      {
+        "level": 2,
+        "title": "주요 오류",
+        "id": "주요-오류"
+      },
+      {
+        "level": 2,
+        "title": "로그",
+        "id": "로그"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "needs-product-review",
+    "screenshotRequirements": [
+      "Capture reviewed Unreal Editor workflow screenshots before public release."
+    ],
+    "translation": {
+      "status": "current",
+      "counterpartId": "en-troubleshooting"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "en-support-release-notes",
+    "lang": "en",
+    "slug": "support-release-notes",
+    "title": "Support and Release Notes",
+    "description": "Before reporting:",
+    "category": "Support",
+    "order": 10,
+    "sourceFile": "10_Support_and_Release_Notes.md",
+    "sourcePath": "source-docs/en/10_Support_and_Release_Notes.md",
+    "content": "\r\n[Previous: Troubleshooting](/docs/en/troubleshooting) · [Documentation Home](/docs/en/overview)\r\n\r\nBefore reporting:\r\n\r\n- Confirm the current binary and a single plugin path.\r\n- Fully restart the Editor.\r\n- Confirm Ground Map and Planet Asset.\r\n- Refresh and run Diagnostics.\r\n- Create a minimal Selected Actors reproduction.\r\n- Preserve the full log and screenshots.\r\n\r\nBug report template:\r\n\r\n```text\r\nUnreal Engine version:\r\nPlanetX version/commit:\r\nSource scope:\r\nRuntime role:\r\nWorld Partition enabled:\r\nSource/partition count:\r\nSteps to reproduce:\r\nExpected result:\r\nActual result:\r\nFirst error:\r\nAttached full log:\r\n```\r\n\r\nThe current `.uplugin` declares no public SupportURL, Discord, or email. Use the project's official issue tracker or designated PlanetX team channel.\r\n\r\n## Version 1.0\r\n\r\n- Runtime module: PlanetX\r\n- Editor module: PlanetXEditor\r\n- Dependency: GeometryProcessing\r\n\r\nAfter an update, rebuild modules, restart the Editor, validate Planet Assets, rebake `LEGACY HASH`/stale results, and test the target-platform cook.\r\n\r\nKnown limitations:\r\n\r\n- No official Engine/platform compatibility matrix\r\n- No bundled user Demo Map\r\n- Multiplayer travel/replication is game-owned\r\n- Skeletal/Cloth/Spline deformation/dynamic mesh unsupported\r\n- New Section names from External Bake require a post-Bake Rename\r\n\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Support and Release Notes",
+        "id": "support-and-release-notes"
+      },
+      {
+        "level": 2,
+        "title": "Version 1.0",
+        "id": "version-1-0"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "needs-product-review",
+    "screenshotRequirements": [],
+    "translation": {
+      "status": "current",
+      "counterpartId": "ko-support-release-notes"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "ko-support-release-notes",
+    "lang": "ko",
+    "slug": "support-release-notes",
+    "title": "Support와 Release Notes",
+    "description": "지원 요청 전",
+    "category": "Support",
+    "order": 10,
+    "sourceFile": "10_Support_and_Release_Notes.md",
+    "sourcePath": "source-docs/ko/10_Support_and_Release_Notes.md",
+    "content": "\r\n[이전: Troubleshooting](/docs/ko/troubleshooting) · [문서 홈](/docs/ko/overview) · [다음: 사용자 제공 API](/docs/ko/user-api)\r\n\r\n## 지원 요청 전\r\n\r\n- 최신 binary와 단일 plugin 경로 확인\r\n- Editor 완전 재시작\r\n- 올바른 Ground Map/Planet Asset 확인\r\n- Refresh 및 Diagnostics 실행\r\n- Selected Actors 최소 재현\r\n- 전체 log와 screenshot 보존\r\n\r\n## 버그 리포트\r\n\r\n```text\r\nUnreal Engine version:\r\nPlanetX version/commit:\r\nSource scope:\r\nRuntime role:\r\nWorld Partition enabled:\r\nSource/partition count:\r\nSteps to reproduce:\r\nExpected result:\r\nActual result:\r\nFirst error:\r\nAttached full log:\r\n```\r\n\r\n현재 `.uplugin`에는 공개 SupportURL, Discord 또는 Email이 선언되어 있지 않습니다. 프로젝트의 공식 issue tracker나 팀 PlanetX 담당 채널을 사용하십시오.\r\n\r\n## Version 1.0\r\n\r\n- Runtime module: PlanetX\r\n- Editor module: PlanetXEditor\r\n- Dependency: GeometryProcessing\r\n\r\n업데이트 후에는 module rebuild, Editor 재시작, Planet Asset Validate, `LEGACY HASH`/stale 결과 재Bake와 target platform cook을 수행합니다.\r\n\r\nKnown limitations:\r\n\r\n- 공식 Engine/platform compatibility matrix 없음\r\n- bundled user Demo Map 없음\r\n- multiplayer Travel/replication은 game-owned\r\n- Skeletal/Cloth/Spline deformation/dynamic mesh 미지원\r\n- External Bake의 새 Section 이름은 완료 후 Rename 필요\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Support와 Release Notes",
+        "id": "support와-release-notes"
+      },
+      {
+        "level": 2,
+        "title": "지원 요청 전",
+        "id": "지원-요청-전"
+      },
+      {
+        "level": 2,
+        "title": "버그 리포트",
+        "id": "버그-리포트"
+      },
+      {
+        "level": 2,
+        "title": "Version 1.0",
+        "id": "version-1-0"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "needs-product-review",
+    "screenshotRequirements": [],
+    "translation": {
+      "status": "current",
+      "counterpartId": "en-support-release-notes"
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "ko-user-api",
+    "lang": "ko",
+    "slug": "user-api",
+    "title": "PlanetX 사용자 제공 API",
+    "description": "이 문서는 게임 Blueprint, 게임 C++ 코드와 다른 Runtime 모듈에서 사용하는 PlanetX 공개 API를 정리합니다.",
+    "category": "Reference",
+    "order": 11,
+    "sourceFile": "11_User_API.md",
+    "sourcePath": "source-docs/ko/11_User_API.md",
+    "content": "\r\n[이전: Support와 Release Notes](/docs/ko/support-release-notes) · [문서 홈](/docs/ko/overview)\r\n\r\n이 문서는 게임 Blueprint, 게임 C++ 코드와 다른 Runtime 모듈에서 사용하는 PlanetX 공개 API를 정리합니다.\r\n\r\n- 기준 소스: `Plugins/PlanetX/Source/PlanetX/Public`\r\n- 기준일: 2026-07-30\r\n- 기본 공개 진입점: `UPlanetXSubsystem`\r\n- Actor 단위 좌표 API: `UPlanetXCoordinateComponent`\r\n- 선택적 Native 이동 API: `UPlanetXMovementComponent`\r\n- 기존 UE 이동 구현 연결 API: `UPlanetXMovementInteropLibrary`\r\n\r\n`UPlanetXWorldRuntimeSubsystem`과 그 내부 Runtime Service는 외부 사용자 API가 아닙니다.\r\n\r\n## 1. API 선택 가이드\r\n\r\n| 필요한 기능 | 사용할 API |\r\n|---|---|\r\n| Ground 진입, Orbit 복귀 | `UPlanetXSubsystem` |\r\n| Level 이동 전후 pose/state 보존 | `UPlanetXSubsystem` |\r\n| 행성 표면 또는 Section 조회 | `UPlanetXSubsystem` |\r\n| World Transform과 PlanetX pose 변환 | `UPlanetXSubsystem` |\r\n| 특정 Actor의 좌표 저장과 벡터 변환 | `UPlanetXCoordinateComponent` |\r\n| PlanetX Native 이동, 중력, 표면 정렬 | `UPlanetXMovementComponent` |\r\n| CharacterMovement, Physics, Custom Movement 전환 | `UPlanetXMovementInteropLibrary` |\r\n| Planet/Section/LevelPair 상태 조회 | `UPlanetXSubsystem` |\r\n| Planet Asset 유효성 검사 | `UPlanetXSubsystem::ValidatePlanetAsset` |\r\n| Bake/Visual Revision 조회 | `UPlanetXPlanetAsset` |\r\n\r\n일반 게임 코드는 내부 서비스나 Proxy 컴포넌트를 직접 찾지 말고 `UPlanetXSubsystem`을 사용합니다.\r\n\r\n## 2. 시작하기\r\n\r\n### Blueprint\r\n\r\n1. `Get Game Instance Subsystem` 노드를 추가합니다.\r\n2. Class를 `PlanetXSubsystem`으로 지정합니다.\r\n3. 반환값에서 `PlanetX` 카테고리의 노드를 호출합니다.\r\n\r\nBlueprint에서는 `WorldContextObject` 핀이 일반적으로 숨겨지며 현재 Blueprint가 자동으로 전달됩니다.\r\n\r\n### C++\r\n\r\n게임 모듈의 `Build.cs`에 `PlanetX` 모듈 의존성을 추가합니다.\r\n\r\n```csharp\r\nPublicDependencyModuleNames.AddRange(new[]\r\n{\r\n    \"Core\",\r\n    \"CoreUObject\",\r\n    \"Engine\",\r\n    \"PlanetX\"\r\n});\r\n```\r\n\r\n```cpp\r\n#include \"PlanetX/Runtime/PlanetXSubsystem.h\"\r\n\r\nUPlanetXSubsystem* PlanetX =\r\n    GetGameInstance()->GetSubsystem<UPlanetXSubsystem>();\r\n```\r\n\r\n호출 전 다음 상태를 확인합니다.\r\n\r\n- 현재 World에 `APlanetXPlanetActor`가 존재합니다.\r\n- `PlanetComponent`에 `UPlanetXPlanetAsset`이 지정되어 있습니다.\r\n- `bAutoRegisterRuntime`이 활성화되어 있거나 등록 API를 직접 호출했습니다.\r\n- 사용하는 Section과 LevelPair가 Planet Asset에 존재하고 활성화되어 있습니다.\r\n- 동일한 Planet Asset을 여러 Actor가 사용하면 안정적인 `PlanetBindingId`를 지정합니다.\r\n\r\n## 3. 공통 반환 규칙\r\n\r\n대부분의 명령과 조회 함수는 `bool`을 반환합니다.\r\n\r\n- `true`: 요청 또는 조회가 정상적으로 완료됨\r\n- `false`: 입력, Runtime 등록, 좌표 해석 또는 대상 상태가 유효하지 않음\r\n\r\n결과 구조체가 함께 제공되면 `bool`만 확인하지 말고 오류 필드도 기록합니다.\r\n\r\n| 결과 타입 | 확인할 필드 |\r\n|---|---|\r\n| `FPlanetXTransformResolveResult` | `bSuccess`, `Error`, `ValidationError`, `ConversionError` |\r\n| `FPlanetXLevelHandoffResult` | `bSuccess`, `Error`, `CaptureId`, `JourneyId`, `TransformResult` |\r\n| `FPlanetXMovementHandoffResult` | `bSucceeded`, `Error`, `Handle`, `DiagnosticContext` |\r\n| `FPlanetXRuntimePreviewStatus` | `State`, `bRenderableContentReady`, `bActuallyVisible`, `RetryCount` |\r\n\r\n`PlanetBindingId`가 비어 있으면 Runtime이 일치하는 행성을 찾습니다. 같은 `PlanetId`를 가진 PlanetActor가 여러 개라면 명시적인 Binding을 사용해야 합니다.\r\n\r\n## 4. Same World 진입 API\r\n\r\nGround와 Orbit 표현이 같은 `UWorld`에 있을 때 사용합니다.\r\n\r\n```text\r\nSurface Query\r\n→ EnterGroundSameWorld\r\n→ Ground Gameplay\r\n→ ReturnToOrbitSameWorld\r\n```\r\n\r\n| 함수 | 용도 |\r\n|---|---|\r\n| `EnterGroundSameWorld` | Surface Query 결과를 기준으로 Actor를 Ground pose에 원자적으로 적용 |\r\n| `ReturnToOrbitSameWorld` | 저장된 Capture를 사용해 Actor를 Orbit pose로 복귀 |\r\n| `BuildLandingTransform` | Surface Query에서 실제 Ground spawn transform 계산 |\r\n\r\n### C++ 예시\r\n\r\n```cpp\r\nFPlanetXSurfaceQueryResult Surface;\r\nconst bool bSurfaceFound = PlanetX->QuerySurfaceAtGeo(\r\n    this,\r\n    PlanetId,\r\n    TargetGeo,\r\n    PlanetBindingId,\r\n    Surface);\r\n\r\nif (bSurfaceFound && Surface.bCanEnterGround)\r\n{\r\n    PlanetX->EnterGroundSameWorld(this, RequestActor, Surface);\r\n}\r\n```\r\n\r\n```cpp\r\nPlanetX->ReturnToOrbitSameWorld(this, RequestActor);\r\n```\r\n\r\n수동 진입 대신 `UPlanetXCoordinateComponent`에서 다음 정책을 활성화할 수 있습니다.\r\n\r\n- `SetAutomaticSameWorldEntryEnabled`\r\n- `SetAutomaticSameWorldReturnEnabled`\r\n- `SpatialEntryPolicy.MovementContinuityPolicy`\r\n\r\n자동 참여 Actor의 경계 감지, Capture와 실제 이동은 World Runtime이 처리합니다.\r\n\r\n## 5. Level Travel API\r\n\r\nPlanetX는 좌표, 전환 상태와 Ticket을 보존합니다. 다음 작업은 게임 코드의 책임입니다.\r\n\r\n- `OpenLevel` 또는 다른 Travel 호출\r\n- 로딩 화면\r\n- Pawn 생성\r\n- PlayerController와 Possession\r\n- GameMode\r\n- Replication과 멀티플레이 이동 정책\r\n\r\n### 권장 간편 흐름\r\n\r\n```text\r\nPrepareTravel\r\n→ 게임이 TargetRoute.World로 이동\r\n→ Target PlanetActor 등록\r\n→ Target Actor 생성·Possess\r\n→ ResumePendingTravel\r\n```\r\n\r\n| 함수 | 용도 |\r\n|---|---|\r\n| `PrepareTravel` | Source pose/state를 캡처하고 Target Route가 포함된 Ticket 생성 |\r\n| `ResumePendingTravel` | 가장 최근에 준비한 Ticket을 Target Actor에 적용하고 성공 시 소비 |\r\n| `BeginReturnLevelHandoff` | Ground Journey를 Ground→Orbit 복귀 Ticket으로 전환 |\r\n| `GetTransitionJourney` | `JourneyId`로 Journey 상태 조회 |\r\n| `GetActiveTransitionJourneys` | 현재 활성 Journey 전체 조회 |\r\n\r\n### Source World 예시\r\n\r\n```cpp\r\nFPlanetXTravelRoute Route;\r\nRoute.World = TargetWorld;\r\nRoute.PlanetId = PlanetId;\r\nRoute.SectionId = SectionId;\r\nRoute.PlanetBindingId = TargetPlanetBindingId;\r\n\r\nFPlanetXLevelHandoffTicket Ticket;\r\nFPlanetXLevelHandoffResult Result;\r\n\r\nif (PlanetX->PrepareTravel(\r\n        this,\r\n        SourceActor,\r\n        Surface,\r\n        Route,\r\n        Ticket,\r\n        Result))\r\n{\r\n    // PlanetX는 Travel을 호출하지 않는다.\r\n    // 게임이 Ticket.TargetWorld 또는 Route.World을 사용해 이동한다.\r\n}\r\n```\r\n\r\n### Target World 예시\r\n\r\n```cpp\r\nFPlanetXLevelHandoffResult Result;\r\nconst bool bApplied = PlanetX->ResumePendingTravel(\r\n    this,\r\n    TargetActor,\r\n    Result,\r\n    true);\r\n```\r\n\r\n도착 Actor에 `UPlanetXTravelReceiverComponent`를 추가하면 `ResumePendingTravel`을 자동으로 재시도할 수 있습니다.\r\n\r\n| 설정 | 의미 |\r\n|---|---|\r\n| `bAutoResumePendingTravel` | BeginPlay 이후 자동 Resume 사용 |\r\n| `bApplyControlRotation` | 저장된 Control Rotation 적용 |\r\n| `ArrivalRetryTimeoutSeconds` | PlanetActor 등록 지연을 기다리는 최대 시간 |\r\n| `bLastResumeSucceeded` | 마지막 자동 Resume 성공 여부 |\r\n| `LastResumeError` | 마지막 실패 코드 |\r\n\r\n완전 수동으로 처리하려면 `bAutoResumePendingTravel`을 끕니다.\r\n\r\n### 명시적 Ticket 흐름\r\n\r\n여러 Ticket을 직접 관리하거나 적용 전 Transform을 검사할 때 사용합니다.\r\n\r\n| 함수 | 용도 |\r\n|---|---|\r\n| `BeginLevelHandoff` | LevelPair를 기준으로 Capture와 Ticket 생성 |\r\n| `ResolveLevelHandoffTicket` | Ticket을 소비하지 않고 Target World Transform만 계산 |\r\n| `CompleteLevelHandoff` | Target Actor에 적용하고 성공한 경우에만 Capture 소비 |\r\n| `CancelLevelHandoff` | 미완료 Ticket 취소 |\r\n| `ResolveLevelHandoffEntryTransform` | 기존 Capture의 Ground pose를 현재 World에서 해석 |\r\n| `GetStoredLevelHandoffCapture` | `CaptureId`로 저장 Capture 조회 |\r\n\r\n`FPlanetXLevelHandoffTicket`의 `CaptureId`, `JourneyId`, `Generation`, `TargetWorld`, `TargetRoute`는 한 묶음으로 보관해야 합니다. 일부 필드만 복사해 새로운 Ticket을 조립하면 검증에 실패합니다.\r\n\r\n## 6. Runtime Preview API\r\n\r\nLevelHandoff 전에 Ground의 Bake 결과를 렌더링 전용으로 보여줄 때 사용합니다.\r\n\r\n| 함수 | 용도 |\r\n|---|---|\r\n| `LoadRuntimePreview` | LevelPair의 Runtime Preview 로드 요청 |\r\n| `SetRuntimePreviewVisible` | 로드된 Preview의 표시 요청 |\r\n| `GetRuntimePreviewStatus` | 로딩, 렌더 준비와 실제 표시 상태 조회 |\r\n| `UnloadRuntimePreview` | Preview와 임시 렌더 컴포넌트 해제 |\r\n\r\n권장 순서:\r\n\r\n```text\r\nLoadRuntimePreview\r\n→ GetRuntimePreviewStatus 반복 조회\r\n→ State == Ready\r\n→ bRenderableContentReady == true\r\n→ SetRuntimePreviewVisible(true)\r\n```\r\n\r\n`bVisibleRequested`와 `bActuallyVisible`은 다릅니다. 리소스 준비 전에는 표시를 요청했어도 실제 화면에 보이지 않을 수 있습니다.\r\n\r\nRuntime Preview는 다음 기능을 제공하지 않습니다.\r\n\r\n- Gameplay Actor 복제\r\n- Collision\r\n- Navigation\r\n- Tick 기반 Gameplay\r\n- GameMode 또는 Ground World 대체\r\n\r\n## 7. 좌표와 Transform API\r\n\r\n### `FPlanetXTransform`\r\n\r\nWorld에 종속되지 않는 행성 고정 pose입니다.\r\n\r\n| 필드 | 의미 |\r\n|---|---|\r\n| `PlanetId` | 행성 식별자 |\r\n| `PlanetBindingId` | 현재 World의 PlanetActor Binding |\r\n| `PlanetFixedPositionCm` | 행성 중심 기준 Cartesian 위치 |\r\n| `PlanetFixedRotation` | 행성 좌표 규약 기준 회전 |\r\n| `Scale3D` | Actor Scale |\r\n\r\n`SectionId`와 `LevelPairId`는 pose에 저장되지 않으며 현재 World에서 resolve할 때 계산됩니다.\r\n\r\n### Subsystem 좌표 API\r\n\r\n| 함수 | 용도 |\r\n|---|---|\r\n| `CapturePlanetXTransform` | World Transform을 `FPlanetXTransform`으로 캡처 |\r\n| `CaptureActorPlanetXTransform` | Actor의 현재 Transform을 캡처 |\r\n| `ResolvePlanetXTransform` | PlanetX pose를 현재 World Transform으로 해석 |\r\n| `ApplyPlanetXTransformToActor` | 해석한 Transform을 Actor에 적용 |\r\n| `ResolveCoordinateFrame` | Planet 또는 Section frame을 World Transform으로 해석 |\r\n| `CaptureTransitionActorSyncPose` | 전환용 Actor pose와 Control Rotation 캡처 |\r\n| `ApplyTransitionActorSyncPose` | 캡처한 전환 pose를 다른 표현 또는 World의 Actor에 적용 |\r\n\r\n### C++ 예시\r\n\r\n```cpp\r\nFPlanetXTransform SavedPose;\r\nFPlanetXTransformResolveResult CaptureResult;\r\n\r\nif (PlanetX->CaptureActorPlanetXTransform(\r\n        this,\r\n        PlanetId,\r\n        PlanetBindingId,\r\n        Actor,\r\n        SavedPose,\r\n        CaptureResult))\r\n{\r\n    // SavedPose를 SaveGame, Journey 또는 사용자 상태에 보관할 수 있다.\r\n}\r\n```\r\n\r\n```cpp\r\nFPlanetXTransformResolveResult ApplyResult;\r\nPlanetX->ApplyPlanetXTransformToActor(\r\n    this,\r\n    TargetActor,\r\n    SavedPose,\r\n    ApplyResult);\r\n```\r\n\r\n## 8. Surface, Section과 LevelPair 조회\r\n\r\n### Surface Query\r\n\r\n| 함수 | 입력 기준 | 주요 결과 |\r\n|---|---|---|\r\n| `QuerySurfaceAtWorldRay` | World Ray | 교차 표면, Section, Geo, Ground 진입 가능 여부 |\r\n| `QuerySurfaceAtGeo` | PlanetId와 정규화 Geo | 표면 위치, Normal, Section |\r\n| `QuerySurfaceAtPlanetXTransform` | PlanetX pose | 해당 위치의 Surface/Section |\r\n| `BuildLandingTransform` | Surface Query 결과 | Ground Spawn Transform과 Surface Frame |\r\n\r\n`FPlanetXSurfaceQueryResult`의 핵심 필드:\r\n\r\n- `bHitPlanetSurface`\r\n- `PlanetId`, `PlanetBindingId`\r\n- `SectionId`, `LevelPairId`\r\n- `Geo`, `SectionLocal`\r\n- `SurfacePositionWorld`, `SurfaceNormalWorld`\r\n- `bInsideSection`\r\n- `bCanEnterGround`\r\n- `bHasGroundWorld`\r\n\r\n표면에 맞았다는 사실과 Ground 진입 가능 여부는 별도입니다. 진입 전 `bCanEnterGround`를 확인합니다.\r\n\r\n### Section과 LevelPair\r\n\r\n| 함수 | 용도 |\r\n|---|---|\r\n| `GetSectionTransform` | SectionLocal→World Transform 조회 |\r\n| `GetSectionDesc` | Section 배치, Bounds, Region, Bake Link 조회 |\r\n| `GetSectionRuntimeState` | Proxy, Ground 로딩, 표시, Transition 상태 조회 |\r\n| `GetLevelPair` | LevelPairId로 전환 정책 조회 |\r\n| `GetLevelPairForSection` | SectionId에 연결된 LevelPair 조회 |\r\n| `DiagnoseSectionPlanetOverlapFromBounds` | Bounds와 Planet Sphere의 겹침 진단 |\r\n\r\n## 9. Runtime 상태와 Transition 조회\r\n\r\n| 함수 | 용도 |\r\n|---|---|\r\n| `GetActorRuntimeContext` | Actor의 Planet, Section, Geo와 공간 상태 Snapshot |\r\n| `GetMovementRuntimeState` | 특정 Actor의 속도, 중력, Movement 상태 조회 |\r\n| `GetMovementRuntimeStates` | 현재 World의 모든 PlanetX Movement 상태 조회 |\r\n| `GetTransitionRuntimeResult` | 특정 SourceObject의 현재 Transition 결과 조회 |\r\n| `GetTransitionRuntimeResults` | 현재 Tick의 모든 Transition 결과 조회 |\r\n| `GetTransitionManagedActorState` | Runtime이 관리하는 Actor의 현재·복구 예정 상태 조회 |\r\n| `EvaluateTransitionCylinderState` | 거리와 고도로 Orbit/Transition/Ground 및 Alpha 사전 계산 |\r\n\r\n`FPlanetXActorRuntimeContext`의 주요 필드:\r\n\r\n- `PlanetId`, `SectionId`, `LevelPairId`\r\n- `Geo`, `SectionLocal`\r\n- `SpaceState`\r\n- `TransitionDirection`\r\n- `TransitionAlpha`\r\n- `bInsidePlanet`, `bInsideSection`, `bCanEnterGround`\r\n\r\n이 값들은 Runtime이 계산한 Snapshot입니다. 사용자가 값을 수정해 Runtime 상태를 변경하는 구조가 아닙니다.\r\n\r\n## 10. `UPlanetXCoordinateComponent`\r\n\r\nActor가 어떤 Planet 기준 pose를 가지는지 저장하고 좌표 벡터를 변환합니다. 이 컴포넌트 자체는 Actor를 매 프레임 이동시키지 않습니다.\r\n\r\n### 좌표 동기화\r\n\r\n| 함수 | 용도 |\r\n|---|---|\r\n| `RefreshRuntimeContext` | 현재 Actor의 Runtime Context 갱신 |\r\n| `CaptureOwnerTransformToPlanetX` | Owner World Transform을 PlanetX pose로 저장 |\r\n| `ApplyPlanetXTransformToOwner` | 저장된 PlanetX pose를 Owner에 적용 |\r\n| `SetPlanetXTransform` | pose 저장 및 선택적 즉시 적용 |\r\n| `GetPlanetXTransform` | 현재 저장 pose 조회 |\r\n| `SetCoordinateFrameReference` | 값은 유지하고 해석할 Planet/Section frame 변경 |\r\n| `PullFromWorld` | World 값을 Coordinate 데이터로 가져오기 |\r\n| `PushToWorld` | Coordinate 데이터를 World에 적용 |\r\n\r\n`ApplyPlanetXTransformToOwner`는 PlanetX Coordinate Mode에서만 허용됩니다. 두 Coordinate Mode 모두 숨은 Tick으로 Owner Transform을 덮어쓰지 않습니다.\r\n\r\n### 방향과 벡터\r\n\r\n| 함수 | 용도 |\r\n|---|---|\r\n| `GetCurrentSurfaceFrame` | 현재 위치의 East/North/Up frame 조회 |\r\n| `GetPlanetUpVectorWorld` / `GetPlanetDownVectorWorld` | 방사형 Up/Down 조회 |\r\n| `GetSurfaceEastVectorWorld` / `GetSurfaceNorthVectorWorld` | 표면 방향축 조회 |\r\n| `ProjectVectorToSurfaceTangent` | World vector를 표면 접평면에 투영 |\r\n| `ConvertSurfaceVectorToWorld` | East/North/Up vector를 World로 변환 |\r\n| `ConvertPlanetLocalVectorToWorld` | PlanetLocal vector를 World로 변환 |\r\n| `ConvertSectionLocalVectorToWorld` | SectionLocal vector를 World로 변환 |\r\n| `ConvertCoordinateVectorToWorld` | 선택한 VectorSpace에서 World로 통합 변환 |\r\n| `ConvertWorldVectorToCoordinate` | World vector를 선택한 VectorSpace로 역변환 |\r\n| `BuildPlanetSurfaceWorldLocation` | 현재 위치 기준 목표 고도의 World 위치 계산 |\r\n| `BuildSurfaceAlignedRotation` | Actor Up을 행성 표면 Up에 맞춘 회전 계산 |\r\n\r\n## 11. `UPlanetXMovementComponent`\r\n\r\nPlanetX Native Movement를 선택한 Actor에만 사용합니다. 같은 Owner에 유효한 `UPlanetXCoordinateComponent`가 필요합니다.\r\n\r\n| 함수 | 용도 |\r\n|---|---|\r\n| `AddPlanetXInputVector` | 다음 Tick의 이동 입력 누적 |\r\n| `SetPlanetXVelocity` | Native Movement 속도 설정 |\r\n| `GetPlanetXVelocity` | 선택 좌표 기준 속도 조회 |\r\n| `AddPlanetXForce` | 다음 Tick Force 누적 |\r\n| `AddPlanetXImpulse` | 속도에 Impulse 즉시 반영 |\r\n| `SnapToPlanetSurface` | 목표 고도로 위치 보정 |\r\n| `AlignUpToPlanetSurface` | Actor Up을 표면 Up에 정렬 |\r\n| `ValidateMovementConfiguration` | Owner, UpdatedComponent와 좌표 참조 검증 |\r\n| `GetMovementRuntimeState` | 현재 Movement Snapshot 조회 |\r\n| `GetCommittedRuntimeContext` | Orchestrator가 확정한 공간 상태 조회 |\r\n\r\n```cpp\r\nMovement->AddPlanetXInputVector(\r\n    FVector(1.0, 0.0, 0.0),\r\n    EPlanetXMovementVectorSpace::SurfaceFrame,\r\n    true);\r\n```\r\n\r\n지원 Vector Space:\r\n\r\n- `World`\r\n- `PlanetLocal`\r\n- `SurfaceFrame`\r\n- `SectionLocal`\r\n\r\n이 컴포넌트는 CharacterMovement, Vehicle, Physics Body 또는 Custom Movement를 자동으로 탐색하거나 비활성화하지 않습니다.\r\n\r\n## 12. Movement Handoff API\r\n\r\n기존 UE Movement 또는 Physics Body 사이에서 속도 연속성을 보존할 때 `UPlanetXMovementInteropLibrary`를 사용합니다.\r\n\r\n### 표준 MovementComponent\r\n\r\n| 함수 | 용도 |\r\n|---|---|\r\n| `CaptureMovementComponentHandoff` | Source Movement 속도 Snapshot 생성 |\r\n| `ApplyMovementComponentHandoff` | Snapshot을 Target Movement에 적용 |\r\n| `SwitchMovementComponentsWithHandoff` | Capture, Target 적용, 활성 상태 전환과 소비를 원자적으로 수행 |\r\n\r\n### Physics Body\r\n\r\n| 함수 | 용도 |\r\n|---|---|\r\n| `CapturePhysicsBodyHandoff` | PrimitiveComponent의 선속도·각속도 캡처 |\r\n| `ApplyPhysicsBodyHandoff` | Target Physics Body에 속도 적용 |\r\n\r\n### Custom Movement\r\n\r\n| 함수 | 용도 |\r\n|---|---|\r\n| `CaptureMovementHandoffVelocity` | 사용자 이동 구현의 원시 속도 캡처 |\r\n| `ResolveMovementHandoffVelocity` | 목표 frame과 연속성 정책으로 속도 해석 |\r\n| `GetMovementHandoffSnapshot` | Handle의 현재 Snapshot 조회 |\r\n| `ConsumeMovementHandoff` | 사용자 적용 성공 후 Snapshot 소비 |\r\n| `CancelMovementHandoff` | 실패하거나 취소된 Snapshot 종료 |\r\n\r\n연속성 정책:\r\n\r\n| 정책 | 동작 |\r\n|---|---|\r\n| `Reset` | 목표 속도를 0으로 초기화 |\r\n| `PreserveWorld` | World 속도를 그대로 유지 |\r\n| `RebaseBetweenFrames` | Source frame의 의미를 Target frame으로 재해석 |\r\n| `DoNotApply` | Target 속도를 변경하지 않음 |\r\n\r\n`SwitchMovementComponentsWithHandoff`는 성공한 경우에만 Target 활성화, Source 비활성화와 Snapshot 소비를 수행합니다. CharacterMovement의 Movement Mode, Root Motion, Floor State 같은 구현별 상태는 게임 코드가 별도로 처리합니다.\r\n\r\n## 13. Planet Asset API\r\n\r\n`UPlanetXPlanetAsset`은 행성, Section과 LevelPair의 canonical 설정 자산입니다.\r\n\r\n### 일반 조회\r\n\r\n| 함수 | 용도 |\r\n|---|---|\r\n| `GetPlanetId` | 행성 ID 조회 |\r\n| `GetRadiusCm` | 행성 반지름 조회 |\r\n| `GetBakeContractRevision` | 현재 Bake 계약 Revision |\r\n| `GetLastSuccessfulBakeRevision` | 마지막 성공 Bake Revision |\r\n| `IsProxyBakeStale` | 현재 설정과 Bake 결과 불일치 여부 |\r\n| `HasSuccessfulVisualBuild` | 저장형 Visual Build 성공 이력 |\r\n| `IsVisualBuildStale` | 저장형 Visual 결과가 현재 설정보다 오래됐는지 조회 |\r\n| `IsVisualPreviewStale` | 세션 Preview가 현재 설정보다 오래됐는지 조회 |\r\n\r\n### Authoring API\r\n\r\n다음 함수는 Editor Tool 또는 명시적인 Authoring 코드에서 사용합니다.\r\n\r\n- `SetSurfaceCompletionSettings`\r\n- `SetProxyPaddingSettings`\r\n- `SetVisualGenerationSettings`\r\n- `SetActiveSurfacePreset`\r\n- `SetSectionPlacement`\r\n- `ValidateSectionPlacement`\r\n- `ValidateLevelTopology`\r\n- `SetSectionSurfaceCorrectionSettings`\r\n- `RefreshSectionProxyBakeLink`\r\n\r\nCooked Runtime에서 값을 바꿔도 원본 Asset 패키지에 영속 저장되지 않습니다. 게임 플레이 상태 저장 용도로 사용하지 마십시오.\r\n\r\n## 14. 검증과 진단 API\r\n\r\n| 함수 | 용도 |\r\n|---|---|\r\n| `ValidatePlanetAsset` | 구조화된 `FPlanetXValidationIssue` 목록 생성 |\r\n| `DiagnoseProxySync` | Planet, Proxy, Morph와 Ground anchor 정렬 진단 |\r\n| `ResolvePlanetAlignmentForSection` | Bake Ground mapping 기준 필요 Planet 배치와 현재 오차 계산 |\r\n| `DiagnoseSectionPlanetOverlapFromBounds` | Section bounds의 Planet surface 침범 깊이 계산 |\r\n| `DrawPlanetDebug` | 등록 행성 디버그 표시 |\r\n| `DrawSectionDebug` | Section 디버그 표시 |\r\n| `DrawActorContextDebug` | Actor Runtime Context 표시 |\r\n| `DrawCaptureStackDebug` | Transition Capture Stack 표시 |\r\n\r\n`ValidatePlanetAsset`의 반환값과 Issue 목록을 함께 확인합니다. Warning만 존재하는 경우와 Runtime을 막는 Error를 구분해야 합니다.\r\n\r\n## 15. 고급 직접 제어 API\r\n\r\n다음 API도 Blueprint에 노출되지만 일반 게임 흐름에서는 Runtime Orchestrator가 관리합니다.\r\n\r\n| 타입 | 주요 기능 | 권장 사용 |\r\n|---|---|---|\r\n| `UPlanetXPlanetComponent` | Runtime 등록, 행성 중력 조회, Morph 상태 | 등록·조회는 사용 가능, Transition setter는 특수 제어용 |\r\n| `UPlanetXPlanetProxyComponent` | Sphere/Section Proxy 재구성, Layer/Partition 표시 | 디버그, 커스텀 표시 또는 툴링 |\r\n| `UPlanetXTransitionMorphComponent` | BakeData/Resource 지정, Morph mesh와 Alpha 제어 | 커스텀 Transition Presentation |\r\n| `APlanetXRuntimePreviewActor` | BakeData를 직접 로드하고 표시 | Subsystem Preview 경로를 사용할 수 없을 때 |\r\n| `APlanetXEnvironmentManager` | 환경 binding 검증과 Transition Alpha 적용 | 커스텀 환경 제어 |\r\n\r\n자동 Transition이 활성화된 상태에서 같은 Alpha, Visibility 또는 Environment 값을 매 Tick 직접 설정하면 Orchestrator 결과와 충돌할 수 있습니다.\r\n\r\n### 구성 전용 Actor/Component\r\n\r\n- `APlanetXTransitionEndpoint`: Planet, Section, LevelPair와 Transition Cylinder를 Details에서 설정합니다. 상태 판정은 Runtime Service가 수행합니다.\r\n- `UPlanetXViewpointComponent`: Actor를 관찰자 후보로 등록합니다. 공개 명령 함수 없이 설정 프로퍼티로 동작합니다.\r\n- `UPlanetXTravelReceiverComponent`: 도착 Actor에서 Pending Travel을 자동 복원합니다. 공개 명령 함수 없이 BeginPlay와 설정 프로퍼티로 동작합니다.\r\n\r\n## 16. 사용 책임 경계\r\n\r\nPlanetX가 담당하는 기능:\r\n\r\n- 행성 고정 pose Capture/Resolve\r\n- Ground/Orbit 전환 상태\r\n- SameWorld 진입과 복귀\r\n- LevelHandoff Ticket과 Journey\r\n- Runtime Preview\r\n- Section, Surface와 Runtime Context 조회\r\n- 선택적 Native Movement와 이동 속도 Handoff\r\n\r\n게임이 담당하는 기능:\r\n\r\n- `OpenLevel`, Seamless Travel 또는 다른 World 이동 실행\r\n- Pawn Spawn과 Possession\r\n- GameMode와 PlayerController 정책\r\n- 저장 게임과 네트워크 복제\r\n- 로딩 화면과 실패 복구 UI\r\n- CharacterMovement, Vehicle과 Custom Movement의 고유 상태\r\n- Data Layer와 Streaming Source 정책\r\n\r\n## 17. 구현 체크리스트\r\n\r\n- [ ] PlanetActor와 PlanetAsset이 현재 World에 등록되어 있다.\r\n- [ ] 중복 PlanetId 사용 시 `PlanetBindingId`를 지정했다.\r\n- [ ] Surface Query 성공 후 `bCanEnterGround`를 확인했다.\r\n- [ ] 모든 `bool` 실패 경로에서 Result 오류를 기록한다.\r\n- [ ] Level Travel은 게임 코드가 직접 수행한다.\r\n- [ ] Target World에서 PlanetActor 등록 후 Ticket을 Resume/Complete한다.\r\n- [ ] Runtime Preview의 `bRenderableContentReady`를 확인한 뒤 표시한다.\r\n- [ ] CoordinateComponent를 MovementComponent로 오해하지 않는다.\r\n- [ ] 기존 UE Movement 전환 시 Movement Handoff API를 명시적으로 호출한다.\r\n- [ ] 자동 Transition 사용 중 Proxy/Morph/Environment를 중복 제어하지 않는다.\r\n\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "PlanetX 사용자 제공 API",
+        "id": "planetx-사용자-제공-api"
+      },
+      {
+        "level": 2,
+        "title": "1. API 선택 가이드",
+        "id": "1-api-선택-가이드"
+      },
+      {
+        "level": 2,
+        "title": "2. 시작하기",
+        "id": "2-시작하기"
+      },
+      {
+        "level": 3,
+        "title": "Blueprint",
+        "id": "blueprint"
+      },
+      {
+        "level": 3,
+        "title": "C++",
+        "id": "c"
+      },
+      {
+        "level": 2,
+        "title": "3. 공통 반환 규칙",
+        "id": "3-공통-반환-규칙"
+      },
+      {
+        "level": 2,
+        "title": "4. Same World 진입 API",
+        "id": "4-same-world-진입-api"
+      },
+      {
+        "level": 3,
+        "title": "C++ 예시",
+        "id": "c-예시"
+      },
+      {
+        "level": 2,
+        "title": "5. Level Travel API",
+        "id": "5-level-travel-api"
+      },
+      {
+        "level": 3,
+        "title": "권장 간편 흐름",
+        "id": "권장-간편-흐름"
+      },
+      {
+        "level": 3,
+        "title": "Source World 예시",
+        "id": "source-world-예시"
+      },
+      {
+        "level": 3,
+        "title": "Target World 예시",
+        "id": "target-world-예시"
+      },
+      {
+        "level": 3,
+        "title": "명시적 Ticket 흐름",
+        "id": "명시적-ticket-흐름"
+      },
+      {
+        "level": 2,
+        "title": "6. Runtime Preview API",
+        "id": "6-runtime-preview-api"
+      },
+      {
+        "level": 2,
+        "title": "7. 좌표와 Transform API",
+        "id": "7-좌표와-transform-api"
+      },
+      {
+        "level": 3,
+        "title": "`FPlanetXTransform`",
+        "id": "fplanetxtransform"
+      },
+      {
+        "level": 3,
+        "title": "Subsystem 좌표 API",
+        "id": "subsystem-좌표-api"
+      },
+      {
+        "level": 3,
+        "title": "C++ 예시",
+        "id": "c-예시-2"
+      },
+      {
+        "level": 2,
+        "title": "8. Surface, Section과 LevelPair 조회",
+        "id": "8-surface-section과-levelpair-조회"
+      },
+      {
+        "level": 3,
+        "title": "Surface Query",
+        "id": "surface-query"
+      },
+      {
+        "level": 3,
+        "title": "Section과 LevelPair",
+        "id": "section과-levelpair"
+      },
+      {
+        "level": 2,
+        "title": "9. Runtime 상태와 Transition 조회",
+        "id": "9-runtime-상태와-transition-조회"
+      },
+      {
+        "level": 2,
+        "title": "10. `UPlanetXCoordinateComponent`",
+        "id": "10-uplanetxcoordinatecomponent"
+      },
+      {
+        "level": 3,
+        "title": "좌표 동기화",
+        "id": "좌표-동기화"
+      },
+      {
+        "level": 3,
+        "title": "방향과 벡터",
+        "id": "방향과-벡터"
+      },
+      {
+        "level": 2,
+        "title": "11. `UPlanetXMovementComponent`",
+        "id": "11-uplanetxmovementcomponent"
+      },
+      {
+        "level": 2,
+        "title": "12. Movement Handoff API",
+        "id": "12-movement-handoff-api"
+      },
+      {
+        "level": 3,
+        "title": "표준 MovementComponent",
+        "id": "표준-movementcomponent"
+      },
+      {
+        "level": 3,
+        "title": "Physics Body",
+        "id": "physics-body"
+      },
+      {
+        "level": 3,
+        "title": "Custom Movement",
+        "id": "custom-movement"
+      },
+      {
+        "level": 2,
+        "title": "13. Planet Asset API",
+        "id": "13-planet-asset-api"
+      },
+      {
+        "level": 3,
+        "title": "일반 조회",
+        "id": "일반-조회"
+      },
+      {
+        "level": 3,
+        "title": "Authoring API",
+        "id": "authoring-api"
+      },
+      {
+        "level": 2,
+        "title": "14. 검증과 진단 API",
+        "id": "14-검증과-진단-api"
+      },
+      {
+        "level": 2,
+        "title": "15. 고급 직접 제어 API",
+        "id": "15-고급-직접-제어-api"
+      },
+      {
+        "level": 3,
+        "title": "구성 전용 Actor/Component",
+        "id": "구성-전용-actor-component"
+      },
+      {
+        "level": 2,
+        "title": "16. 사용 책임 경계",
+        "id": "16-사용-책임-경계"
+      },
+      {
+        "level": 2,
+        "title": "17. 구현 체크리스트",
+        "id": "17-구현-체크리스트"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "needs-product-review",
+    "screenshotRequirements": [
+      "No fabricated screenshots; validate API tables against public headers."
+    ],
+    "translation": {
+      "status": "language-only",
+      "counterpartId": null
+    },
+    "lastReviewed": "2026-08-01"
+  },
+  {
+    "id": "ko-runtime-actor-integration",
+    "lang": "ko",
+    "slug": "runtime-actor-integration",
+    "title": "Runtime Actor 통합 가이드: Blueprint로 우주선과 캐릭터 연결하기",
+    "description": "이 문서는 PlanetX를 처음 사용하는 게임 플레이 프로그래머 또는 레벨 디자이너가 Blueprint Actor를 PlanetX Runtime에 연결하는 방법을 설명합니다. 예시는 BP SpaceShip이 Orbit에서 행성의 Ground로 내려가고 다시 Orbit으로 돌아오는 흐름을 기준으로 하지만, Pawn과...",
+    "category": "Runtime",
+    "order": 12,
+    "sourceFile": "12_Runtime_Actor_Integration.md",
+    "sourcePath": "source-docs/ko/12_Runtime_Actor_Integration.md",
+    "content": "\r\n[문서 홈](/docs/ko/overview) · [Runtime Integration 개요](/docs/ko/runtime-integration) · [공개 API 전체 목록](/docs/ko/user-api) · [오류 해결](/docs/ko/troubleshooting)\r\n\r\n이 문서는 PlanetX를 처음 사용하는 게임 플레이 프로그래머 또는 레벨 디자이너가 Blueprint Actor를 PlanetX Runtime에 연결하는 방법을 설명합니다. 예시는 `BP_SpaceShip`이 Orbit에서 행성의 Ground로 내려가고 다시 Orbit으로 돌아오는 흐름을 기준으로 하지만, Pawn과 Character에도 같은 원칙을 적용할 수 있습니다.\r\n\r\n이 문서를 끝까지 따르면 다음을 할 수 있습니다.\r\n\r\n- `BP_SpaceShip`이 어느 Planet을 기준으로 움직이는지 지정한다.\r\n- PlanetX Native Movement로 행성 기준 입력을 처리한다.\r\n- 버튼으로 Same World 착륙/복귀를 실행한다.\r\n- 전환 영역에 진입하면 자동으로 착륙/복귀하도록 설정한다.\r\n- `Add PlanetX Input Vector`가 `false`를 반환하는 이유를 찾는다.\r\n\r\n> 이 문서는 이미 Planet Asset과 Section을 만들고 Bake를 완료했다는 전제입니다. 아직 Planet을 만들지 않았다면 먼저 [Quick Start](/docs/ko/getting-started)를 완료하십시오.\r\n\r\n## 1. 먼저 선택할 Runtime 방식\r\n\r\nPlanetX Runtime에는 서로 목적이 다른 세 가지 진입 방식이 있습니다. 처음 검증할 때는 **Same World 수동 착륙**을 권장합니다. 필요한 요소가 가장 적고 오류 위치를 쉽게 확인할 수 있습니다.\r\n\r\n| 목표 | 사용할 방식 | 핵심 API/설정 |\r\n|---|---|---|\r\n| 버튼을 눌러 같은 월드에서 착륙 | Same World 수동 | `Query Surface At Planet X Transform` → `Enter Ground Same World` |\r\n| 전환 영역에 들어가면 자동 착륙 | Same World 자동 | Coordinate 정책 + Viewpoint + Transition Endpoint |\r\n| Ground Map으로 실제 Level 이동 | Level Handoff | `Prepare Travel` → 게임의 Travel → `Resume Pending Travel` |\r\n| 행성 기준 이동/중력/표면 정렬 | PlanetX Native Movement | `PlanetXMovementComponent` |\r\n| 기존 Character/Vehicle/Physics 유지 | 기존 이동 구현 + Handoff | `PlanetXMovementInteropLibrary` |\r\n\r\nPlanetX는 `Open Level`, Pawn Spawn, Possess, GameMode, 네트워크 복제를 대신하지 않습니다. Level을 바꾸는 경우에는 게임 Blueprint 또는 게임 코드가 그 흐름을 소유해야 합니다.\r\n\r\n## 2. Runtime의 핵심 연결 구조\r\n\r\n```mermaid\r\nflowchart LR\r\n    PA[\"Planet Asset\\nPlanet ID · Section · Level Pair\"] --> P[\"PlanetX Planet Actor\\nPlanet Component\"]\r\n    P --> C[\"BP_SpaceShip\\nPlanetX Coordinate Component\"]\r\n    C --> M[\"선택: PlanetX Movement Component\"]\r\n    V[\"ViewTarget\\nCamera + Viewpoint Component\"] --> T[\"Transition Endpoint\\nOrbit 경계\"]\r\n    T --> R[\"PlanetX Runtime\"]\r\n    R --> A[\"자동 Same World 착륙/복귀\"]\r\n    C --> A\r\n```\r\n\r\n각 요소의 책임을 구분하면 문제를 훨씬 쉽게 해결할 수 있습니다.\r\n\r\n| 요소 | 책임 | 하지 않는 일 |\r\n|---|---|---|\r\n| `PlanetX Planet Actor` | Planet Asset 제공, Runtime 등록, 행성 좌표 기준 제공 | 플레이어를 이동시키지 않음 |\r\n| `PlanetXCoordinateComponent` | Actor와 Planet의 참조 연결, 좌표/방향 변환, 자동 진입 참여 | 매 Tick 이동을 만들지 않음 |\r\n| `PlanetXMovementComponent` | 선택적 Native 이동, 중력, 표면 정렬 | CharacterMovement/Physics를 자동 제어하지 않음 |\r\n| `PlanetXViewpointComponent` | 현재 카메라가 전환 상태를 판정할 수 있게 표시 | 우주선을 자동으로 이동시키지 않음 |\r\n| `PlanetXTransitionEndpoint` | Section의 전환 경계를 Runtime에 등록 | 전환 상태 기계를 직접 소유하지 않음 |\r\n| `PlanetXSubsystem` | Surface Query, 착륙/복귀, Travel Ticket의 공개 진입점 | 내부 Runtime Service를 노출하지 않음 |\r\n\r\n## 3. 착륙 전에 Planet 쪽을 준비한다\r\n\r\n현재 플레이하는 World에 다음 상태가 갖춰져 있어야 합니다.\r\n\r\n### 3.1 Planet Actor\r\n\r\n1. 레벨에 **PlanetX Planet Actor**를 배치합니다.\r\n2. Actor의 **Planet Component → Planet Asset**에 만든 `Planet Asset`을 지정합니다.\r\n3. `Auto Register Runtime`은 켜 둡니다.\r\n4. 같은 Planet Asset을 여러 Planet Actor가 사용한다면 각 Actor에 고유한 `Planet Binding ID`를 지정합니다.\r\n\r\nPlanet Actor를 런타임에 Spawn하거나 `Auto Register Runtime`을 끈 경우에는 Planet Component 또는 Planet Actor에서 **Register To PlanetX Runtime**을 호출해야 합니다. 다만 이것은 Runtime Surface Query와 전환을 위한 등록입니다. 아래의 `Missing Planet Reference` 오류는 우선 Actor와 Asset 참조가 유효한지부터 확인해야 합니다.\r\n\r\n### 3.2 Section과 Level Pair\r\n\r\nSame World 착륙이 가능하려면 목표 Section의 Level Pair가 다음 조건을 충족해야 합니다.\r\n\r\n- `Entry Mode = Same World`\r\n- `Can Enter Ground = true`\r\n- `Visual Only = false`\r\n- Ground Sync Mapping과 Ground 표현이 유효함\r\n\r\n착륙 전에는 항상 Surface Query 결과의 `bCanEnterGround`를 확인하십시오. 표면에 맞았다고 해서 반드시 해당 위치가 착륙 가능한 Section이라는 뜻은 아닙니다.\r\n\r\n### 3.3 시작 전 확인할 점\r\n\r\nPlanet Asset Editor의 Diagnostics에서 Error가 없는지 확인하고, PIE에서 Planet Actor가 실제로 로드된 상태인지 확인합니다. 문제를 분리할 때는 `PlanetXSubsystem → Validate Planet Asset`과 `Draw Planet Debug`가 유용합니다.\r\n\r\n## 4. BP_SpaceShip에 Component를 추가한다\r\n\r\n`BP_SpaceShip`을 열고 아래 Component를 추가합니다.\r\n\r\n| Component                      |     필요 여부 | 언제 쓰는가                                      |\r\n| ------------------------------ | --------: | ------------------------------------------- |\r\n| `PlanetX Coordinate Component` |        필수 | Planet 참조, 좌표 변환, 착륙/복귀                     |\r\n| `PlanetX Movement Component`   |        선택 | PlanetX가 우주선 이동을 직접 처리할 때                   |\r\n| `PlanetX Viewpoint Component`  | 자동 전환에 필수 | 우주선 또는 카메라가 PlayerController의 ViewTarget일 때 |\r\n| `Camera Component`             | 자동 전환에 필수 | 현재 ViewTarget의 활성 카메라                       |\r\n\r\n### 4.1 Coordinate Component 기본 설정\r\n\r\n`PlanetXCoordinateComponent`를 선택하고 다음을 설정합니다.\r\n\r\n| Details 항목                                        | 권장 값              | 이유                                      |\r\n| ------------------------------------------------- | ----------------- | --------------------------------------- |\r\n| `Auto Register Runtime`                           | `true`            | Actor Runtime Context와 자동 진입 참여에 필요     |\r\n| `Representation Domain`                           | `Orbit`           | 우주선의 기본 표현 영역                           |\r\n| `Runtime Load Policy`                             | `PlanetX Default` | Orbit Actor를 always-loaded 정책으로 다룰 때 사용 |\r\n| `Reference Planet Actor` 또는 `Reference Planet Id` | 아래 5장 참고          | 우주선이 기준으로 삼을 Planet 지정                  |\r\n\r\nWorld Partition을 사용하는 Orbit Actor에는 `PlanetX Default` 정책을 유지하고, 필요한 경우 Details의 **Apply Default Runtime Load Policy To Owner**를 실행합니다. Data Layer와 Streaming Source 정책은 게임 프로젝트가 별도로 관리합니다.\r\n\r\n### 4.2 Native Movement를 사용할 때의 Actor 조건\r\n\r\n`PlanetXMovementComponent`는 `UpdatedComponent`를 이동시키는 kinematic Movement Component입니다. 기본적으로 Owner의 Root Component를 사용합니다.\r\n\r\n- Root Component의 Mobility는 `Movable`이어야 합니다.\r\n- Native Movement 테스트 중 Root Mesh의 `Simulate Physics`는 꺼 둡니다.\r\n- 기존 `CharacterMovement`, Vehicle Movement 또는 자체 Physics 이동을 동시에 켜 두지 않습니다.\r\n- Root가 아닌 Component를 움직여야 한다면 `Updated Component`를 명시적으로 지정합니다.\r\n\r\nPhysics 기반 우주선을 만들고 싶다면 PlanetX Native Movement를 대신 사용할 것이 아니라 Physics Body Handoff API 또는 프로젝트의 물리 제어 코드를 사용하십시오. PlanetX는 Physics 상태를 자동으로 바꾸지 않습니다.\r\n\r\n## 5. Reference Planet을 지정한다\r\n\r\n이 단계가 빠지면 `Add PlanetX Input Vector`가 `false`를 반환하면서 `Missing Planet Reference`가 발생합니다.\r\n\r\nCoordinate Component는 아래 순서로 기준 Planet을 찾습니다.\r\n\r\n```text\r\nReference Planet Actor\r\n→ 없으면 Reference Planet Id가 같은 Planet Actor를 현재 World에서 탐색\r\n→ 둘 다 없거나 Planet Asset이 없으면 Missing Planet Reference\r\n```\r\n\r\nPlanetX가 거리만 보고 가장 가까운 Planet을 자동으로 선택하지는 않습니다. 여러 Planet이 있는 게임에서 잘못된 Planet을 선택하지 않기 위한 의도적인 규칙입니다.\r\n\r\n### 5.1 레벨에 미리 배치한 우주선\r\n\r\n1. 레벨에서 `BP_SpaceShip` 인스턴스를 선택합니다.\r\n2. Components 패널에서 `PlanetXCoordinateComponent`를 선택합니다.\r\n3. Details의 **Reference Planet Actor** 스포이드로 월드의 PlanetX Planet Actor를 지정합니다.\r\n4. `Current Planet Actor`와 `Current Planet Asset`이 올바르게 표시되는지 확인합니다.\r\n\r\n### 5.2 런타임에 Spawn하는 우주선\r\n\r\nBlueprint 클래스 기본값에서는 월드에 배치된 Actor를 안전하게 참조할 수 없습니다. `BP_SpaceShip`의 `Event BeginPlay`에서 Actor를 찾아 할당하십시오.\r\n\r\n```text\r\nEvent BeginPlay\r\n→ Get Actor Of Class (Class = PlanetXPlanetActor)\r\n→ Get PlanetXCoordinateComponent\r\n→ Set Reference Planet Actor\r\n→ Refresh Coordinate Snapshot\r\n```\r\n\r\n`Set Reference Planet Actor`는 별도 Subsystem API가 아니라 Coordinate Component의 Blueprint writable 속성입니다. Component 참조 핀에서 드래그하여 노드를 검색할 수 있습니다. 런타임에 참조를 바꾼 직후에는 **Refresh Coordinate Snapshot**을 호출해야 새 Planet Actor와 Asset을 즉시 해석합니다. `Refresh Runtime Context`는 Runtime이 계산한 Context를 읽어 갱신하는 용도이며, 새 Reference를 초기화하는 대체 수단이 아닙니다.\r\n\r\nWorld에 Planet이 여러 개면 `Get Actor Of Class`를 그대로 쓰지 마십시오. Actor Tag, 고유한 Planet Actor Blueprint, Spawn 시 전달한 Actor 참조 등으로 목표 Planet을 명시적으로 선택합니다.\r\n\r\n### 5.3 Actor 참조 대신 Planet ID로 찾기\r\n\r\n`Reference Planet Actor`를 비워 둔 상태에서 **Reference Planet Id**에 Planet Asset의 `PlanetId`를 넣어도 됩니다. Planet Actor가 하나인 단순한 맵에서는 이 방식이 편합니다.\r\n\r\n같은 `PlanetId`를 가진 Planet Actor가 여러 개라면 어떤 World 인스턴스를 뜻하는지 모호해질 수 있습니다. 이 경우에는 `Reference Planet Actor`와 필요 시 `Planet Binding ID`를 명시하십시오.\r\n\r\n### 5.4 가장 빠른 참조 검증\r\n\r\nBeginPlay 직후 다음처럼 확인합니다.\r\n\r\n```text\r\nGet PlanetXCoordinateComponent\r\n→ Get Resolved Planet Component\r\n→ Is Valid?\r\n```\r\n\r\n`false`라면 입력, 표면 프레임, 중력, 착륙 모두 실패할 수 있습니다. Planet Actor에 `Planet Asset`이 비어 있지 않은지부터 다시 확인하십시오.\r\n\r\n## 6. PlanetX Native Movement로 움직이기\r\n\r\nNative Movement는 `Add PlanetX Input Vector`에 들어온 입력을 **다음 Movement Tick에만** 사용합니다. 따라서 Enhanced Input의 `Started` 한 번에서 호출하면 지속 이동하지 않습니다.\r\n\r\n### 6.1 처음에는 World Vector로 테스트\r\n\r\n참조와 입력 자체를 먼저 검증할 때는 `Vector Space = World`를 사용합니다.\r\n\r\n```text\r\nIA_Move (Triggered)\r\n→ Action Value (Vector2D)\r\n→ Make Vector (X, Y, 0)\r\n→ Add PlanetX Input Vector\r\n    Target = PlanetXMovementComponent\r\n    Vector Space = World\r\n```\r\n\r\n`Triggered` 또는 기존 Axis 이벤트처럼 매 프레임 실행되는 이벤트에서 호출해야 합니다. `Add PlanetX Input Vector`는 매 Tick 후 입력 누적값을 지우므로, `Started`만 연결하면 키를 누르고 있어도 다음 프레임에는 입력이 없습니다.\r\n\r\n### 6.2 표면 기준 이동으로 바꾸기\r\n\r\nWorld Vector 이동이 정상이라면 `Vector Space = Surface Frame`으로 바꿉니다.\r\n\r\n```text\r\nIA_Move (Triggered)\r\n→ Make Vector (Forward/Right 입력, 0)\r\n→ Add PlanetX Input Vector\r\n    Vector Space = Surface Frame\r\n    Project To Surface Tangent = true\r\n```\r\n\r\nSurface Frame의 축은 다음과 같습니다.\r\n\r\n| 값 | 방향 |\r\n|---|---|\r\n| X | Surface East |\r\n| Y | Surface North |\r\n| Z | Surface Up |\r\n\r\n표면을 따라 이동하려면 `Project To Surface Tangent = true`를 권장합니다. 자유로운 우주 비행처럼 위/아래 성분도 사용하려면 `World` 또는 `Planet Local` Vector Space를 사용하고 Tangent 투영을 끕니다.\r\n\r\n### 6.3 Native Movement 설정 예시\r\n\r\n처음에는 다음처럼 단순하게 설정하면 원인을 분리하기 쉽습니다.\r\n\r\n| 설정 | 테스트 권장값 |\r\n|---|---|\r\n| `Maximum Speed Cm Per Second` | `1200` 이상 |\r\n| `Acceleration Cm Per Second Squared` | `4096` 이상 |\r\n| `Deceleration Cm Per Second Squared` | `4096` 이상 |\r\n| `Apply Planet Gravity` | 이동 확인 전에는 `false` |\r\n| `Align Up To Surface` | 지상/표면 이동이면 `true` |\r\n| `Sweep In Orbit` | 충돌이 필요할 때만 `true` |\r\n\r\n입력 후 `Get PlanetX Velocity` 또는 `Get Movement Runtime State`로 `Velocity World`가 변하는지 확인합니다.\r\n\r\n### 6.4 행성 중력 설정\r\n\r\nPlanetX의 방사형 중력은 **Planet Actor의 Planet Component**가 계산하고, 이를 실제로 적용할지는 각 Actor의 `PlanetXMovementComponent`가 결정합니다. 따라서 Planet Asset만 설정했다고 우주선에 자동으로 중력이 적용되지는 않습니다.\r\n\r\n```mermaid\r\nflowchart LR\r\n    G[\"Planet Actor\\nGravity Settings\"] --> C[\"Get Gravity Acceleration\\nAt World Location\"]\r\n    C --> M[\"BP_SpaceShip\\nMovement Component\"]\r\n    M --> S[\"bApply Planet Gravity\\nGravity Scale\"]\r\n    S --> V[\"Velocity World에\\n가속도 적용\"]\r\n```\r\n\r\n#### Planet Actor: Gravity Settings\r\n\r\nPlanet Actor의 **Planet Component → Gravity Settings**에서 다음을 설정합니다.\r\n\r\n| 항목 | 의미 | 시작 권장값 |\r\n|---|---|---|\r\n| `Enabled` | 행성 중력 계산 활성화 | `true` |\r\n| `Model = Constant Surface` | 고도와 관계없이 일정한 방사형 중력 | 지상/아케이드 게임 |\r\n| `Model = Inverse Square` | `표면 중력 × (행성 반지름 / 중심까지 거리)²` | 우주 비행 시뮬레이션 |\r\n| `Surface Acceleration` | 표면에서의 가속도, 단위 `cm/s²` | 지구와 비슷하게는 `980` |\r\n| `Maximum Acceleration` | 중심 근처의 과도한 가속도 상한 | 기본값 유지 후 필요 시 조절 |\r\n\r\n중력 방향은 언제나 Planet Actor의 중심을 향합니다. Planet Actor를 다른 위치에 배치하면 중력 중심도 함께 바뀝니다.\r\n\r\n#### 우주선: 실제 중력 적용 여부\r\n\r\n`BP_SpaceShip → PlanetXMovementComponent → Gravity`에서 설정합니다.\r\n\r\n| 항목 | 의미 |\r\n|---|---|\r\n| `Apply Planet Gravity` | Orbit/Transition에서 Planet Actor가 계산한 방사형 중력을 Native Movement에 적용 |\r\n| `Apply Planet Gravity In Ground` | Ground에서도 PlanetX 방사형 중력을 적용. 기본값은 `false` |\r\n| `Gravity Scale` | 이 Actor에만 적용하는 중력 배수. `0`은 사실상 무중력 |\r\n\r\n자유 비행 우주선의 첫 테스트에서는 `Apply Planet Gravity = false`를 권장합니다. 조종과 착륙 흐름이 확인된 뒤 중력을 켜면, 중력 때문에 입력 실패처럼 보이는 문제를 피할 수 있습니다.\r\n\r\nGround에서 `Apply Planet Gravity In Ground = false`는 **PlanetX Native Movement가** 방사형 중력을 더하지 않는다는 뜻입니다. UE CharacterMovement의 기본 중력, Physics Body의 중력, 또는 프로젝트의 Custom Gravity를 자동으로 켜거나 끄지는 않습니다. 같은 Actor에 두 종류의 중력을 중복 적용하지 않도록 정책을 하나만 선택하십시오.\r\n\r\n#### External Level에서의 중력\r\n\r\n`Entry Mode = Level Handoff`인 경우 Orbit World와 Ground World의 Planet Actor는 서로 다른 월드 인스턴스입니다. `Gravity Settings`는 Planet Asset이 아니라 **각 World의 Planet Component가 소유하는 설정**이므로, 두 World의 Planet Actor에 원하는 값을 각각 설정해야 합니다.\r\n\r\nTravel Ticket은 pose와 전환 상태를 전달하지만 중력 설정을 동기화하는 수단이 아닙니다. Target World에서 `Resume Pending Travel`이 끝난 뒤 우주선 Coordinate Component가 Target Planet Actor를 올바르게 참조하고 있는지 확인하십시오.\r\n\r\n#### 중력 디버그\r\n\r\n다음 중 하나로 현재 적용값을 확인합니다.\r\n\r\n```text\r\nPlanet Component → Get Gravity Acceleration At World Location\r\n    World Location = BP_SpaceShip의 현재 위치\r\n\r\n또는\r\n\r\nPlanetXMovementComponent → Get Movement Runtime State\r\n    → Gravity Acceleration World 출력\r\n```\r\n\r\n첫 API는 계산 가능한 방사형 중력 벡터를 반환하고, 두 번째 API는 Native Movement가 이번 Tick에 실제로 적용한 중력 가속도를 보여 줍니다.\r\n\r\n### 6.5 입력 노드가 false일 때\r\n\r\n`Add PlanetX Input Vector`의 Return Value를 반드시 Branch와 `Print String`에 연결하십시오. `false`이면 바로 이어서 `Get Movement Runtime State`를 호출하고 `Failure Reason`을 출력합니다.\r\n\r\n| Failure Reason                 | 원인                                                        | 해결                                                  |\r\n| ------------------------------ | --------------------------------------------------------- | --------------------------------------------------- |\r\n| `Inactive Component`           | Movement Component가 비활성                                   | Component의 Active를 켜고 Activate                      |\r\n| `Missing Owner`                | 정상 Blueprint 사용에서는 드묾                                     | Component를 유효한 Actor에 추가                            |\r\n| `Missing Updated Component`    | Root/Updated Component가 없음                                | Movable Root를 만들거나 Updated Component 지정             |\r\n| `Missing Coordinate Component` | 같은 Actor에 Coordinate Component가 없음                        | Coordinate Component 추가 또는 올바른 Component 참조 지정      |\r\n| `Missing Planet Reference`     | Coordinate Component가 Planet Actor와 Planet Asset을 해석하지 못함 | 5장의 Reference Planet 설정 확인                          |\r\n| `Invalid Coordinate Vector`    | `Surface Frame`/`Section Local` 변환 실패                     | 먼저 `World` Vector Space로 테스트하고 Planet 참조/Section 확인 |\r\n\r\n추가로 **Validate Movement Configuration**을 BeginPlay에 한 번 호출해 Error Message를 출력해 두면, PIE에서 설정 실수를 즉시 확인할 수 있습니다.\r\n\r\n## 7. 버튼으로 Same World 착륙시키기\r\n\r\n이 방법은 전환 영역, Viewpoint, Transition Endpoint 없이도 착륙 명령 자체를 확인할 수 있는 가장 단순한 흐름입니다. Same World는 Ground 콘텐츠가 이미 같은 World에 존재하는 구조이며, PlanetX가 Ground Map을 열거나 스트리밍하는 방식이 아닙니다. Planet Asset의 Section/Level Pair와 Ground Mapping은 유효해야 합니다.\r\n\r\n### 7.1 착륙 Blueprint 흐름\r\n\r\n예를 들어 `IA_Land`의 `Started`에서 다음 순서를 만듭니다.\r\n\r\n```text\r\nGet PlanetXCoordinateComponent\r\n→ Capture Owner Transform To PlanetX\r\n→ Get PlanetX Transform\r\n→ Get Game Instance Subsystem (PlanetXSubsystem)\r\n→ Query Surface At Planet X Transform\r\n→ Break PlanetXSurfaceQueryResult\r\n→ Branch (bCanEnterGround)\r\n→ Enter Ground Same World\r\n    Request Actor = Self\r\n    Surface Query = 위 Query 결과\r\n```\r\n\r\n각 `bool` 반환값은 다음 노드로 넘어가기 전에 Branch로 검사하십시오. 특히 `Query Surface At Planet X Transform`이 성공해도 `bCanEnterGround`가 `false`이면 진입하면 안 됩니다.\r\n\r\n`Enter Ground Same World`는 현재 Actor의 PlanetX pose를 Capture하고, Surface Query가 가리키는 Ground pose에 적용합니다. 같은 Actor가 유지되므로 Spawn이나 Possess를 추가로 할 필요는 없습니다.\r\n\r\n### 7.2 Orbit으로 복귀하기\r\n\r\n복귀 입력에는 다음만 호출합니다.\r\n\r\n```text\r\nGet Game Instance Subsystem (PlanetXSubsystem)\r\n→ Return To Orbit Same World\r\n    Request Actor = Self\r\n```\r\n\r\n수동으로 여러 Actor를 착륙시켰다면 복귀는 진입의 역순으로 처리하십시오. 수동 Same World 복귀는 저장된 Capture 순서를 사용합니다.\r\n\r\n### 7.3 착륙 위치만 미리 보고 싶을 때\r\n\r\n`Enter Ground Same World` 전에 **Build Landing Transform**을 호출하면 적용될 Ground Transform과 Surface Frame을 확인할 수 있습니다. 디버그 표시, 착륙 UI, 카메라 연출을 만들 때 유용하지만 Transform을 직접 적용한 뒤 Enter API를 또 호출하지는 마십시오.\r\n\r\n## 8. 전환 영역에서 자동 착륙시키기\r\n\r\n자동 착륙은 플레이어의 현재 관찰 위치가 Transition Cylinder에 들어갔을 때 동작합니다. 각 기능을 하나씩 수동으로 호출하는 대신, Runtime이 전환 상태와 Capture를 처리합니다.\r\n\r\n### 8.1 필요한 구성\r\n\r\n| 위치 | 필요한 것 | 주요 설정 |\r\n|---|---|---|\r\n| Planet/Orbit World | `PlanetXTransitionEndpoint` | `Endpoint Role = Orbit`, Planet Actor, Section Id, Level Pair Id |\r\n| Player의 ViewTarget | 활성 `Camera Component` | PlayerController가 이 Actor를 ViewTarget으로 사용 |\r\n| Player의 ViewTarget | `PlanetXViewpointComponent` | `Auto Register Runtime = true`, `Can Drive Transition State = true` |\r\n| 자동 이동할 우주선 | `PlanetXCoordinateComponent` | 올바른 Planet 참조, 자동 Entry/Return 활성화 |\r\n\r\n전환은 우주선 Actor 자체의 위치만 보는 것이 아니라 **PlayerController의 실제 ViewTarget과 활성 Camera**를 우선 사용합니다. 우주선이 ViewTarget이 아니라면 Camera가 붙은 실제 ViewTarget Actor에 `PlanetXViewpointComponent`를 추가하십시오.\r\n\r\n### 8.2 Transition Endpoint 설정\r\n\r\nOrbit World에 `PlanetXTransitionEndpoint`를 배치하고 다음을 지정합니다.\r\n\r\n1. `Endpoint Role = Orbit`\r\n2. `Planet Actor`에 현재 World의 PlanetX Planet Actor 지정\r\n3. `Section Id`와 `Level Pair Id`에 목표 착륙 Section의 값을 지정\r\n4. `Auto Size Transition Cylinder To Section Bounds`는 처음에는 켜 둠\r\n5. 필요하면 `Outer Radius`, `Inner Radius`, 높이 제한을 조정\r\n\r\nEndpoint는 전환 상태를 직접 실행하는 Actor가 아니라, 전환 중심과 Cylinder 규칙을 Runtime에 등록하는 authoring Actor입니다. PlanetX Runtime이 매 프레임 Orbit/Transition/Ground 상태와 Alpha를 계산합니다.\r\n\r\n### 8.3 우주선의 자동 진입 정책 설정\r\n\r\n`BP_SpaceShip`의 Coordinate Component에서 다음 노드를 BeginPlay에 연결하거나 Details에서 값을 설정합니다.\r\n\r\n```text\r\nSet Automatic Same World Entry Enabled(true)\r\nSet Automatic Same World Return Enabled(true)\r\n```\r\n\r\n`Spatial Entry Policy → Movement Continuity Policy`는 일반적으로 `Rebase Between Frames`를 사용합니다.\r\n\r\n| 정책 | 사용 시점 |\r\n|---|---|\r\n| `Rebase Between Frames` | 일반적인 행성 좌표 전환. Source 속도의 의미를 목표 frame으로 변환 |\r\n| `Preserve World` | World 공간 속도를 그대로 유지하고 싶을 때 |\r\n| `Reset` | 착륙/복귀 순간 속도를 0으로 만들 때 |\r\n| `Do Not Apply` | 이동 구현이 속도를 자체적으로 관리할 때 |\r\n\r\n> 자동 진입에 참여한 Actor는 같은 Planet의 활성 전환 결과를 사용합니다. 여러 우주선이 같은 Planet에서 자동 Entry를 켜면 플레이어 카메라의 전환에 함께 반응할 수 있습니다. 플레이어가 조종하는 Actor만 자동 Entry를 켜고, AI/배경 Actor는 수동 API 또는 별도 정책으로 제어하는 편이 안전합니다.\r\n\r\n### 8.4 자동 전환이 일어나지 않을 때\r\n\r\n아래 순서로 확인합니다.\r\n\r\n1. ViewTarget에 활성 Camera와 `PlanetXViewpointComponent`가 모두 있는가?\r\n2. `Can Drive Transition State`가 켜져 있는가?\r\n3. Orbit Endpoint가 PIE에서 Runtime에 등록되었는가?\r\n4. Endpoint의 Planet Actor/Section Id/Level Pair Id가 올바른가?\r\n5. Level Pair가 `Same World`, `Can Enter Ground`, `Visual Only = false` 조건을 만족하는가?\r\n6. 우주선 Coordinate Component에 `Reference Planet Actor` 또는 `Reference Planet Id`가 있는가?\r\n7. 우주선의 `Automatic Same World Entry Enabled`가 켜져 있는가?\r\n\r\nPIE에서 `Get Transition Runtime Result`를 호출하거나 PlanetX Mode의 Runtime 팔레트를 사용해 `State`, `Alpha`, `bGroundHandoffReady`를 확인하십시오. 이 API의 `Source Object`는 보통 `BP_SpaceShip`이 아니라 전환 규칙을 등록한 `PlanetXTransitionEndpoint`입니다.\r\n\r\n## 9. Ground World가 별도 Level일 때\r\n\r\nGround로 들어갈 때 실제로 다른 World를 열어야 한다면 Same World API가 아니라 Level Handoff를 사용합니다.\r\n\r\n```text\r\nSource World\r\n  Surface Query\r\n  → Prepare Travel\r\n  → 게임이 Ticket을 GameInstance 등에 보관\r\n  → 게임이 Open Level / Seamless Travel 실행\r\n\r\nTarget World\r\n  Planet Actor 등록 완료\r\n  → Target Pawn Spawn / Possess\r\n  → Resume Pending Travel\r\n```\r\n\r\nTarget Actor에 `PlanetXTravelReceiverComponent`를 추가하면 BeginPlay 후 Pending Travel 복원을 자동 재시도할 수 있습니다. 그래도 Travel, 로딩 화면, Pawn 생성, Possess, 복제 정책은 게임이 직접 구현해야 합니다.\r\n\r\n`FPlanetXLevelHandoffTicket`은 일부 필드만 복사하지 말고 구조체 전체를 한 묶음으로 보관하십시오. 성공한 Resume/Complete만 해당 Capture를 소비합니다.\r\n\r\n### 9.1 External LAND: Orbit World에서 Travel 시작하기\r\n\r\nExternal 모드에서 `LAND` 입력은 Same World의 `Enter Ground Same World`가 아니라 **Travel Ticket을 준비하는 입력**입니다. Level Pair의 `Entry Mode`가 `Level Handoff`이고 `Ground World`가 지정돼 있어야 합니다.\r\n\r\n아래는 `BP_SpaceShip`의 `IA_Land`에 연결할 권장 흐름입니다.\r\n\r\n```text\r\nIA_Land (Started)\r\n→ Coordinate: Capture Owner Transform To PlanetX\r\n→ Coordinate: Get PlanetX Transform\r\n→ PlanetXSubsystem: Query Surface At Planet X Transform\r\n→ Branch (Query 성공 AND Surface.bCanEnterGround)\r\n→ PlanetXSubsystem: Get Level Pair For Section\r\n→ Make PlanetXTravelRoute\r\n    World            = LevelPair.GroundWorld\r\n    PlanetId         = Surface.PlanetId\r\n    SectionId        = Surface.SectionId\r\n    PlanetActorIndex = 0\r\n    PlanetBindingId  = Surface.PlanetBindingId\r\n→ PlanetXSubsystem: Prepare Travel\r\n    Source Actor = Self\r\n    Surface Query = Surface\r\n    Target Route = 위 Route\r\n→ Branch (성공)\r\n→ Ticket 전체와 JourneyId를 GameInstance 등의 Travel 후에도 남는 위치에 보관\r\n→ 게임의 Open Level / Seamless Travel\r\n    Target = Ticket.TargetWorld\r\n```\r\n\r\n`Prepare Travel`의 `Target Route`는 Surface Query와 같은 `PlanetId`, `SectionId`를 가져야 합니다. `World`, `PlanetId`, `SectionId`, `PlanetActorIndex` 중 하나라도 비어 있으면 Ticket 생성이 실패합니다. Target World에 같은 PlanetId의 Planet Actor가 여러 개면 `PlanetBindingId`를 명시해 대상 인스턴스를 고정하십시오.\r\n\r\n`Prepare Travel`이 성공해도 아직 Actor를 이동시키지 않습니다. 반환된 `Ticket.TargetWorld`를 사용해 게임이 Level 이동을 실행해야 합니다. 실패했을 때는 `FPlanetXLevelHandoffResult`의 Error를 출력하고 Travel을 시작하지 마십시오.\r\n\r\n### 9.2 External LAND: Ground World에서 도착 Pawn 복원하기\r\n\r\nGround World가 열리면 다음 순서가 중요합니다.\r\n\r\n```text\r\nTarget World BeginPlay\r\n→ Ground World의 PlanetX Planet Actor가 Runtime 등록 완료\r\n→ Target Pawn Spawn 및 Possess\r\n→ 아래 둘 중 하나 선택\r\n   A. PlanetXSubsystem: Resume Pending Travel (Target Actor = 새 Pawn)\r\n   B. Target Pawn의 PlanetXTravelReceiverComponent가 자동 Resume\r\n```\r\n\r\n`PlanetXTravelReceiverComponent`를 쓴다면 `Auto Resume Pending Travel = true`로 두고 `Arrival Retry Timeout Seconds`를 설정합니다. Planet Actor 등록이 약간 늦어져도 설정된 시간 동안 재시도합니다. 이 경우에는 같은 Pawn에서 수동 `Resume Pending Travel`을 동시에 호출하지 마십시오.\r\n\r\n도착 Pawn도 이후 이동/복귀에 사용할 `PlanetXCoordinateComponent`를 가져야 합니다. 런타임 Spawn Pawn이라면 Target World의 Planet Actor를 다시 `Reference Planet Actor`에 할당하고 **Refresh Coordinate Snapshot**을 호출하십시오.\r\n\r\n### 9.3 Ground에서 Orbit World로 돌아가기\r\n\r\n복귀에는 출발 Ticket의 `JourneyId`를 사용합니다.\r\n\r\n```text\r\nIA_ReturnOrbit (Started)\r\n→ PlanetXSubsystem: Begin Return Level Handoff\r\n    Journey Id    = 저장한 JourneyId\r\n    Source Actor  = 현재 Ground Pawn\r\n    Resume Alpha  = 0\r\n→ Branch (성공)\r\n→ 게임의 Open Level / Seamless Travel\r\n    Target = Return Ticket.TargetWorld\r\n→ Orbit World의 Target Pawn에서 Resume Pending Travel\r\n   또는 TravelReceiver의 자동 Resume\r\n```\r\n\r\nExternal Level에는 `Return To Orbit Same World`를 사용하지 않습니다. `Automatic Same World Entry/Return`도 이 Travel을 대신 실행하지 않습니다.\r\n\r\n### 9.4 External LAND 실패를 진단하는 순서\r\n\r\n| 증상 | 먼저 확인할 것 |\r\n|---|---|\r\n| `Prepare Travel`이 false | Surface Query 성공, `bCanEnterGround`, Route의 World/PlanetId/SectionId |\r\n| Target World에서 복원 실패 | Target Planet Actor의 Runtime 등록, PlanetId/BindingId, Target Pawn 생성 시점 |\r\n| Spawn Pawn이 엉뚱한 Planet을 참조 | Target World에서 `Reference Planet Actor` 재할당 후 `Refresh Coordinate Snapshot` |\r\n| Resume가 두 번 실행됨 | TravelReceiver 자동 Resume와 수동 Resume 중 하나만 사용 |\r\n| Return Ticket 생성 실패 | 원본 LAND Ticket의 `JourneyId` 보관 여부와 Ground World 일치 여부 |\r\n\r\n## 10. Runtime 상태를 보는 방법\r\n\r\n문제가 생겼을 때 Transform을 추측해 수정하기보다 Runtime Snapshot을 읽으십시오.\r\n\r\n| 확인하려는 것 | Blueprint API | 핵심 출력 |\r\n|---|---|---|\r\n| 우주선이 어느 Planet/Section에 있는가 | `Get Actor Runtime Context` | PlanetId, SectionId, SpaceState, TransitionAlpha |\r\n| Native Movement가 왜 실패했는가 | `Get Movement Runtime State` | FailureReason, VelocityWorld, GravityAccelerationWorld |\r\n| 표면 착륙이 가능한가 | `Query Surface At Planet X Transform` | bHitPlanetSurface, bCanEnterGround, SectionId |\r\n| 전환이 어떤 상태인가 | `Get Transition Runtime Result` | State, Alpha, bGroundHandoffReady |\r\n| Planet과 Section 위치를 보고 싶다 | `Draw Planet Debug`, `Draw Section Debug` | 월드 디버그 표시 |\r\n| 현재 Actor 상태를 보고 싶다 | `Draw Actor Context Debug` | 월드 디버그 표시 |\r\n\r\n특히 다음 두 값을 처음에 출력해 두면 대부분의 구성 문제를 빠르게 찾습니다.\r\n\r\n```text\r\nCoordinateComponent → Get Resolved Planet Component → Is Valid\r\nMovementComponent  → Validate Movement Configuration → Error Message\r\n```\r\n\r\n## 11. 자주 묻는 문제\r\n\r\n### `Add PlanetX Input Vector`가 false다\r\n\r\nReturn Value만 보지 말고 `Get Movement Runtime State → Failure Reason`을 출력합니다. 가장 흔한 `Missing Planet Reference`는 Coordinate Component가 유효한 Planet Actor와 Planet Asset을 찾지 못했다는 뜻입니다. 5장을 다시 확인하고, 처음에는 `Vector Space = World`로 테스트합니다.\r\n\r\n### 입력을 연결했는데 한 번만 움직인다\r\n\r\n`Started`가 아니라 `Triggered` 또는 Axis 이벤트에서 `Add PlanetX Input Vector`를 호출합니다. 이 함수의 입력은 매 Movement Tick 후 초기화됩니다.\r\n\r\n### `Reference Planet Actor`가 자동으로 채워지지 않는다\r\n\r\nPlanetX는 가장 가까운 Planet을 자동 선택하지 않습니다. `Reference Planet Actor`를 명시하거나, `Reference Planet Id`를 설정해야 합니다. Spawn Actor라면 BeginPlay에서 Actor 참조를 할당한 뒤 `Refresh Coordinate Snapshot`을 호출합니다.\r\n\r\n### Planet Actor는 있는데 Reference가 없다고 나온다\r\n\r\nPlanet Actor의 `Planet Component → Planet Asset`이 비어 있으면 유효한 Reference로 취급되지 않습니다. Planet Asset을 지정한 뒤 PIE를 다시 시작하고, 우주선의 `Current Planet Actor`/`Current Planet Asset`을 확인합니다.\r\n\r\n### 자동 전환은 되는데 우주선이 움직이지 않는다\r\n\r\nCoordinate Component는 좌표/전환 참여용이지 이동 Component가 아닙니다. 직접 조종하려면 Native Movement 또는 기존 이동 구현을 별도로 사용해야 합니다.\r\n\r\n### Native Movement와 Physics를 같이 켜도 되는가\r\n\r\n권장하지 않습니다. `PlanetXMovementComponent`는 kinematic 이동이고, Physics Body는 별도의 제어 경로입니다. 전환 시에는 Movement Handoff API를 사용하거나 게임의 Physics 정책을 명시적으로 처리하십시오.\r\n\r\n## 12. 배포 전 체크리스트\r\n\r\n- [ ] PlanetX Planet Actor에 Planet Asset이 지정되어 있다.\r\n- [ ] Planet Actor가 Runtime에 등록되어 있다.\r\n- [ ] 우주선에 PlanetX Coordinate Component가 있다.\r\n- [ ] 우주선의 Reference Planet Actor 또는 Reference Planet Id가 유효하다.\r\n- [ ] Native Movement 사용 시 Movable Root, 비물리 Root, Movement Component 설정을 확인했다.\r\n- [ ] PlanetX 방사형 중력을 사용할 경우 Planet Actor와 Movement Component의 중력 설정을 모두 확인했다.\r\n- [ ] External Level이면 Orbit/Ground World의 Planet Actor 중력 설정을 각각 확인했다.\r\n- [ ] 입력은 `Triggered`/Axis 이벤트에서 매 프레임 전달한다.\r\n- [ ] 수동 착륙 전 Surface Query와 `bCanEnterGround`를 확인한다.\r\n- [ ] 자동 전환 사용 시 ViewTarget에 Camera + Viewpoint Component가 있다.\r\n- [ ] 자동 전환 사용 시 Orbit Transition Endpoint와 Same World Level Pair가 유효하다.\r\n- [ ] `bool` 반환값이 false일 때 Result 구조체 또는 Failure Reason을 로그로 남긴다.\r\n\r\n## 다음 문서\r\n\r\n- 각 함수의 전체 입력/출력과 C++ 사용법: [사용자 제공 API](/docs/ko/user-api)\r\n- Bake, Planet Asset, Section을 처음 구성하는 방법: [Quick Start](/docs/ko/getting-started)\r\n- World Partition 및 Large World 고려사항: [Large World와 World Partition](/docs/ko/large-world-world-partition)\r\n- 일반적인 Bake/Runtime 문제 해결: [Troubleshooting](/docs/ko/troubleshooting)\r\n",
+    "headings": [
+      {
+        "level": 1,
+        "title": "Runtime Actor 통합 가이드: Blueprint로 우주선과 캐릭터 연결하기",
+        "id": "runtime-actor-통합-가이드-blueprint로-우주선과-캐릭터-연결하기"
+      },
+      {
+        "level": 2,
+        "title": "1. 먼저 선택할 Runtime 방식",
+        "id": "1-먼저-선택할-runtime-방식"
+      },
+      {
+        "level": 2,
+        "title": "2. Runtime의 핵심 연결 구조",
+        "id": "2-runtime의-핵심-연결-구조"
+      },
+      {
+        "level": 2,
+        "title": "3. 착륙 전에 Planet 쪽을 준비한다",
+        "id": "3-착륙-전에-planet-쪽을-준비한다"
+      },
+      {
+        "level": 3,
+        "title": "3.1 Planet Actor",
+        "id": "3-1-planet-actor"
+      },
+      {
+        "level": 3,
+        "title": "3.2 Section과 Level Pair",
+        "id": "3-2-section과-level-pair"
+      },
+      {
+        "level": 3,
+        "title": "3.3 시작 전 확인할 점",
+        "id": "3-3-시작-전-확인할-점"
+      },
+      {
+        "level": 2,
+        "title": "4. BP_SpaceShip에 Component를 추가한다",
+        "id": "4-bp-spaceship에-component를-추가한다"
+      },
+      {
+        "level": 3,
+        "title": "4.1 Coordinate Component 기본 설정",
+        "id": "4-1-coordinate-component-기본-설정"
+      },
+      {
+        "level": 3,
+        "title": "4.2 Native Movement를 사용할 때의 Actor 조건",
+        "id": "4-2-native-movement를-사용할-때의-actor-조건"
+      },
+      {
+        "level": 2,
+        "title": "5. Reference Planet을 지정한다",
+        "id": "5-reference-planet을-지정한다"
+      },
+      {
+        "level": 3,
+        "title": "5.1 레벨에 미리 배치한 우주선",
+        "id": "5-1-레벨에-미리-배치한-우주선"
+      },
+      {
+        "level": 3,
+        "title": "5.2 런타임에 Spawn하는 우주선",
+        "id": "5-2-런타임에-spawn하는-우주선"
+      },
+      {
+        "level": 3,
+        "title": "5.3 Actor 참조 대신 Planet ID로 찾기",
+        "id": "5-3-actor-참조-대신-planet-id로-찾기"
+      },
+      {
+        "level": 3,
+        "title": "5.4 가장 빠른 참조 검증",
+        "id": "5-4-가장-빠른-참조-검증"
+      },
+      {
+        "level": 2,
+        "title": "6. PlanetX Native Movement로 움직이기",
+        "id": "6-planetx-native-movement로-움직이기"
+      },
+      {
+        "level": 3,
+        "title": "6.1 처음에는 World Vector로 테스트",
+        "id": "6-1-처음에는-world-vector로-테스트"
+      },
+      {
+        "level": 3,
+        "title": "6.2 표면 기준 이동으로 바꾸기",
+        "id": "6-2-표면-기준-이동으로-바꾸기"
+      },
+      {
+        "level": 3,
+        "title": "6.3 Native Movement 설정 예시",
+        "id": "6-3-native-movement-설정-예시"
+      },
+      {
+        "level": 3,
+        "title": "6.4 행성 중력 설정",
+        "id": "6-4-행성-중력-설정"
+      },
+      {
+        "level": 4,
+        "title": "Planet Actor: Gravity Settings",
+        "id": "planet-actor-gravity-settings"
+      },
+      {
+        "level": 4,
+        "title": "우주선: 실제 중력 적용 여부",
+        "id": "우주선-실제-중력-적용-여부"
+      },
+      {
+        "level": 4,
+        "title": "External Level에서의 중력",
+        "id": "external-level에서의-중력"
+      },
+      {
+        "level": 4,
+        "title": "중력 디버그",
+        "id": "중력-디버그"
+      },
+      {
+        "level": 3,
+        "title": "6.5 입력 노드가 false일 때",
+        "id": "6-5-입력-노드가-false일-때"
+      },
+      {
+        "level": 2,
+        "title": "7. 버튼으로 Same World 착륙시키기",
+        "id": "7-버튼으로-same-world-착륙시키기"
+      },
+      {
+        "level": 3,
+        "title": "7.1 착륙 Blueprint 흐름",
+        "id": "7-1-착륙-blueprint-흐름"
+      },
+      {
+        "level": 3,
+        "title": "7.2 Orbit으로 복귀하기",
+        "id": "7-2-orbit으로-복귀하기"
+      },
+      {
+        "level": 3,
+        "title": "7.3 착륙 위치만 미리 보고 싶을 때",
+        "id": "7-3-착륙-위치만-미리-보고-싶을-때"
+      },
+      {
+        "level": 2,
+        "title": "8. 전환 영역에서 자동 착륙시키기",
+        "id": "8-전환-영역에서-자동-착륙시키기"
+      },
+      {
+        "level": 3,
+        "title": "8.1 필요한 구성",
+        "id": "8-1-필요한-구성"
+      },
+      {
+        "level": 3,
+        "title": "8.2 Transition Endpoint 설정",
+        "id": "8-2-transition-endpoint-설정"
+      },
+      {
+        "level": 3,
+        "title": "8.3 우주선의 자동 진입 정책 설정",
+        "id": "8-3-우주선의-자동-진입-정책-설정"
+      },
+      {
+        "level": 3,
+        "title": "8.4 자동 전환이 일어나지 않을 때",
+        "id": "8-4-자동-전환이-일어나지-않을-때"
+      },
+      {
+        "level": 2,
+        "title": "9. Ground World가 별도 Level일 때",
+        "id": "9-ground-world가-별도-level일-때"
+      },
+      {
+        "level": 3,
+        "title": "9.1 External LAND: Orbit World에서 Travel 시작하기",
+        "id": "9-1-external-land-orbit-world에서-travel-시작하기"
+      },
+      {
+        "level": 3,
+        "title": "9.2 External LAND: Ground World에서 도착 Pawn 복원하기",
+        "id": "9-2-external-land-ground-world에서-도착-pawn-복원하기"
+      },
+      {
+        "level": 3,
+        "title": "9.3 Ground에서 Orbit World로 돌아가기",
+        "id": "9-3-ground에서-orbit-world로-돌아가기"
+      },
+      {
+        "level": 3,
+        "title": "9.4 External LAND 실패를 진단하는 순서",
+        "id": "9-4-external-land-실패를-진단하는-순서"
+      },
+      {
+        "level": 2,
+        "title": "10. Runtime 상태를 보는 방법",
+        "id": "10-runtime-상태를-보는-방법"
+      },
+      {
+        "level": 2,
+        "title": "11. 자주 묻는 문제",
+        "id": "11-자주-묻는-문제"
+      },
+      {
+        "level": 3,
+        "title": "`Add PlanetX Input Vector`가 false다",
+        "id": "add-planetx-input-vector가-false다"
+      },
+      {
+        "level": 3,
+        "title": "입력을 연결했는데 한 번만 움직인다",
+        "id": "입력을-연결했는데-한-번만-움직인다"
+      },
+      {
+        "level": 3,
+        "title": "`Reference Planet Actor`가 자동으로 채워지지 않는다",
+        "id": "reference-planet-actor가-자동으로-채워지지-않는다"
+      },
+      {
+        "level": 3,
+        "title": "Planet Actor는 있는데 Reference가 없다고 나온다",
+        "id": "planet-actor는-있는데-reference가-없다고-나온다"
+      },
+      {
+        "level": 3,
+        "title": "자동 전환은 되는데 우주선이 움직이지 않는다",
+        "id": "자동-전환은-되는데-우주선이-움직이지-않는다"
+      },
+      {
+        "level": 3,
+        "title": "Native Movement와 Physics를 같이 켜도 되는가",
+        "id": "native-movement와-physics를-같이-켜도-되는가"
+      },
+      {
+        "level": 2,
+        "title": "12. 배포 전 체크리스트",
+        "id": "12-배포-전-체크리스트"
+      },
+      {
+        "level": 2,
+        "title": "다음 문서",
+        "id": "다음-문서"
+      }
+    ],
+    "public": true,
+    "verificationStatus": "needs-product-review",
+    "screenshotRequirements": [
+      "Capture reviewed Unreal Editor workflow screenshots before public release."
+    ],
+    "translation": {
+      "status": "language-only",
+      "counterpartId": null
+    },
+    "lastReviewed": "2026-08-01"
+  }
+]
