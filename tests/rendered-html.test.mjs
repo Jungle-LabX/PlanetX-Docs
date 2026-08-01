@@ -68,6 +68,23 @@ test("publishes page and complete-edition documentation downloads", async () => 
   assert.match(koreanMarkdown, /^# PlanetX /m);
 });
 
+test("renders the shared LabX footer across product, docs, print, and error routes", async () => {
+  const responses = await Promise.all([
+    render("/"),
+    render("/docs/"),
+    render("/docs/en/overview/"),
+    render("/docs/en/print/"),
+    render("/route-outside-the-chart/"),
+  ]);
+  for (const response of responses) {
+    assert.equal(response.status === 200 || response.status === 404, true);
+    const html = await response.text();
+    assert.match(html, /PlanetX/);
+    assert.match(html, /by LabX/);
+    assert.match(html, /independently developed by LabX/);
+  }
+});
+
 test("keeps the starter preview removed", async () => {
   const [page, layout, packageJson] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),

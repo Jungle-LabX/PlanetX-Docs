@@ -79,9 +79,6 @@ const copy = {
     fabKicker: "Fab listing",
     fabBody: "The public Fab URL has not been configured yet.",
     fabPending: "Fab link pending",
-    footerTagline: "Planet-scale workflow tools for Unreal Engine.",
-    disclaimer: "PlanetX is independently developed by LabX while participating in the Epic Project, a developer-support program of the KRAFTON JUNGLE GameTech Lab. All rights, title, and interest in the product belong exclusively to LabX. KRAFTON, Inc. was not involved in its development or distribution and assumes no responsibility or liability arising from its use.",
-    rights: "© 2026 LabX. PlanetX documentation version 1.0.",
   },
   ko: {
     heroEyebrow: "Unreal Engine용 행성 규모 World 워크플로",
@@ -149,9 +146,6 @@ const copy = {
     fabKicker: "Fab 등록",
     fabBody: "공개 Fab URL은 아직 설정되지 않았습니다.",
     fabPending: "Fab 링크 준비 중",
-    footerTagline: "Unreal Engine을 위한 행성 규모 워크플로 도구.",
-    disclaimer: "PlanetX는 KRAFTON JUNGLE GameTech Lab의 개발자 지원 프로그램인 Epic Project 참여 과정에서 LabX가 독립적으로 개발한 제품입니다. 제품에 관한 모든 권리와 소유권은 LabX에 있으며, KRAFTON은 개발 및 유통에 관여하지 않았고 제품 사용으로 발생하는 결과에 대해 책임을 부담하지 않습니다.",
-    rights: "© 2026 LabX. PlanetX 문서 버전 1.0.",
   },
 } as const;
 
@@ -515,18 +509,6 @@ export function LandingPage() {
         </section>
       </main>
 
-      <footer className="site-footer">
-        <div className="site-footer__brand"><BrandMark size={40} /><span><strong>PlanetX</strong><small>by LabX</small></span></div>
-        <p>{text.footerTagline}</p>
-        <nav aria-label="Footer navigation">
-          <Link href="/docs">{text.docsKicker}</Link>
-          <Link href={`/docs/${language}/support-release-notes`}>{language === "ko" ? "릴리스 노트" : "Release notes"}</Link>
-          <Link href={`/docs/${language}/troubleshooting`}>{language === "ko" ? "지원" : "Support"}</Link>
-          <a href="https://github.com/Jungle-LabX/PlanetX-Docs" target="_blank" rel="noreferrer">GitHub</a>
-        </nav>
-        <p className="site-footer__disclaimer">{text.disclaimer}</p>
-        <small className="site-footer__rights">{text.rights}</small>
-      </footer>
     </div>
   );
 }

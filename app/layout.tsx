@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { SearchDialog } from "./components/SearchDialog";
 import { BackToTop } from "./components/BackToTop";
+import { SiteFooter } from "./components/SiteFooter";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH?.replace(/\/$/, "") ?? "";
 const siteRoot = `${(process.env.NEXT_PUBLIC_SITE_URL ?? `http://localhost:3000${basePath}`).replace(/\/$/, "")}/`;
@@ -58,6 +59,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <a className="skip-link" href="#main-content">Skip to content</a>
         {children}
+        <SiteFooter />
         <SearchDialog />
         <BackToTop />
       </body>

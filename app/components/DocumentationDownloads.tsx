@@ -21,7 +21,7 @@ export function DocumentationDownloads({ language = "en", slug, scope }: Documen
       const frame = window.requestAnimationFrame(() => setActiveLanguage(stored));
       return () => window.cancelAnimationFrame(frame);
     }
-  }, [scope]);
+  }, [language, scope]);
 
   const isKorean = activeLanguage === "ko";
   const markdownHref = scope === "collection"

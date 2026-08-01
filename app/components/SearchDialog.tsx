@@ -68,7 +68,8 @@ export function SearchDialog() {
   useEffect(() => {
     const show = () => {
       returnFocusRef.current = document.activeElement as HTMLElement;
-      setLanguage(document.documentElement.lang === "ko" ? "ko" : "en");
+      const stored = window.sessionStorage.getItem("planetx-language");
+      setLanguage(stored === "ko" || stored === "en" ? stored : (document.documentElement.lang === "ko" ? "ko" : "en"));
       setOpen(true);
     };
     const onKey = (event: KeyboardEvent) => {
