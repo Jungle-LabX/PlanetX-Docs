@@ -13,6 +13,11 @@ const UNRESOLVED_FILE = path.join(MIGRATION_DIR, "unresolved-documents.md");
 const TERMINOLOGY_FILE = path.join(MIGRATION_DIR, "terminology.en-ko.json");
 const LAST_REVIEWED = "2026-08-01";
 const SCREENSHOT_ROUTE = "/images/proxy-bake-refresh-review.png";
+const standaloneRoutes = new Map([
+  ["support-release-notes", "/release-notes"],
+  ["faq", "/faq"],
+  ["known-issues", "/known-issues"],
+]);
 
 const sharedMap = [
   ["00_Overview.md", "overview", "Introduction", "Product positioning and requirement summary"],
@@ -79,7 +84,7 @@ function routeSlugForTarget(target, lang) {
     return null;
   }
 
-  return `/docs/${lang}/${definition.slug}`;
+  return standaloneRoutes.get(definition.slug) ?? `/docs/${lang}/${definition.slug}`;
 }
 
 function transformLinks(markdown, lang, unresolvedLinks) {
@@ -368,7 +373,9 @@ async function writeMarkdownDownloads(documents) {
   await mkdir(DOWNLOAD_DIR, { recursive: true });
 
   for (const lang of ["en", "ko"]) {
-    const languageDocuments = documents.filter((doc) => doc.lang === lang && doc.public);
+    const languageDocuments = documents.filter(
+      (doc) => doc.lang === lang && doc.public && !standaloneRoutes.has(doc.slug),
+    );
     const languageDirectory = path.join(DOWNLOAD_DIR, lang);
     await mkdir(languageDirectory, { recursive: true });
 

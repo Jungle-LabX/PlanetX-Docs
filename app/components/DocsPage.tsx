@@ -21,6 +21,7 @@ export function DocsPage({ doc }: { doc: DocRecord }) {
       <SiteHeader
         tone="light"
         language={doc.lang}
+        persistLanguage
         alternateHref={alternate ? `/docs/${alternate.lang}/${alternate.slug}#main-content` : `/docs/${doc.lang === "en" ? "ko" : "en"}/overview#main-content`}
       />
 

@@ -26,8 +26,7 @@ No confirmed public runtime or editor defect is currently listed here. Product i
 
 ## Before reporting a new issue
 
-1. Check [Troubleshooting](/docs/en/troubleshooting) and the [FAQ](/docs/en/faq).
+1. Check [Troubleshooting](/docs/en/troubleshooting) and the [FAQ](/faq).
 2. Record PlanetX and Unreal Engine versions.
 3. Include exact reproduction steps and whether the problem occurs in Editor, PIE, packaged builds, or all three.
 4. Include relevant logs, diagnostics, and the smallest reproducible project state that can be shared safely.
-

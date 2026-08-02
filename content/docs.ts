@@ -34,8 +34,16 @@ export const docs = (docsJson as DocRecord[]).sort(
   (left, right) => left.order - right.order,
 );
 
+export const standaloneDocSlugs = new Set([
+  "support-release-notes",
+  "faq",
+  "known-issues",
+]);
+
 export function getDocsForLanguage(lang: DocLanguage) {
-  return docs.filter((doc) => doc.lang === lang && doc.public);
+  return docs.filter(
+    (doc) => doc.lang === lang && doc.public && !standaloneDocSlugs.has(doc.slug),
+  );
 }
 
 export function getDoc(lang: string, slug: string) {

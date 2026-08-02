@@ -15,13 +15,20 @@ type SearchResult = {
   meta: string;
   haystack: string;
   order: number;
+  slug?: string;
 };
 
 const featuredSlugs = ["overview", "getting-started", "faq", "known-issues"];
 
+const standaloneSearchRoutes: Record<string, string> = {
+  faq: "/faq",
+  "known-issues": "/known-issues",
+  "support-release-notes": "/release-notes",
+};
+
 function buildResults(language: DocLanguage): SearchResult[] {
   const documentResults = docs
-    .filter((doc) => doc.public)
+    .filter((doc) => doc.public && doc.lang === language)
     .map((doc) => {
       const title = getCanonicalDocTitle(doc.slug, doc.lang, doc.title);
       const category = getCanonicalCategoryTitle(doc.category, doc.lang);
@@ -30,12 +37,13 @@ function buildResults(language: DocLanguage): SearchResult[] {
       return {
         id: doc.id,
         kind: "document" as const,
-        href: `/docs/${doc.lang}/${doc.slug}`,
+        href: standaloneSearchRoutes[doc.slug] ?? `/docs/${doc.lang}/${doc.slug}`,
         title,
         description,
         meta: `${doc.lang.toUpperCase()} · ${category}`,
         haystack: `${title} ${doc.title} ${description} ${doc.description} ${doc.content} ${aliases.join(" ")}`.toLocaleLowerCase(),
         order: doc.order,
+        slug: doc.slug,
       };
     });
 
@@ -103,8 +111,8 @@ export function SearchDialog() {
     const terms = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
     if (!terms.length) {
       return allResults
-        .filter((result) => result.kind === "document" && result.href.startsWith(`/docs/${language}/`) && featuredSlugs.some((slug) => result.href.endsWith(`/${slug}`)))
-        .sort((left, right) => featuredSlugs.indexOf(left.href.split("/").at(-1) ?? "") - featuredSlugs.indexOf(right.href.split("/").at(-1) ?? ""));
+        .filter((result) => result.kind === "document" && result.slug && featuredSlugs.includes(result.slug))
+        .sort((left, right) => featuredSlugs.indexOf(left.slug ?? "") - featuredSlugs.indexOf(right.slug ?? ""));
     }
 
     return allResults
@@ -112,8 +120,7 @@ export function SearchDialog() {
       .sort((left, right) => {
         const leftTitle = terms.some((term) => left.title.toLocaleLowerCase().includes(term));
         const rightTitle = terms.some((term) => right.title.toLocaleLowerCase().includes(term));
-        const languageBoost = Number(right.href.startsWith(`/docs/${language}/`)) - Number(left.href.startsWith(`/docs/${language}/`));
-        return Number(rightTitle) - Number(leftTitle) || languageBoost || left.order - right.order;
+        return Number(rightTitle) - Number(leftTitle) || left.order - right.order;
       })
       .slice(0, 14);
   }, [language, query]);

@@ -56,10 +56,10 @@ export function DocumentationHome() {
         <DocumentationDownloads language={language} scope="collection" />
         <div className="docs-home__languages">
           <Link href="/docs/en/overview#main-content" onClick={() => window.sessionStorage.setItem("planetx-language", "en")}>
-            <span>EN</span><div><strong>English</strong><small>13 documents · reviewed public guide</small></div><i>→</i>
+            <span>EN</span><div><strong>English</strong><small>10 documentation guides · reviewed public edition</small></div><i>→</i>
           </Link>
           <Link href="/docs/ko/overview#main-content" onClick={() => window.sessionStorage.setItem("planetx-language", "ko")}>
-            <span>KO</span><div><strong>한국어</strong><small>15개 문서 · API 및 Runtime 심화 가이드 포함</small></div><i>→</i>
+            <span>KO</span><div><strong>한국어</strong><small>12개 기술 가이드 · API 및 Runtime 심화 문서 포함</small></div><i>→</i>
           </Link>
         </div>
         <div className="docs-home__paths">

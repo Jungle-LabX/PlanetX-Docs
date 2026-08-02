@@ -19,8 +19,10 @@ test("server-renders the PlanetX product landing page", async () => {
   const html = await response.text();
   assert.match(html, /Author the ground/);
   assert.match(html, /Reveal the planet/);
+  assert.match(html, /Download on FAB/);
   assert.match(html, /PlanetX 1\.0/);
   assert.match(html, /independently developed by LabX/);
+  assert.doesNotMatch(html, /World structure|Coordinate model|Editor sequence/);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|react-loading-skeleton/i);
 });
 
@@ -39,18 +41,31 @@ test("renders English and Korean documentation routes", async () => {
   assert.match(koreanHtml, /영문 번역 대기 중/);
 });
 
-test("renders FAQ and Known Issues in both supported languages", async () => {
+test("renders standalone product information outside the documentation hierarchy", async () => {
   const responses = await Promise.all([
-    render("/docs/en/faq/"),
-    render("/docs/ko/faq/"),
-    render("/docs/en/known-issues/"),
-    render("/docs/ko/known-issues/"),
+    render("/faq/"),
+    render("/known-issues/"),
+    render("/release-notes/"),
+    render("/about/"),
   ]);
   for (const response of responses) assert.equal(response.status, 200);
-  assert.match(await responses[0].text(), /Frequently Asked Questions|FAQ/);
-  assert.match(await responses[1].text(), /자주 묻는 질문/);
-  assert.match(await responses[2].text(), /Known Issues/);
-  assert.match(await responses[3].text(), /알려진 문제/);
+  const htmlPages = await Promise.all(responses.map((response) => response.text()));
+  for (const html of htmlPages) {
+    assert.doesNotMatch(html, /docs-sidebar|docs-utility-bar/);
+  }
+  assert.match(htmlPages[0], /Frequently Asked Questions/);
+  assert.match(htmlPages[1], /Known Issues/);
+  assert.match(htmlPages[2], /Release Notes/);
+  assert.match(htmlPages[3], /About LabX/);
+});
+
+test("uses the canonical global navigation order", async () => {
+  const html = await (await render("/")).text();
+  const labels = ["Main", "Documentation", "Known Issues", "FAQ", "Release Notes", "About Us"];
+  const positions = labels.map((label) => html.indexOf(`>${label}</a>`));
+  assert.equal(positions.every((position) => position >= 0), true);
+  assert.deepEqual([...positions].sort((a, b) => a - b), positions);
+  assert.doesNotMatch(html, />Product<\/a>|>Compatibility<\/a>/);
 });
 
 test("publishes page and complete-edition documentation downloads", async () => {
@@ -66,6 +81,7 @@ test("publishes page and complete-edition documentation downloads", async () => 
   assert.match(await englishPrint.text(), /Complete documentation PDF/);
   assert.match(englishMarkdown, /^# PlanetX Official Documentation/m);
   assert.match(koreanMarkdown, /^# PlanetX /m);
+  assert.doesNotMatch(englishMarkdown, /^## (Frequently Asked Questions|Known Issues|Support and Release Notes)$/m);
 });
 
 test("renders the shared LabX footer across product, docs, print, and error routes", async () => {
@@ -91,7 +107,7 @@ test("routes documentation navigation to a focusable main region", async () => {
   const html = await response.text();
   assert.match(html, /id="main-content"[^>]*tabindex="-1"/i);
   assert.match(html, /\/docs\/en\/getting-started#main-content/);
-  assert.match(html, /\/docs\/en\/known-issues#main-content/);
+  assert.doesNotMatch(html, /\/docs\/en\/(known-issues|faq|support-release-notes)#main-content/);
 
   const [focusSource, sidebarSource] = await Promise.all([
     readFile(new URL("../app/components/MainContentFocus.tsx", import.meta.url), "utf8"),

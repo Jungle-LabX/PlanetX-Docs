@@ -31,6 +31,7 @@ export default async function DocumentationPrintPage({ params }: PrintPageProps)
       <SiteHeader
         tone="light"
         language={language}
+        persistLanguage
         alternateHref={`/docs/${language === "ko" ? "en" : "ko"}/print`}
       />
       <PrintControls language={language} />

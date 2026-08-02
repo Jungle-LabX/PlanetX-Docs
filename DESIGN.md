@@ -2,19 +2,19 @@
 
 ## Source of truth
 - Status: Active
-- Last refreshed: 2026-08-01
-- Primary product surfaces: bilingual product landing page, documentation index, English and Korean documentation pages, local search.
-- Evidence reviewed: `app/components/LandingPage.tsx`, `app/components/SiteHeader.tsx`, `app/components/DocsPage.tsx`, `app/globals.css`, `public/brand/planetx-icon.png`, the deployed GitHub Pages site, and the source documentation set.
+- Last refreshed: 2026-08-02
+- Primary product surfaces: bilingual product landing page, documentation index, English and Korean documentation pages, standalone Known Issues, FAQ, Release Notes and About Us pages, and local search.
+- Evidence reviewed: `app/components/LandingPage.tsx`, `app/components/SiteHeader.tsx`, `app/components/StandalonePage.tsx`, `app/components/DocsPage.tsx`, `app/globals.css`, the deployed GitHub Pages site, and the source documentation set.
 
 ## Brand
 - Personality: precise, orbital, modern, technically credible, and quietly cinematic.
 - Trust signals: verified product facts, explicit review states, clear ownership, source-backed documentation, and restrained motion.
-- Avoid: generic SaaS gradients, game-launcher spectacle, dense HUD noise, stock space photography as the main identity, and MVP-looking card grids.
+- Avoid: generic SaaS gradients, game-launcher spectacle, dense HUD noise, repeated eyebrow-card scaffolding, stock space photography as the main identity, and MVP-looking uniform grids.
 
 ## Product goals
 - Goals: explain PlanetX in one scroll, make the Ground–Transition–Orbit model memorable, lead developers into the correct guide, and present LabX as the independent product owner.
 - Non-goals: imply unverified Unreal Engine compatibility, present KRAFTON as the developer or distributor, or turn the site into a fictional game interface.
-- Success signals: visitors understand the plugin workflow, can change language and theme without losing context, and can reach the appropriate documentation route in one action.
+- Success signals: visitors understand the plugin workflow, can change language and theme without losing context, and can reach documentation, product status, release information, FAQs, or team ownership in one action.
 
 ## Personas and jobs
 - Primary personas: Unreal Engine technical artists, world builders, gameplay programmers, and evaluators reviewing the plugin.
@@ -22,14 +22,17 @@
 - Key contexts of use: desktop evaluation, laptop development, mobile link review, and low-light technical work.
 
 ## Information architecture
-- Primary navigation: Product, Documentation, Compatibility, Release notes, Support, Search, Language, Theme.
-- Core routes/screens: `/`, `/docs`, `/docs/en/*`, `/docs/ko/*`.
-- Content hierarchy: value proposition → interactive state model → proxy workflow → world structure → coordinate model → editor sequence → compatibility → documentation CTA → ownership/disclaimer.
+- Primary navigation: Main, Documentation, Known Issues, FAQ, Release Notes, About Us, followed by Search, Language, and Theme utilities.
+- Core routes/screens: `/`, `/docs`, `/docs/en/*`, `/docs/ko/*`, `/known-issues`, `/faq`, `/release-notes`, `/about`.
+- Route boundary: FAQ, Known Issues, and Release Notes are standalone product-information routes and must not appear in the documentation sidebar, pagination, full-edition downloads, or generated `/docs/{lang}/*` routes.
+- Landing hierarchy: value proposition and interactive state model → Proxy Bake projection → compatibility summary → documentation CTA → Fab CTA.
+- Standalone-page hierarchy: plain editorial header → source-backed content or team statement → global ownership footer.
 
 ## Design principles
 - Orbital, not decorative: motion and geometry explain state, scale, and transformation.
 - Current state is explicit: language and theme controls show the active state, not the destination.
 - Technical confidence before spectacle: every visual flourish must preserve legibility and product truth.
+- Edit before decorating: Main carries only the information needed to understand, evaluate, and continue; implementation detail belongs in Documentation.
 - One system, two modes: light and dark themes share hierarchy, spacing, and component behavior.
 - Tradeoffs: prefer CSS/SVG-native visuals for sharpness and performance; reserve bitmap imagery for product screenshots.
 
@@ -43,7 +46,7 @@
 
 ## Components
 - Existing components to reuse: `SiteHeader`, `SearchDialog`, documentation shell, markdown renderer, and GSAP reveal infrastructure.
-- New/changed components: `BrandMark`, `ThemeToggle`, `MermaidDiagram`, bilingual landing copy, current-language control, interactive state console, LabX legal footer.
+- New/changed components: `BrandMark`, `ThemeToggle`, `MermaidDiagram`, `StandalonePage`, bilingual landing copy, current-language control, interactive hero states, LabX legal footer.
 - Variants and states: light/dark header treatment, EN/KO active language, system/light/dark theme, three active planetary states, mobile navigation.
 - Token/component ownership: global theme and landing tokens live in `app/globals.css`; interaction state lives in client components.
 
@@ -61,10 +64,10 @@
 
 ## Interaction states
 - Loading: static content and SVG identity render before animation initializes.
-- Empty: search retains its existing empty-result guidance.
+- Empty: search retains its existing empty-result guidance and indexes only the active session language.
 - Error: routes use the existing themed not-found page.
 - Success: selected language, theme, and planetary state are visibly marked.
-- Disabled: unavailable Fab link remains clearly disabled with explanatory copy.
+- Disabled: unavailable Fab listing remains clearly marked as pending; the Main CTA scrolls to that disclosed state instead of opening a misleading generic marketplace URL.
 - Offline/slow network: core identity and diagrams are code-native and do not depend on remote assets.
 
 ## Content voice

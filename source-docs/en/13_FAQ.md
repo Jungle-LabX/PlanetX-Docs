@@ -34,4 +34,4 @@ The plugin descriptor does not currently declare a public `EngineVersion` range.
 
 ## Where should I report a problem?
 
-Check [Known Issues](/docs/en/known-issues) and [Troubleshooting](/docs/en/troubleshooting) first. Include the PlanetX version, Unreal Engine version, reproduction steps, relevant settings, and the exact error or diagnostic output when reporting a new issue.
+Check [Known Issues](/known-issues) and [Troubleshooting](/docs/en/troubleshooting) first. Include the PlanetX version, Unreal Engine version, reproduction steps, relevant settings, and the exact error or diagnostic output when reporting a new issue.

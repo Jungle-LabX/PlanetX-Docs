@@ -11,6 +11,7 @@ type SiteHeaderProps = {
   language?: "en" | "ko";
   alternateHref?: string;
   onLanguageChange?: (language: "en" | "ko") => void;
+  persistLanguage?: boolean;
 };
 
 export function SiteHeader({
@@ -18,15 +19,14 @@ export function SiteHeader({
   language = "en",
   alternateHref = "/docs/ko/overview#main-content",
   onLanguageChange,
+  persistLanguage = false,
 }: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.lang = language;
-    if (window.location.pathname.includes(`/docs/${language}/`)) {
-      window.sessionStorage.setItem("planetx-language", language);
-    }
-  }, [language]);
+    if (persistLanguage) window.sessionStorage.setItem("planetx-language", language);
+  }, [language, persistLanguage]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -39,6 +39,16 @@ export function SiteHeader({
 
   const openSearch = () => {
     window.dispatchEvent(new CustomEvent("planetx:open-search"));
+  };
+
+  const returnToLandingTop = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const landingTop = document.getElementById("site-top");
+    if (!landingTop) return;
+    event.preventDefault();
+    window.history.replaceState(null, "", `${window.location.pathname}#site-top`);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.setTimeout(() => landingTop.focus({ preventScroll: true }), 320);
+    setMenuOpen(false);
   };
 
   const isKorean = language === "ko";
@@ -78,7 +88,7 @@ export function SiteHeader({
   return (
     <header className={`site-header site-header--${tone}`}>
       <div className="site-header__inner">
-        <Link className="brand" href="/" aria-label="PlanetX home">
+        <Link className="brand" href="/#site-top" aria-label={isKorean ? "PlanetX 메인 최상단" : "PlanetX main page top"} onClick={returnToLandingTop}>
           <BrandMark className="brand__mark" size={38} />
           <span>PlanetX <small>by LabX</small></span>
         </Link>

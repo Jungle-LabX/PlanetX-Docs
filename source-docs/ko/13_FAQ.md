@@ -34,4 +34,4 @@ World Partition은 지원 워크플로로 문서화되어 있습니다. 다만 �
 
 ## 문제는 어디에 보고해야 하나요?
 
-먼저 [알려진 문제](/docs/ko/known-issues)와 [문제 해결](/docs/ko/troubleshooting)을 확인하세요. 새 문제를 보고할 때는 PlanetX 버전, Unreal Engine 버전, 재현 절차, 관련 설정, 정확한 오류 또는 진단 출력을 포함하세요.
+먼저 [알려진 문제](/known-issues)와 [문제 해결](/docs/ko/troubleshooting)을 확인하세요. 새 문제를 보고할 때는 PlanetX 버전, Unreal Engine 버전, 재현 절차, 관련 설정, 정확한 오류 또는 진단 출력을 포함하세요.

@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { DocsPage } from "@/app/components/DocsPage";
-import { docs, getDoc } from "@/content/docs";
+import { docs, getDoc, standaloneDocSlugs } from "@/content/docs";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return docs.map((doc) => ({ lang: doc.lang, slug: doc.slug }));
+  return docs
+    .filter((doc) => !standaloneDocSlugs.has(doc.slug))
+    .map((doc) => ({ lang: doc.lang, slug: doc.slug }));
 }
 
 export async function generateMetadata({
@@ -16,7 +18,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang, slug } = await params;
   const doc = getDoc(lang, slug);
-  if (!doc) return {};
+  if (!doc || standaloneDocSlugs.has(slug)) return {};
   return {
     title: doc.title,
     description: doc.description,
@@ -35,6 +37,6 @@ export default async function DocumentRoute({
 }) {
   const { lang, slug } = await params;
   const doc = getDoc(lang, slug);
-  if (!doc) notFound();
+  if (!doc || standaloneDocSlugs.has(slug)) notFound();
   return <DocsPage doc={doc} />;
 }

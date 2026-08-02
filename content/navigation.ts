@@ -3,15 +3,16 @@ import type { DocLanguage } from "./docs";
 type LocalizedLabel = Record<DocLanguage, string>;
 
 export const primaryNavigation: Array<{
-  id: "product" | "documentation" | "compatibility" | "known-issues" | "faq";
+  id: "main" | "documentation" | "known-issues" | "faq" | "release-notes" | "about";
   label: LocalizedLabel;
   href: (lang: DocLanguage) => string;
 }> = [
-  { id: "product", label: { en: "Product", ko: "제품" }, href: () => "/#product" },
+  { id: "main", label: { en: "Main", ko: "메인" }, href: () => "/#site-top" },
   { id: "documentation", label: { en: "Documentation", ko: "문서" }, href: () => "/docs#main-content" },
-  { id: "compatibility", label: { en: "Compatibility", ko: "호환성" }, href: () => "/#compatibility" },
-  { id: "known-issues", label: { en: "Known Issues", ko: "알려진 문제" }, href: (lang) => `/docs/${lang}/known-issues#main-content` },
-  { id: "faq", label: { en: "FAQ", ko: "FAQ" }, href: (lang) => `/docs/${lang}/faq#main-content` },
+  { id: "known-issues", label: { en: "Known Issues", ko: "알려진 문제" }, href: () => "/known-issues#main-content" },
+  { id: "faq", label: { en: "FAQ", ko: "FAQ" }, href: () => "/faq#main-content" },
+  { id: "release-notes", label: { en: "Release Notes", ko: "릴리스 노트" }, href: () => "/release-notes#main-content" },
+  { id: "about", label: { en: "About Us", ko: "소개" }, href: () => "/about#main-content" },
 ];
 
 export const canonicalDocTitles: Record<string, LocalizedLabel> = {

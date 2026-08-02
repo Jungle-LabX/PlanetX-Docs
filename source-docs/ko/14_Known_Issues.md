@@ -26,8 +26,7 @@
 
 ## 새 문제를 보고하기 전에
 
-1. [문제 해결](/docs/ko/troubleshooting)과 [FAQ](/docs/ko/faq)를 확인합니다.
+1. [문제 해결](/docs/ko/troubleshooting)과 [FAQ](/faq)를 확인합니다.
 2. PlanetX와 Unreal Engine 버전을 기록합니다.
 3. 정확한 재현 절차와 Editor, PIE, 패키지 빌드 중 어디에서 발생하는지 포함합니다.
 4. 안전하게 공유할 수 있는 관련 로그, 진단 결과, 최소 재현 프로젝트 상태를 포함합니다.
-
