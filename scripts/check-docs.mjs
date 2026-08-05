@@ -1,10 +1,11 @@
-import { readFile } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import path from "node:path";
 
 const ROOT = process.cwd();
 const GENERATED_DOCS = path.join(ROOT, "content", "generated-docs.json");
 const INVENTORY_FILE = path.join(ROOT, "migration", "source-inventory.json");
 const DOCUMENT_MAP_FILE = path.join(ROOT, "migration", "document-map.json");
+const PUBLIC_DIR = path.join(ROOT, "public");
 const EXPECTED_COUNTS = { en: 13, ko: 15, total: 28, sharedSubjects: 13, languageOnlySubjects: 2 };
 const REQUIRED_FIELDS = [
   "id",
@@ -91,8 +92,30 @@ function validateLinks(doc, docsByRoute, errors) {
         fail(errors, `${doc.id} links to missing route ${target}`);
       }
     }
-    if (/\.(png|jpe?g|gif|webp|svg)$/i.test(target) && target !== "/images/proxy-bake-refresh-review.png") {
+    if (
+      /\.(png|jpe?g|gif|webp|svg)$/i.test(target)
+      && target !== "/images/proxy-bake-refresh-review.png"
+      && !/^\/images\/docs\/[a-z0-9][a-z0-9.-]*\.(png|jpe?g|gif|webp|svg)$/i.test(target)
+    ) {
       fail(errors, `${doc.id} contains unexpected image route ${target}`);
+    }
+  }
+}
+
+async function validatePublishedImages(docs, errors) {
+  const routes = new Set();
+  for (const doc of docs) {
+    for (const match of doc.content.matchAll(/!\[[^\]]*]\((\/images\/docs\/[^)\s]+)\)/g)) {
+      routes.add(match[1]);
+    }
+  }
+
+  for (const route of routes) {
+    const absolutePath = path.join(PUBLIC_DIR, ...route.slice(1).split("/"));
+    try {
+      await access(absolutePath);
+    } catch {
+      fail(errors, `Published document image is missing: ${route}`);
     }
   }
 }
@@ -170,6 +193,8 @@ async function main() {
     validateRequiredMetadata(doc, errors);
     validateLinks(doc, docsByRoute, errors);
   }
+
+  await validatePublishedImages(docs, errors);
 
   validatePairing(docs, errors);
   validateCounts(docs, inventory, documentMap, errors);

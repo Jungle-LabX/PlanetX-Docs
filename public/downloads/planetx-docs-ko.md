@@ -58,7 +58,7 @@ Section Name = Main
 
 ### 1. PlanetX 플러그인 활성화하기
 
-![[(1)Plugin_Install.png]]
+![Unreal Editor의 PlanetX 플러그인 활성화 화면](/images/docs/1-plugin-install.png)
 
 Unreal Editor 상단 메뉴에서 **Edit > Plugins**를 엽니다.
 
@@ -82,9 +82,9 @@ Asset 이름은 프로젝트 규칙에 맞게 지정합니다. 이 문서에서�
 PA_FirstPlanet
 ```
 
-![[(2-1)PlanetXAsset_Creater.png]]
+![Content Drawer의 PlanetX Planet Asset 생성 메뉴](/images/docs/2-1-planetxasset-creater.png)
 
-![[(2-2)PlanetXAsset_Icon 1.png]]
+![생성된 PlanetX Planet Asset 아이콘](/images/docs/2-2-planetxasset-icon-1.png)
 
 이 단계에서는 Asset을 생성한 뒤 한 번 저장하면 됩니다. Section과 Level Pair 같은 세부 설정은 Bake가 끝난 뒤 Planet Asset Editor에서 확인합니다.
 
@@ -113,7 +113,7 @@ Level을 연 뒤 먼저 저장합니다.
 |**Source Scope**|`Current Level`|
 |**Bake Quality**|`High`|
 
-![[(4-1)BakeEditor.png]]
+![PlanetX Proxy Bake Editor 설정 화면](/images/docs/4-1-bakeeditor.png)
 
 Partition, Memory Budget와 Workers는 기본값을 사용합니다.
 
@@ -140,9 +140,9 @@ Bake가 성공하면 다음 결과가 생성되거나 갱신됩니다.
 
 상단에서 **Basic > Planet**을 선택합니다.
 
-![[(5-1)PlanetXAssetEditor_BasicPart.png]]
+![Planet Asset Editor의 Basic Planet 메뉴](/images/docs/5-1-planetxasseteditor-basicpart.png)
 
-![[(5-2)PlanetXAssetEditor.png]]
+![Planet Asset Editor의 Planet 설정 화면](/images/docs/5-2-planetxasseteditor.png)
 
 먼저 **Completion Material**에 행성의 기본 표면으로 사용할  
 Material 또는 Material Instance를 지정합니다.
@@ -179,7 +179,7 @@ Planet Component
 
 `Auto Register Runtime`은 활성화된 상태로 유지합니다.
 
-![[(8)Runtime_PlanetXActor.png]]
+![PlanetX Planet Actor의 Planet Asset 설정](/images/docs/8-runtime-planetxactor.png)
 
 같은 Planet Asset을 사용하는 Planet Actor가 현재 World에 하나뿐이라면 `Planet Binding ID`는 비워 두어도 됩니다. 여러 Planet Actor가 같은 Planet Asset을 사용한다면 각각 고유한 Binding ID를 지정합니다.
 

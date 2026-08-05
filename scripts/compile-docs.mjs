@@ -1,10 +1,12 @@
-import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const ROOT = process.cwd();
 const SOURCE_ROOT = path.join(ROOT, "source-docs");
 const CONTENT_DIR = path.join(ROOT, "content");
 const DOWNLOAD_DIR = path.join(ROOT, "public", "downloads");
+const SOURCE_IMAGE_DIR = path.join(SOURCE_ROOT, "ph");
+const PUBLIC_IMAGE_DIR = path.join(ROOT, "public", "images", "docs");
 const MIGRATION_DIR = path.join(ROOT, "migration");
 const GENERATED_DOCS = path.join(CONTENT_DIR, "generated-docs.json");
 const INVENTORY_FILE = path.join(MIGRATION_DIR, "source-inventory.json");
@@ -71,6 +73,50 @@ function compareFiles(a, b) {
   return a.localeCompare(b);
 }
 
+function publicImageName(file) {
+  const extension = path.extname(file).toLowerCase();
+  const stem = path.basename(file, path.extname(file))
+    .normalize("NFKD")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  return `${stem}${extension}`;
+}
+
+async function loadImageAssets() {
+  const entries = await readdir(SOURCE_IMAGE_DIR, { withFileTypes: true });
+  const assets = new Map();
+  const publicNames = new Set();
+
+  for (const entry of entries.filter((item) => item.isFile()).sort((a, b) => a.name.localeCompare(b.name))) {
+    if (!/\.(png|jpe?g|gif|webp|svg)$/i.test(entry.name)) continue;
+
+    const outputName = publicImageName(entry.name);
+    if (!outputName || publicNames.has(outputName)) {
+      throw new Error(`Duplicate or invalid published image name for ${entry.name}: ${outputName}`);
+    }
+
+    publicNames.add(outputName);
+    assets.set(entry.name.toLowerCase(), {
+      sourceName: entry.name,
+      outputName,
+      route: `/images/docs/${outputName}`,
+    });
+  }
+
+  return assets;
+}
+
+async function publishImageAssets(imageAssets) {
+  await mkdir(PUBLIC_IMAGE_DIR, { recursive: true });
+  for (const asset of imageAssets.values()) {
+    await copyFile(
+      path.join(SOURCE_IMAGE_DIR, asset.sourceName),
+      path.join(PUBLIC_IMAGE_DIR, asset.outputName),
+    );
+  }
+}
+
 function routeSlugForTarget(target, lang) {
   const cleanTarget = target.split("#")[0].replace(/\\/g, "/");
   const base = path.posix.basename(cleanTarget);
@@ -87,8 +133,23 @@ function routeSlugForTarget(target, lang) {
   return standaloneRoutes.get(definition.slug) ?? `/docs/${lang}/${definition.slug}`;
 }
 
-function transformLinks(markdown, lang, unresolvedLinks) {
-  return markdown.replace(/(!?)\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g, (match, bang, label, rawTarget) => {
+function transformLinks(markdown, lang, unresolvedLinks, imageAssets) {
+  const withObsidianImages = markdown.replace(
+    /!\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g,
+    (match, rawTarget, rawAlt) => {
+      const file = path.posix.basename(rawTarget.trim().replace(/\\/g, "/"));
+      const asset = imageAssets.get(file.toLowerCase());
+      if (!asset) {
+        unresolvedLinks.push({ lang, target: rawTarget, label: rawAlt?.trim() || file });
+        return match;
+      }
+
+      const alt = rawAlt?.trim() || path.basename(file, path.extname(file)).replace(/[_-]+/g, " ");
+      return `![${alt}](${asset.route})`;
+    },
+  );
+
+  return withObsidianImages.replace(/(!?)\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g, (match, bang, label, rawTarget) => {
     if (/^(https?:|mailto:|#|\/)/i.test(rawTarget)) {
       return match;
     }
@@ -235,7 +296,7 @@ async function listMarkdownFiles(lang) {
     .sort(compareFiles);
 }
 
-async function buildDocument(lang, file, allFiles, unresolvedLinks) {
+async function buildDocument(lang, file, allFiles, unresolvedLinks, imageAssets) {
   const definition = documentDefinitions.get(file);
   if (!definition) {
     throw new Error(`No document map entry for ${lang}/${file}`);
@@ -243,7 +304,7 @@ async function buildDocument(lang, file, allFiles, unresolvedLinks) {
 
   const absolutePath = path.join(SOURCE_ROOT, lang, file);
   const raw = (await readFile(absolutePath, "utf8")).replace(/\r\n?/g, "\n");
-  const content = stripSourceChrome(transformLinks(raw, lang, unresolvedLinks));
+  const content = stripSourceChrome(transformLinks(raw, lang, unresolvedLinks, imageAssets));
   const title = extractTitle(raw, file);
   const isLanguageOnly = lang === "ko" && !allFiles.en.includes(file);
   const hasCounterpart = lang === "en" ? allFiles.ko.includes(file) : allFiles.en.includes(file);
@@ -404,12 +465,13 @@ async function main() {
     en: await listMarkdownFiles("en"),
     ko: await listMarkdownFiles("ko"),
   };
+  const imageAssets = await loadImageAssets();
   const unresolvedLinks = [];
   const documents = [];
 
   for (const lang of ["en", "ko"]) {
     for (const file of allFiles[lang]) {
-      documents.push(await buildDocument(lang, file, allFiles, unresolvedLinks));
+      documents.push(await buildDocument(lang, file, allFiles, unresolvedLinks, imageAssets));
     }
   }
 
@@ -417,6 +479,7 @@ async function main() {
 
   await mkdir(CONTENT_DIR, { recursive: true });
   await mkdir(MIGRATION_DIR, { recursive: true });
+  await publishImageAssets(imageAssets);
   await writeMarkdownDownloads(documents);
   await writeFile(GENERATED_DOCS, `${JSON.stringify(documents, null, 2)}\n`, "utf8");
   await writeFile(INVENTORY_FILE, `${JSON.stringify(buildSourceInventory(allFiles, documents), null, 2)}\n`, "utf8");
