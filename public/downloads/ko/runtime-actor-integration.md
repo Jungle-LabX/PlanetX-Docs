@@ -1,8 +1,8 @@
 # Runtime Actor 통합 가이드: Blueprint로 우주선과 캐릭터 연결하기
 
-이 문서는 PlanetX를 처음 사용하는 게임 플레이 프로그래머 또는 레벨 디자이너가 Blueprint Actor를 PlanetX Runtime에 연결하는 방법을 설명합니다. 예시는 BP SpaceShip이 Orbit에서 행성의 Ground로 내려가고 다시 Orbit으로 돌아오는 흐름을 기준으로 하지만, Pawn과...
+이 문서는 PlanetX를 처음 사용하는 게임 플레이 프로그래머 또는 레벨 디자이너가 Blueprint Actor를 PlanetX Runtime에 연결하는 방법을 설명합니다. 예시는 BP SpaceShip이 Orbit에서 Ground로 착륙하고 복귀하는 흐름을 사용하지만 Pawn과 Character에도 같은 원칙을...
 
-이 문서는 PlanetX를 처음 사용하는 게임 플레이 프로그래머 또는 레벨 디자이너가 Blueprint Actor를 PlanetX Runtime에 연결하는 방법을 설명합니다. 예시는 `BP_SpaceShip`이 Orbit에서 행성의 Ground로 내려가고 다시 Orbit으로 돌아오는 흐름을 기준으로 하지만, Pawn과 Character에도 같은 원칙을 적용할 수 있습니다.
+이 문서는 PlanetX를 처음 사용하는 게임 플레이 프로그래머 또는 레벨 디자이너가 Blueprint Actor를 PlanetX Runtime에 연결하는 방법을 설명합니다. 예시는 `BP_SpaceShip`이 Orbit에서 Ground로 착륙하고 복귀하는 흐름을 사용하지만 Pawn과 Character에도 같은 원칙을 적용할 수 있습니다.
 
 이 문서를 끝까지 따르면 다음을 할 수 있습니다.
 
@@ -16,7 +16,7 @@
 
 ## 1. 먼저 선택할 Runtime 방식
 
-PlanetX Runtime에는 서로 목적이 다른 세 가지 진입 방식이 있습니다. 처음 검증할 때는 **Same World 수동 착륙**을 권장합니다. 필요한 요소가 가장 적고 오류 위치를 쉽게 확인할 수 있습니다.
+PlanetX Runtime에는 서로 목적이 다른 세 가지 진입 방식이 있습니다. 처음 검증할 때는 **Same World 수동 착륙**을 권장합니다.
 
 | 목표 | 사용할 방식 | 핵심 API/설정 |
 |---|---|---|
@@ -51,6 +51,12 @@ flowchart LR
 | `PlanetXViewpointComponent` | 현재 카메라가 전환 상태를 판정할 수 있게 표시 | 우주선을 자동으로 이동시키지 않음 |
 | `PlanetXTransitionEndpoint` | Section의 전환 경계를 Runtime에 등록 | 전환 상태 기계를 직접 소유하지 않음 |
 | `PlanetXSubsystem` | Surface Query, 착륙/복귀, Travel Ticket의 공개 진입점 | 내부 Runtime Service를 노출하지 않음 |
+Coordinate Component만 추가해도 Actor가 자동으로 움직이는 것은 아닙니다. 이동은 `PlanetXMovementComponent` 또는 게임의 기존 Character/Vehicle/Physics 구현이 담당합니다.
+### 2.1 Blueprint 핀 표시 규칙
+
+PlanetX는 Query, Route, Ticket, Result 구조체를 그대로 유지하되 새 Make/Break Struct 노드에는 자주 사용하는 핀만 기본 표시합니다. 특정 Planet을 고르는 Preferred Planet/Binding, Ticket의 Capture/Generation, Result의 Transform 진단값이 필요하면 노드의 핀 옵션에서 해당 핀을 다시 표시하십시오.
+
+Actor Blueprint에서는 `Request Actor`, `Source Actor`, `Target Actor`의 기본값이 `Self`입니다. 예시의 `Self` 연결은 흐름을 설명하기 위한 것이며 같은 Actor를 처리한다면 선을 생략할 수 있습니다. `Resume Alpha`와 `Apply Control Rotation`은 노드의 고급 핀을 펼쳐야 나타납니다. 전체 기본/숨김 핀 표는 [Blueprint 공개 API](/docs/ko/user-api#21-blueprint-기본-핀-정책)를 참고하십시오.
 
 ## 3. 착륙 전에 Planet 쪽을 준비한다
 
@@ -75,6 +81,8 @@ Same World 착륙이 가능하려면 목표 Section의 Level Pair가 다음 조�
 - Ground Sync Mapping과 Ground 표현이 유효함
 
 착륙 전에는 항상 Surface Query 결과의 `bCanEnterGround`를 확인하십시오. 표면에 맞았다고 해서 반드시 해당 위치가 착륙 가능한 Section이라는 뜻은 아닙니다.
+
+**External Section만 있는 Planet도 지원됩니다. Same World Section을 정렬용 anchor로 추가할 필요가 없습니다.** Orbit → Ground 위치와 회전은 선택된 Section의 Ground Sync Mapping을 기준으로 계산합니다.
 
 ### 3.3 시작 전 확인할 점
 
