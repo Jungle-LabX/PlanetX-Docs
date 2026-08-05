@@ -159,5 +159,3 @@ Planet Asset Editor의 **Diagnostics** 탭에서 Validation 결과를 확인합�
 PIE가 `Transition resources are not ready` 메시지와 함께 취소되면 Level과 Planet Asset을 다시 저장하고 자동 Build가 완료될 때까지 상태를 확인합니다. 정확한 실패 원인은 Diagnostics의 Validation 결과에서 확인합니다.
 
 PIE가 정상적으로 시작되고 `PlanetX Planet Actor`가 Planet Asset을 등록하면 첫 Planet Proxy 구성이 완료된 것입니다.
-
-> 이 Quick Start는 Proxy 생성과 Runtime 등록까지 확인합니다. 실제 Ground/Orbit 전환과 Gameplay Actor 연동은 [Runtime Actor Integration](12_Runtime_Actor_Integration.md)에서 이어서 설정합니다.
