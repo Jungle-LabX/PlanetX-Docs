@@ -41,8 +41,6 @@ PA_FirstPlanet
 
 ![Content Drawer의 PlanetX Planet Asset 생성 메뉴](/images/docs/2-1-planetxasset-creater.png)
 
-![생성된 PlanetX Planet Asset 아이콘](/images/docs/2-2-planetxasset-icon-1.png)
-
 이 단계에서는 Asset을 생성한 뒤 한 번 저장하면 됩니다. Section과 Level Pair 같은 세부 설정은 Bake가 끝난 뒤 Planet Asset Editor에서 확인합니다.
 
 > `Planet Radius`처럼 Proxy의 곡률에 영향을 주는 값이 기본값과 다르다면 Bake 전에 올바른 값으로 지정해야 합니다. 이러한 Bake 입력값을 나중에 변경하면 다시 Bake해야 합니다.
