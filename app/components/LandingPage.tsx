@@ -44,8 +44,8 @@ const copy = {
     openDocs: "Open documentation",
     otherLanguageDocs: "한국어 문서",
     fabKicker: "Fab listing",
-    fabBody: "The public Fab URL has not been configured yet.",
-    fabPending: "Fab link pending",
+    fabBody: "View PlanetX 1.0 on Fab.",
+    fabCta: "View on Fab",
   },
   ko: {
     heroEyebrow: "Unreal Engine용 행성 규모 World 워크플로",
@@ -78,8 +78,8 @@ const copy = {
     openDocs: "한국어 문서 열기",
     otherLanguageDocs: "English docs",
     fabKicker: "Fab 등록",
-    fabBody: "공개 Fab URL은 아직 설정되지 않았습니다.",
-    fabPending: "Fab 링크 준비 중",
+    fabBody: "Fab에서 PlanetX 1.0을 확인하세요.",
+    fabCta: "Fab에서 보기",
   },
 } as const;
 
@@ -344,7 +344,7 @@ export function LandingPage() {
         <section className="fab-cta" id="fab" data-reveal>
           <BrandMark className="fab-cta__mark" size={92} title="PlanetX orbital mark" />
           <div><span className="section-kicker">{text.fabKicker}</span><h2>PlanetX 1.0</h2><p>{text.fabBody}</p></div>
-          <span className="button button--disabled" aria-disabled="true">{text.fabPending}</span>
+          <a className="button" href="https://www.fab.com/listings/df90e367-3ad4-4bd9-aa6f-3f230b0637a6" target="_blank" rel="noreferrer">{text.fabCta}</a>
         </section>
       </main>
 

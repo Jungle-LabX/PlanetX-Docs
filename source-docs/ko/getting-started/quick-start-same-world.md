@@ -21,10 +21,8 @@
 다음 항목을 준비해 주세요.
 
 - PlanetX가 설치되고 활성화된 Unreal Engine 5.8 프로젝트
-- Unreal Engine의 기본 **Open World** 템플릿으로 만들고 `GroundLevel`로 저장한 Level
-- Ground Level 안에 Landscape, Static Mesh 등 Proxy Bake가 지원하는 시각 콘텐츠
-- 이 튜토리얼을 위해 Ground Level에 배치하고 **Auto Possess Player 0**으로 설정한 Pawn 또는 Character
-- 해당 Pawn 또는 Character에서 사용하는 활성 Camera Component
+
+미리 준비한 Ground Level은 필요하지 않습니다. 2단계에서 Unreal Engine의 기본 **Open World** 템플릿으로 새 Level을 만들고 `GroundLevel`로 저장합니다. 이 템플릿의 Landscape를 재현 가능한 Source로 사용하며, 런타임 전환 테스트에 필요한 Player Actor는 11단계에서 준비합니다.
 
 동일한 결과를 재현하려면 다음 값을 그대로 사용하세요.
 
@@ -35,7 +33,7 @@
 | Planet Radius | `100 km` |
 | Planet Asset | `PA_FirstPlanet` |
 
-작업을 시작하기 전에 `GroundLevel`을 저장하세요. Proxy Bake에는 `Untitled` 또는 `/Temp` Level이 아닌 저장된 Level을 사용해야 합니다.
+2단계에서 `GroundLevel`을 만들고 저장하기 전에는 Proxy Bake를 열지 마세요. Proxy Bake에는 `Untitled` 또는 `/Temp` Level이 아닌 저장된 Level을 사용해야 합니다.
 
 또한 PIE 또는 Simulate가 실행 중이라면 먼저 종료하세요. Proxy Bake는 Editor의 Ground Source를 기준으로 작업하므로 PIE 중에는 실행하지 않습니다.
 
@@ -53,7 +51,7 @@
 
 ---
 
-## 2. Ground Level에서 Proxy Bake 열기
+## 2. GroundLevel을 만들고 Proxy Bake 열기
 
 **File > New Level**을 선택하고 Unreal Engine의 기본 **Open World** 템플릿을 연 뒤 즉시 `GroundLevel`로 저장합니다.
 
@@ -491,6 +489,8 @@ Level을 저장합니다.
 이제 실제로 움직일 Pawn 또는 Character를 설정합니다.
 
 여기서는 **현재 PlayerController가 View Target으로 사용하는 Actor**를 수정해야 합니다. 이 튜토리얼에서는 Ground Level에 배치하고 **Auto Possess Player 0**으로 설정한 Pawn 또는 Character Instance를 사용합니다.
+
+`GroundLevel`에 해당 Actor가 없다면 지금 Pawn 또는 Character를 배치하고 **Auto Possess Player**를 **Player 0**으로 설정한 뒤, 활성 Camera Component가 PlayerController의 View Target을 제공하는지 확인합니다.
 
 해당 Actor의 Blueprint를 엽니다.
 

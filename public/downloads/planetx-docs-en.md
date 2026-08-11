@@ -249,10 +249,8 @@ When finished, you will have:
 Please prepare:
 
 - An Unreal Engine 5.8 project with PlanetX installed and enabled
-- A Level created from Unreal Engine's built-in **Open World** template and saved as `GroundLevel`
-- Visual content supported by Proxy Bake, such as Landscapes or Static Meshes, in that Ground Level
-- A Pawn or Character placed in the Ground Level and configured with **Auto Possess Player 0** for this tutorial
-- An active Camera Component used by that Pawn or Character
+
+You do not need a prepared Ground Level. Step 2 creates a new Level from Unreal Engine's built-in **Open World** template and saves it as `GroundLevel`. The Open World template supplies the reproducible Landscape source used by this guide. Step 11 then prepares the Player Actor used for the runtime transition test.
 
 Use these exact values for the reproducible path:
 
@@ -263,7 +261,7 @@ Use these exact values for the reproducible path:
 | Planet Radius | `100 km` |
 | Planet Asset | `PA_FirstPlanet` |
 
-Save `GroundLevel` before you begin. Proxy Bake must use a saved Level rather than an `Untitled` or `/Temp` Level.
+Do not open Proxy Bake until Step 2 has created and saved `GroundLevel`. Proxy Bake must use a saved Level rather than an `Untitled` or `/Temp` Level.
 
 If PIE or Simulate is running, stop it first. Proxy Bake works from Editor Ground sources and must not run during PIE.
 
@@ -281,7 +279,7 @@ The first Proxy Bake automatically creates the required Section and Level Pair f
 
 ---
 
-### 2. Open Proxy Bake from the Ground Level
+### 2. Create GroundLevel and open Proxy Bake
 
 Choose **File > New Level**, select Unreal Engine's built-in **Open World** template, and save it immediately as `GroundLevel`.
 
@@ -681,6 +679,8 @@ Save the Level.
 Next, configure the Pawn or Character that will move through the transition.
 
 Modify the **Actor currently used as the PlayerController's View Target**. For this tutorial, use the Pawn or Character instance placed in the Ground Level with **Auto Possess Player 0**.
+
+If `GroundLevel` does not already contain that Actor, place the Pawn or Character now, set **Auto Possess Player** to **Player 0**, and confirm that its active Camera Component supplies the PlayerController's View Target.
 
 Open that Actor's Blueprint.
 
