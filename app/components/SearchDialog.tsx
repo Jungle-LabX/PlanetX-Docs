@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { docs, type DocLanguage } from "@/content/docs";
-import { getCanonicalCategoryTitle, getCanonicalDocDescription, getCanonicalDocTitle } from "@/content/navigation";
+import { docs, getDocHref, type DocLanguage } from "@/content/docs";
 import { canonicalSearchAliases, glossaryEntries } from "@/content/search";
 
 type SearchResult = {
@@ -18,26 +17,20 @@ type SearchResult = {
   slug?: string;
 };
 
-const featuredSlugs = ["overview", "getting-started", "faq", "known-issues"];
-
-const standaloneSearchRoutes: Record<string, string> = {
-  faq: "/faq",
-  "known-issues": "/known-issues",
-  "support-release-notes": "/release-notes",
-};
+const featuredSlugs = ["quick-start-same-world", "introduction", "faq", "known-issues"];
 
 function buildResults(language: DocLanguage): SearchResult[] {
   const documentResults = docs
     .filter((doc) => doc.public && doc.lang === language)
     .map((doc) => {
-      const title = getCanonicalDocTitle(doc.slug, doc.lang, doc.title);
-      const category = getCanonicalCategoryTitle(doc.category, doc.lang);
-      const description = getCanonicalDocDescription(doc.slug, doc.lang, doc.description);
+      const title = doc.navigationTitle;
+      const category = doc.categoryTitle;
+      const description = doc.description;
       const aliases = canonicalSearchAliases[doc.slug] ?? [];
       return {
         id: doc.id,
         kind: "document" as const,
-        href: standaloneSearchRoutes[doc.slug] ?? `/docs/${doc.lang}/${doc.slug}`,
+        href: getDocHref(doc.lang, doc.slug),
         title,
         description,
         meta: `${doc.lang.toUpperCase()} · ${category}`,

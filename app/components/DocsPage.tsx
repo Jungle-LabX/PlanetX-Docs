@@ -1,20 +1,18 @@
 import Link from "next/link";
 import type { DocRecord } from "@/content/docs";
-import { getAdjacentDocs, getAlternateDoc } from "@/content/docs";
+import { defaultDocSlug, getAdjacentDocs, getAlternateDoc, getDocHref } from "@/content/docs";
 import { DocsSidebar } from "./DocsSidebar";
 import { DocsToc } from "./DocsToc";
 import { MarkdownContent } from "./MarkdownContent";
 import { SiteHeader } from "./SiteHeader";
 import { DocumentationDownloads } from "./DocumentationDownloads";
-import { getCanonicalCategoryTitle, getCanonicalDocDescription, getCanonicalDocTitle } from "@/content/navigation";
 
 export function DocsPage({ doc }: { doc: DocRecord }) {
   const alternate = getAlternateDoc(doc);
   const adjacent = getAdjacentDocs(doc);
   const isKorean = doc.lang === "ko";
-  const title = getCanonicalDocTitle(doc.slug, doc.lang, doc.title);
-  const description = getCanonicalDocDescription(doc.slug, doc.lang, doc.description);
-  const category = getCanonicalCategoryTitle(doc.category, doc.lang);
+  const title = doc.title;
+  const category = doc.categoryTitle;
 
   return (
     <div className="docs-site">
@@ -22,7 +20,9 @@ export function DocsPage({ doc }: { doc: DocRecord }) {
         tone="light"
         language={doc.lang}
         persistLanguage
-        alternateHref={alternate ? `/docs/${alternate.lang}/${alternate.slug}#main-content` : `/docs/${doc.lang === "en" ? "ko" : "en"}/overview#main-content`}
+        alternateHref={alternate
+          ? `${getDocHref(alternate.lang, alternate.slug)}#main-content`
+          : `/docs/${doc.lang === "en" ? "ko" : "en"}/${defaultDocSlug}#main-content`}
       />
 
       <div className="docs-utility-bar">
@@ -56,7 +56,6 @@ export function DocsPage({ doc }: { doc: DocRecord }) {
               </span>
             </div>
             <h1>{title}</h1>
-            <p>{description}</p>
             <DocumentationDownloads language={doc.lang} slug={doc.slug} scope="page" />
             {doc.translation.status === "language-only" ? (
               <aside className="translation-note">
@@ -75,15 +74,15 @@ export function DocsPage({ doc }: { doc: DocRecord }) {
             </div>
             <nav className="doc-pagination" aria-label="Document pagination">
               {adjacent.previous ? (
-                <Link href={`/docs/${adjacent.previous.lang}/${adjacent.previous.slug}#main-content`}>
+                <Link href={`${getDocHref(adjacent.previous.lang, adjacent.previous.slug)}#main-content`}>
                   <small>← {isKorean ? "이전" : "Previous"}</small>
-                  <strong>{getCanonicalDocTitle(adjacent.previous.slug, adjacent.previous.lang, adjacent.previous.title)}</strong>
+                  <strong>{adjacent.previous.navigationTitle}</strong>
                 </Link>
               ) : <span />}
               {adjacent.next ? (
-                <Link href={`/docs/${adjacent.next.lang}/${adjacent.next.slug}#main-content`}>
+                <Link href={`${getDocHref(adjacent.next.lang, adjacent.next.slug)}#main-content`}>
                   <small>{isKorean ? "다음" : "Next"} →</small>
-                  <strong>{getCanonicalDocTitle(adjacent.next.slug, adjacent.next.lang, adjacent.next.title)}</strong>
+                  <strong>{adjacent.next.navigationTitle}</strong>
                 </Link>
               ) : null}
             </nav>

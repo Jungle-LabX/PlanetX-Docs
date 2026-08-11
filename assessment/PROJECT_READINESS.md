@@ -1,55 +1,49 @@
 # PlanetX Docs Project Readiness
 
-Assessment date: 2026-08-01
+Assessment date: 2026-08-11
 
 ## Decision summary
 
-PlanetX is ready for a public product site and documentation portal, but the source set is not yet release-complete. The current corpus contains 11 English and 13 Korean documents. Ten document pairs cover the same subjects; the Korean set has two additional deep guides (`11_User_API.md` and `12_Runtime_Actor_Integration.md`) with no English equivalent.
+The repository now has a complete, manifest-driven EN/KO publication corpus for PlanetX 1.0: 48 core documents per language in 11 categories, plus FAQ and Known Issues as web-only supplements. The generated online set contains 100 records, starts at `quick-start-same-world`, and preserves former public slugs through aliases.
 
-Docusaurus 3.10.2 is a strong fit for a GitHub Pages-only documentation portal: it provides Markdown/MDX, i18n, versioning, navigation, and static output. The current repository, however, was initialized by the Codex Sites workflow as a Next 16 + vinext application. The first implementation therefore keeps a single Next/vinext site and treats Markdown as immutable source input. This gives the landing page and documentation one design system and preserves a deployable Codex Sites preview. The migration manifest keeps a later Docusaurus cut-over reversible.
-
-Official references:
-
-- [Docusaurus installation](https://docusaurus.io/docs/installation)
-- [Docusaurus versions](https://docusaurus.io/versions)
-- [Docusaurus deployment](https://docusaurus.io/docs/deployment)
-- [Docusaurus versioning](https://docusaurus.io/docs/versioning)
-- [Docusaurus search](https://docusaurus.io/docs/search)
+The content and static publication pipeline can be validated locally. Fab submission readiness is still conditional on reproducing the documented workflows in the actual UE 5.8 plugin build, reviewing step screenshots, and confirming external GitHub Pages and Fab settings.
 
 ## Readiness matrix
 
 | Area | Status | Assessment |
 |---|---|---|
-| Product facts | Partial | Version 1.0, Runtime/Editor modules, GeometryProcessing dependency, and the main public runtime types are verified in source. |
-| English documentation | Partial | Eleven public-facing documents exist. Deep API and Runtime Actor guides are missing. |
-| Korean documentation | Ready with review | Thirteen documents exist, including the two deepest guides. API behavior still needs product-owner validation. |
-| Public/private separation | Ready | No credential, personal data, or private repository URL was found in the supplied UserGuide corpus. |
-| Product imagery | Partial | One current Unreal Editor screenshot and reusable PlanetX brand/PVE assets exist. Workflow and runtime screenshots are still missing. |
-| Static hosting | Ready with configuration | The content model is static. GitHub Pages still needs repository URL/base path and owner-side Pages settings. |
-| Search | Ready | Device-local static search can cover the current 24-document corpus with no service dependency. |
-| Versioning | Foundation only | Product version 1.0 is known. No snapshot should be created until a real release baseline is approved. |
-| i18n | Partial | Language routing is feasible, but EN/KO section parity is incomplete. |
-| Accessibility | Implementable | Keyboard navigation, reduced motion, focus management, table overflow, and semantic headings are all achievable statically. |
-| GSAP | Suitable on landing only | Use `useGSAP()`/context cleanup; do not animate documentation reading flow. |
+| Canonical corpus | Ready | `source-docs/docs-manifest.json` defines 11 categories and 48 paired core documents per language. |
+| EN/KO parity | Ready | Every core slug has both English and Korean content; there are no translation-pending core pages. |
+| Web supplements | Product review required | FAQ and Known Issues exist in both languages but are intentionally outside the packaged 48-document set. |
+| Compatibility contract | Documented | PlanetX 1.0 targets Unreal Engine 5.8 and Win64 and requires GeometryProcessing and PCG. |
+| Public/private separation | Ready with checks | Publication validation must continue to reject private paths and internal-only editorial notes. No public support URL is defined. |
+| Product imagery | Partial | Six overview images and eight Same World Quick Start screenshots are reused by 28 EN/KO references. Level Handoff still has no screenshots. |
+| Workflow reproducibility | Manual gate | Same World, Level Handoff, installation, Proxy Bake, runtime, and diagnostic steps must be run in the submitted build. |
+| Static hosting | Ready with configuration | The site is statically exportable; repository URL, Pages base path, workflow settings, and any domain remain owner-controlled. |
+| Search | Ready | Device-local search covers all 100 generated records without a hosted dependency. |
+| Legacy URLs | Ready | Manifest aliases preserve former slugs while canonical content remains single-sourced. |
+| Accessibility | Automated plus manual QA | Semantic and repository-level checks are automatable; keyboard, responsive, contrast, and screen-reader behavior still need rendered review. |
 
-## Verified product facts
+## Canonical product facts
 
-- `PlanetX.uplugin` declares `VersionName: "1.0"`.
-- Modules: `PlanetX` (Runtime) and `PlanetXEditor` (Editor).
-- Plugin dependency: `GeometryProcessing`.
-- Verified public types: `APlanetXPlanetActor`, `UPlanetXSubsystem`, `UPlanetXCoordinateComponent`, `UPlanetXMovementComponent`, and `UPlanetXTravelReceiverComponent`.
-- `PlanetX.MemoryBudgetMB` exists in source.
-- `px.Material.DebugMode` and `px.Material.UseLegacyPath` were not found in the current codebase and must not be presented as verified controls.
+- Product version: 1.0 Mercury
+- Unreal Engine: 5.8
+- Supported target platform: Win64
+- Runtime module: `PlanetX`
+- Editor module: `PlanetXEditor`
+- Required plugins: GeometryProcessing and PCG
+- Packaged documentation source: `Docs/docs/{en,ko}`
 
-## Main risks
+Claims beyond this contract require code evidence or explicit product approval. Do not infer a support URL, extra platform support, compatibility history, or performance guarantee.
 
-1. The English documentation is materially behind Korean for public API and Runtime Actor integration.
-2. The supplied plugin descriptor does not declare an Unreal Engine compatibility range. Compatibility must remain “product review required” until the developer supplies a tested matrix.
-3. Several performance recommendations and troubleshooting strings require reproduction in Unreal Editor.
-4. A custom docs renderer carries more maintenance than stock Docusaurus; source Markdown and migration metadata must stay framework-neutral.
-5. GitHub Pages repository/organization names, custom domain, and access policy are not yet known.
-6. The package audit currently reports transitive dependency findings; do not run a breaking forced upgrade without a separate dependency review.
+## Remaining risks
+
+1. Fab previously reported that the step-by-step result was not sufficiently reproducible; corpus parity alone does not close that finding.
+2. The canonical Level Handoff guide is long and has no screenshots, increasing the need for an exact UI walkthrough.
+3. The eight Same World Quick Start screenshots now demonstrate key authoring, bake, diagnostic, and PIE milestones, but most installation, Level Handoff, and recovery steps still have no visual evidence.
+4. FAQ and Known Issues need product-owner review before they can represent support policy or current defects.
+5. GitHub Pages and Fab listing URLs, package metadata, and reviewer instructions are external settings that repository checks cannot certify.
 
 ## Recommendation
 
-Proceed with the public v1 site using only verified facts. Publish the shared EN/KO chapters, label Korean-only deep guides clearly, exclude unverified CVars from compatibility claims, and gate the final public release on the product-owner checks listed in `CODEX_CAPABILITY_AND_MANUAL_STEPS.md`.
+Keep the synchronized corpus and generated pipeline as the publication baseline. Before uploading, run every automated check, reproduce the primary workflows in the exact submitted UE 5.8 build, add only reviewed screenshots that materially clarify steps, and verify that the Fab listing and public site point to the same approved version. Do not publish an unverified support destination.

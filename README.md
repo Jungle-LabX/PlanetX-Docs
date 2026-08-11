@@ -19,13 +19,15 @@ npm run dev
 ## Validation
 
 ```bash
+npm run docs:generate
 npm run docs:check
 npm run typecheck
 npm run lint
 npm test
 ```
 
-- `docs:check`: EN/KO 문서 매핑, 필수 메타데이터, 링크·번역 상태를 검사합니다.
+- `docs:generate`: manifest와 보존 원본에서 게시 데이터, 다운로드, 이미지 복사본을 다시 생성합니다.
+- `docs:check`: manifest, EN/KO 대응, 필수 메타데이터, 링크, 이미지, 다운로드 상태를 검사합니다.
 - `typecheck`: TypeScript 정적 검사를 실행합니다.
 - `lint`: 앱과 스크립트의 코드 품질을 검사합니다.
 - `test`: vinext 프로덕션 빌드 후 랜딩 및 EN/KO 문서 라우트를 서버 렌더링하여 검증합니다.
@@ -41,7 +43,8 @@ npm run build:pages
 | 경로 | 역할 |
 | --- | --- |
 | `app/` | 랜딩, 문서 UI, 검색, 반응형 레이아웃 |
-| `source-docs/en`, `source-docs/ko` | 공개 문서의 보존 원본 |
+| `source-docs/en`, `source-docs/ko` | 공개 핵심 문서와 웹 전용 보충 문서의 보존 원본 |
+| `source-docs/docs-manifest.json` | 11개 카테고리, 언어별 48개 핵심 문서, 순서, 제목, 기본 문서, alias의 기준 정보 |
 | `content/generated-docs.json` | 빌드용 생성 데이터; 직접 편집 금지 |
 | `scripts/compile-docs.mjs` | Markdown 정규화·메타데이터·검색 데이터 생성 |
 | `scripts/check-docs.mjs` | 언어별 문서 대응과 품질 검사 |
@@ -51,21 +54,21 @@ npm run build:pages
 
 ## Updating documentation
 
-플러그인 저장소의 원본 문서는 다음 위치에 있습니다.
+플러그인 배포본의 원본 문서는 다음 구조를 사용합니다.
 
 ```text
-ProjectPlanetX/Plugins/PlanetX/Docs/UserGuide/EN
-ProjectPlanetX/Plugins/PlanetX/Docs/UserGuide/KO
+Docs/docs/en/<category>/<slug>.md
+Docs/docs/ko/<category>/<slug>.md
 ```
 
-게시 변경은 원본을 먼저 수정한 뒤 동일한 상대 경로로 `source-docs/`에 동기화합니다. 이후 아래 명령을 실행하고 생성 파일도 함께 커밋합니다.
+게시 변경은 플러그인 문서를 먼저 수정한 뒤 동일한 상대 경로로 `source-docs/`에 동기화합니다. 문서를 추가하거나 순서를 바꿀 때는 `source-docs/docs-manifest.json`도 함께 수정합니다. 이후 아래 명령을 실행하고 생성 파일, 다운로드, 게시 이미지도 함께 커밋합니다.
 
 ```bash
 npm run docs:generate
 npm run docs:check
 ```
 
-현재 KO 전용 문서인 `User API`와 `Runtime Actor Integration`은 영문 번역 대기 상태로 명시됩니다. 문서에 없는 제품 호환성, 콘솔 변수, 퍼블릭 API는 추정해서 추가하지 않습니다.
+2026-08-11 기준으로 언어별 48개 핵심 문서는 EN/KO가 모두 대응하며, FAQ와 Known Issues를 합쳐 총 100개 온라인 레코드를 생성합니다. 기본 문서는 `quick-start-same-world`이고 기존 URL은 manifest alias로 보존합니다. PlanetX 1.0의 공개 계약은 Unreal Engine 5.8, Win64, 필수 플러그인 GeometryProcessing과 PCG입니다. 그 밖의 제품 호환성, 콘솔 변수, 퍼블릭 API 또는 지원 정책은 근거 없이 추정하지 않습니다.
 
 ## Versioning policy
 
@@ -88,6 +91,7 @@ GitHub 저장소에서 다음 설정이 한 번 필요합니다.
 
 ## Media and accessibility
 
+- 현재 원본에는 물리 이미지 14개가 있습니다. 개요 이미지 6개는 EN/KO의 12개 참조에서 재사용되고, Same World Quick Start의 단계 이미지 8개는 EN/KO의 16개 참조에서 재사용됩니다. Level Handoff 문서에는 아직 스크린샷이 없으므로 실제 UI 재현 검토가 별도 릴리스 게이트입니다.
 - 스크린샷은 실제 Unreal Engine 화면만 사용하고 민감한 경로·프로젝트 이름을 제거합니다.
 - 이미지에는 의미 있는 대체 텍스트를 제공합니다.
 - 애니메이션은 `prefers-reduced-motion`을 존중하며 핵심 정보 전달을 모션에 의존하지 않습니다.

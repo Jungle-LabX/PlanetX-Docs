@@ -1,87 +1,27 @@
-# Runtime Integration
+# 런타임 통합
 
-Planet Actor
+런타임 통합의 공개 facade는 Game Instance Subsystem인 `UPlanetXSubsystem`입니다. World별 registry와 서비스는 내부 구현이며 gameplay 코드는 facade와 공개 Component를 사용합니다.
 
-## Planet Actor
+## Planet 등록
 
-1. World에 `APlanetXPlanetActor`를 배치합니다.
-2. Planet Component에 Planet Asset을 지정합니다.
-3. 일반적으로 Auto Register Runtime을 유지합니다.
-4. 같은 Planet Asset의 여러 인스턴스가 있으면 안정적인 Planet Binding ID를 지정합니다.
+`APlanetXPlanetActor`에는 Planet, Proxy, Transition Morph, Atmosphere, Volumetric Cloud Component가 기본으로 포함됩니다. Planet Component에 Planet Asset을 지정하고 `bAutoRegisterRuntime`을 사용하거나 `RegisterToPlanetXRuntime`을 호출합니다.
 
-## Runtime Role
+같은 Planet ID를 가진 Actor가 여러 개면 Planet Binding ID를 저장하고 query에 전달하세요. 단일 인스턴스만 가정한 자동 resolve는 여러 Actor 환경에서 모호할 수 있습니다.
 
-| Role | 사용 방식 |
-|---|---|
-| Same World | 같은 World에서 Ground/Orbit 표현 전환 |
-| External Level | 게임이 World Travel하고 PlanetX가 pose/state를 Handoff |
+## 참가 Actor
 
-PlanetX는 `OpenLevel`, spawn, possession과 GameMode를 소유하지 않습니다.
+필요에 따라 다음 Component를 추가합니다.
 
-## Same World
+- Coordinate: Planet/Section reference, 표준 pose, vector 변환, Spatial Entry policy
+- Movement: planet gravity, input/force/impulse, surface snap과 alignment
+- Viewpoint: transition 관찰 기준
+- Travel Receiver: Level Handoff 도착 후 pending travel 재개
+- Transition Endpoint: Section 진입/이탈 조건과 presentation
 
-Blueprint:
+## Begin Play 순서
 
-- `Enter Ground Same World(World Context, Request Actor, Surface Query)`
-- `Return To Orbit Same World(World Context, Request Actor)`
+Planet Actor가 먼저 등록되고 참가 Actor가 runtime context를 resolve할 수 있어야 합니다. Streaming으로 순서가 늦어질 수 있으면 `RefreshRuntimeRegistration`, `RefreshRuntimeContext` 또는 Travel Receiver의 retry 정책을 사용합니다.
 
-Coordinate Component의 Automatic Same World Entry/Return을 사용할 수도 있습니다.
+## Package 전 확인
 
-## External Level
-
-```text
-Prepare Travel
-→ 게임이 Ticket/Route 보관
-→ 게임이 World Travel
-→ Target Actor 생성·Possess
-→ Resume Pending Travel
-```
-
-도착 Actor의 `UPlanetXTravelReceiverComponent`는 자동 resume를 시도할 수 있습니다.
-
-## 주요 Component
-
-| Component | 용도 |
-|---|---|
-| Coordinate Component | Planet/Section identity와 PlanetX pose |
-| Movement Component | 선택적 행성 표면 native movement |
-| Viewpoint Component | 카메라/플레이어 관찰자와 transition driver |
-| Travel Receiver | External Travel 도착 pose/state 적용 |
-
-Coordinate Component만 붙여도 Actor가 매 프레임 자동 이동하지는 않습니다.
-
-## Runtime Preview
-
-External Level의 Bake Preview를 실제 Travel 없이 표시할 때 사용합니다.
-
-- Load Runtime Preview
-- Set Runtime Preview Visible
-- Unload Runtime Preview
-- Get Runtime Preview Status
-
-## C++ 시작점
-
-```cpp
-#include "PlanetX/Runtime/PlanetXSubsystem.h"
-
-UPlanetXSubsystem* PlanetX =
-    GetGameInstance()->GetSubsystem<UPlanetXSubsystem>();
-```
-
-```cpp
-PlanetX->EnterGroundSameWorld(this, RequestActor, SurfaceQuery);
-PlanetX->ReturnToOrbitSameWorld(this, RequestActor);
-```
-
-External Travel은 `PrepareTravel` 후 게임 Travel을 수행하고, 도착 후 `ResumePendingTravel`을 호출합니다.
-
-내부 Runtime Service가 아니라 `UPlanetXSubsystem` 공개 facade를 사용하십시오.
-
-## Transition과 Environment
-
-- `APlanetXTransitionEndpoint`: Planet/Section/Level Pair의 Orbit/Ground 경계 등록
-- `APlanetXEnvironmentManager`: Cloud/Atmosphere binding과 Ground/Orbit 환경 전환
-
-PIE에서는 PlanetX Mode의 Runtime 팔레트로 Actor context, Movement state와 Transition result를 확인합니다.
-
-전체 Blueprint/C++ 함수, 반환 타입과 실패 처리 방법은 [사용자 제공 API](/docs/ko/user-api)를 참고하십시오.
+Planet Asset Full Validate, current Proxy Bake, current Generated Visual/Material, Runtime Preview World와 Cook asset bundle을 확인합니다. Editor Preview가 보인다는 사실만으로 runtime payload가 Cook됐다고 판단하지 마세요.

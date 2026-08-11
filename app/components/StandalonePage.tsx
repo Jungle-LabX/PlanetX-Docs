@@ -17,15 +17,15 @@ type StandalonePageProps = {
 
 const pageCopy = {
   en: {
-    "known-issues": { eyebrow: "Product status", title: "Known Issues", intro: "Confirmed issues, current response status, and available workarounds." },
+    "known-issues": { eyebrow: "Product status", title: "Known Issues", intro: "Publication status and reporting guidance for product-reviewed issues." },
     faq: { eyebrow: "Product guidance", title: "Frequently Asked Questions", intro: "Direct answers about PlanetX scope, runtime ownership, Bake, and integration." },
-    "release-notes": { eyebrow: "PlanetX 1.0", title: "Release Notes", intro: "Published module scope, dependencies, update guidance, and verified limitations." },
+    "release-notes": { eyebrow: "PlanetX 1.0", title: "Release Notes", intro: "Published 1.0 contract, module scope, required dependencies, and distribution note." },
     about: { eyebrow: "Independent product team", title: "About LabX", intro: "LabX builds focused tools that make ambitious Unreal Engine workflows easier to author, review, and ship." },
   },
   ko: {
-    "known-issues": { eyebrow: "제품 상태", title: "알려진 문제", intro: "재현이 확인된 문제와 현재 대응 상태, 사용할 수 있는 우회 방법을 정리합니다." },
+    "known-issues": { eyebrow: "제품 상태", title: "알려진 문제", intro: "제품 검토를 거친 이슈의 게시 상태와 문제 보고 준비 사항을 안내합니다." },
     faq: { eyebrow: "제품 안내", title: "자주 묻는 질문", intro: "PlanetX의 범위, Runtime 책임, Bake, 통합 과정에 관한 핵심 답변을 확인하세요." },
-    "release-notes": { eyebrow: "PlanetX 1.0", title: "릴리스 노트", intro: "공개 모듈 범위, 의존성, 업데이트 절차와 검증된 제한 사항을 정리합니다." },
+    "release-notes": { eyebrow: "PlanetX 1.0", title: "릴리스 노트", intro: "공개된 1.0 계약, 모듈 범위, 필수 의존성, 배포 참고 사항을 정리합니다." },
     about: { eyebrow: "독립 개발 팀", title: "LabX 소개", intro: "LabX는 Unreal Engine의 복잡한 제작 과정을 더 쉽게 구성하고 검토하며 배포할 수 있도록 집중도 높은 도구를 만듭니다." },
   },
 } as const;
@@ -53,13 +53,7 @@ const aboutCopy = {
   },
 } as const;
 
-function releaseNotesOnly(content: string) {
-  const versionHeading = content.indexOf("## Version 1.0");
-  return versionHeading >= 0 ? content.slice(versionHeading) : content;
-}
-
-function standaloneBody(content: string, kind: Exclude<StandaloneKind, "about">) {
-  if (kind === "release-notes") return releaseNotesOnly(content);
+function standaloneBody(content: string) {
   const firstSection = content.indexOf("## ");
   return firstSection >= 0 ? content.slice(firstSection) : content;
 }
@@ -111,7 +105,7 @@ export function StandalonePage({ kind, documents, initialLanguage = "en" }: Stan
           </div>
         ) : document ? (
           <section className="standalone-content" aria-label={title}>
-            <MarkdownContent content={standaloneBody(document.content, kind)} />
+            <MarkdownContent content={standaloneBody(document.content)} />
           </section>
         ) : null}
       </main>

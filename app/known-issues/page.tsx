@@ -4,7 +4,7 @@ import { getDoc } from "@/content/docs";
 
 export const metadata: Metadata = {
   title: "Known Issues",
-  description: "Confirmed PlanetX issues, current status, and available workarounds.",
+  description: "Publication status and reporting guidance for product-reviewed PlanetX issues.",
   alternates: { canonical: "/known-issues" },
 };
 

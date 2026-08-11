@@ -31,14 +31,13 @@ const copy = {
     unreal: "Unreal Engine",
     status: "Status",
     notes: "Notes",
-    rangeNotDeclared: "Range not declared",
-    review: "PRODUCT REVIEW",
-    engineNote: "The plugin descriptor does not declare an EngineVersion.",
-    verified: "VERIFIED",
-    geometryNote: "Enabled plugin dependency.",
-    workflowQa: "WORKFLOW QA",
-    partitionNote: "Documented as supported; project-scale verification remains.",
-    compatibilityNote: "We do not infer engine compatibility from source alone. A tested matrix will replace the review state.",
+    engineBaseline: "Unreal Engine 5.8",
+    supported: "SUPPORTED",
+    engineNote: "PlanetX 1.0 targets Unreal Engine 5.8 projects on Win64.",
+    required: "REQUIRED",
+    dependencyNote: "GeometryProcessing and PCG are required plugin dependencies.",
+    partitionNote: "Use the documented source-discovery and partitioned Bake workflow.",
+    compatibilityNote: "PlanetX 1.0 supports Unreal Engine 5.8 on Win64 and requires GeometryProcessing and PCG.",
     docsKicker: "Documentation",
     docsTitle: "From your first proxy to runtime integration.",
     docsBody: "Follow the Editor workflow, review supported content, integrate runtime Actors, and resolve common failure states.",
@@ -66,14 +65,13 @@ const copy = {
     unreal: "Unreal Engine",
     status: "상태",
     notes: "비고",
-    rangeNotDeclared: "범위 미선언",
-    review: "제품 검증 중",
-    engineNote: "Plugin Descriptor에 EngineVersion이 선언되어 있지 않습니다.",
-    verified: "검증 완료",
-    geometryNote: "Plugin 의존성으로 활성화되어 있습니다.",
-    workflowQa: "워크플로 검증 중",
-    partitionNote: "지원 워크플로로 문서화되어 있으며, 대규모 프로젝트 검증이 진행 중입니다.",
-    compatibilityNote: "소스 코드만으로 Engine 호환성을 추정하지 않습니다. 실제 테스트 결과가 확보되면 검증 매트릭스로 갱신합니다.",
+    engineBaseline: "Unreal Engine 5.8",
+    supported: "지원",
+    engineNote: "PlanetX 1.0은 Unreal Engine 5.8 Win64 프로젝트를 대상으로 합니다.",
+    required: "필수",
+    dependencyNote: "GeometryProcessing과 PCG가 필수 Plugin 의존성입니다.",
+    partitionNote: "문서화된 Source 탐색과 분할 Bake 워크플로를 사용합니다.",
+    compatibilityNote: "PlanetX 1.0은 Unreal Engine 5.8 Win64를 지원하며 GeometryProcessing과 PCG가 필요합니다.",
     docsKicker: "문서",
     docsTitle: "첫 Proxy 생성부터 Runtime 통합까지.",
     docsBody: "Editor 워크플로, 지원 콘텐츠, Runtime Actor 통합, 자주 발생하는 오류 해결 방법을 한곳에서 확인하세요.",
@@ -88,12 +86,12 @@ const copy = {
 const planetaryStates = {
   en: [
     { name: "Orbit", code: "STATE 01", title: "Frame the entire planet", body: "The generated proxy provides a coherent long-distance representation for navigation and presentation." },
-    { name: "Transition", code: "STATE 02", title: "Resolve the surface handoff", body: "Surface Context connects the planetary representation to the authored Ground experience." },
+    { name: "Transition", code: "STATE 02", title: "Resolve the surface handoff", body: "The Transition lifecycle connects Section state, runtime context, actor pose, and travel state." },
     { name: "Ground", code: "STATE 03", title: "Restore authored detail", body: "The Ground Level resumes responsibility for local interaction, visual detail, and gameplay." },
   ],
   ko: [
     { name: "Orbit", code: "상태 01", title: "행성 전체를 한눈에 표시합니다", body: "생성된 Proxy가 탐색과 연출에 필요한 일관된 원거리 표현을 제공합니다." },
-    { name: "Transition", code: "상태 02", title: "Surface 전환을 조율합니다", body: "Surface Context가 행성 표현과 제작된 Ground 경험을 연결합니다." },
+    { name: "Transition", code: "상태 02", title: "Surface 전환을 조율합니다", body: "Transition 수명 주기가 Section 상태, Runtime Context, Actor Pose, Travel 상태를 연결합니다." },
     { name: "Ground", code: "상태 03", title: "제작한 디테일을 복원합니다", body: "Ground Level이 로컬 상호작용, 시각 디테일, 게임플레이를 다시 담당합니다." },
   ],
 } as const;
@@ -215,7 +213,7 @@ export function LandingPage() {
             <h1 id="hero-title">{text.heroTitleA}<br /><em>{text.heroTitleB}</em></h1>
             <p>{text.heroBody}</p>
             <div className="hero-actions">
-              <Link className="button button--primary" href={`/docs/${language}/getting-started#main-content`}>{text.primaryCta}<span>↗</span></Link>
+              <Link className="button button--primary" href={`/docs/${language}/quick-start-same-world#main-content`}>{text.primaryCta}<span>↗</span></Link>
               <a className="button button--ghost" href="#fab">{text.secondaryCta}<span>↓</span></a>
             </div>
           </div>
@@ -292,7 +290,7 @@ export function LandingPage() {
             <span className="section-kicker">{text.proxyKicker}</span>
             <h2>{text.proxyTitle}</h2>
             <p>{text.proxyBody}</p>
-            <Link className="text-link" href={`/docs/${language}/editor-workflow#main-content`}>{text.proxyLink}<span>↗</span></Link>
+            <Link className="text-link" href={`/docs/${language}/proxy-bake-editor#main-content`}>{text.proxyLink}<span>↗</span></Link>
           </div>
           <div className="projection-demo" data-reveal>
             <div className="projection-demo__stage" aria-label={projection.caption}>
@@ -331,16 +329,16 @@ export function LandingPage() {
           <div className="section-heading" data-reveal><span className="section-kicker">{text.compatibilityKicker}</span><h2>{text.compatibilityTitle}</h2></div>
           <div className="compatibility-table" role="table" aria-label="PlanetX compatibility" data-reveal>
             <div role="row" className="compatibility-table__head"><span role="columnheader">{text.planetX}</span><span role="columnheader">{text.unreal}</span><span role="columnheader">{text.status}</span><span role="columnheader">{text.notes}</span></div>
-            <div role="row"><strong role="cell">1.0</strong><span role="cell">{text.rangeNotDeclared}</span><span role="cell"><b className="status status--review">{text.review}</b></span><span role="cell">{text.engineNote}</span></div>
-            <div role="row"><strong role="cell">1.0</strong><span role="cell">GeometryProcessing</span><span role="cell"><b className="status status--verified">{text.verified}</b></span><span role="cell">{text.geometryNote}</span></div>
-            <div role="row"><strong role="cell">1.0</strong><span role="cell">World Partition</span><span role="cell"><b className="status status--review">{text.workflowQa}</b></span><span role="cell">{text.partitionNote}</span></div>
+            <div role="row"><strong role="cell">1.0</strong><span role="cell">{text.engineBaseline}</span><span role="cell"><b className="status status--verified">{text.supported}</b></span><span role="cell">{text.engineNote}</span></div>
+            <div role="row"><strong role="cell">1.0</strong><span role="cell">GeometryProcessing + PCG</span><span role="cell"><b className="status status--verified">{text.required}</b></span><span role="cell">{text.dependencyNote}</span></div>
+            <div role="row"><strong role="cell">1.0</strong><span role="cell">World Partition</span><span role="cell"><b className="status status--verified">{text.supported}</b></span><span role="cell">{text.partitionNote}</span></div>
           </div>
           <p className="compatibility-note">{text.compatibilityNote}</p>
         </section>
 
         <section className="docs-cta" data-reveal>
           <div><span className="section-kicker">{text.docsKicker}</span><h2>{text.docsTitle}</h2></div>
-          <div><p>{text.docsBody}</p><div className="docs-cta__actions"><Link className="button button--light" href={`/docs/${language}/getting-started#main-content`}>{text.openDocs}</Link><Link className="button button--outline-light" href={`/docs/${language === "en" ? "ko" : "en"}/overview#main-content`}>{text.otherLanguageDocs}</Link></div></div>
+          <div><p>{text.docsBody}</p><div className="docs-cta__actions"><Link className="button button--light" href={`/docs/${language}/quick-start-same-world#main-content`}>{text.openDocs}</Link><Link className="button button--outline-light" href={`/docs/${language === "en" ? "ko" : "en"}/quick-start-same-world#main-content`}>{text.otherLanguageDocs}</Link></div></div>
         </section>
 
         <section className="fab-cta" id="fab" data-reveal>

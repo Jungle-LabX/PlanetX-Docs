@@ -1,57 +1,51 @@
 # Implementation Plan
 
-## Phase 0 — Assessment
+Baseline: canonical PlanetX 1.0 package documentation reviewed 2026-08-11.
 
-- Audit all 24 Markdown sources.
-- Verify central product facts against the plugin descriptor and public headers.
-- Record translation gaps, missing media, and manual owner steps.
-- Decide the first search and versioning policy.
+## Phase 1 — Synchronize the corpus
 
-Exit: assessment and migration artifacts are reviewable.
+- Preserve `Docs/docs/{en,ko}` under the matching `source-docs/{en,ko}` paths.
+- Use `source-docs/docs-manifest.json` as the authority for 11 categories, document order, titles, the `quick-start-same-world` default, supplemental pages, and aliases.
+- Maintain 48 core documents per language with complete EN/KO pairs.
+- Keep FAQ and Known Issues as two web-only supplemental documents per language.
 
-## Phase 1 — Foundation
+Exit: the canonical package sources and repository inputs match without translation-pending records.
 
-- Keep one Next/vinext project for the product landing and docs portal.
-- Compile immutable Markdown source into typed static content metadata.
-- Establish `/`, `/docs`, and `/docs/{lang}/{slug}` routes.
-- Add a shared navigation, responsive docs shell, and design tokens.
-- Keep version `1.0` as metadata without creating snapshots.
+## Phase 2 — Generate publication artifacts
 
-Exit: every source document resolves at a stable route.
+- Compile the 96 core inputs and four supplemental inputs into 100 online records.
+- Rewrite local-file query links to stable `/docs/{lang}/{slug}` routes.
+- Copy referenced source media to generated public assets and deduplicate repeated files.
+- Generate downloads, source inventory, document map, terminology output, and unresolved-review data deterministically.
+- Preserve old public URLs through manifest aliases instead of duplicating stale documents.
 
-## Phase 2 — Documentation migration
+Exit: generation is repeatable and `npm run docs:check` detects source, route, image, download, or parity drift.
 
-- Rewrite relative `.md` links at build time.
-- Route the supplied editor screenshot through public assets.
-- Add sidebar, breadcrumb, table of contents, previous/next links, last-reviewed state, and translation status.
-- Generate local search data from the same compiled source.
-- Run parity and broken-link checks.
+## Phase 3 — Align the documentation UI
 
-Exit: all 24 pages build and navigation is complete.
+- Build navigation from the 11 manifest categories and route new users to `quick-start-same-world`.
+- Render canonical and alias routes statically for English and Korean.
+- Keep FAQ, Known Issues, and Version 1.0 available at their standalone routes without duplicating release content.
+- Search all 100 generated records locally and prefer the active language.
+- Preserve keyboard access, visible focus, semantic headings, responsive layouts, and reduced-motion behavior.
 
-## Phase 3 — Product landing
+Exit: current and legacy routes resolve to one canonical content set.
 
-- Implement the product story: Ground authoring, Proxy Bake, coordinate hierarchy, and Orbit/Transition/Ground journey.
-- Use product assets and CSS geometry; do not fabricate Unreal output.
-- Limit GSAP to progressive landing-page motion with cleanup and reduced-motion fallback.
-- Add Documentation and Fab placeholders without inventing URLs.
+## Phase 4 — Automated QA
 
-Exit: the page communicates the verified product model without requiring animation.
+- Run `npm run docs:generate` and `npm run docs:check`.
+- Run `npm run typecheck`, `npm run lint`, `npm test`, and `npm run build:pages` for pipeline or application changes.
+- Inspect the generated diff for accidental private paths, internal notes, unsupported claims, and stale artifacts.
+- Confirm 48 core records and two supplements per language, 100 records total, and 14 physical images serving 28 EN/KO references: six overview images and eight Same World Quick Start images.
 
-## Phase 4 — Interactive components
+Exit: the repository is locally ready immediately before commit or upload.
 
-- Search/command dialog with focus return and Escape close.
-- Mobile navigation.
-- Compatibility matrix with `NEEDS_PRODUCT_REVIEW` where necessary.
-- State Journey, Coordinate Flow, Proxy Bake comparison, and screenshot lightbox.
+## Phase 5 — Manual product and publication gates
 
-Exit: keyboard, touch, and reduced-motion interactions are usable.
+- Reproduce the Same World and Level Handoff procedures in the submitted UE 5.8 build.
+- Validate exact UI labels and expected results across the remaining workflow documents.
+- Review the eight Same World Quick Start screenshots against the submitted build, capture additional screenshots where the text is insufficient, and note that the Level Handoff guide still has none.
+- Product-review FAQ, Known Issues, release facts, and any public destination URL.
+- Confirm the external GitHub Pages and Fab listing settings against the same package.
 
-## Phase 5 — QA and delivery
-
-- Run content generation, translation parity, typecheck, lint, production build, and rendered-route tests.
-- Add least-privilege CI and GitHub Pages workflow scaffolding.
-- Validate docs routes, tables, code blocks, focus states, responsive layout, and asset paths.
-- Record the final validation gaps and manual settings.
-
-Exit: a deployable Sites preview exists and GitHub Pages configuration is ready for owner-supplied repository settings.
+Exit: a human reviewer can follow the documented steps to the stated result, and the published site and Fab submission point to the same approved documentation.

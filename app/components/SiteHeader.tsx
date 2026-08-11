@@ -17,7 +17,7 @@ type SiteHeaderProps = {
 export function SiteHeader({
   tone = "dark",
   language = "en",
-  alternateHref = "/docs/ko/overview#main-content",
+  alternateHref = "/docs/ko/quick-start-same-world#main-content",
   onLanguageChange,
   persistLanguage = false,
 }: SiteHeaderProps) {

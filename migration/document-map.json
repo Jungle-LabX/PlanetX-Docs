@@ -1,73 +1,454 @@
 [
   {
-    "slug": "overview",
+    "slug": "introduction",
+    "aliases": [
+      "overview"
+    ],
     "order": 0,
-    "category": "Introduction",
-    "reviewFocus": "Product positioning and requirement summary",
+    "category": "overview",
+    "categoryOrder": 0,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
     "routes": {
-      "en": "/docs/en/overview",
-      "ko": "/docs/ko/overview"
+      "en": "/docs/en/introduction",
+      "ko": "/docs/ko/introduction"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/introduction",
+      "ko": "/docs/ko/introduction"
     },
     "sources": {
-      "en": "source-docs/en/00_Overview.md",
-      "ko": "source-docs/ko/00_Overview.md"
+      "en": "source-docs/en/overview/introduction.md",
+      "ko": "source-docs/ko/overview/introduction.md"
     },
     "ids": {
-      "en": "en-overview",
-      "ko": "ko-overview"
+      "en": "en-introduction",
+      "ko": "ko-introduction"
     },
     "translationStatus": "current"
   },
   {
-    "slug": "getting-started",
+    "slug": "key-features",
+    "aliases": [],
     "order": 1,
-    "category": "Getting Started",
-    "reviewFocus": "Reproduce every editor step and screenshot",
+    "category": "overview",
+    "categoryOrder": 0,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
     "routes": {
-      "en": "/docs/en/getting-started",
-      "ko": "/docs/ko/getting-started"
+      "en": "/docs/en/key-features",
+      "ko": "/docs/ko/key-features"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/key-features",
+      "ko": "/docs/ko/key-features"
     },
     "sources": {
-      "en": "source-docs/en/01_Getting_Started.md",
-      "ko": "source-docs/ko/01_Getting_Started.md"
+      "en": "source-docs/en/overview/key-features.md",
+      "ko": "source-docs/ko/overview/key-features.md"
     },
     "ids": {
-      "en": "en-getting-started",
-      "ko": "ko-getting-started"
+      "en": "en-key-features",
+      "ko": "ko-key-features"
     },
     "translationStatus": "current"
   },
   {
-    "slug": "editor-workflow",
+    "slug": "compatibility-limitations",
+    "aliases": [
+      "supported-content"
+    ],
     "order": 2,
-    "category": "Workflows",
-    "reviewFocus": "UI labels, bake modes, output states",
+    "category": "overview",
+    "categoryOrder": 0,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
     "routes": {
-      "en": "/docs/en/editor-workflow",
-      "ko": "/docs/ko/editor-workflow"
+      "en": "/docs/en/compatibility-limitations",
+      "ko": "/docs/ko/compatibility-limitations"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/compatibility-limitations",
+      "ko": "/docs/ko/compatibility-limitations"
     },
     "sources": {
-      "en": "source-docs/en/02_Editor_Workflow.md",
-      "ko": "source-docs/ko/02_Editor_Workflow.md"
+      "en": "source-docs/en/overview/compatibility-limitations.md",
+      "ko": "source-docs/ko/overview/compatibility-limitations.md"
     },
     "ids": {
-      "en": "en-editor-workflow",
-      "ko": "ko-editor-workflow"
+      "en": "en-compatibility-limitations",
+      "ko": "ko-compatibility-limitations"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "quick-start-same-world",
+    "aliases": [
+      "quick-start",
+      "start-here",
+      "start-here-first-planet",
+      "getting-started"
+    ],
+    "order": 3,
+    "category": "getting-started",
+    "categoryOrder": 1,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/quick-start-same-world",
+      "ko": "/docs/ko/quick-start-same-world"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/quick-start-same-world",
+      "ko": "/docs/ko/quick-start-same-world"
+    },
+    "sources": {
+      "en": "source-docs/en/getting-started/quick-start-same-world.md",
+      "ko": "source-docs/ko/getting-started/quick-start-same-world.md"
+    },
+    "ids": {
+      "en": "en-quick-start-same-world",
+      "ko": "ko-quick-start-same-world"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "installation",
+    "aliases": [],
+    "order": 4,
+    "category": "getting-started",
+    "categoryOrder": 1,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/installation",
+      "ko": "/docs/ko/installation"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/installation",
+      "ko": "/docs/ko/installation"
+    },
+    "sources": {
+      "en": "source-docs/en/getting-started/installation.md",
+      "ko": "source-docs/ko/getting-started/installation.md"
+    },
+    "ids": {
+      "en": "en-installation",
+      "ko": "ko-installation"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "create-first-planet",
+    "aliases": [],
+    "order": 5,
+    "category": "getting-started",
+    "categoryOrder": 1,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/create-first-planet",
+      "ko": "/docs/ko/create-first-planet"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/create-first-planet",
+      "ko": "/docs/ko/create-first-planet"
+    },
+    "sources": {
+      "en": "source-docs/en/getting-started/create-first-planet.md",
+      "ko": "source-docs/ko/getting-started/create-first-planet.md"
+    },
+    "ids": {
+      "en": "en-create-first-planet",
+      "ko": "ko-create-first-planet"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "quick-start-level-handoff",
+    "aliases": [],
+    "order": 6,
+    "category": "getting-started",
+    "categoryOrder": 1,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/quick-start-level-handoff",
+      "ko": "/docs/ko/quick-start-level-handoff"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/quick-start-level-handoff",
+      "ko": "/docs/ko/quick-start-level-handoff"
+    },
+    "sources": {
+      "en": "source-docs/en/getting-started/quick-start-level-handoff.md",
+      "ko": "source-docs/ko/getting-started/quick-start-level-handoff.md"
+    },
+    "ids": {
+      "en": "en-quick-start-level-handoff",
+      "ko": "ko-quick-start-level-handoff"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "planet-assets-identities",
+    "aliases": [
+      "core-concepts"
+    ],
+    "order": 7,
+    "category": "core-concepts",
+    "categoryOrder": 2,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/planet-assets-identities",
+      "ko": "/docs/ko/planet-assets-identities"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/planet-assets-identities",
+      "ko": "/docs/ko/planet-assets-identities"
+    },
+    "sources": {
+      "en": "source-docs/en/core-concepts/planet-assets-identities.md",
+      "ko": "source-docs/ko/core-concepts/planet-assets-identities.md"
+    },
+    "ids": {
+      "en": "en-planet-assets-identities",
+      "ko": "ko-planet-assets-identities"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "sections-level-pairs",
+    "aliases": [],
+    "order": 8,
+    "category": "core-concepts",
+    "categoryOrder": 2,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/sections-level-pairs",
+      "ko": "/docs/ko/sections-level-pairs"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/sections-level-pairs",
+      "ko": "/docs/ko/sections-level-pairs"
+    },
+    "sources": {
+      "en": "source-docs/en/core-concepts/sections-level-pairs.md",
+      "ko": "source-docs/ko/core-concepts/sections-level-pairs.md"
+    },
+    "ids": {
+      "en": "en-sections-level-pairs",
+      "ko": "ko-sections-level-pairs"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "coordinate-model",
+    "aliases": [],
+    "order": 9,
+    "category": "core-concepts",
+    "categoryOrder": 2,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/coordinate-model",
+      "ko": "/docs/ko/coordinate-model"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/coordinate-model",
+      "ko": "/docs/ko/coordinate-model"
+    },
+    "sources": {
+      "en": "source-docs/en/core-concepts/coordinate-model.md",
+      "ko": "source-docs/ko/core-concepts/coordinate-model.md"
+    },
+    "ids": {
+      "en": "en-coordinate-model",
+      "ko": "ko-coordinate-model"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "representation-runtime-load",
+    "aliases": [],
+    "order": 10,
+    "category": "core-concepts",
+    "categoryOrder": 2,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/representation-runtime-load",
+      "ko": "/docs/ko/representation-runtime-load"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/representation-runtime-load",
+      "ko": "/docs/ko/representation-runtime-load"
+    },
+    "sources": {
+      "en": "source-docs/en/core-concepts/representation-runtime-load.md",
+      "ko": "source-docs/ko/core-concepts/representation-runtime-load.md"
+    },
+    "ids": {
+      "en": "en-representation-runtime-load",
+      "ko": "ko-representation-runtime-load"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "transition-model",
+    "aliases": [],
+    "order": 11,
+    "category": "core-concepts",
+    "categoryOrder": 2,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/transition-model",
+      "ko": "/docs/ko/transition-model"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/transition-model",
+      "ko": "/docs/ko/transition-model"
+    },
+    "sources": {
+      "en": "source-docs/en/core-concepts/transition-model.md",
+      "ko": "source-docs/ko/core-concepts/transition-model.md"
+    },
+    "ids": {
+      "en": "en-transition-model",
+      "ko": "ko-transition-model"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "planet-asset-editor",
+    "aliases": [],
+    "order": 12,
+    "category": "editor-guide",
+    "categoryOrder": 3,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/planet-asset-editor",
+      "ko": "/docs/ko/planet-asset-editor"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/planet-asset-editor",
+      "ko": "/docs/ko/planet-asset-editor"
+    },
+    "sources": {
+      "en": "source-docs/en/editor-guide/planet-asset-editor.md",
+      "ko": "source-docs/ko/editor-guide/planet-asset-editor.md"
+    },
+    "ids": {
+      "en": "en-planet-asset-editor",
+      "ko": "ko-planet-asset-editor"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "planetx-mode",
+    "aliases": [],
+    "order": 13,
+    "category": "editor-guide",
+    "categoryOrder": 3,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/planetx-mode",
+      "ko": "/docs/ko/planetx-mode"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/planetx-mode",
+      "ko": "/docs/ko/planetx-mode"
+    },
+    "sources": {
+      "en": "source-docs/en/editor-guide/planetx-mode.md",
+      "ko": "source-docs/ko/editor-guide/planetx-mode.md"
+    },
+    "ids": {
+      "en": "en-planetx-mode",
+      "ko": "ko-planetx-mode"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "proxy-bake-editor",
+    "aliases": [
+      "editor-workflow"
+    ],
+    "order": 14,
+    "category": "editor-guide",
+    "categoryOrder": 3,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/proxy-bake-editor",
+      "ko": "/docs/ko/proxy-bake-editor"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/proxy-bake-editor",
+      "ko": "/docs/ko/proxy-bake-editor"
+    },
+    "sources": {
+      "en": "source-docs/en/editor-guide/proxy-bake-editor.md",
+      "ko": "source-docs/ko/editor-guide/proxy-bake-editor.md"
+    },
+    "ids": {
+      "en": "en-proxy-bake-editor",
+      "ko": "ko-proxy-bake-editor"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "validation-diagnostics",
+    "aliases": [],
+    "order": 15,
+    "category": "editor-guide",
+    "categoryOrder": 3,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/validation-diagnostics",
+      "ko": "/docs/ko/validation-diagnostics"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/validation-diagnostics",
+      "ko": "/docs/ko/validation-diagnostics"
+    },
+    "sources": {
+      "en": "source-docs/en/editor-guide/validation-diagnostics.md",
+      "ko": "source-docs/ko/editor-guide/validation-diagnostics.md"
+    },
+    "ids": {
+      "en": "en-validation-diagnostics",
+      "ko": "ko-validation-diagnostics"
     },
     "translationStatus": "current"
   },
   {
     "slug": "runtime-integration",
-    "order": 3,
-    "category": "Runtime",
-    "reviewFocus": "Actor/component behavior and travel ownership",
+    "aliases": [
+      "runtime-actor-integration"
+    ],
+    "order": 16,
+    "category": "runtime",
+    "categoryOrder": 4,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
     "routes": {
       "en": "/docs/en/runtime-integration",
       "ko": "/docs/ko/runtime-integration"
     },
+    "documentRoutes": {
+      "en": "/docs/en/runtime-integration",
+      "ko": "/docs/ko/runtime-integration"
+    },
     "sources": {
-      "en": "source-docs/en/03_Runtime_Integration.md",
-      "ko": "source-docs/ko/03_Runtime_Integration.md"
+      "en": "source-docs/en/runtime/runtime-integration.md",
+      "ko": "source-docs/ko/runtime/runtime-integration.md"
     },
     "ids": {
       "en": "en-runtime-integration",
@@ -76,150 +457,842 @@
     "translationStatus": "current"
   },
   {
-    "slug": "core-concepts",
-    "order": 4,
-    "category": "Core Concepts",
-    "reviewFocus": "Projection, IDs, partitions, generated assets",
+    "slug": "coordinates-surface-queries",
+    "aliases": [],
+    "order": 17,
+    "category": "runtime",
+    "categoryOrder": 4,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
     "routes": {
-      "en": "/docs/en/core-concepts",
-      "ko": "/docs/ko/core-concepts"
+      "en": "/docs/en/coordinates-surface-queries",
+      "ko": "/docs/ko/coordinates-surface-queries"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/coordinates-surface-queries",
+      "ko": "/docs/ko/coordinates-surface-queries"
     },
     "sources": {
-      "en": "source-docs/en/04_Core_Concepts.md",
-      "ko": "source-docs/ko/04_Core_Concepts.md"
+      "en": "source-docs/en/runtime/coordinates-surface-queries.md",
+      "ko": "source-docs/ko/runtime/coordinates-surface-queries.md"
     },
     "ids": {
-      "en": "en-core-concepts",
-      "ko": "ko-core-concepts"
+      "en": "en-coordinates-surface-queries",
+      "ko": "ko-coordinates-surface-queries"
     },
     "translationStatus": "current"
   },
   {
-    "slug": "supported-content",
-    "order": 5,
-    "category": "Compatibility",
-    "reviewFocus": "Supported/conditional/unsupported matrix",
+    "slug": "movement-gravity",
+    "aliases": [],
+    "order": 18,
+    "category": "runtime",
+    "categoryOrder": 4,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
     "routes": {
-      "en": "/docs/en/supported-content",
-      "ko": "/docs/ko/supported-content"
+      "en": "/docs/en/movement-gravity",
+      "ko": "/docs/ko/movement-gravity"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/movement-gravity",
+      "ko": "/docs/ko/movement-gravity"
     },
     "sources": {
-      "en": "source-docs/en/05_Supported_Content.md",
-      "ko": "source-docs/ko/05_Supported_Content.md"
+      "en": "source-docs/en/runtime/movement-gravity.md",
+      "ko": "source-docs/ko/runtime/movement-gravity.md"
     },
     "ids": {
-      "en": "en-supported-content",
-      "ko": "ko-supported-content"
+      "en": "en-movement-gravity",
+      "ko": "ko-movement-gravity"
     },
     "translationStatus": "current"
   },
   {
-    "slug": "large-world-world-partition",
-    "order": 6,
-    "category": "Workflows",
-    "reviewFocus": "Discovery, checkpoints, large bake guidance",
+    "slug": "same-world-travel",
+    "aliases": [],
+    "order": 19,
+    "category": "runtime",
+    "categoryOrder": 4,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
     "routes": {
-      "en": "/docs/en/large-world-world-partition",
-      "ko": "/docs/ko/large-world-world-partition"
+      "en": "/docs/en/same-world-travel",
+      "ko": "/docs/ko/same-world-travel"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/same-world-travel",
+      "ko": "/docs/ko/same-world-travel"
     },
     "sources": {
-      "en": "source-docs/en/06_Large_World_and_World_Partition.md",
-      "ko": "source-docs/ko/06_Large_World_and_World_Partition.md"
+      "en": "source-docs/en/runtime/same-world-travel.md",
+      "ko": "source-docs/ko/runtime/same-world-travel.md"
     },
     "ids": {
-      "en": "en-large-world-world-partition",
-      "ko": "ko-large-world-world-partition"
+      "en": "en-same-world-travel",
+      "ko": "ko-same-world-travel"
     },
     "translationStatus": "current"
   },
   {
-    "slug": "performance-optimization",
-    "order": 7,
-    "category": "Optimization",
-    "reviewFocus": "Measured values and tuning order",
+    "slug": "level-handoff-travel",
+    "aliases": [],
+    "order": 20,
+    "category": "runtime",
+    "categoryOrder": 4,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
     "routes": {
-      "en": "/docs/en/performance-optimization",
-      "ko": "/docs/ko/performance-optimization"
+      "en": "/docs/en/level-handoff-travel",
+      "ko": "/docs/ko/level-handoff-travel"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/level-handoff-travel",
+      "ko": "/docs/ko/level-handoff-travel"
     },
     "sources": {
-      "en": "source-docs/en/07_Performance_and_Optimization.md",
-      "ko": "source-docs/ko/07_Performance_and_Optimization.md"
+      "en": "source-docs/en/runtime/level-handoff-travel.md",
+      "ko": "source-docs/ko/runtime/level-handoff-travel.md"
     },
     "ids": {
-      "en": "en-performance-optimization",
-      "ko": "ko-performance-optimization"
+      "en": "en-level-handoff-travel",
+      "ko": "ko-level-handoff-travel"
     },
     "translationStatus": "current"
   },
   {
-    "slug": "reference",
-    "order": 8,
-    "category": "Reference",
-    "reviewFocus": "Public symbols and CVars",
+    "slug": "runtime-preview-budget",
+    "aliases": [],
+    "order": 21,
+    "category": "runtime",
+    "categoryOrder": 4,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
     "routes": {
-      "en": "/docs/en/reference",
-      "ko": "/docs/ko/reference"
+      "en": "/docs/en/runtime-preview-budget",
+      "ko": "/docs/ko/runtime-preview-budget"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/runtime-preview-budget",
+      "ko": "/docs/ko/runtime-preview-budget"
     },
     "sources": {
-      "en": "source-docs/en/08_Reference.md",
-      "ko": "source-docs/ko/08_Reference.md"
+      "en": "source-docs/en/runtime/runtime-preview-budget.md",
+      "ko": "source-docs/ko/runtime/runtime-preview-budget.md"
     },
     "ids": {
-      "en": "en-reference",
-      "ko": "ko-reference"
+      "en": "en-runtime-preview-budget",
+      "ko": "ko-runtime-preview-budget"
     },
     "translationStatus": "current"
   },
   {
-    "slug": "troubleshooting",
-    "order": 9,
-    "category": "Troubleshooting",
-    "reviewFocus": "Exact messages and recovery steps",
+    "slug": "environment-runtime",
+    "aliases": [],
+    "order": 22,
+    "category": "runtime",
+    "categoryOrder": 4,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
     "routes": {
-      "en": "/docs/en/troubleshooting",
-      "ko": "/docs/ko/troubleshooting"
+      "en": "/docs/en/environment-runtime",
+      "ko": "/docs/ko/environment-runtime"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/environment-runtime",
+      "ko": "/docs/ko/environment-runtime"
     },
     "sources": {
-      "en": "source-docs/en/09_Troubleshooting.md",
-      "ko": "source-docs/ko/09_Troubleshooting.md"
+      "en": "source-docs/en/runtime/environment-runtime.md",
+      "ko": "source-docs/ko/runtime/environment-runtime.md"
     },
     "ids": {
-      "en": "en-troubleshooting",
-      "ko": "ko-troubleshooting"
+      "en": "en-environment-runtime",
+      "ko": "ko-environment-runtime"
     },
     "translationStatus": "current"
   },
   {
-    "slug": "support-release-notes",
-    "order": 10,
-    "category": "Support",
-    "reviewFocus": "Support channel and release facts",
+    "slug": "visual-editor",
+    "aliases": [],
+    "order": 23,
+    "category": "visuals",
+    "categoryOrder": 5,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
     "routes": {
-      "en": "/docs/en/support-release-notes",
-      "ko": "/docs/ko/support-release-notes"
+      "en": "/docs/en/visual-editor",
+      "ko": "/docs/ko/visual-editor"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/visual-editor",
+      "ko": "/docs/ko/visual-editor"
     },
     "sources": {
-      "en": "source-docs/en/10_Support_and_Release_Notes.md",
-      "ko": "source-docs/ko/10_Support_and_Release_Notes.md"
+      "en": "source-docs/en/visuals/visual-editor.md",
+      "ko": "source-docs/ko/visuals/visual-editor.md"
     },
     "ids": {
-      "en": "en-support-release-notes",
-      "ko": "ko-support-release-notes"
+      "en": "en-visual-editor",
+      "ko": "ko-visual-editor"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "completion-padding",
+    "aliases": [],
+    "order": 24,
+    "category": "visuals",
+    "categoryOrder": 5,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/completion-padding",
+      "ko": "/docs/ko/completion-padding"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/completion-padding",
+      "ko": "/docs/ko/completion-padding"
+    },
+    "sources": {
+      "en": "source-docs/en/visuals/completion-padding.md",
+      "ko": "source-docs/ko/visuals/completion-padding.md"
+    },
+    "ids": {
+      "en": "en-completion-padding",
+      "ko": "ko-completion-padding"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "materials-presets",
+    "aliases": [],
+    "order": 25,
+    "category": "visuals",
+    "categoryOrder": 5,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/materials-presets",
+      "ko": "/docs/ko/materials-presets"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/materials-presets",
+      "ko": "/docs/ko/materials-presets"
+    },
+    "sources": {
+      "en": "source-docs/en/visuals/materials-presets.md",
+      "ko": "source-docs/ko/visuals/materials-presets.md"
+    },
+    "ids": {
+      "en": "en-materials-presets",
+      "ko": "ko-materials-presets"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "environment-authoring",
+    "aliases": [],
+    "order": 26,
+    "category": "visuals",
+    "categoryOrder": 5,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/environment-authoring",
+      "ko": "/docs/ko/environment-authoring"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/environment-authoring",
+      "ko": "/docs/ko/environment-authoring"
+    },
+    "sources": {
+      "en": "source-docs/en/visuals/environment-authoring.md",
+      "ko": "source-docs/ko/visuals/environment-authoring.md"
+    },
+    "ids": {
+      "en": "en-environment-authoring",
+      "ko": "ko-environment-authoring"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "settings-overview",
+    "aliases": [
+      "reference"
+    ],
+    "order": 27,
+    "category": "configuration-reference",
+    "categoryOrder": 6,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/settings-overview",
+      "ko": "/docs/ko/settings-overview"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/settings-overview",
+      "ko": "/docs/ko/settings-overview"
+    },
+    "sources": {
+      "en": "source-docs/en/configuration-reference/settings-overview.md",
+      "ko": "source-docs/ko/configuration-reference/settings-overview.md"
+    },
+    "ids": {
+      "en": "en-settings-overview",
+      "ko": "ko-settings-overview"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "planet-visual-settings",
+    "aliases": [],
+    "order": 28,
+    "category": "configuration-reference",
+    "categoryOrder": 6,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/planet-visual-settings",
+      "ko": "/docs/ko/planet-visual-settings"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/planet-visual-settings",
+      "ko": "/docs/ko/planet-visual-settings"
+    },
+    "sources": {
+      "en": "source-docs/en/configuration-reference/planet-visual-settings.md",
+      "ko": "source-docs/ko/configuration-reference/planet-visual-settings.md"
+    },
+    "ids": {
+      "en": "en-planet-visual-settings",
+      "ko": "ko-planet-visual-settings"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "proxy-bake-settings",
+    "aliases": [
+      "large-world-world-partition"
+    ],
+    "order": 29,
+    "category": "configuration-reference",
+    "categoryOrder": 6,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/proxy-bake-settings",
+      "ko": "/docs/ko/proxy-bake-settings"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/proxy-bake-settings",
+      "ko": "/docs/ko/proxy-bake-settings"
+    },
+    "sources": {
+      "en": "source-docs/en/configuration-reference/proxy-bake-settings.md",
+      "ko": "source-docs/ko/configuration-reference/proxy-bake-settings.md"
+    },
+    "ids": {
+      "en": "en-proxy-bake-settings",
+      "ko": "ko-proxy-bake-settings"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "runtime-component-settings",
+    "aliases": [],
+    "order": 30,
+    "category": "configuration-reference",
+    "categoryOrder": 6,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/runtime-component-settings",
+      "ko": "/docs/ko/runtime-component-settings"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/runtime-component-settings",
+      "ko": "/docs/ko/runtime-component-settings"
+    },
+    "sources": {
+      "en": "source-docs/en/configuration-reference/runtime-component-settings.md",
+      "ko": "source-docs/ko/configuration-reference/runtime-component-settings.md"
+    },
+    "ids": {
+      "en": "en-runtime-component-settings",
+      "ko": "ko-runtime-component-settings"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "proxy-transition-settings",
+    "aliases": [],
+    "order": 31,
+    "category": "configuration-reference",
+    "categoryOrder": 6,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/proxy-transition-settings",
+      "ko": "/docs/ko/proxy-transition-settings"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/proxy-transition-settings",
+      "ko": "/docs/ko/proxy-transition-settings"
+    },
+    "sources": {
+      "en": "source-docs/en/configuration-reference/proxy-transition-settings.md",
+      "ko": "source-docs/ko/configuration-reference/proxy-transition-settings.md"
+    },
+    "ids": {
+      "en": "en-proxy-transition-settings",
+      "ko": "ko-proxy-transition-settings"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "environment-settings",
+    "aliases": [],
+    "order": 32,
+    "category": "configuration-reference",
+    "categoryOrder": 6,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/environment-settings",
+      "ko": "/docs/ko/environment-settings"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/environment-settings",
+      "ko": "/docs/ko/environment-settings"
+    },
+    "sources": {
+      "en": "source-docs/en/configuration-reference/environment-settings.md",
+      "ko": "source-docs/ko/configuration-reference/environment-settings.md"
+    },
+    "ids": {
+      "en": "en-environment-settings",
+      "ko": "ko-environment-settings"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "project-settings",
+    "aliases": [
+      "performance-optimization"
+    ],
+    "order": 33,
+    "category": "configuration-reference",
+    "categoryOrder": 6,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/project-settings",
+      "ko": "/docs/ko/project-settings"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/project-settings",
+      "ko": "/docs/ko/project-settings"
+    },
+    "sources": {
+      "en": "source-docs/en/configuration-reference/project-settings.md",
+      "ko": "source-docs/ko/configuration-reference/project-settings.md"
+    },
+    "ids": {
+      "en": "en-project-settings",
+      "ko": "ko-project-settings"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "api-overview",
+    "aliases": [
+      "user-api"
+    ],
+    "order": 34,
+    "category": "api",
+    "categoryOrder": 7,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/api-overview",
+      "ko": "/docs/ko/api-overview"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/api-overview",
+      "ko": "/docs/ko/api-overview"
+    },
+    "sources": {
+      "en": "source-docs/en/api/api-overview.md",
+      "ko": "source-docs/ko/api/api-overview.md"
+    },
+    "ids": {
+      "en": "en-api-overview",
+      "ko": "ko-api-overview"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "subsystem-api",
+    "aliases": [],
+    "order": 35,
+    "category": "api",
+    "categoryOrder": 7,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/subsystem-api",
+      "ko": "/docs/ko/subsystem-api"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/subsystem-api",
+      "ko": "/docs/ko/subsystem-api"
+    },
+    "sources": {
+      "en": "source-docs/en/api/subsystem-api.md",
+      "ko": "source-docs/ko/api/subsystem-api.md"
+    },
+    "ids": {
+      "en": "en-subsystem-api",
+      "ko": "ko-subsystem-api"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "actors-api",
+    "aliases": [],
+    "order": 36,
+    "category": "api",
+    "categoryOrder": 7,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/actors-api",
+      "ko": "/docs/ko/actors-api"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/actors-api",
+      "ko": "/docs/ko/actors-api"
+    },
+    "sources": {
+      "en": "source-docs/en/api/actors-api.md",
+      "ko": "source-docs/ko/api/actors-api.md"
+    },
+    "ids": {
+      "en": "en-actors-api",
+      "ko": "ko-actors-api"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "coordinate-movement-components-api",
+    "aliases": [],
+    "order": 37,
+    "category": "api",
+    "categoryOrder": 7,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/coordinate-movement-components-api",
+      "ko": "/docs/ko/coordinate-movement-components-api"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/coordinate-movement-components-api",
+      "ko": "/docs/ko/coordinate-movement-components-api"
+    },
+    "sources": {
+      "en": "source-docs/en/api/coordinate-movement-components-api.md",
+      "ko": "source-docs/ko/api/coordinate-movement-components-api.md"
+    },
+    "ids": {
+      "en": "en-coordinate-movement-components-api",
+      "ko": "ko-coordinate-movement-components-api"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "planet-transition-components-api",
+    "aliases": [],
+    "order": 38,
+    "category": "api",
+    "categoryOrder": 7,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/planet-transition-components-api",
+      "ko": "/docs/ko/planet-transition-components-api"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/planet-transition-components-api",
+      "ko": "/docs/ko/planet-transition-components-api"
+    },
+    "sources": {
+      "en": "source-docs/en/api/planet-transition-components-api.md",
+      "ko": "source-docs/ko/api/planet-transition-components-api.md"
+    },
+    "ids": {
+      "en": "en-planet-transition-components-api",
+      "ko": "ko-planet-transition-components-api"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "assets-settings-api",
+    "aliases": [],
+    "order": 39,
+    "category": "api",
+    "categoryOrder": 7,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/assets-settings-api",
+      "ko": "/docs/ko/assets-settings-api"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/assets-settings-api",
+      "ko": "/docs/ko/assets-settings-api"
+    },
+    "sources": {
+      "en": "source-docs/en/api/assets-settings-api.md",
+      "ko": "source-docs/ko/api/assets-settings-api.md"
+    },
+    "ids": {
+      "en": "en-assets-settings-api",
+      "ko": "ko-assets-settings-api"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "movement-handoff-api",
+    "aliases": [],
+    "order": 40,
+    "category": "api",
+    "categoryOrder": 7,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/movement-handoff-api",
+      "ko": "/docs/ko/movement-handoff-api"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/movement-handoff-api",
+      "ko": "/docs/ko/movement-handoff-api"
+    },
+    "sources": {
+      "en": "source-docs/en/api/movement-handoff-api.md",
+      "ko": "source-docs/ko/api/movement-handoff-api.md"
+    },
+    "ids": {
+      "en": "en-movement-handoff-api",
+      "ko": "ko-movement-handoff-api"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "data-types-cpp-api",
+    "aliases": [],
+    "order": 41,
+    "category": "api",
+    "categoryOrder": 7,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/data-types-cpp-api",
+      "ko": "/docs/ko/data-types-cpp-api"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/data-types-cpp-api",
+      "ko": "/docs/ko/data-types-cpp-api"
+    },
+    "sources": {
+      "en": "source-docs/en/api/data-types-cpp-api.md",
+      "ko": "source-docs/ko/api/data-types-cpp-api.md"
+    },
+    "ids": {
+      "en": "en-data-types-cpp-api",
+      "ko": "ko-data-types-cpp-api"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "setup-configuration",
+    "aliases": [
+      "troubleshooting"
+    ],
+    "order": 42,
+    "category": "troubleshooting",
+    "categoryOrder": 8,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/setup-configuration",
+      "ko": "/docs/ko/setup-configuration"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/setup-configuration",
+      "ko": "/docs/ko/setup-configuration"
+    },
+    "sources": {
+      "en": "source-docs/en/troubleshooting/setup-configuration.md",
+      "ko": "source-docs/ko/troubleshooting/setup-configuration.md"
+    },
+    "ids": {
+      "en": "en-setup-configuration",
+      "ko": "ko-setup-configuration"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "proxy-bake-troubleshooting",
+    "aliases": [],
+    "order": 43,
+    "category": "troubleshooting",
+    "categoryOrder": 8,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/proxy-bake-troubleshooting",
+      "ko": "/docs/ko/proxy-bake-troubleshooting"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/proxy-bake-troubleshooting",
+      "ko": "/docs/ko/proxy-bake-troubleshooting"
+    },
+    "sources": {
+      "en": "source-docs/en/troubleshooting/proxy-bake-troubleshooting.md",
+      "ko": "source-docs/ko/troubleshooting/proxy-bake-troubleshooting.md"
+    },
+    "ids": {
+      "en": "en-proxy-bake-troubleshooting",
+      "ko": "ko-proxy-bake-troubleshooting"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "runtime-travel-troubleshooting",
+    "aliases": [],
+    "order": 44,
+    "category": "troubleshooting",
+    "categoryOrder": 8,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/runtime-travel-troubleshooting",
+      "ko": "/docs/ko/runtime-travel-troubleshooting"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/runtime-travel-troubleshooting",
+      "ko": "/docs/ko/runtime-travel-troubleshooting"
+    },
+    "sources": {
+      "en": "source-docs/en/troubleshooting/runtime-travel-troubleshooting.md",
+      "ko": "source-docs/ko/troubleshooting/runtime-travel-troubleshooting.md"
+    },
+    "ids": {
+      "en": "en-runtime-travel-troubleshooting",
+      "ko": "ko-runtime-travel-troubleshooting"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "diagnostic-tools",
+    "aliases": [],
+    "order": 45,
+    "category": "troubleshooting",
+    "categoryOrder": 8,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/diagnostic-tools",
+      "ko": "/docs/ko/diagnostic-tools"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/diagnostic-tools",
+      "ko": "/docs/ko/diagnostic-tools"
+    },
+    "sources": {
+      "en": "source-docs/en/troubleshooting/diagnostic-tools.md",
+      "ko": "source-docs/ko/troubleshooting/diagnostic-tools.md"
+    },
+    "ids": {
+      "en": "en-diagnostic-tools",
+      "ko": "ko-diagnostic-tools"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "version-1-0",
+    "aliases": [
+      "support-release-notes"
+    ],
+    "order": 46,
+    "category": "release-notes",
+    "categoryOrder": 9,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/release-notes",
+      "ko": "/release-notes"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/version-1-0",
+      "ko": "/docs/ko/version-1-0"
+    },
+    "sources": {
+      "en": "source-docs/en/release-notes/version-1-0.md",
+      "ko": "source-docs/ko/release-notes/version-1-0.md"
+    },
+    "ids": {
+      "en": "en-version-1-0",
+      "ko": "ko-version-1-0"
+    },
+    "translationStatus": "current"
+  },
+  {
+    "slug": "third-party-notices",
+    "aliases": [],
+    "order": 47,
+    "category": "licenses",
+    "categoryOrder": 10,
+    "scope": "offline",
+    "reviewFocus": "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+    "routes": {
+      "en": "/docs/en/third-party-notices",
+      "ko": "/docs/ko/third-party-notices"
+    },
+    "documentRoutes": {
+      "en": "/docs/en/third-party-notices",
+      "ko": "/docs/ko/third-party-notices"
+    },
+    "sources": {
+      "en": "source-docs/en/licenses/third-party-notices.md",
+      "ko": "source-docs/ko/licenses/third-party-notices.md"
+    },
+    "ids": {
+      "en": "en-third-party-notices",
+      "ko": "ko-third-party-notices"
     },
     "translationStatus": "current"
   },
   {
     "slug": "faq",
-    "order": 11,
-    "category": "Support",
-    "reviewFocus": "Keep answers aligned with canonical terminology and verified product scope",
+    "aliases": [],
+    "order": 48,
+    "category": "support",
+    "categoryOrder": 11,
+    "scope": "web-supplemental",
+    "reviewFocus": "Product review is required before changing support claims.",
     "routes": {
+      "en": "/faq",
+      "ko": "/faq"
+    },
+    "documentRoutes": {
       "en": "/docs/en/faq",
       "ko": "/docs/ko/faq"
     },
     "sources": {
-      "en": "source-docs/en/13_FAQ.md",
-      "ko": "source-docs/ko/13_FAQ.md"
+      "en": "source-docs/en/support/faq.md",
+      "ko": "source-docs/ko/support/faq.md"
     },
     "ids": {
       "en": "en-faq",
@@ -229,53 +1302,28 @@
   },
   {
     "slug": "known-issues",
-    "order": 12,
-    "category": "Support",
-    "reviewFocus": "Keep issue status current and avoid publishing unverified defects",
+    "aliases": [],
+    "order": 49,
+    "category": "support",
+    "categoryOrder": 11,
+    "scope": "web-supplemental",
+    "reviewFocus": "Product review is required before changing support claims.",
     "routes": {
+      "en": "/known-issues",
+      "ko": "/known-issues"
+    },
+    "documentRoutes": {
       "en": "/docs/en/known-issues",
       "ko": "/docs/ko/known-issues"
     },
     "sources": {
-      "en": "source-docs/en/14_Known_Issues.md",
-      "ko": "source-docs/ko/14_Known_Issues.md"
+      "en": "source-docs/en/support/known-issues.md",
+      "ko": "source-docs/ko/support/known-issues.md"
     },
     "ids": {
       "en": "en-known-issues",
       "ko": "ko-known-issues"
     },
     "translationStatus": "current"
-  },
-  {
-    "slug": "user-api",
-    "order": 13,
-    "category": "Reference",
-    "reviewFocus": "Validate every public symbol before release",
-    "routes": {
-      "ko": "/docs/ko/user-api"
-    },
-    "sources": {
-      "ko": "source-docs/ko/11_User_API.md"
-    },
-    "ids": {
-      "ko": "ko-user-api"
-    },
-    "translationStatus": "language-only"
-  },
-  {
-    "slug": "runtime-actor-integration",
-    "order": 14,
-    "category": "Runtime",
-    "reviewFocus": "Requires Unreal Editor walkthrough QA",
-    "routes": {
-      "ko": "/docs/ko/runtime-actor-integration"
-    },
-    "sources": {
-      "ko": "source-docs/ko/12_Runtime_Actor_Integration.md"
-    },
-    "ids": {
-      "ko": "ko-runtime-actor-integration"
-    },
-    "translationStatus": "language-only"
   }
 ]

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { DocLanguage } from "@/content/docs";
+import docsManifest from "@/source-docs/docs-manifest.json";
 import { DocumentationDownloads } from "./DocumentationDownloads";
 import { SiteHeader } from "./SiteHeader";
 
@@ -10,24 +11,30 @@ const homeCopy = {
   en: {
     eyebrow: "PlanetX Documentation · Version 1.0",
     title: <>Build your first proxy.<br />Connect the full journey.</>,
-    intro: "Choose a language to open the official technical documentation. Both editions preserve the reviewed source material; translation gaps remain visible.",
+    intro: "Choose a language to open the official technical documentation. Both editions provide the same reviewed public scope across 48 guides.",
     paths: [
-      ["New to PlanetX?", "Create a Planet Asset, review source content, and bake your first proxy.", "Quick Start", "getting-started"],
+      ["New to PlanetX?", "Follow the Same World path from installation through your first playable planet.", "Start Here", "quick-start-same-world"],
       ["Integrating runtime?", "Understand Planet, Coordinate, Movement, and Travel responsibilities.", "Runtime Integration", "runtime-integration"],
-      ["Solving a failure?", "Start from the visible symptom, then follow the documented recovery order.", "Troubleshooting", "troubleshooting"],
+      ["Solving a failure?", "Start from setup checks, then follow the guide for the visible symptom.", "Troubleshooting", "setup-configuration"],
     ],
   },
   ko: {
     eyebrow: "PlanetX 공식 문서 · 버전 1.0",
     title: <>첫 Proxy를 만들고.<br />전체 여정을 연결하세요.</>,
-    intro: "현재 세션 언어로 공식 기술 문서를 확인하세요. 검수된 원문 범위와 번역 상태를 구분해 제공하며, 번역되지 않은 심화 문서는 상태를 명확히 표시합니다.",
+    intro: "언어를 선택해 공식 기술 문서를 확인하세요. 두 언어판 모두 검토된 공개 범위 48개 문서를 동일하게 제공합니다.",
     paths: [
-      ["PlanetX를 처음 사용하나요?", "Planet Asset을 만들고 Source를 검토한 뒤 첫 Orbit Proxy를 Bake합니다.", "빠른 시작", "getting-started"],
+      ["PlanetX를 처음 사용하나요?", "설치부터 첫 플레이 가능한 행성까지 Same World 경로를 따라갑니다.", "여기서 시작", "quick-start-same-world"],
       ["Runtime을 통합하나요?", "Planet, Coordinate, Movement와 Travel의 책임 범위를 확인합니다.", "Runtime 통합", "runtime-integration"],
-      ["오류를 해결하고 있나요?", "화면에 나타난 증상부터 시작해 검증된 복구 순서를 따릅니다.", "문제 해결", "troubleshooting"],
+      ["오류를 해결하고 있나요?", "설정 점검부터 시작해 증상에 맞는 안내를 따릅니다.", "문제 해결", "setup-configuration"],
     ],
   },
 } as const;
+
+const defaultDocSlug = docsManifest.defaultSlug;
+const coreDocCount = docsManifest.categories.reduce(
+  (total, category) => total + category.documents.length,
+  0,
+);
 
 export function DocumentationHome() {
   const [language, setLanguage] = useState<DocLanguage>("en");
@@ -47,7 +54,7 @@ export function DocumentationHome() {
       <SiteHeader
         tone="light"
         language={language}
-        alternateHref={`/docs/${alternateLanguage}/overview#main-content`}
+        alternateHref={`/docs/${alternateLanguage}/${defaultDocSlug}#main-content`}
       />
       <main id="main-content" tabIndex={-1}>
         <span className="eyebrow">{text.eyebrow}</span>
@@ -55,11 +62,11 @@ export function DocumentationHome() {
         <p>{text.intro}</p>
         <DocumentationDownloads language={language} scope="collection" />
         <div className="docs-home__languages">
-          <Link href="/docs/en/overview#main-content" onClick={() => window.sessionStorage.setItem("planetx-language", "en")}>
-            <span>EN</span><div><strong>English</strong><small>10 documentation guides · reviewed public edition</small></div><i>→</i>
+          <Link href={`/docs/en/${defaultDocSlug}#main-content`} onClick={() => window.sessionStorage.setItem("planetx-language", "en")}>
+            <span>EN</span><div><strong>English</strong><small>{coreDocCount} documentation guides · reviewed public edition</small></div><i>→</i>
           </Link>
-          <Link href="/docs/ko/overview#main-content" onClick={() => window.sessionStorage.setItem("planetx-language", "ko")}>
-            <span>KO</span><div><strong>한국어</strong><small>12개 기술 가이드 · API 및 Runtime 심화 문서 포함</small></div><i>→</i>
+          <Link href={`/docs/ko/${defaultDocSlug}#main-content`} onClick={() => window.sessionStorage.setItem("planetx-language", "ko")}>
+            <span>KO</span><div><strong>한국어</strong><small>기술 문서 {coreDocCount}개 · 영어판과 동일한 공개 범위</small></div><i>→</i>
           </Link>
         </div>
         <div className="docs-home__paths">

@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "productVersion": "1.0",
+  "lastReviewed": "2026-08-11",
+  "defaultSlug": "quick-start-same-world",
+  "aliases": {
+    "quick-start": "quick-start-same-world",
+    "start-here": "quick-start-same-world",
+    "start-here-first-planet": "quick-start-same-world",
+    "overview": "introduction",
+    "getting-started": "quick-start-same-world",
+    "editor-workflow": "proxy-bake-editor",
+    "core-concepts": "planet-assets-identities",
+    "supported-content": "compatibility-limitations",
+    "large-world-world-partition": "proxy-bake-settings",
+    "performance-optimization": "project-settings",
+    "reference": "settings-overview",
+    "troubleshooting": "setup-configuration",
+    "support-release-notes": "version-1-0",
+    "user-api": "api-overview",
+    "runtime-actor-integration": "runtime-integration"
+  },
+  "standaloneRoutes": {
+    "version-1-0": "/release-notes",
+    "faq": "/faq",
+    "known-issues": "/known-issues"
+  },
+  "categories": [
+    {
+      "id": "overview",
+      "titles": { "en": "Overview and Requirements", "ko": "개요와 요구사항" },
+      "documents": [
+        { "slug": "introduction", "titles": { "en": "Introduction to PlanetX", "ko": "PlanetX 소개" } },
+        { "slug": "key-features", "titles": { "en": "Key Features", "ko": "주요 기능" } },
+        { "slug": "compatibility-limitations", "titles": { "en": "Compatibility and Limitations", "ko": "호환성과 제한사항" } }
+      ]
+    },
+    {
+      "id": "getting-started",
+      "titles": { "en": "Setup and First Project", "ko": "설치와 첫 작업" },
+      "documents": [
+        { "slug": "quick-start-same-world", "titles": { "en": "Start Here - Same World Quick Start", "ko": "여기서 시작 - Same World 빠른 시작" } },
+        { "slug": "installation", "titles": { "en": "Installation", "ko": "설치" } },
+        { "slug": "create-first-planet", "titles": { "en": "Create Your First Planet Asset", "ko": "첫 Planet Asset 만들기" } },
+        { "slug": "quick-start-level-handoff", "titles": { "en": "Advanced Guide - Multi-Level Handoff", "ko": "고급 가이드 - Multi-Level Handoff" } }
+      ]
+    },
+    {
+      "id": "core-concepts",
+      "titles": { "en": "Data Model and Core Concepts", "ko": "데이터 모델과 핵심 개념" },
+      "documents": [
+        { "slug": "planet-assets-identities", "titles": { "en": "Planet Assets and Identities", "ko": "Planet Asset과 식별자" } },
+        { "slug": "sections-level-pairs", "titles": { "en": "Sections and Level Pairs", "ko": "Section과 Level Pair" } },
+        { "slug": "coordinate-model", "titles": { "en": "Coordinate Model", "ko": "좌표 모델" } },
+        { "slug": "representation-runtime-load", "titles": { "en": "Representation and Runtime Load", "ko": "표현 영역과 런타임 로드" } },
+        { "slug": "transition-model", "titles": { "en": "Transition Model", "ko": "전환 모델" } }
+      ]
+    },
+    {
+      "id": "editor-guide",
+      "titles": { "en": "Editor Workflows", "ko": "에디터 워크플로" },
+      "documents": [
+        { "slug": "planet-asset-editor", "titles": { "en": "Planet Asset Editor", "ko": "Planet Asset Editor" } },
+        { "slug": "planetx-mode", "titles": { "en": "PlanetX Mode", "ko": "PlanetX Mode" } },
+        { "slug": "proxy-bake-editor", "titles": { "en": "Proxy Bake Editor", "ko": "Proxy Bake Editor" } },
+        { "slug": "validation-diagnostics", "titles": { "en": "Validation and Diagnostics", "ko": "검증과 진단" } }
+      ]
+    },
+    {
+      "id": "runtime",
+      "titles": { "en": "Runtime Integration", "ko": "런타임 통합" },
+      "documents": [
+        { "slug": "runtime-integration", "titles": { "en": "Runtime Integration", "ko": "런타임 통합" } },
+        { "slug": "coordinates-surface-queries", "titles": { "en": "Coordinates and Surface Queries", "ko": "좌표와 표면 쿼리" } },
+        { "slug": "movement-gravity", "titles": { "en": "Movement and Gravity", "ko": "이동과 중력" } },
+        { "slug": "same-world-travel", "titles": { "en": "Same World Travel", "ko": "Same World 이동" } },
+        { "slug": "level-handoff-travel", "titles": { "en": "Level Handoff Travel", "ko": "Level Handoff 이동" } },
+        { "slug": "runtime-preview-budget", "titles": { "en": "Runtime Preview and Budget", "ko": "Runtime Preview와 Budget" } },
+        { "slug": "environment-runtime", "titles": { "en": "Environment Runtime", "ko": "Environment Runtime" } }
+      ]
+    },
+    {
+      "id": "visuals",
+      "titles": { "en": "Visual Authoring", "ko": "비주얼 제작" },
+      "documents": [
+        { "slug": "visual-editor", "titles": { "en": "Preview Tab", "ko": "Preview 탭" } },
+        { "slug": "completion-padding", "titles": { "en": "Completion and Padding", "ko": "Completion과 Padding" } },
+        { "slug": "materials-presets", "titles": { "en": "Materials and Surface Presets", "ko": "Material과 Surface Preset" } },
+        { "slug": "environment-authoring", "titles": { "en": "Environment Authoring", "ko": "Environment 제작" } }
+      ]
+    },
+    {
+      "id": "configuration-reference",
+      "titles": { "en": "Configuration Reference", "ko": "설정 레퍼런스" },
+      "documents": [
+        { "slug": "settings-overview", "titles": { "en": "Configuration Reference Guide", "ko": "설정 레퍼런스 안내" } },
+        { "slug": "planet-visual-settings", "titles": { "en": "Planet Asset and Visual Settings", "ko": "Planet Asset과 비주얼 설정" } },
+        { "slug": "proxy-bake-settings", "titles": { "en": "Proxy Bake Settings", "ko": "Proxy Bake 설정" } },
+        { "slug": "runtime-component-settings", "titles": { "en": "Runtime Actor and Component Settings", "ko": "런타임 Actor와 Component 설정" } },
+        { "slug": "proxy-transition-settings", "titles": { "en": "Proxy, Morph, and Preview Settings", "ko": "Proxy, Morph, Preview 설정" } },
+        { "slug": "environment-settings", "titles": { "en": "Environment Settings", "ko": "Environment 설정" } },
+        { "slug": "project-settings", "titles": { "en": "Project and Performance Settings", "ko": "프로젝트와 성능 설정" } }
+      ]
+    },
+    {
+      "id": "api",
+      "titles": { "en": "Public API Reference", "ko": "공개 API 레퍼런스" },
+      "documents": [
+        { "slug": "api-overview", "titles": { "en": "API Overview", "ko": "API 개요" } },
+        { "slug": "subsystem-api", "titles": { "en": "UPlanetXSubsystem", "ko": "UPlanetXSubsystem" } },
+        { "slug": "actors-api", "titles": { "en": "Actor API", "ko": "Actor API" } },
+        { "slug": "coordinate-movement-components-api", "titles": { "en": "Coordinate and Movement Component API", "ko": "좌표와 이동 Component API" } },
+        { "slug": "planet-transition-components-api", "titles": { "en": "Planet and Transition Component API", "ko": "Planet과 Transition Component API" } },
+        { "slug": "assets-settings-api", "titles": { "en": "Assets and Project Settings API", "ko": "Asset과 Project Settings API" } },
+        { "slug": "movement-handoff-api", "titles": { "en": "Movement Handoff API", "ko": "Movement Handoff API" } },
+        { "slug": "data-types-cpp-api", "titles": { "en": "Data Types and C++ Integration", "ko": "데이터 타입과 C++ 통합" } }
+      ]
+    },
+    {
+      "id": "troubleshooting",
+      "titles": { "en": "Troubleshooting", "ko": "문제 해결" },
+      "documents": [
+        { "slug": "setup-configuration", "titles": { "en": "Setup and Configuration", "ko": "설치와 설정 문제" } },
+        { "slug": "proxy-bake-troubleshooting", "titles": { "en": "Proxy Bake Issues", "ko": "Proxy Bake 문제" } },
+        { "slug": "runtime-travel-troubleshooting", "titles": { "en": "Runtime and Travel Issues", "ko": "런타임과 Travel 문제" } },
+        { "slug": "diagnostic-tools", "titles": { "en": "Diagnostic Tools", "ko": "진단 도구" } }
+      ]
+    },
+    {
+      "id": "release-notes",
+      "titles": { "en": "Release Notes", "ko": "릴리스 정보" },
+      "documents": [
+        { "slug": "version-1-0", "titles": { "en": "Version 1.0 Mercury", "ko": "Version 1.0 Mercury" } }
+      ]
+    },
+    {
+      "id": "licenses",
+      "titles": { "en": "Licenses and Attribution", "ko": "라이선스와 저작권 고지" },
+      "documents": [
+        { "slug": "third-party-notices", "titles": { "en": "Third-Party Notices", "ko": "서드파티 저작권 고지" } }
+      ]
+    }
+  ],
+  "supplemental": [
+    {
+      "slug": "faq",
+      "category": "support",
+      "titles": { "en": "Frequently Asked Questions", "ko": "자주 묻는 질문" },
+      "sources": { "en": "en/support/faq.md", "ko": "ko/support/faq.md" },
+      "scope": "web-supplemental"
+    },
+    {
+      "slug": "known-issues",
+      "category": "support",
+      "titles": { "en": "Known Issues", "ko": "알려진 문제" },
+      "sources": { "en": "en/support/known-issues.md", "ko": "ko/support/known-issues.md" },
+      "scope": "web-supplemental"
+    }
+  ]
+}

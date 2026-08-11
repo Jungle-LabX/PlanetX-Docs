@@ -2,7 +2,7 @@
 
 ## Source of truth
 
-플러그인 저장소의 `ProjectPlanetX/Plugins/PlanetX/Docs/UserGuide`가 제품 문서의 최초 원본입니다. 이 저장소의 `source-docs/`는 게시 파이프라인을 위한 보존 복사본이며, `content/generated-docs.json`은 생성물입니다. 생성물을 직접 편집하지 마세요.
+플러그인 패키지의 `Docs/docs/{en,ko}`가 제품 문서의 최초 원본입니다. 이 저장소의 `source-docs/`는 게시 파이프라인을 위한 보존 복사본이고, `source-docs/docs-manifest.json`은 카테고리·순서·기본 문서·별칭의 기준입니다. `content/generated-docs.json`, 게시용 다운로드와 이미지 복사본은 생성물이므로 직접 편집하지 마세요.
 
 ## Writing rules
 
@@ -16,15 +16,15 @@
 ## English and Korean parity
 
 - 동일 주제는 `migration/document-map.json`의 subject와 slug를 공유합니다.
-- 한 언어만 먼저 추가할 수 있지만, 대응 문서에는 번역 대기 상태를 명시합니다.
+- 공개 핵심 문서는 EN/KO 파일을 함께 추가하고 `source-docs/docs-manifest.json`에 같은 slug로 등록합니다.
 - 용어는 `migration/terminology.en-ko.json`을 우선합니다.
 - 번역은 코드, API 이름, 파일 경로를 변경하지 않습니다.
-- 번역 완료 후 `npm run docs:check`에서 language-only 상태가 의도대로 줄었는지 확인합니다.
+- 번역 완료 후 `npm run docs:generate`와 `npm run docs:check`에서 언어 대응과 구조가 일치하는지 확인합니다.
 
 ## Screenshots and diagrams
 
 - 실제 제품 UI 스크린샷에는 사용한 PlanetX와 Unreal Engine 버전을 PR에 기록합니다.
-- 스크린샷은 `public/images/`에 넣고 문서에서는 루트 기준 경로로 참조합니다.
+- 스크린샷은 사용하는 원본 Markdown 가까이에 두고 상대 경로로 참조합니다. 생성 파이프라인이 중복을 제거해 `public/images/docs/`에 게시합니다.
 - 각 이미지에 대체 텍스트를 작성하고, 장식 이미지는 빈 대체 텍스트를 사용합니다.
 - 생성형 이미지를 기능 증거 또는 실제 Unreal Editor 캡처처럼 표현하지 않습니다.
 
@@ -47,11 +47,13 @@
 ## Pull request checklist
 
 - [ ] 원본과 `source-docs/`가 동기화되었습니다.
+- [ ] 문서 구조나 URL이 바뀌었다면 manifest와 기존 URL alias를 함께 확인했습니다.
 - [ ] EN/KO 상태와 용어집을 확인했습니다.
 - [ ] 새 주장이 실제 코드 또는 승인된 제품 정책으로 검증되었습니다.
-- [ ] `npm run docs:check`, `npm run typecheck`, `npm run lint`가 통과합니다.
+- [ ] `npm run docs:generate`, `npm run docs:check`, `npm run typecheck`, `npm run lint`가 통과합니다.
 - [ ] UI 변경이면 데스크톱과 모바일, 키보드 탐색, reduced-motion을 확인했습니다.
-- [ ] 링크, 코드 복사, 이미지 확대, 로컬 검색을 확인했습니다.
+- [ ] 링크, 코드 복사, 이미지 확대, 100개 생성 레코드의 로컬 검색을 확인했습니다.
+- [ ] 절차 문서가 실제 Unreal Editor UI에서 재현되는지 확인했고, 필요한 단계 스크린샷을 검토했습니다.
 
 ## Release and version changes
 

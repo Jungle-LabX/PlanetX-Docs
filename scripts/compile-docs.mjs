@@ -1,11 +1,11 @@
-import { copyFile, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { access, copyFile, mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const ROOT = process.cwd();
 const SOURCE_ROOT = path.join(ROOT, "source-docs");
+const MANIFEST_FILE = path.join(SOURCE_ROOT, "docs-manifest.json");
 const CONTENT_DIR = path.join(ROOT, "content");
 const DOWNLOAD_DIR = path.join(ROOT, "public", "downloads");
-const SOURCE_IMAGE_DIR = path.join(SOURCE_ROOT, "ph");
 const PUBLIC_IMAGE_DIR = path.join(ROOT, "public", "images", "docs");
 const MIGRATION_DIR = path.join(ROOT, "migration");
 const GENERATED_DOCS = path.join(CONTENT_DIR, "generated-docs.json");
@@ -13,64 +13,167 @@ const INVENTORY_FILE = path.join(MIGRATION_DIR, "source-inventory.json");
 const DOCUMENT_MAP_FILE = path.join(MIGRATION_DIR, "document-map.json");
 const UNRESOLVED_FILE = path.join(MIGRATION_DIR, "unresolved-documents.md");
 const TERMINOLOGY_FILE = path.join(MIGRATION_DIR, "terminology.en-ko.json");
-const LAST_REVIEWED = "2026-08-01";
-const SCREENSHOT_ROUTE = "/images/proxy-bake-refresh-review.png";
-const standaloneRoutes = new Map([
-  ["support-release-notes", "/release-notes"],
-  ["faq", "/faq"],
-  ["known-issues", "/known-issues"],
-]);
+const LANGUAGES = ["en", "ko"];
+const IMAGE_EXTENSIONS = /\.(png|jpe?g|gif|webp|svg)$/i;
 
-const sharedMap = [
-  ["00_Overview.md", "overview", "Introduction", "Product positioning and requirement summary"],
-  ["01_Getting_Started.md", "getting-started", "Getting Started", "Reproduce every editor step and screenshot"],
-  ["02_Editor_Workflow.md", "editor-workflow", "Workflows", "UI labels, bake modes, output states"],
-  ["03_Runtime_Integration.md", "runtime-integration", "Runtime", "Actor/component behavior and travel ownership"],
-  ["04_Core_Concepts.md", "core-concepts", "Core Concepts", "Projection, IDs, partitions, generated assets"],
-  ["05_Supported_Content.md", "supported-content", "Compatibility", "Supported/conditional/unsupported matrix"],
-  ["06_Large_World_and_World_Partition.md", "large-world-world-partition", "Workflows", "Discovery, checkpoints, large bake guidance"],
-  ["07_Performance_and_Optimization.md", "performance-optimization", "Optimization", "Measured values and tuning order"],
-  ["08_Reference.md", "reference", "Reference", "Public symbols and CVars"],
-  ["09_Troubleshooting.md", "troubleshooting", "Troubleshooting", "Exact messages and recovery steps"],
-  ["10_Support_and_Release_Notes.md", "support-release-notes", "Support", "Support channel and release facts"],
-  ["13_FAQ.md", "faq", "Support", "Keep answers aligned with canonical terminology and verified product scope"],
-  ["14_Known_Issues.md", "known-issues", "Support", "Keep issue status current and avoid publishing unverified defects"],
-];
+function invariant(condition, message) {
+  if (!condition) throw new Error(message);
+}
 
-const languageOnlyMap = [
-  ["11_User_API.md", "user-api", "Reference", "Validate every public symbol before release"],
-  ["12_Runtime_Actor_Integration.md", "runtime-actor-integration", "Runtime", "Requires Unreal Editor walkthrough QA"],
-];
+function toPosix(value) {
+  return value.split(path.sep).join("/");
+}
 
-const documentDefinitions = new Map([...sharedMap, ...languageOnlyMap].map(([file, slug, category, reviewFocus], index) => [
-  file,
-  { file, slug, category, reviewFocus, order: index },
-]));
+function sourceRelativePath(absolutePath) {
+  return toPosix(path.relative(SOURCE_ROOT, absolutePath));
+}
 
-const terminology = [
-  ["Planet Asset", "Planet Asset", "Keep product object names in English."],
-  ["Section", "Section", "Stable PlanetX authoring unit."],
-  ["Level Pair", "Level Pair", "Pairing term used in runtime and bake docs."],
-  ["Proxy Bake", "Proxy Bake", "Feature name; do not translate literally."],
-  ["Runtime Preview", "Runtime Preview", "Engine feature state."],
-  ["Same World", "Same World", "Runtime mode label."],
-  ["External Level", "External Level", "Runtime mode label."],
-  ["Travel", "Travel", "Unreal-level transition term."],
-  ["Bake Data", "Bake Data", "Generated runtime data asset."],
-  ["Source Review", "Source Review", "Editor panel name."],
-  ["Output Plan", "Output Plan", "Editor panel name."],
-  ["World Partition", "World Partition", "Unreal Engine feature name."],
-  ["MeshPage", "MeshPage", "PlanetX generated content type."],
-  ["InstanceBatch", "InstanceBatch", "PlanetX generated content type."],
-].map(([en, ko, note]) => ({ en, ko, note }));
+function isInside(parent, candidate) {
+  const relative = path.relative(parent, candidate);
+  return relative !== "" && !relative.startsWith("..") && !path.isAbsolute(relative);
+}
 
-function compareFiles(a, b) {
-  const aOrder = Number.parseInt(a.slice(0, 2), 10);
-  const bOrder = Number.parseInt(b.slice(0, 2), 10);
-  if (Number.isFinite(aOrder) && Number.isFinite(bOrder) && aOrder !== bOrder) {
-    return aOrder - bOrder;
+async function readJson(file) {
+  return JSON.parse(await readFile(file, "utf8"));
+}
+
+function resolveAlias(slug, aliases) {
+  let current = slug;
+  const seen = new Set();
+  while (aliases[current]) {
+    invariant(!seen.has(current), `Alias cycle detected at ${slug}`);
+    seen.add(current);
+    current = aliases[current];
   }
-  return a.localeCompare(b);
+  return current;
+}
+
+function validateManifest(manifest) {
+  invariant(manifest?.version === 1, "source-docs/docs-manifest.json must use version 1.");
+  invariant(/^\d{4}-\d{2}-\d{2}$/.test(manifest.lastReviewed), "Manifest lastReviewed must be YYYY-MM-DD.");
+  invariant(Array.isArray(manifest.categories) && manifest.categories.length > 0, "Manifest has no categories.");
+  invariant(Array.isArray(manifest.supplemental), "Manifest supplemental must be an array.");
+
+  const categoryIds = new Set();
+  const slugs = new Set();
+  for (const [categoryOrder, category] of manifest.categories.entries()) {
+    invariant(category.id && !categoryIds.has(category.id), `Duplicate or empty category id: ${category.id ?? "<empty>"}`);
+    categoryIds.add(category.id);
+    invariant(Array.isArray(category.documents) && category.documents.length > 0, `Category ${category.id} has no documents.`);
+    for (const lang of LANGUAGES) {
+      invariant(category.titles?.[lang], `Category ${category.id} is missing a ${lang} title.`);
+    }
+    for (const [order, document] of category.documents.entries()) {
+      invariant(document.slug && !slugs.has(document.slug), `Duplicate or empty document slug: ${document.slug ?? "<empty>"}`);
+      slugs.add(document.slug);
+      for (const lang of LANGUAGES) {
+        invariant(document.titles?.[lang], `${document.slug} is missing a ${lang} navigation title.`);
+      }
+      invariant(Number.isInteger(categoryOrder) && Number.isInteger(order), `Invalid order metadata for ${document.slug}.`);
+    }
+  }
+
+  for (const document of manifest.supplemental) {
+    invariant(document.slug && !slugs.has(document.slug), `Duplicate or empty supplemental slug: ${document.slug ?? "<empty>"}`);
+    slugs.add(document.slug);
+    invariant(document.scope === "web-supplemental", `${document.slug} must use web-supplemental scope.`);
+    for (const lang of LANGUAGES) {
+      invariant(document.titles?.[lang], `${document.slug} is missing a ${lang} navigation title.`);
+      invariant(document.sources?.[lang], `${document.slug} is missing a ${lang} source.`);
+    }
+  }
+
+  invariant(slugs.has(manifest.defaultSlug), `Default slug does not exist: ${manifest.defaultSlug}`);
+  for (const [alias, target] of Object.entries(manifest.aliases ?? {})) {
+    invariant(alias && !slugs.has(alias), `Alias collides with a document slug: ${alias}`);
+    invariant(slugs.has(resolveAlias(target, manifest.aliases)), `Alias ${alias} points to unknown target ${target}.`);
+  }
+  for (const slug of Object.keys(manifest.standaloneRoutes ?? {})) {
+    invariant(slugs.has(slug), `Standalone route references unknown slug ${slug}.`);
+  }
+}
+
+function buildDefinitions(manifest) {
+  const definitions = [];
+  let subjectOrder = 0;
+
+  for (const [categoryOrder, category] of manifest.categories.entries()) {
+    for (const [orderInCategory, document] of category.documents.entries()) {
+      for (const lang of LANGUAGES) {
+        definitions.push({
+          lang,
+          slug: document.slug,
+          navigationTitle: document.titles[lang],
+          category: category.id,
+          categoryTitle: category.titles[lang],
+          categoryOrder,
+          orderInCategory,
+          order: subjectOrder,
+          scope: "offline",
+          sourceRelative: `${lang}/${category.id}/${document.slug}.md`,
+          verificationStatus: "verified",
+        });
+      }
+      subjectOrder += 1;
+    }
+  }
+
+  for (const [supplementalOrder, document] of manifest.supplemental.entries()) {
+    for (const lang of LANGUAGES) {
+      definitions.push({
+        lang,
+        slug: document.slug,
+        navigationTitle: document.titles[lang],
+        category: document.category,
+        categoryTitle: lang === "ko" ? "지원" : "Support",
+        categoryOrder: manifest.categories.length,
+        orderInCategory: supplementalOrder,
+        order: subjectOrder,
+        scope: document.scope,
+        sourceRelative: document.sources[lang],
+        verificationStatus: "needs-product-review",
+      });
+    }
+    subjectOrder += 1;
+  }
+
+  return definitions;
+}
+
+async function listFilesRecursive(directory, predicate) {
+  const files = [];
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    const absolutePath = path.join(directory, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...await listFilesRecursive(absolutePath, predicate));
+    } else if (entry.isFile() && predicate(absolutePath)) {
+      files.push(absolutePath);
+    }
+  }
+  return files;
+}
+
+async function loadSources(definitions) {
+  const expectedSources = new Set(definitions.map((definition) => definition.sourceRelative.toLowerCase()));
+  const actualSources = (await listFilesRecursive(
+    SOURCE_ROOT,
+    (file) => file.toLowerCase().endsWith(".md"),
+  )).map(sourceRelativePath);
+
+  for (const source of actualSources) {
+    invariant(expectedSources.has(source.toLowerCase()), `Markdown source is not declared in the manifest: source-docs/${source}`);
+  }
+  invariant(actualSources.length === expectedSources.size, `Manifest declares ${expectedSources.size} Markdown sources, but ${actualSources.length} were found.`);
+
+  const sources = new Map();
+  for (const definition of definitions) {
+    const absolutePath = path.resolve(SOURCE_ROOT, ...definition.sourceRelative.split("/"));
+    invariant(isInside(SOURCE_ROOT, absolutePath), `Source path escapes source-docs: ${definition.sourceRelative}`);
+    await access(absolutePath);
+    const raw = (await readFile(absolutePath, "utf8")).replace(/\r\n?/g, "\n");
+    sources.set(`${definition.lang}:${definition.slug}`, { absolutePath, raw });
+  }
+  return sources;
 }
 
 function publicImageName(file) {
@@ -80,104 +183,119 @@ function publicImageName(file) {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
+  invariant(stem && IMAGE_EXTENSIONS.test(extension), `Invalid documentation image filename: ${file}`);
   return `${stem}${extension}`;
 }
 
-async function loadImageAssets() {
-  const entries = await readdir(SOURCE_IMAGE_DIR, { withFileTypes: true });
-  const assets = new Map();
-  const publicNames = new Set();
+function splitTarget(rawTarget) {
+  const hashIndex = rawTarget.indexOf("#");
+  if (hashIndex === -1) return { target: rawTarget, hash: "" };
+  return { target: rawTarget.slice(0, hashIndex), hash: rawTarget.slice(hashIndex) };
+}
 
-  for (const entry of entries.filter((item) => item.isFile()).sort((a, b) => a.name.localeCompare(b.name))) {
-    if (!/\.(png|jpe?g|gif|webp|svg)$/i.test(entry.name)) continue;
+function isExternalOrRootTarget(target) {
+  return /^(https?:|mailto:|tel:|data:|#|\/)/i.test(target);
+}
 
-    const outputName = publicImageName(entry.name);
-    if (!outputName || publicNames.has(outputName)) {
-      throw new Error(`Duplicate or invalid published image name for ${entry.name}: ${outputName}`);
+async function collectImageAssets(definitions, sources) {
+  const bySource = new Map();
+  const byOutput = new Map();
+
+  for (const definition of definitions) {
+    const source = sources.get(`${definition.lang}:${definition.slug}`);
+    for (const match of source.raw.matchAll(/!\[[^\]]*]\(([^)\s]+)(?:\s+"[^"]*")?\)/g)) {
+      const rawTarget = match[1].replace(/^<|>$/g, "");
+      const { target } = splitTarget(rawTarget);
+      if (isExternalOrRootTarget(target) || !IMAGE_EXTENSIONS.test(target)) continue;
+
+      const absoluteImage = path.resolve(path.dirname(source.absolutePath), decodeURIComponent(target.replace(/\\/g, "/")));
+      invariant(isInside(SOURCE_ROOT, absoluteImage), `Image path escapes source-docs in ${definition.sourceRelative}: ${target}`);
+      await access(absoluteImage);
+      const sourceKey = absoluteImage.toLowerCase();
+      const outputName = publicImageName(absoluteImage);
+      const outputKey = outputName.toLowerCase();
+      const existingOutput = byOutput.get(outputKey);
+      invariant(!existingOutput || existingOutput.sourceKey === sourceKey, `Published image name collision: ${outputName}`);
+
+      const asset = {
+        sourceKey,
+        sourcePath: absoluteImage,
+        outputName,
+        route: `/images/docs/${outputName}`,
+      };
+      bySource.set(sourceKey, asset);
+      byOutput.set(outputKey, asset);
     }
-
-    publicNames.add(outputName);
-    assets.set(entry.name.toLowerCase(), {
-      sourceName: entry.name,
-      outputName,
-      route: `/images/docs/${outputName}`,
-    });
   }
 
-  return assets;
+  return { bySource, assets: [...byOutput.values()].sort((a, b) => a.outputName.localeCompare(b.outputName)) };
 }
 
-async function publishImageAssets(imageAssets) {
-  await mkdir(PUBLIC_IMAGE_DIR, { recursive: true });
-  for (const asset of imageAssets.values()) {
-    await copyFile(
-      path.join(SOURCE_IMAGE_DIR, asset.sourceName),
-      path.join(PUBLIC_IMAGE_DIR, asset.outputName),
-    );
-  }
+function canonicalDocsRoute(target, aliases) {
+  const match = target.match(/^\/docs\/(en|ko)\/([^/#?]+)(#[^\s]*)?$/i);
+  if (!match) return target;
+  const [, lang, rawSlug, hash = ""] = match;
+  return `/docs/${lang.toLowerCase()}/${resolveAlias(rawSlug, aliases)}${hash}`;
 }
 
-function routeSlugForTarget(target, lang) {
-  const cleanTarget = target.split("#")[0].replace(/\\/g, "/");
-  const base = path.posix.basename(cleanTarget);
-
-  if (/^PlanetX_User_Guide_(EN|KO)\.md$/i.test(base)) {
-    return `/docs/${lang}/overview`;
-  }
-
-  const definition = documentDefinitions.get(base);
-  if (!definition) {
-    return null;
-  }
-
-  return standaloneRoutes.get(definition.slug) ?? `/docs/${lang}/${definition.slug}`;
-}
-
-function transformLinks(markdown, lang, unresolvedLinks, imageAssets) {
-  const withObsidianImages = markdown.replace(
-    /!\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g,
-    (match, rawTarget, rawAlt) => {
-      const file = path.posix.basename(rawTarget.trim().replace(/\\/g, "/"));
-      const asset = imageAssets.get(file.toLowerCase());
+function transformLinks(markdown, definition, source, context, unresolvedLinks) {
+  const withImages = markdown.replace(
+    /!\[([^\]]*)]\(([^)\s]+)(?:\s+"[^"]*")?\)/g,
+    (match, alt, rawTarget) => {
+      const target = rawTarget.replace(/^<|>$/g, "");
+      const { target: targetWithoutHash } = splitTarget(target);
+      if (isExternalOrRootTarget(targetWithoutHash) || !IMAGE_EXTENSIONS.test(targetWithoutHash)) return match;
+      const absoluteImage = path.resolve(path.dirname(source.absolutePath), decodeURIComponent(targetWithoutHash.replace(/\\/g, "/")));
+      const asset = context.imageAssets.get(absoluteImage.toLowerCase());
       if (!asset) {
-        unresolvedLinks.push({ lang, target: rawTarget, label: rawAlt?.trim() || file });
+        unresolvedLinks.push({ sourcePath: definition.sourceRelative, target, label: alt, type: "image" });
         return match;
       }
-
-      const alt = rawAlt?.trim() || path.basename(file, path.extname(file)).replace(/[_-]+/g, " ");
       return `![${alt}](${asset.route})`;
     },
   );
 
-  return withObsidianImages.replace(/(!?)\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g, (match, bang, label, rawTarget) => {
-    if (/^(https?:|mailto:|#|\/)/i.test(rawTarget)) {
-      return match;
-    }
+  return withImages.replace(
+    /(!?)\[([^\]]*)]\(([^)\s]+)(?:\s+"[^"]*")?\)/g,
+    (match, bang, label, rawTarget) => {
+      if (bang) return match;
+      const cleanedTarget = rawTarget.replace(/^<|>$/g, "");
+      const { target, hash } = splitTarget(cleanedTarget);
 
-    if (/\.(png|jpe?g|gif|webp|svg)$/i.test(rawTarget)) {
-      return `${bang}[${label}](${SCREENSHOT_ROUTE})`;
-    }
+      if (/^\/docs\//i.test(target)) {
+        return `[${label}](${canonicalDocsRoute(`${target}${hash}`, context.manifest.aliases)})`;
+      }
+      if (isExternalOrRootTarget(target)) return match;
 
-    if (/\.md(?:#.*)?$/i.test(rawTarget)) {
-      const hash = rawTarget.includes("#") ? `#${rawTarget.split("#").slice(1).join("#")}` : "";
-      const route = routeSlugForTarget(rawTarget, lang);
-      if (!route) {
-        unresolvedLinks.push({ lang, target: rawTarget, label });
+      if (target.startsWith("?")) {
+        const parameters = new URLSearchParams(target.slice(1));
+        const requestedLang = parameters.get("lang") ?? definition.lang;
+        const requestedSlug = parameters.get("doc");
+        const resolvedSlug = requestedSlug ? resolveAlias(requestedSlug, context.manifest.aliases) : null;
+        if (LANGUAGES.includes(requestedLang) && resolvedSlug && context.definitionsBySlug.has(resolvedSlug)) {
+          return `[${label}](/docs/${requestedLang}/${resolvedSlug}${hash})`;
+        }
+        unresolvedLinks.push({ sourcePath: definition.sourceRelative, target: cleanedTarget, label, type: "query" });
         return match;
       }
-      return `${bang}[${label}](${route}${hash})`;
-    }
 
-    return match;
-  });
+      if (/\.md$/i.test(target)) {
+        const absoluteTarget = path.resolve(path.dirname(source.absolutePath), decodeURIComponent(target.replace(/\\/g, "/")));
+        const relativeTarget = sourceRelativePath(absoluteTarget).toLowerCase();
+        const targetDefinition = context.definitionsBySource.get(relativeTarget);
+        if (targetDefinition) {
+          return `[${label}](/docs/${targetDefinition.lang}/${targetDefinition.slug}${hash})`;
+        }
+        unresolvedLinks.push({ sourcePath: definition.sourceRelative, target: cleanedTarget, label, type: "markdown" });
+      }
+
+      return match;
+    },
+  );
 }
 
 function stripSourceChrome(markdown) {
-  const withoutTitle = markdown.replace(/^#\s+.*\r?\n+/, "");
-  return withoutTitle.replace(
-    /^\[[^\r\n]+\]\([^)]+\)(?:\s*·\s*\[[^\r\n]+\]\([^)]+\))*\r?\n+/,
-    "",
-  );
+  return markdown.replace(/^#\s+.*\n+/, "");
 }
 
 function stripMarkdown(value) {
@@ -186,6 +304,7 @@ function stripMarkdown(value) {
     .replace(/`([^`]+)`/g, "$1")
     .replace(/!\[[^\]]*]\([^)]*\)/g, " ")
     .replace(/\[([^\]]+)]\([^)]*\)/g, "$1")
+    .replace(/<[^>]+>/g, " ")
     .replace(/[#>*_|~-]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
@@ -193,233 +312,178 @@ function stripMarkdown(value) {
 
 function extractTitle(markdown, fallback) {
   const match = markdown.match(/^#\s+(.+)$/m);
-  return match ? match[1].trim() : fallback.replace(/\.md$/i, "").replace(/^\d+_/, "").replace(/_/g, " ");
+  return match ? match[1].trim() : fallback;
 }
 
 function extractDescription(markdown) {
-  const withoutTitle = markdown.replace(/^#\s+.+$/m, "");
-  const paragraph = withoutTitle
-    .split(/\r?\n\r?\n/)
+  const paragraph = markdown
+    .replace(/^#\s+.+$/m, "")
+    .split(/\n\s*\n/)
     .map((block) => stripMarkdown(block))
-    .find((block) => {
-      if (block.length === 0 || block.startsWith("|")) return false;
-      if (/^(documentation home|문서 홈|previous:|이전:)/i.test(block)) return false;
-      if (/^(next:|다음:)/i.test(block)) return false;
-      return true;
-    });
-
-  if (!paragraph) {
-    return "";
-  }
-
+    .find((block) => block.length > 0 && !block.startsWith("|") && !/^\[![A-Z]+\]/.test(block));
+  if (!paragraph) return "";
   return paragraph.length > 180 ? `${paragraph.slice(0, 177).trim()}...` : paragraph;
 }
 
 function slugifyHeading(value) {
-  const normalized = stripMarkdown(value).toLowerCase();
-  const ascii = normalized
+  const normalized = stripMarkdown(value)
+    .normalize("NFKC")
+    .toLowerCase()
     .replace(/&/g, " and ")
-    .replace(/[^a-z0-9가-힣]+/g, "-")
+    .replace(/[^\p{Letter}\p{Number}]+/gu, "-")
     .replace(/^-+|-+$/g, "");
-
-  return ascii || "section";
+  return normalized || "section";
 }
 
 function extractHeadings(markdown) {
   const seen = new Map();
   const headings = [];
-
   for (const match of markdown.matchAll(/^(#{1,6})\s+(.+)$/gm)) {
     const level = match[1].length;
     const title = match[2].trim();
     const baseId = slugifyHeading(title);
     const count = seen.get(baseId) ?? 0;
     seen.set(baseId, count + 1);
-    headings.push({
-      level,
-      title,
-      id: count === 0 ? baseId : `${baseId}-${count + 1}`,
-    });
+    headings.push({ level, title, id: count === 0 ? baseId : `${baseId}-${count + 1}` });
   }
-
   return headings;
 }
 
-function inferVerificationStatus(file) {
-  const productReviewFiles = new Set([
-    "01_Getting_Started.md",
-    "02_Editor_Workflow.md",
-    "03_Runtime_Integration.md",
-    "05_Supported_Content.md",
-    "06_Large_World_and_World_Partition.md",
-    "07_Performance_and_Optimization.md",
-    "08_Reference.md",
-    "09_Troubleshooting.md",
-    "10_Support_and_Release_Notes.md",
-    "11_User_API.md",
-    "12_Runtime_Actor_Integration.md",
-  ]);
-  return productReviewFiles.has(file) ? "needs-product-review" : "verified";
-}
-
-function inferScreenshotRequirements(file, markdown) {
-  const requirements = [];
-  if (markdown.includes("ProxyBake_Refresh_Review.png")) {
-    requirements.push("Use supplied Proxy Bake Refresh Review screenshot.");
-  }
-
-  const workflowScreenshotFiles = new Set([
-    "01_Getting_Started.md",
-    "02_Editor_Workflow.md",
-    "03_Runtime_Integration.md",
-    "08_Reference.md",
-    "09_Troubleshooting.md",
-    "12_Runtime_Actor_Integration.md",
-  ]);
-  if (workflowScreenshotFiles.has(file)) {
-    requirements.push("Capture reviewed Unreal Editor workflow screenshots before public release.");
-  }
-
-  if (file === "11_User_API.md") {
-    requirements.push("No fabricated screenshots; validate API tables against public headers.");
-  }
-
-  return [...new Set(requirements)];
-}
-
-async function listMarkdownFiles(lang) {
-  const dir = path.join(SOURCE_ROOT, lang);
-  const entries = await readdir(dir, { withFileTypes: true });
-  return entries
-    .filter((entry) => entry.isFile() && entry.name.endsWith(".md"))
-    .map((entry) => entry.name)
-    .sort(compareFiles);
-}
-
-async function buildDocument(lang, file, allFiles, unresolvedLinks, imageAssets) {
-  const definition = documentDefinitions.get(file);
-  if (!definition) {
-    throw new Error(`No document map entry for ${lang}/${file}`);
-  }
-
-  const absolutePath = path.join(SOURCE_ROOT, lang, file);
-  const raw = (await readFile(absolutePath, "utf8")).replace(/\r\n?/g, "\n");
-  const content = stripSourceChrome(transformLinks(raw, lang, unresolvedLinks, imageAssets));
-  const title = extractTitle(raw, file);
-  const isLanguageOnly = lang === "ko" && !allFiles.en.includes(file);
-  const hasCounterpart = lang === "en" ? allFiles.ko.includes(file) : allFiles.en.includes(file);
-  const counterpartId = hasCounterpart ? `${lang === "en" ? "ko" : "en"}-${definition.slug}` : null;
-
+function buildDocument(definition, sources, context, unresolvedLinks, lastReviewed) {
+  const source = sources.get(`${definition.lang}:${definition.slug}`);
+  const transformed = transformLinks(source.raw, definition, source, context, unresolvedLinks);
+  const content = stripSourceChrome(transformed);
+  const counterpartLang = definition.lang === "en" ? "ko" : "en";
   return {
-    id: `${lang}-${definition.slug}`,
-    lang,
+    id: `${definition.lang}-${definition.slug}`,
+    lang: definition.lang,
     slug: definition.slug,
-    title,
-    description: extractDescription(raw),
+    title: extractTitle(source.raw, definition.navigationTitle),
+    navigationTitle: definition.navigationTitle,
+    description: extractDescription(source.raw),
     category: definition.category,
+    categoryTitle: definition.categoryTitle,
+    categoryOrder: definition.categoryOrder,
+    orderInCategory: definition.orderInCategory,
     order: definition.order,
-    sourceFile: file,
-    sourcePath: `source-docs/${lang}/${file}`,
+    scope: definition.scope,
+    sourceFile: path.posix.basename(definition.sourceRelative),
+    sourcePath: `source-docs/${definition.sourceRelative}`,
     content,
-    headings: extractHeadings(raw),
+    headings: extractHeadings(source.raw),
     public: true,
-    verificationStatus: inferVerificationStatus(file),
-    screenshotRequirements: inferScreenshotRequirements(file, raw),
+    verificationStatus: definition.verificationStatus,
+    screenshotRequirements: [],
     translation: {
-      status: hasCounterpart ? "current" : isLanguageOnly ? "language-only" : "missing",
-      counterpartId,
+      status: "current",
+      counterpartId: `${counterpartLang}-${definition.slug}`,
     },
-    lastReviewed: LAST_REVIEWED,
+    lastReviewed,
   };
 }
 
-function buildSourceInventory(allFiles, documents) {
-  const byLang = Object.fromEntries(["en", "ko"].map((lang) => [
-    lang,
-    allFiles[lang].map((file) => {
-      const doc = documents.find((item) => item.lang === lang && item.sourceFile === file);
-      return {
-        file,
-        path: `source-docs/${lang}/${file}`,
+function preferredRoute(doc, manifest) {
+  return manifest.standaloneRoutes?.[doc.slug] ?? `/docs/${doc.lang}/${doc.slug}`;
+}
+
+function buildSourceInventory(documents, manifest) {
+  const coreSubjects = manifest.categories.flatMap((category) => category.documents).length;
+  const supplementalSubjects = manifest.supplemental.length;
+  return {
+    auditDate: manifest.lastReviewed,
+    manifest: "source-docs/docs-manifest.json",
+    counts: {
+      en: documents.filter((doc) => doc.lang === "en").length,
+      ko: documents.filter((doc) => doc.lang === "ko").length,
+      total: documents.length,
+      sharedSubjects: new Set(documents.map((doc) => doc.slug)).size,
+      languageOnlySubjects: 0,
+      corePerLanguage: coreSubjects,
+      supplementalPerLanguage: supplementalSubjects,
+    },
+    languages: Object.fromEntries(LANGUAGES.map((lang) => [
+      lang,
+      documents.filter((doc) => doc.lang === lang).map((doc) => ({
+        file: doc.sourceFile,
+        path: doc.sourcePath,
         slug: doc.slug,
         id: doc.id,
         title: doc.title,
+        navigationTitle: doc.navigationTitle,
         category: doc.category,
+        categoryOrder: doc.categoryOrder,
         order: doc.order,
+        scope: doc.scope,
         headings: doc.headings.length,
         public: doc.public,
         verificationStatus: doc.verificationStatus,
         translationStatus: doc.translation.status,
-      };
-    }),
-  ]));
-
-  return {
-    auditDate: LAST_REVIEWED,
-    counts: {
-      en: allFiles.en.length,
-      ko: allFiles.ko.length,
-      total: allFiles.en.length + allFiles.ko.length,
-      sharedSubjects: allFiles.en.filter((file) => allFiles.ko.includes(file)).length,
-      languageOnlySubjects: allFiles.ko.filter((file) => !allFiles.en.includes(file)).length,
-    },
-    languages: byLang,
+      })),
+    ])),
   };
 }
 
-function buildDocumentMap(allFiles, documents) {
+function buildDocumentMap(documents, manifest) {
+  const aliasesByTarget = new Map();
+  for (const alias of Object.keys(manifest.aliases)) {
+    const target = resolveAlias(alias, manifest.aliases);
+    const aliases = aliasesByTarget.get(target) ?? [];
+    aliases.push(alias);
+    aliasesByTarget.set(target, aliases);
+  }
+
   return documents
-    .filter((doc) => doc.lang === "en" || !allFiles.en.includes(doc.sourceFile))
+    .filter((doc) => doc.lang === "en")
     .map((doc) => {
       const paired = documents.filter((item) => item.slug === doc.slug);
       return {
         slug: doc.slug,
+        aliases: aliasesByTarget.get(doc.slug) ?? [],
         order: doc.order,
         category: doc.category,
-        reviewFocus: documentDefinitions.get(doc.sourceFile).reviewFocus,
-        routes: Object.fromEntries(paired.map((item) => [item.lang, `/docs/${item.lang}/${item.slug}`])),
+        categoryOrder: doc.categoryOrder,
+        scope: doc.scope,
+        reviewFocus: doc.scope === "web-supplemental"
+          ? "Product review is required before changing support claims."
+          : "Keep aligned with the canonical PlanetX 1.0 documentation snapshot.",
+        routes: Object.fromEntries(paired.map((item) => [item.lang, preferredRoute(item, manifest)])),
+        documentRoutes: Object.fromEntries(paired.map((item) => [item.lang, `/docs/${item.lang}/${item.slug}`])),
         sources: Object.fromEntries(paired.map((item) => [item.lang, item.sourcePath])),
         ids: Object.fromEntries(paired.map((item) => [item.lang, item.id])),
-        translationStatus: paired.length > 1 ? "current" : "language-only",
+        translationStatus: "current",
       };
     })
     .sort((a, b) => a.order - b.order);
 }
 
-function buildUnresolvedReport(allFiles, unresolvedLinks, documents) {
-  const languageOnly = documents.filter((doc) => doc.translation.status === "language-only");
-  const missingEnglish = allFiles.ko.filter((file) => !allFiles.en.includes(file));
-  const lines = [
+function buildUnresolvedReport(unresolvedLinks, documents, manifest) {
+  const productReviewDocuments = documents.filter((doc) => doc.verificationStatus === "needs-product-review");
+  return `${[
     "# Unresolved Documents",
     "",
-    `Last reviewed: ${LAST_REVIEWED}`,
+    `Last reviewed: ${manifest.lastReviewed}`,
     "",
-    "## Language-only Korean documents",
+    "## Language-only documents",
     "",
-    ...languageOnly.map((doc) => `- \`${doc.sourcePath}\` -> \`/docs/${doc.lang}/${doc.slug}\` (${doc.title})`),
+    "- None",
     "",
-    "## Missing English counterparts",
+    "## Missing language counterparts",
     "",
-    ...missingEnglish.map((file) => {
-      const definition = documentDefinitions.get(file);
-      return `- \`source-docs/en/${file}\` is not present. Korean route remains \`/docs/ko/${definition.slug}\`.`;
-    }),
+    "- None",
     "",
-    "## Unresolved relative Markdown links",
+    "## Unresolved local links or images",
     "",
     ...(unresolvedLinks.length === 0
       ? ["- None"]
-      : unresolvedLinks.map((link) => `- ${link.lang}: \`${link.target}\` (${link.label})`)),
+      : unresolvedLinks.map((link) => `- \`${link.sourcePath}\`: ${link.type} \`${link.target}\` (${link.label})`)),
     "",
     "## Product review required",
     "",
-    ...documents
-      .filter((doc) => doc.verificationStatus === "needs-product-review")
-      .map((doc) => `- \`${doc.sourcePath}\`: ${documentDefinitions.get(doc.sourceFile).reviewFocus}`),
+    ...(productReviewDocuments.length === 0
+      ? ["- None"]
+      : productReviewDocuments.map((doc) => `- \`${doc.sourcePath}\` (${doc.title})`)),
     "",
-  ];
-
-  return `${lines.join("\n")}\n`;
+  ].join("\n")}\n`;
 }
 
 function buildDownloadDocument(doc, headingLevel = 1) {
@@ -427,23 +491,40 @@ function buildDownloadDocument(doc, headingLevel = 1) {
   const content = headingLevel === 1
     ? doc.content.trim()
     : doc.content.trim().replace(/^(#{2,5})(\s+)/gm, "$1#$2");
-  return `${titlePrefix} ${doc.title}\n\n${doc.description}\n\n${content}\n`;
+  return `${titlePrefix} ${doc.title}\n\n${content}\n`;
 }
 
-async function writeMarkdownDownloads(documents) {
-  await mkdir(DOWNLOAD_DIR, { recursive: true });
+async function resetGeneratedDirectory(directory) {
+  invariant(isInside(ROOT, directory), `Refusing to reset a directory outside the repository: ${directory}`);
+  invariant(directory === DOWNLOAD_DIR || directory === PUBLIC_IMAGE_DIR, `Refusing to reset non-generated directory: ${directory}`);
+  await rm(directory, { recursive: true, force: true });
+  await mkdir(directory, { recursive: true });
+}
 
-  for (const lang of ["en", "ko"]) {
-    const languageDocuments = documents.filter(
-      (doc) => doc.lang === lang && doc.public && !standaloneRoutes.has(doc.slug),
-    );
+async function publishImageAssets(assets) {
+  await resetGeneratedDirectory(PUBLIC_IMAGE_DIR);
+  for (const asset of assets) {
+    await copyFile(asset.sourcePath, path.join(PUBLIC_IMAGE_DIR, asset.outputName));
+  }
+}
+
+async function writeMarkdownDownloads(documents, manifest) {
+  await resetGeneratedDirectory(DOWNLOAD_DIR);
+  for (const lang of LANGUAGES) {
+    const languageDocuments = documents.filter((doc) => doc.lang === lang && doc.public && doc.scope === "offline");
+    const languageDocumentsBySlug = new Map(languageDocuments.map((doc) => [doc.slug, doc]));
     const languageDirectory = path.join(DOWNLOAD_DIR, lang);
     await mkdir(languageDirectory, { recursive: true });
-
     for (const doc of languageDocuments) {
+      await writeFile(path.join(languageDirectory, `${doc.slug}.md`), buildDownloadDocument(doc), "utf8");
+    }
+    for (const [alias, target] of Object.entries(manifest.aliases)) {
+      const resolvedTarget = resolveAlias(target, manifest.aliases);
+      const targetDocument = languageDocumentsBySlug.get(resolvedTarget);
+      invariant(targetDocument, `Download alias ${alias} points to a non-offline document: ${resolvedTarget}`);
       await writeFile(
-        path.join(languageDirectory, `${doc.slug}.md`),
-        buildDownloadDocument(doc),
+        path.join(languageDirectory, `${alias}.md`),
+        buildDownloadDocument(targetDocument),
         "utf8",
       );
     }
@@ -452,7 +533,7 @@ async function writeMarkdownDownloads(documents) {
     const combined = [
       `# ${editionName}`,
       "",
-      `Version 1.0 · Last reviewed ${LAST_REVIEWED}`,
+      `Version ${manifest.productVersion} · Last reviewed ${manifest.lastReviewed}`,
       "",
       ...languageDocuments.flatMap((doc) => [buildDownloadDocument(doc, 2).trim(), ""]),
     ].join("\n");
@@ -460,35 +541,47 @@ async function writeMarkdownDownloads(documents) {
   }
 }
 
+async function updateTerminology(lastReviewed) {
+  const terminology = await readJson(TERMINOLOGY_FILE);
+  terminology.lastReviewed = lastReviewed;
+  await writeFile(TERMINOLOGY_FILE, `${JSON.stringify(terminology, null, 2)}\n`, "utf8");
+}
+
 async function main() {
-  const allFiles = {
-    en: await listMarkdownFiles("en"),
-    ko: await listMarkdownFiles("ko"),
-  };
-  const imageAssets = await loadImageAssets();
+  const manifest = await readJson(MANIFEST_FILE);
+  validateManifest(manifest);
+  const definitions = buildDefinitions(manifest);
+  const sources = await loadSources(definitions);
+  const imageRegistry = await collectImageAssets(definitions, sources);
+  const definitionsBySource = new Map(definitions.map((definition) => [definition.sourceRelative.toLowerCase(), definition]));
+  const definitionsBySlug = new Map(definitions.map((definition) => [definition.slug, definition]));
   const unresolvedLinks = [];
-  const documents = [];
-
-  for (const lang of ["en", "ko"]) {
-    for (const file of allFiles[lang]) {
-      documents.push(await buildDocument(lang, file, allFiles, unresolvedLinks, imageAssets));
-    }
-  }
-
+  const context = {
+    manifest,
+    definitionsBySource,
+    definitionsBySlug,
+    imageAssets: imageRegistry.bySource,
+  };
+  const documents = definitions.map((definition) => (
+    buildDocument(definition, sources, context, unresolvedLinks, manifest.lastReviewed)
+  ));
   documents.sort((a, b) => a.order - b.order || a.lang.localeCompare(b.lang));
 
+  invariant(unresolvedLinks.length === 0, `Cannot generate documentation with ${unresolvedLinks.length} unresolved local link(s) or image(s).`);
   await mkdir(CONTENT_DIR, { recursive: true });
   await mkdir(MIGRATION_DIR, { recursive: true });
-  await publishImageAssets(imageAssets);
-  await writeMarkdownDownloads(documents);
+  await publishImageAssets(imageRegistry.assets);
+  await writeMarkdownDownloads(documents, manifest);
   await writeFile(GENERATED_DOCS, `${JSON.stringify(documents, null, 2)}\n`, "utf8");
-  await writeFile(INVENTORY_FILE, `${JSON.stringify(buildSourceInventory(allFiles, documents), null, 2)}\n`, "utf8");
-  await writeFile(DOCUMENT_MAP_FILE, `${JSON.stringify(buildDocumentMap(allFiles, documents), null, 2)}\n`, "utf8");
-  await writeFile(UNRESOLVED_FILE, buildUnresolvedReport(allFiles, unresolvedLinks, documents), "utf8");
-  await writeFile(TERMINOLOGY_FILE, `${JSON.stringify({ lastReviewed: LAST_REVIEWED, terms: terminology }, null, 2)}\n`, "utf8");
+  await writeFile(INVENTORY_FILE, `${JSON.stringify(buildSourceInventory(documents, manifest), null, 2)}\n`, "utf8");
+  await writeFile(DOCUMENT_MAP_FILE, `${JSON.stringify(buildDocumentMap(documents, manifest), null, 2)}\n`, "utf8");
+  await writeFile(UNRESOLVED_FILE, buildUnresolvedReport(unresolvedLinks, documents, manifest), "utf8");
+  await updateTerminology(manifest.lastReviewed);
 
-  console.log(`Compiled ${documents.length} documents (${allFiles.en.length} en, ${allFiles.ko.length} ko).`);
-  console.log(`Generated ${path.relative(ROOT, GENERATED_DOCS)}`);
+  const coreCount = documents.filter((doc) => doc.scope === "offline").length;
+  console.log(`Compiled ${documents.length} documents (${coreCount} offline, ${documents.length - coreCount} web supplemental).`);
+  console.log(`Published ${imageRegistry.assets.length} deduplicated documentation images.`);
+  console.log(`Generated ${path.relative(ROOT, GENERATED_DOCS)} from ${path.relative(ROOT, MANIFEST_FILE)}.`);
 }
 
 main().catch((error) => {

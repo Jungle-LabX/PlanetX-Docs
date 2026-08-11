@@ -20,7 +20,9 @@ function slugify(value: string) {
   return value
     .normalize("NFKC")
     .toLocaleLowerCase()
-    .replace(/[`*_]/g, "")
+    .replace(/&/g, " and ")
+    .replace(/_/g, " ")
+    .replace(/[`*]/g, "")
     .replace(/[^\p{Letter}\p{Number}]+/gu, "-")
     .replace(/^-+|-+$/g, "") || "section";
 }
