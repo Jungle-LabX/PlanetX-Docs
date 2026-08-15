@@ -2,7 +2,7 @@
 
 ## Source of truth
 - Status: Active
-- Last refreshed: 2026-08-02
+- Last refreshed: 2026-08-15
 - Primary product surfaces: bilingual product landing page, documentation index, English and Korean documentation pages, standalone Known Issues, FAQ, Release Notes and About Us pages, and local search.
 - Evidence reviewed: `app/components/LandingPage.tsx`, `app/components/SiteHeader.tsx`, `app/components/StandalonePage.tsx`, `app/components/DocsPage.tsx`, `app/globals.css`, the deployed GitHub Pages site, and the source documentation set.
 
@@ -25,7 +25,7 @@
 - Primary navigation: Main, Documentation, Known Issues, FAQ, Release Notes, About Us, followed by Search, Language, and Theme utilities.
 - Core routes/screens: `/`, `/docs`, `/docs/en/*`, `/docs/ko/*`, `/known-issues`, `/faq`, `/release-notes`, `/about`.
 - Route boundary: FAQ, Known Issues, and Release Notes are standalone product-information routes and must not appear in the documentation sidebar, pagination, full-edition downloads, or generated `/docs/{lang}/*` routes.
-- Landing hierarchy: value proposition and interactive state model → Proxy Bake projection → compatibility summary → documentation CTA → Fab CTA.
+- Landing hierarchy: value proposition and interactive state model → Proxy Bake projection → compatibility summary → documentation CTA → acquisition CTA (Fab + Demo).
 - Standalone-page hierarchy: plain editorial header → source-backed content or team statement → global ownership footer.
 
 ## Design principles
@@ -67,7 +67,7 @@
 - Empty: search retains its existing empty-result guidance and indexes only the active session language.
 - Error: routes use the existing themed not-found page.
 - Success: selected language, theme, and planetary state are visibly marked.
-- Disabled: unavailable Fab listing remains clearly marked as pending; the Main CTA scrolls to that disclosed state instead of opening a misleading generic marketplace URL.
+- External acquisition: Landing Fab and Demo CTAs open their canonical URLs in a new tab; the Hero and closing acquisition section expose both paths without embedding remote media.
 - Offline/slow network: core identity and diagrams are code-native and do not depend on remote assets.
 
 ## Content voice
@@ -78,10 +78,11 @@
 ## Implementation constraints
 - Framework/styling system: Next.js static export, React 19, TypeScript, global CSS, GSAP.
 - Design-token constraints: extend the existing CSS variables; do not introduce a second styling framework.
-- Performance constraints: no remote font, video background, or large generated bitmap. Mermaid is loaded dynamically only on documentation pages that contain a Mermaid block.
+- Performance constraints: no remote font, video background, embedded player, or large generated bitmap. The Demo is an external YouTube link; Mermaid is loaded dynamically only on documentation pages that contain a Mermaid block.
 - Compatibility constraints: GitHub Pages base path and static export must remain functional.
 - Test/screenshot expectations: docs checks, typecheck, lint, rendered HTML tests, Pages build, and visual checks at desktop/mobile in both themes.
 
 ## Open questions
-- [ ] Add the public Fab listing URL when the product page becomes available / LabX / CTA remains intentionally disabled until then.
+- [x] Connect the public PlanetX Fab listing to both Landing acquisition CTAs / LabX / `d64ca545-302a-4158-9abd-f806904a4178`.
+- [x] Connect the public workflow Demo to both Landing acquisition groups / LabX / `N1WJU_jtTic`.
 - [ ] Replace the review-state Unreal Engine compatibility row with a tested version matrix / LabX / affects compatibility claims only.

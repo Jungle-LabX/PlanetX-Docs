@@ -85,7 +85,7 @@ GitHub 저장소에서 다음 설정이 한 번 필요합니다.
 
 1. **Settings → Pages → Build and deployment → Source**를 **GitHub Actions**로 선택합니다.
 2. `main` 브랜치를 보호하고 CI 통과를 병합 조건으로 설정합니다.
-3. Fab·지원 채널의 공개 URL이 확정되면 랜딩의 pending 상태를 실제 링크로 교체합니다.
+3. Fab 배포 링크와 YouTube Demo는 Landing의 상단 및 하단 CTA에 연결되어 있습니다. 지원 채널 URL은 확정 후 별도로 연결합니다.
 
 자세한 수동 작업과 확인 항목은 [`assessment/CODEX_CAPABILITY_AND_MANUAL_STEPS.md`](assessment/CODEX_CAPABILITY_AND_MANUAL_STEPS.md)를 참고하세요.
 

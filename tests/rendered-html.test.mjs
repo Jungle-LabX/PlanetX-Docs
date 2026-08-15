@@ -20,7 +20,11 @@ test("server-renders the PlanetX product landing page", async () => {
   assert.match(html, /Author the ground/);
   assert.match(html, /Reveal the planet/);
   assert.match(html, /Download on FAB/);
+  assert.match(html, /Watch Demo/);
   assert.match(html, /PlanetX 1\.0/);
+  assert.equal((html.match(/https:\/\/www\.fab\.com\/listings\/d64ca545-302a-4158-9abd-f806904a4178/g) ?? []).length, 2);
+  assert.equal((html.match(/https:\/\/www\.youtube\.com\/watch\?v=N1WJU_jtTic/g) ?? []).length, 2);
+  assert.doesNotMatch(html, /df90e367-3ad4-4bd9-aa6f-3f230b0637a6|Fab link pending/);
   assert.match(html, /independently developed by LabX/);
   assert.doesNotMatch(html, /World structure|Coordinate model|Editor sequence/);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|react-loading-skeleton/i);

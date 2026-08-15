@@ -12,6 +12,9 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 type Language = "en" | "ko";
 
+const FAB_LISTING_URL = "https://www.fab.com/listings/d64ca545-302a-4158-9abd-f806904a4178";
+const DEMO_VIDEO_URL = "https://www.youtube.com/watch?v=N1WJU_jtTic";
+
 const copy = {
   en: {
     heroEyebrow: "Planet-scale world workflow for Unreal Engine",
@@ -20,6 +23,7 @@ const copy = {
     heroBody: "PlanetX projects an authored flat Level onto a spherical planet proxy, then connects the Ground, Transition, and Orbit representations used by your game.",
     primaryCta: "Start building",
     secondaryCta: "Download on FAB",
+    demoCta: "Watch Demo",
     statePrompt: "Select a state",
     proxyKicker: "Proxy Bake",
     proxyTitle: "Project flat terrain onto a spherical world.",
@@ -43,8 +47,8 @@ const copy = {
     docsBody: "Follow the Editor workflow, review supported content, integrate runtime Actors, and resolve common failure states.",
     openDocs: "Open documentation",
     otherLanguageDocs: "한국어 문서",
-    fabKicker: "Fab listing",
-    fabBody: "View PlanetX 1.0 on Fab.",
+    acquisitionKicker: "Get PlanetX",
+    acquisitionBody: "Get PlanetX 1.0 on Fab or watch the complete workflow demo.",
     fabCta: "View on Fab",
   },
   ko: {
@@ -54,6 +58,7 @@ const copy = {
     heroBody: "PlanetX는 제작한 평면 Level을 구면 행성 Proxy로 투영하고, 게임에서 사용하는 Ground, Transition, Orbit 표현을 하나의 흐름으로 연결합니다.",
     primaryCta: "시작하기",
     secondaryCta: "FAB에서 다운로드",
+    demoCta: "Demo 영상 보기",
     statePrompt: "상태 선택",
     proxyKicker: "Proxy Bake",
     proxyTitle: "평면 지형을 구면 행성에 투영합니다.",
@@ -77,8 +82,8 @@ const copy = {
     docsBody: "Editor 워크플로, 지원 콘텐츠, Runtime Actor 통합, 자주 발생하는 오류 해결 방법을 한곳에서 확인하세요.",
     openDocs: "한국어 문서 열기",
     otherLanguageDocs: "English docs",
-    fabKicker: "Fab 등록",
-    fabBody: "Fab에서 PlanetX 1.0을 확인하세요.",
+    acquisitionKicker: "PlanetX 시작하기",
+    acquisitionBody: "Fab에서 PlanetX 1.0을 확인하거나 전체 워크플로 Demo를 시청하세요.",
     fabCta: "Fab에서 보기",
   },
 } as const;
@@ -214,7 +219,8 @@ export function LandingPage() {
             <p>{text.heroBody}</p>
             <div className="hero-actions">
               <Link className="button button--primary" href={`/docs/${language}/quick-start-same-world#main-content`}>{text.primaryCta}<span>↗</span></Link>
-              <a className="button button--ghost" href="#fab">{text.secondaryCta}<span>↓</span></a>
+              <a className="button button--ghost" href={FAB_LISTING_URL} target="_blank" rel="noreferrer">{text.secondaryCta}<span>↗</span></a>
+              <a className="button button--ghost" href={DEMO_VIDEO_URL} target="_blank" rel="noreferrer">{text.demoCta}<span>▶</span></a>
             </div>
           </div>
 
@@ -341,10 +347,13 @@ export function LandingPage() {
           <div><p>{text.docsBody}</p><div className="docs-cta__actions"><Link className="button button--light" href={`/docs/${language}/quick-start-same-world#main-content`}>{text.openDocs}</Link><Link className="button button--outline-light" href={`/docs/${language === "en" ? "ko" : "en"}/quick-start-same-world#main-content`}>{text.otherLanguageDocs}</Link></div></div>
         </section>
 
-        <section className="fab-cta" id="fab" data-reveal>
-          <BrandMark className="fab-cta__mark" size={92} title="PlanetX orbital mark" />
-          <div><span className="section-kicker">{text.fabKicker}</span><h2>PlanetX 1.0</h2><p>{text.fabBody}</p></div>
-          <a className="button" href="https://www.fab.com/listings/df90e367-3ad4-4bd9-aa6f-3f230b0637a6" target="_blank" rel="noreferrer">{text.fabCta}</a>
+        <section className="acquisition-cta" id="get-planetx" data-reveal>
+          <BrandMark className="acquisition-cta__mark" size={92} title="PlanetX orbital mark" />
+          <div><span className="section-kicker">{text.acquisitionKicker}</span><h2>PlanetX 1.0</h2><p>{text.acquisitionBody}</p></div>
+          <div className="acquisition-cta__actions">
+            <a className="button button--primary" href={FAB_LISTING_URL} target="_blank" rel="noreferrer">{text.fabCta}<span>↗</span></a>
+            <a className="button button--ghost" href={DEMO_VIDEO_URL} target="_blank" rel="noreferrer">{text.demoCta}<span>▶</span></a>
+          </div>
         </section>
       </main>
 
