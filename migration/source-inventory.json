@@ -807,7 +807,7 @@
         "categoryOrder": 11,
         "order": 49,
         "scope": "web-supplemental",
-        "headings": 4,
+        "headings": 14,
         "public": true,
         "verificationStatus": "needs-product-review",
         "translationStatus": "current"
@@ -1609,7 +1609,7 @@
         "categoryOrder": 11,
         "order": 49,
         "scope": "web-supplemental",
-        "headings": 4,
+        "headings": 14,
         "public": true,
         "verificationStatus": "needs-product-review",
         "translationStatus": "current"

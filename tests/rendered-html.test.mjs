@@ -93,6 +93,12 @@ test("renders standalone product information outside the documentation hierarchy
   }
   assert.match(htmlPages[0], /Frequently Asked Questions/);
   assert.match(htmlPages[1], /Known Issues/);
+  assert.match(htmlPages[1], /Bidirectional Coordinate Component Representation Domain transitions/);
+  assert.match(htmlPages[1], /Landscape Material compatibility/);
+  assert.match(htmlPages[1], /Monitor can fail with multiple Chrome windows/);
+  assert.match(htmlPages[1], /Electric Dreams-based case/);
+  assert.match(htmlPages[1], /PlanetX Mode forces Visibility Filtering/);
+  assert.equal((htmlPages[1].match(/Patch in progress/g) ?? []).length >= 10, true);
   assert.match(htmlPages[2], /Release Notes/);
   assert.match(htmlPages[2], /Release contract/);
   assert.match(htmlPages[2], /GeometryProcessing/);
