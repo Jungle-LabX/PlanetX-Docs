@@ -6207,9 +6207,9 @@
     "id": "en-version-1-0",
     "lang": "en",
     "slug": "version-1-0",
-    "title": "Version 1.0 Mercury",
+    "title": "Version 1.0.1",
     "navigationTitle": "Version 1.0 Mercury",
-    "description": "Release contract",
+    "description": "Maintenance release for PlanetX 1.0 Mercury.",
     "category": "release-notes",
     "categoryTitle": "Release Notes",
     "categoryOrder": 9,
@@ -6218,57 +6218,32 @@
     "scope": "offline",
     "sourceFile": "version-1-0.md",
     "sourcePath": "source-docs/en/release-notes/version-1-0.md",
-    "content": "## Release contract\n\n| Item | Value |\n| --- | --- |\n| Release name | 1.0 Mercury |\n| Version | 1 |\n| VersionName | 1.0 |\n| Engine baseline | Unreal Engine 5.8 project |\n| Runtime module | PlanetX |\n| Editor module | PlanetXEditor |\n| SupportedTargetPlatforms | Win64 |\n| Required plugins | GeometryProcessing, PCG |\n| CanContainContent | true |\n| Beta / Experimental | false / false |\n\n## Included capabilities\n\n- Planet Asset, Section, and Level Pair authoring\n- PlanetX Mode and dedicated Planet Asset Editor\n- Proxy Bake and external progress monitor\n- Coordinates, surface queries, movement, and gravity\n- Same World and Level Handoff travel\n- Runtime Preview and transition presentation\n- Completion, Padding, and generated materials\n- Atmosphere, clouds, sun, post process, and space background\n- Validation, runtime stats, and diagnostics\n\n## Distribution note\n\nThe plugin package includes this local-file `Docs` static site. The source does not provide a release-by-release changelog or historical compatibility matrix, so this page does not invent one.\n\n## 1.0.x maintenance track (unreleased)\n\n> This is the planned maintenance-release scope, not a statement that a patch is already published. A change moves into the shipped notes only after its code, Editor/PIE behavior, packaged Win64 behavior, and upgrade behavior have passed the release gate below.\n\n### Batch A — release-safe diagnostics and recovery\n\n- Make the external Monitor startup resilient when Chrome acknowledgement is unavailable; retain a manual URL/retry recovery path instead of treating browser discovery as the bake result.\n- Add actionable preflight results for missing, stale, or unsaved PCG output before Transition Resource Build. This batch does **not** claim automatic PCG generation or save orchestration.\n- Report distinguishable causes for runtime proxy absence: authored-instance culling, runtime budget/scalability, residency/loading, or missing generated resources.\n- Detect unsupported complex Landscape Material paths and multi-island boundary/padding inputs before publish, with the affected Actor, component, or generated-resource path when available.\n\n### Batch B — editor visibility and gizmo usability\n\n- Replace hard PlanetX Mode visibility forcing with a persisted editor-only visibility filter.\n- Restore UE native transform-gizmo use for ordinary Actors and multi-selection; retain the PlanetX Coordinate gizmo only for its supported single-Coordinate-Component workflow.\n- Keep editor preview state separate from runtime visibility state.\n\n### Batch C — runtime presentation compatibility\n\n- Introduce an opt-in runtime presentation/visibility policy while preserving the current 1.0 behavior as the migration-safe default.\n- Provide an explicit shared-presentation option for content that must remain visible across Ground and Orbit; it is separate from Representation Domain and must not alter coordinate/load semantics.\n\n### Deferred beyond the 1.0.x maintenance scope\n\n- Full bidirectional Representation Domain state reconstruction.\n- General multi-island padding reconstruction.\n- Full fidelity for arbitrary Landscape Material Graphs.\n- Automatic PCG generate/save/cook orchestration.\n\n### Release gate and Known Issue closure\n\nEvery candidate must pass all applicable checks before it is advertised as fixed:\n\n1. Build the PlanetX Editor and Win64 target for the supported Unreal Engine 5.8 baseline without new warnings treated as errors.\n2. Verify a new project and an existing 1.0 project: open, save, proxy bake, transition, PIE, and packaged Win64 smoke test.\n3. Run the issue-specific reproduction at the affected scalability preset and at the documented recovery path.\n4. Confirm no legacy runtime-visibility, Representation Domain, or generated-resource behavior changed outside the chosen opt-in policy.\n5. Record the released version and validation evidence, then move the matching item from **Active** to **Resolved** in Known Issues. Partial diagnostics or a workaround alone do not close an issue.\n",
+    "content": "Maintenance release for PlanetX 1.0 Mercury.\n\n## Fixed\n\n- **External Browser Monitor:** a missing browser acknowledgement no longer makes the Monitor endpoint or an external bake appear to have failed. Browser launch is best-effort and the endpoint remains available for recovery.\n- **PlanetX Mode transform gizmo:** ordinary Actors and multi-selection now fall back to Unreal Engine's native transform gizmo. PlanetX keeps its specialized gizmo for one selected Actor with a Coordinate Component.\n- **Global presentation:** `UPlanetXCoordinateComponent` now exposes **Presentation Scope**. Set it to **Global** when an Actor must remain visible in Ground, Orbit, and Transition. This is presentation-only; its Representation Domain, coordinates, Proxy Bake eligibility, and physical-frame ownership do not change.\n\n## Upgrade notes\n\n- Existing content remains **Domain Only** by default and preserves the 1.0 presentation behavior.\n- Use **Global** only for Actors that intentionally need their authored presentation preserved across all three states.\n- Global is not bidirectional Representation Domain conversion. Ground and Orbit remain the coordinate and loading contracts.\n\n## Not included in 1.0.1\n\n- Bidirectional Ground/Orbit state reconstruction\n- Automatic PCG generate, save, and cook orchestration\n- Lower-scalability Section Proxy fallback or the Electric Dreams distance-culling fix\n- Full-fidelity support for arbitrary Landscape Material Graphs\n- General multi-island padding reconstruction\n- Persisted PlanetX Mode visibility filtering\n\n## Support\n\nFor reproducible issues, email [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com) with the PlanetX and Unreal Engine versions, reproduction steps, and relevant logs or diagnostics.\n",
     "headings": [
       {
         "level": 1,
-        "title": "Version 1.0 Mercury",
-        "id": "version-1-0-mercury"
+        "title": "Version 1.0.1",
+        "id": "version-1-0-1"
       },
       {
         "level": 2,
-        "title": "Release contract",
-        "id": "release-contract"
+        "title": "Fixed",
+        "id": "fixed"
       },
       {
         "level": 2,
-        "title": "Included capabilities",
-        "id": "included-capabilities"
+        "title": "Upgrade notes",
+        "id": "upgrade-notes"
       },
       {
         "level": 2,
-        "title": "Distribution note",
-        "id": "distribution-note"
+        "title": "Not included in 1.0.1",
+        "id": "not-included-in-1-0-1"
       },
       {
         "level": 2,
-        "title": "1.0.x maintenance track (unreleased)",
-        "id": "1-0-x-maintenance-track-unreleased"
-      },
-      {
-        "level": 3,
-        "title": "Batch A — release-safe diagnostics and recovery",
-        "id": "batch-a-release-safe-diagnostics-and-recovery"
-      },
-      {
-        "level": 3,
-        "title": "Batch B — editor visibility and gizmo usability",
-        "id": "batch-b-editor-visibility-and-gizmo-usability"
-      },
-      {
-        "level": 3,
-        "title": "Batch C — runtime presentation compatibility",
-        "id": "batch-c-runtime-presentation-compatibility"
-      },
-      {
-        "level": 3,
-        "title": "Deferred beyond the 1.0.x maintenance scope",
-        "id": "deferred-beyond-the-1-0-x-maintenance-scope"
-      },
-      {
-        "level": 3,
-        "title": "Release gate and Known Issue closure",
-        "id": "release-gate-and-known-issue-closure"
+        "title": "Support",
+        "id": "support"
       }
     ],
     "public": true,
@@ -6284,9 +6259,9 @@
     "id": "ko-version-1-0",
     "lang": "ko",
     "slug": "version-1-0",
-    "title": "Version 1.0 Mercury",
+    "title": "Version 1.0.1",
     "navigationTitle": "Version 1.0 Mercury",
-    "description": "릴리스 계약",
+    "description": "PlanetX 1.0 Mercury의 유지보수 릴리스입니다.",
     "category": "release-notes",
     "categoryTitle": "릴리스 정보",
     "categoryOrder": 9,
@@ -6295,57 +6270,32 @@
     "scope": "offline",
     "sourceFile": "version-1-0.md",
     "sourcePath": "source-docs/ko/release-notes/version-1-0.md",
-    "content": "## 릴리스 계약\n\n| 항목 | 값 |\n| --- | --- |\n| 릴리스 이름 | 1.0 Mercury |\n| Version | 1 |\n| VersionName | 1.0 |\n| Engine baseline | Unreal Engine 5.8 프로젝트 |\n| Runtime module | PlanetX |\n| Editor module | PlanetXEditor |\n| SupportedTargetPlatforms | Win64 |\n| Required plugins | GeometryProcessing, PCG |\n| CanContainContent | true |\n| Beta / Experimental | false / false |\n\n## 포함 기능\n\n- Planet Asset, Section, Level Pair 제작\n- PlanetX Mode와 전용 Planet Asset Editor\n- Proxy Bake와 외부 진행 Monitor\n- 좌표, 표면 Query, 이동, 중력\n- Same World와 Level Handoff travel\n- Runtime Preview와 transition presentation\n- Completion, Padding, generated material\n- Atmosphere, cloud, sun, post process, space background\n- Validation, runtime stats와 diagnostics\n\n## 배포 참고\n\nPlugin package에 로컬에서 직접 여는 이 `Docs` 정적 사이트가 포함됩니다. 릴리스별 자동 changelog나 과거 호환성 표는 현재 소스에 근거가 없으므로 이 문서에서 추정하지 않습니다.\n\n## 1.0.x 유지보수 트랙 (미출시)\n\n> 이 내용은 계획된 유지보수 Release 범위이며, 패치가 이미 공개되었다는 뜻이 아닙니다. 각 변경은 아래 Release Gate에서 코드, Editor/PIE 동작, 패키지 Win64 동작, 기존 프로젝트 업그레이드 동작을 모두 통과한 뒤에만 공개 릴리스 노트로 이동합니다.\n\n### Batch A — Release 안전 진단과 복구\n\n- Chrome 확인 응답을 받지 못해도 외부 Monitor 시작이 실패로 확정되지 않도록 하고, 브라우저 탐색과 별개로 수동 URL/재시도 복구 경로를 유지합니다.\n- Transition Resource Build 전에 누락·stale·미저장 PCG 출력을 식별 가능한 Preflight 결과로 제공합니다. 이 Batch는 PCG 자동 생성이나 저장 orchestration을 약속하지 않습니다.\n- Runtime Proxy가 보이지 않는 원인을 authored instance culling, Runtime Budget/Scalability, residency/loading, generated resource 누락으로 구분해 보고합니다.\n- 복잡한 Landscape Material 경로와 multi-island boundary/padding 입력을 publish 전에 감지하고, 가능하면 영향받은 Actor, Component 또는 generated resource 경로를 표시합니다.\n\n### Batch B — Editor Visibility와 Gizmo 사용성\n\n- PlanetX Mode의 강제 Visibility 적용을 저장되는 editor-only Visibility Filter로 교체합니다.\n- 일반 Actor와 다중 선택에서 UE Native Transform Gizmo를 다시 사용할 수 있게 하고, PlanetX Coordinate Gizmo는 지원되는 단일 Coordinate Component 워크플로에만 유지합니다.\n- Editor Preview 상태와 Runtime Visibility 상태를 분리합니다.\n\n### Batch C — Runtime Presentation 호환성\n\n- migration 안전성을 위해 현 1.0 동작을 기본값으로 보존하면서 opt-in Runtime Presentation/Visibility Policy를 도입합니다.\n- Ground와 Orbit 모두에서 보여야 하는 콘텐츠에는 명시적인 shared-presentation 옵션을 제공합니다. 이는 Representation Domain과 분리되며 coordinate/load 의미를 바꾸지 않아야 합니다.\n\n### 1.0.x 유지보수 범위 이후로 미루는 항목\n\n- 완전한 Representation Domain 양방향 상태 복원.\n- 일반화된 multi-island padding reconstruction.\n- 임의 Landscape Material Graph의 완전한 fidelity 지원.\n- PCG 자동 generate/save/cook orchestration.\n\n### Release Gate와 Known Issue 종료 기준\n\n후보 변경은 모두 다음의 해당 검증을 통과해야 수정 완료로 공지합니다.\n\n1. 지원 기준인 Unreal Engine 5.8에서 PlanetX Editor와 Win64 target을 빌드하고, 새 warning이 error로 처리되는 상태가 없어야 합니다.\n2. 새 프로젝트와 기존 1.0 프로젝트에서 open, save, Proxy Bake, transition, PIE, 패키지 Win64 smoke test를 확인합니다.\n3. 영향받은 Scalability preset과 문서화한 복구 경로에서 이슈별 재현을 다시 검증합니다.\n4. 선택한 opt-in policy 이외의 기존 Runtime Visibility, Representation Domain, generated resource 동작이 변하지 않았음을 확인합니다.\n5. 출시 버전과 검증 근거를 기록한 뒤에만 Known Issues의 해당 항목을 **Resolved**로 옮깁니다. 진단 추가나 임시 workaround만으로는 이슈를 닫지 않습니다.\n",
+    "content": "PlanetX 1.0 Mercury의 유지보수 릴리스입니다.\n\n## 수정\n\n- **외부 Browser Monitor:** 브라우저 acknowledgement가 없더라도 Monitor endpoint나 외부 Bake가 실패한 것처럼 처리되지 않습니다. 브라우저 실행은 best-effort이며 endpoint는 복구를 위해 계속 사용할 수 있습니다.\n- **PlanetX Mode Transform Gizmo:** 일반 Actor와 다중 선택은 Unreal Engine Native Transform Gizmo로 fallback됩니다. PlanetX 전용 Gizmo는 Coordinate Component가 있는 Actor 하나를 선택한 경우에만 사용합니다.\n- **Global Presentation:** `UPlanetXCoordinateComponent`에 **Presentation Scope**가 추가되었습니다. Actor가 Ground, Orbit, Transition에서 계속 보여야 하면 **Global**로 설정하세요. 이는 presentation 전용이며 Representation Domain, coordinate, Proxy Bake 대상 여부, physical-frame 소유권은 바꾸지 않습니다.\n\n## 업그레이드 참고\n\n- 기존 콘텐츠는 기본값 **Domain Only**를 유지하며 1.0의 presentation 동작을 보존합니다.\n- 세 상태에서 authored presentation을 의도적으로 유지해야 하는 Actor에만 **Global**을 사용하세요.\n- Global은 Representation Domain 양방향 변환이 아닙니다. Ground와 Orbit은 계속 coordinate와 loading 계약입니다.\n\n## 1.0.1에 포함하지 않은 항목\n\n- Ground/Orbit 양방향 상태 복원\n- PCG 자동 generate, save, cook orchestration\n- 낮은 Scalability의 Section Proxy fallback 또는 Electric Dreams 거리 culling 수정\n- 임의 Landscape Material Graph의 완전한 fidelity 지원\n- 일반 multi-island padding reconstruction\n- 저장되는 PlanetX Mode visibility filtering\n\n## 지원\n\n재현 가능한 문제는 PlanetX 및 Unreal Engine 버전, 재현 절차, 관련 로그 또는 진단 결과와 함께 [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com)으로 보내주세요.\n",
     "headings": [
       {
         "level": 1,
-        "title": "Version 1.0 Mercury",
-        "id": "version-1-0-mercury"
+        "title": "Version 1.0.1",
+        "id": "version-1-0-1"
       },
       {
         "level": 2,
-        "title": "릴리스 계약",
-        "id": "릴리스-계약"
+        "title": "수정",
+        "id": "수정"
       },
       {
         "level": 2,
-        "title": "포함 기능",
-        "id": "포함-기능"
+        "title": "업그레이드 참고",
+        "id": "업그레이드-참고"
       },
       {
         "level": 2,
-        "title": "배포 참고",
-        "id": "배포-참고"
+        "title": "1.0.1에 포함하지 않은 항목",
+        "id": "1-0-1에-포함하지-않은-항목"
       },
       {
         "level": 2,
-        "title": "1.0.x 유지보수 트랙 (미출시)",
-        "id": "1-0-x-유지보수-트랙-미출시"
-      },
-      {
-        "level": 3,
-        "title": "Batch A — Release 안전 진단과 복구",
-        "id": "batch-a-release-안전-진단과-복구"
-      },
-      {
-        "level": 3,
-        "title": "Batch B — Editor Visibility와 Gizmo 사용성",
-        "id": "batch-b-editor-visibility와-gizmo-사용성"
-      },
-      {
-        "level": 3,
-        "title": "Batch C — Runtime Presentation 호환성",
-        "id": "batch-c-runtime-presentation-호환성"
-      },
-      {
-        "level": 3,
-        "title": "1.0.x 유지보수 범위 이후로 미루는 항목",
-        "id": "1-0-x-유지보수-범위-이후로-미루는-항목"
-      },
-      {
-        "level": 3,
-        "title": "Release Gate와 Known Issue 종료 기준",
-        "id": "release-gate와-known-issue-종료-기준"
+        "title": "지원",
+        "id": "지원"
       }
     ],
     "public": true,
@@ -6506,7 +6456,7 @@
     "scope": "web-supplemental",
     "sourceFile": "faq.md",
     "sourcePath": "source-docs/en/support/faq.md",
-    "content": "Quick answers to common PlanetX product, editor, runtime, and documentation questions.\n\n## Is PlanetX a runtime planet generator?\n\nPlanetX connects an authored Unreal Engine Level to a curved planet surface and a baked proxy representation. It does not replace the original Ground gameplay content or generate a complete Game World at runtime.\n\n## Does PlanetX own the complete Level Handoff travel flow?\n\nNo. PlanetX prepares and restores the Level Handoff state. Game code remains responsible for `OpenLevel`, destination Pawn creation and possession, and the destination `GameMode` policy.\n\n## What is the difference between Ground, Transition, and Orbit?\n\n- **Ground** uses the original gameplay content and its full detail.\n- **Transition** links Section state, runtime context, Actor pose, and travel state while the representation changes.\n- **Orbit** presents the planet and its baked Section Proxy content at distance.\n\n## When should I use Same World or External Level?\n\nUse **Same World** when both representations can coexist in one World and your game can coordinate visibility and state locally. Use **External Level** when the Ground experience lives in another World and requires a Travel Ticket and restoration flow.\n\n## Why do I need Scan Sources before Bake?\n\n`Scan Sources` rebuilds Source Review and Output Plan. After changing a source's Use or Role, select **Apply Source Changes** before Bake so the reviewed source decisions are applied to the plan.\n\n## Does PlanetX support World Partition?\n\nPlanetX provides World Partition-aware options, including validated-HLOD preference and automatic output sizing. The World Partition, Data Layer, and spatial-loading policy must still be verified for each project.\n\n## Which Unreal Engine versions are supported?\n\nPlanetX 1.0 targets Unreal Engine 5.8 and Win64, and requires GeometryProcessing and PCG. Review [Compatibility and Limitations](/docs/en/compatibility-limitations) before integrating it into a project.\n\n## What should I include in a problem report?\n\nCheck [Known Issues](/known-issues), [Setup and Configuration](/docs/en/setup-configuration), [Proxy Bake Issues](/docs/en/proxy-bake-troubleshooting), and [Runtime and Travel Issues](/docs/en/runtime-travel-troubleshooting) first. Include the PlanetX version, Unreal Engine version, exact reproduction steps, relevant settings, and the complete error or diagnostic output.\n",
+    "content": "Quick answers to common PlanetX product, editor, runtime, and documentation questions.\n\n## Is PlanetX a runtime planet generator?\n\nPlanetX connects an authored Unreal Engine Level to a curved planet surface and a baked proxy representation. It does not replace the original Ground gameplay content or generate a complete Game World at runtime.\n\n## Does PlanetX own the complete Level Handoff travel flow?\n\nNo. PlanetX prepares and restores the Level Handoff state. Game code remains responsible for `OpenLevel`, destination Pawn creation and possession, and the destination `GameMode` policy.\n\n## What is the difference between Ground, Transition, and Orbit?\n\n- **Ground** uses the original gameplay content and its full detail.\n- **Transition** links Section state, runtime context, Actor pose, and travel state while the representation changes.\n- **Orbit** presents the planet and its baked Section Proxy content at distance.\n\n## When should I use Same World or External Level?\n\nUse **Same World** when both representations can coexist in one World and your game can coordinate visibility and state locally. Use **External Level** when the Ground experience lives in another World and requires a Travel Ticket and restoration flow.\n\n## Why do I need Scan Sources before Bake?\n\n`Scan Sources` rebuilds Source Review and Output Plan. After changing a source's Use or Role, select **Apply Source Changes** before Bake so the reviewed source decisions are applied to the plan.\n\n## Does PlanetX support World Partition?\n\nPlanetX provides World Partition-aware options, including validated-HLOD preference and automatic output sizing. The World Partition, Data Layer, and spatial-loading policy must still be verified for each project.\n\n## Which Unreal Engine versions are supported?\n\nPlanetX 1.0 targets Unreal Engine 5.8 and Win64, and requires GeometryProcessing and PCG. Review [Compatibility and Limitations](/docs/en/compatibility-limitations) before integrating it into a project.\n\n## What should I include in a problem report?\n\nCheck [Known Issues](/known-issues), [Setup and Configuration](/docs/en/setup-configuration), [Proxy Bake Issues](/docs/en/proxy-bake-troubleshooting), and [Runtime and Travel Issues](/docs/en/runtime-travel-troubleshooting) first. Include the PlanetX version, Unreal Engine version, exact reproduction steps, relevant settings, and the complete error or diagnostic output. Send the report to [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com).\n",
     "headings": [
       {
         "level": 1,
@@ -6578,7 +6528,7 @@
     "scope": "web-supplemental",
     "sourceFile": "faq.md",
     "sourcePath": "source-docs/ko/support/faq.md",
-    "content": "PlanetX 제품, Editor, Runtime, 기술 문서에 관해 자주 묻는 질문을 정리합니다.\n\n## PlanetX는 Runtime 행성 생성기인가요?\n\nPlanetX는 제작한 Unreal Engine Level을 곡면 행성 표면 및 Bake된 Proxy 표현과 연결합니다. 기존 Ground Gameplay 콘텐츠를 대체하거나 완전한 Game World를 Runtime에 자동 생성하지 않습니다.\n\n## PlanetX가 Level Handoff Travel 전체를 담당하나요?\n\n아닙니다. PlanetX는 Level Handoff 상태를 준비하고 복원합니다. `OpenLevel`, 도착지 Pawn 생성과 Possess, 도착지 `GameMode` 정책은 게임 코드가 담당합니다.\n\n## Ground, Transition, Orbit의 차이는 무엇인가요?\n\n- **Ground**는 원본 Gameplay 콘텐츠와 전체 디테일을 사용합니다.\n- **Transition**은 표현이 바뀌는 동안 Section 상태, Runtime Context, Actor Pose, Travel 상태를 연결합니다.\n- **Orbit**은 Planet과 Bake된 Section Proxy 콘텐츠를 원거리에서 표현합니다.\n\n## Same World와 External Level 중 무엇을 사용해야 하나요?\n\n두 표현을 하나의 World에 함께 둘 수 있고 게임이 로컬에서 Visibility와 상태를 조율할 수 있다면 **Same World**를 사용합니다. Ground 경험이 다른 World에 있고 Travel Ticket과 복원 흐름이 필요하다면 **External Level**을 사용합니다.\n\n## Bake 전에 Scan Sources가 필요한 이유는 무엇인가요?\n\n`Scan Sources`는 Source Review와 Output Plan을 다시 만듭니다. Source의 Use 또는 Role을 변경했다면 Bake 전에 **Apply Source Changes**를 선택해 검토한 Source 결정을 Plan에 적용하세요.\n\n## World Partition을 지원하나요?\n\nPlanetX는 검증된 HLOD 우선 사용과 자동 출력 크기 계산 등 World Partition 대응 옵션을 제공합니다. World Partition, Data Layer, Spatial Loading 정책은 프로젝트별로 검증해야 합니다.\n\n## 어떤 Unreal Engine 버전을 지원하나요?\n\nPlanetX 1.0은 Unreal Engine 5.8과 Win64를 대상으로 하며 GeometryProcessing 및 PCG가 필요합니다. 프로젝트에 통합하기 전에 [호환성과 제한사항](/docs/ko/compatibility-limitations)을 확인하세요.\n\n## 문제 보고에 무엇을 포함해야 하나요?\n\n먼저 [알려진 문제](/known-issues), [설치와 설정 문제](/docs/ko/setup-configuration), [Proxy Bake 문제](/docs/ko/proxy-bake-troubleshooting), [Runtime과 Travel 문제](/docs/ko/runtime-travel-troubleshooting)를 확인하세요. PlanetX 버전, Unreal Engine 버전, 정확한 재현 절차, 관련 설정, 전체 오류 또는 진단 출력을 포함하세요.\n",
+    "content": "PlanetX 제품, Editor, Runtime, 기술 문서에 관해 자주 묻는 질문을 정리합니다.\n\n## PlanetX는 Runtime 행성 생성기인가요?\n\nPlanetX는 제작한 Unreal Engine Level을 곡면 행성 표면 및 Bake된 Proxy 표현과 연결합니다. 기존 Ground Gameplay 콘텐츠를 대체하거나 완전한 Game World를 Runtime에 자동 생성하지 않습니다.\n\n## PlanetX가 Level Handoff Travel 전체를 담당하나요?\n\n아닙니다. PlanetX는 Level Handoff 상태를 준비하고 복원합니다. `OpenLevel`, 도착지 Pawn 생성과 Possess, 도착지 `GameMode` 정책은 게임 코드가 담당합니다.\n\n## Ground, Transition, Orbit의 차이는 무엇인가요?\n\n- **Ground**는 원본 Gameplay 콘텐츠와 전체 디테일을 사용합니다.\n- **Transition**은 표현이 바뀌는 동안 Section 상태, Runtime Context, Actor Pose, Travel 상태를 연결합니다.\n- **Orbit**은 Planet과 Bake된 Section Proxy 콘텐츠를 원거리에서 표현합니다.\n\n## Same World와 External Level 중 무엇을 사용해야 하나요?\n\n두 표현을 하나의 World에 함께 둘 수 있고 게임이 로컬에서 Visibility와 상태를 조율할 수 있다면 **Same World**를 사용합니다. Ground 경험이 다른 World에 있고 Travel Ticket과 복원 흐름이 필요하다면 **External Level**을 사용합니다.\n\n## Bake 전에 Scan Sources가 필요한 이유는 무엇인가요?\n\n`Scan Sources`는 Source Review와 Output Plan을 다시 만듭니다. Source의 Use 또는 Role을 변경했다면 Bake 전에 **Apply Source Changes**를 선택해 검토한 Source 결정을 Plan에 적용하세요.\n\n## World Partition을 지원하나요?\n\nPlanetX는 검증된 HLOD 우선 사용과 자동 출력 크기 계산 등 World Partition 대응 옵션을 제공합니다. World Partition, Data Layer, Spatial Loading 정책은 프로젝트별로 검증해야 합니다.\n\n## 어떤 Unreal Engine 버전을 지원하나요?\n\nPlanetX 1.0은 Unreal Engine 5.8과 Win64를 대상으로 하며 GeometryProcessing 및 PCG가 필요합니다. 프로젝트에 통합하기 전에 [호환성과 제한사항](/docs/ko/compatibility-limitations)을 확인하세요.\n\n## 문제 보고에 무엇을 포함해야 하나요?\n\n먼저 [알려진 문제](/known-issues), [설치와 설정 문제](/docs/ko/setup-configuration), [Proxy Bake 문제](/docs/ko/proxy-bake-troubleshooting), [Runtime과 Travel 문제](/docs/ko/runtime-travel-troubleshooting)를 확인하세요. PlanetX 버전, Unreal Engine 버전, 정확한 재현 절차, 관련 설정, 전체 오류 또는 진단 출력을 포함하고 [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com)으로 보내주세요.\n",
     "headings": [
       {
         "level": 1,
@@ -6641,7 +6591,7 @@
     "slug": "known-issues",
     "title": "Known Issues",
     "navigationTitle": "Known Issues",
-    "description": "Known issues currently acknowledged for PlanetX 1.0 Mercury. The maintenance batches below define what can safely ship in the 1.0.x line and what remains a later compatibility p...",
+    "description": "This page lists active limitations that are not resolved by the upcoming 1.0.1 maintenance update.",
     "category": "support",
     "categoryTitle": "Support",
     "categoryOrder": 11,
@@ -6650,7 +6600,7 @@
     "scope": "web-supplemental",
     "sourceFile": "known-issues.md",
     "sourcePath": "source-docs/en/support/known-issues.md",
-    "content": "Known issues currently acknowledged for PlanetX 1.0 Mercury. The maintenance batches below define what can safely ship in the 1.0.x line and what remains a later compatibility project.\n\n## Current release status\n\n> PlanetX 1.0 Mercury is the currently published Fab build. **Scheduled** and **in verification** items are not fixed in that build. An item is moved to **Resolved** only after its released version and its issue-specific validation evidence are recorded.\n\n- **Affected release:** PlanetX 1.0 Mercury\n- **Maintenance scope:** [1.0.x maintenance track](/release-notes)\n- **Last updated:** August 23, 2026\n- **Reporting:** Include the PlanetX and Unreal Engine versions, exact reproduction steps, and whether the issue occurs in Editor, PIE, or a packaged build.\n\n## Status and closure policy\n\n- **Scheduled:** included in a future batch but not yet validated for release.\n- **Mitigation in 1.0.x:** the batch improves diagnosis or recovery; the original capability limitation remains open.\n- **Resolved:** used only after the supported Unreal Engine 5.8 build, new-project and existing-1.0 upgrade checks, Editor/PIE, packaged Win64, and the issue-specific reproduction have passed.\n\nNo issue below is resolved by this planning update alone.\n\n## Active issues\n\n### Bidirectional Coordinate Component Representation Domain transitions\n\n- **Status:** Deferred beyond the 1.0.x maintenance scope\n- **Scope:** `UPlanetXCoordinateComponent` / Representation Domain\n- **Observed behavior:** Workflows that change an Actor between Ground and Orbit Representation Domains in both directions are not handled consistently in every case.\n- **1.0.x position:** Representation Domain remains a coordinate/load contract. A separate shared-presentation option must not be treated as bidirectional state reconstruction.\n- **Current guidance:** Treat each domain change as an explicit handoff and validate both directions independently. Do not assume that changing Representation Domain alone reconstructs the previous Actor state.\n- **Closure evidence:** A stateful Ground → Orbit → Ground and Orbit → Ground → Orbit test must restore the documented transform, loading, and presentation contracts without manual reconstruction.\n\n### Landscape Material compatibility\n\n- **Status:** Mitigation in 1.0.x Batch A; full fidelity deferred\n- **Scope:** Proxy Bake / Landscape Material\n- **Observed behavior:** A baked Section Proxy may not reproduce a Landscape Material correctly when its Material Graph uses complex or project-specific paths.\n- **1.0.x position:** Detect and name unsupported graph paths before publish; do not claim arbitrary Material Graph fidelity.\n- **Current guidance:** Review the baked proxy with representative Material Instances. If the output diverges, use a dedicated proxy material or simplify the unsupported graph path.\n- **Closure evidence:** The issue remains open until the supported complex-graph set is documented and its source and baked outputs match in Editor, PIE, and packaged Win64.\n\n### Multi-island padding generation\n\n- **Status:** Mitigation in 1.0.x Batch A; general reconstruction deferred\n- **Scope:** Proxy Bake / Boundary reconstruction\n- **Observed behavior:** Automatic padding may not be generated for sources containing multiple disconnected islands when their boundaries cannot be resolved independently.\n- **1.0.x position:** Validate the boundary topology before publish and identify the affected source. It does not add general multi-island reconstruction.\n- **Current guidance:** Inspect every island boundary before Bake. Split the source or provide explicit spacing when automatic padding is required for the output.\n- **Closure evidence:** The issue remains open until multiple disconnected islands and their independent boundaries generate validated padding without manual source splitting.\n\n### Transition Resource Build can omit PCG resources\n\n- **Status:** Mitigation in 1.0.x Batch A; automatic PCG orchestration deferred\n- **Scope:** Transition Resource Build / PCG\n- **Observed behavior:** PCG-generated resources or references may be missing from the generated Transition Resource.\n- **1.0.x position:** Preflight must identify missing, stale, or unsaved PCG output and give a recovery path. It does not silently generate, save, or cook PCG output.\n- **Current guidance:** Verify PCG outputs and references after every Transition Resource Build, and confirm the result again in a packaged build before distribution.\n- **Closure evidence:** The issue remains open until the chosen PCG contract is implemented end-to-end and both an available-output and unavailable-output case behave as documented in a packaged build.\n\n### Section Proxy visibility depends on Epic scalability\n\n- **Status:** Diagnosis in 1.0.x Batch A; lower-preset fallback deferred\n- **Scope:** Section Proxy rendering / Scalability\n- **Observed behavior:** A Section Proxy may be visible only when Unreal Engine scalability is set to **Epic** and disappear at lower presets.\n- **1.0.x position:** Report whether runtime budget/scalability, authored-instance culling, residency/loading, or generated resources explain the absence. This does not promise a lower-preset rendering fallback.\n- **Current guidance:** Use Epic scalability while reviewing the current proxy output and validate the project's scalability overrides before shipping.\n- **Closure evidence:** Validate High, Medium, and Low in PIE and packaged Win64 against the documented fallback/progression behavior before closing.\n\n### Monitor can fail with multiple Chrome windows\n\n- **Status:** Scheduled for 1.0.x Batch A\n- **Scope:** Monitor / browser acknowledgement\n- **Observed behavior:** Monitor initialization may fail when more than one Chrome window is open.\n- **1.0.x target:** Treat browser acknowledgement as best-effort; preserve a manual URL and retry path without misreporting the bake result as failed.\n- **Current guidance:** Keep a single Chrome window open while starting Monitor. If discovery has already failed, close duplicate windows and restart the Monitor session.\n- **Closure evidence:** Verify no-Chrome, one-Chrome, and multiple-Chrome scenarios. The Monitor must retain its recovery actions and a completed bake must not be reported as failed solely because acknowledgement is missing.\n\n### Coordinate Component Gizmo is missing during multi-selection\n\n- **Status:** Scheduled for 1.0.x Batch B\n- **Scope:** Editor / Coordinate Component Gizmo\n- **Observed behavior:** The Coordinate Component Gizmo may not appear when multiple Actors with Coordinate Components are selected.\n- **1.0.x target:** Restore native UE transform-gizmo access for multi-selection; PlanetX's specialized Coordinate gizmo remains single-component only unless its multi-edit contract is separately implemented.\n- **Current guidance:** Select and edit one Actor at a time when the Coordinate Component Gizmo is required.\n- **Closure evidence:** Validate single Coordinate Actor, multi-selection with Coordinates, and mixed/non-Coordinate selection after an Editor restart.\n\n### Runtime Section Proxy distance culling with PCG and Landscape content\n\n- **Status:** Diagnosis in 1.0.x Batch A; runtime rendering fix remains open\n- **Scope:** Runtime / Section Proxy / PCG and Landscape\n- **Observed behavior:** In the reproduced Electric Dreams-based case, Section Proxies generated from both PCG and Landscape content stop rendering beyond a certain runtime distance.\n- **1.0.x position:** Add a diagnostic distinction between authored-instance culling, runtime budget/scalability, residency/loading, and missing generated resources. The Electric Dreams reproduction remains required for the underlying rendering fix.\n- **Current guidance:** Do not use Editor visibility as proof of runtime coverage. Validate cull distance, HLOD, World Partition, and spatial-loading behavior in PIE and a packaged build.\n- **Closure evidence:** Reproduce and pass the Electric Dreams scenario at the documented distance in PIE and packaged Win64, including PCG and Landscape sources.\n\n### PlanetX overrides Visibility during Runtime\n\n- **Status:** Scheduled for 1.0.x Batch C\n- **Scope:** Runtime / Actor and Component Visibility\n- **Observed behavior:** PlanetX may change Visibility during Runtime even when the behavior should be limited to Editor preview and authoring.\n- **1.0.x target:** Add an opt-in presentation/visibility policy that preserves the existing 1.0 behavior by default and keeps editor-only filtering out of runtime state changes.\n- **Current guidance:** Do not rely on manually assigned runtime Visibility remaining unchanged across PlanetX state updates. Revalidate affected Actors after transitions until the policy is released.\n- **Closure evidence:** Validate legacy-default projects and opt-in projects through Ground, Orbit, and transition states in PIE and packaged Win64; manual runtime visibility outside the policy must remain unchanged.\n\n### PlanetX Mode forces Visibility Filtering and blocks the native UE Gizmo\n\n- **Status:** Scheduled for 1.0.x Batch B\n- **Scope:** Editor / PlanetX Mode\n- **Observed behavior:** PlanetX Mode can force Visibility Filtering and prevent use of the native Unreal Engine transform Gizmo.\n- **1.0.x target:** Replace forced visibility with a persisted editor-only filter and provide native-gizmo passthrough where PlanetX has no specialized single-Coordinate operation.\n- **Current guidance:** Exit PlanetX Mode when project-owned Visibility Filtering or the native UE Gizmo is required.\n- **Closure evidence:** Confirm saved filter restoration after an Editor restart, no runtime visibility mutation from filter changes, and UE native gizmo access in the specified fallback cases.\n\n## Before reporting a new issue\n\n1. Check [Setup and Configuration](/docs/en/setup-configuration), [Proxy Bake Issues](/docs/en/proxy-bake-troubleshooting), [Runtime and Travel Issues](/docs/en/runtime-travel-troubleshooting), and the [FAQ](/faq).\n2. Record PlanetX and Unreal Engine versions.\n3. Include exact reproduction steps and whether the problem occurs in Editor, PIE, packaged builds, or all three.\n4. Include relevant logs, diagnostics, and the smallest reproducible project state that can be shared safely.\n",
+    "content": "This page lists active limitations that are not resolved by the upcoming 1.0.1 maintenance update.\n\n## Current status\n\n- **Published Fab release:** PlanetX 1.0 Mercury\n- **Next maintenance update:** 1.0.1\n- **Report issues:** [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com)\n\nThe 1.0.1 update addresses Browser Monitor failure reporting, native transform-gizmo fallback, and opt-in Global Presentation. See [Release Notes](/release-notes).\n\n## Active issues\n\n### Bidirectional Representation Domain conversion\n\nChanging an Actor between Ground and Orbit does not reconstruct the previous state in both directions. **Presentation Scope: Global** only keeps authored visibility across presentations; it is not coordinate, transform, loading, or state conversion.\n\n### Transition Resource Build and PCG output\n\nPCG-generated resources can be absent from a Transition Resource when the generated output is unavailable, stale, or unsaved. PlanetX does not automatically generate, save, or cook PCG output. Verify the generated resources before building and again in a packaged build.\n\n### Section Proxy at lower scalability presets\n\nSection Proxy visibility can depend on scalability, runtime budget, authored cull distance, residency, or generated-resource availability. Validate the project's target presets in PIE and packaged Win64; a general lower-preset fallback is not part of 1.0.1.\n\n### Runtime distance culling with PCG and Landscape content\n\nIn the Electric Dreams reproduction, PCG- and Landscape-derived Section Proxies can stop rendering at runtime distance. The root cause must be isolated between authored culling, runtime budget, residency/loading, and generated-resource coverage before a rendering fix is released.\n\n### PlanetX Mode visibility filtering\n\nPlanetX Mode can still apply its presentation filtering in the editor. The 1.0.1 native-gizmo fallback does not add persisted user-controlled visibility filters. Exit PlanetX Mode when project-owned visibility filtering is required.\n\n### Landscape Material compatibility — excluded from 1.0.1\n\nComplex or project-specific Landscape Material Graphs can diverge after Proxy Bake. Full arbitrary-graph fidelity is not part of 1.0.1; use and validate a dedicated proxy material where needed.\n\n### Multi-island padding — excluded from 1.0.1\n\nGeneral padding reconstruction for disconnected islands is not part of 1.0.1. Split the source or provide explicit spacing when independent island padding is required.\n\n## Before reporting\n\nInclude the PlanetX and Unreal Engine versions, exact reproduction steps, whether the issue occurs in Editor, PIE, or packaged Win64, and relevant logs or diagnostics. Send the smallest safe reproduction to [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com).\n",
     "headings": [
       {
         "level": 1,
@@ -6659,13 +6609,8 @@
       },
       {
         "level": 2,
-        "title": "Current release status",
-        "id": "current-release-status"
-      },
-      {
-        "level": 2,
-        "title": "Status and closure policy",
-        "id": "status-and-closure-policy"
+        "title": "Current status",
+        "id": "current-status"
       },
       {
         "level": 2,
@@ -6674,58 +6619,43 @@
       },
       {
         "level": 3,
-        "title": "Bidirectional Coordinate Component Representation Domain transitions",
-        "id": "bidirectional-coordinate-component-representation-domain-transitions"
+        "title": "Bidirectional Representation Domain conversion",
+        "id": "bidirectional-representation-domain-conversion"
       },
       {
         "level": 3,
-        "title": "Landscape Material compatibility",
-        "id": "landscape-material-compatibility"
+        "title": "Transition Resource Build and PCG output",
+        "id": "transition-resource-build-and-pcg-output"
       },
       {
         "level": 3,
-        "title": "Multi-island padding generation",
-        "id": "multi-island-padding-generation"
+        "title": "Section Proxy at lower scalability presets",
+        "id": "section-proxy-at-lower-scalability-presets"
       },
       {
         "level": 3,
-        "title": "Transition Resource Build can omit PCG resources",
-        "id": "transition-resource-build-can-omit-pcg-resources"
+        "title": "Runtime distance culling with PCG and Landscape content",
+        "id": "runtime-distance-culling-with-pcg-and-landscape-content"
       },
       {
         "level": 3,
-        "title": "Section Proxy visibility depends on Epic scalability",
-        "id": "section-proxy-visibility-depends-on-epic-scalability"
+        "title": "PlanetX Mode visibility filtering",
+        "id": "planetx-mode-visibility-filtering"
       },
       {
         "level": 3,
-        "title": "Monitor can fail with multiple Chrome windows",
-        "id": "monitor-can-fail-with-multiple-chrome-windows"
+        "title": "Landscape Material compatibility — excluded from 1.0.1",
+        "id": "landscape-material-compatibility-excluded-from-1-0-1"
       },
       {
         "level": 3,
-        "title": "Coordinate Component Gizmo is missing during multi-selection",
-        "id": "coordinate-component-gizmo-is-missing-during-multi-selection"
-      },
-      {
-        "level": 3,
-        "title": "Runtime Section Proxy distance culling with PCG and Landscape content",
-        "id": "runtime-section-proxy-distance-culling-with-pcg-and-landscape-content"
-      },
-      {
-        "level": 3,
-        "title": "PlanetX overrides Visibility during Runtime",
-        "id": "planetx-overrides-visibility-during-runtime"
-      },
-      {
-        "level": 3,
-        "title": "PlanetX Mode forces Visibility Filtering and blocks the native UE Gizmo",
-        "id": "planetx-mode-forces-visibility-filtering-and-blocks-the-native-ue-gizmo"
+        "title": "Multi-island padding — excluded from 1.0.1",
+        "id": "multi-island-padding-excluded-from-1-0-1"
       },
       {
         "level": 2,
-        "title": "Before reporting a new issue",
-        "id": "before-reporting-a-new-issue"
+        "title": "Before reporting",
+        "id": "before-reporting"
       }
     ],
     "public": true,
@@ -6743,7 +6673,7 @@
     "slug": "known-issues",
     "title": "알려진 문제",
     "navigationTitle": "알려진 문제",
-    "description": "현재 LabX가 인지한 PlanetX 1.0 Mercury의 Known Issues입니다. 아래 유지보수 Batch는 1.0.x에서 안전하게 Release할 수 있는 범위와 이후 호환성 프로젝트로 남겨야 할 범위를 구분합니다.",
+    "description": "이 페이지는 예정된 1.0.1 유지보수 업데이트로 해결되지 않는 활성 제한 사항을 정리합니다.",
     "category": "support",
     "categoryTitle": "지원",
     "categoryOrder": 11,
@@ -6752,7 +6682,7 @@
     "scope": "web-supplemental",
     "sourceFile": "known-issues.md",
     "sourcePath": "source-docs/ko/support/known-issues.md",
-    "content": "현재 LabX가 인지한 PlanetX 1.0 Mercury의 Known Issues입니다. 아래 유지보수 Batch는 1.0.x에서 안전하게 Release할 수 있는 범위와 이후 호환성 프로젝트로 남겨야 할 범위를 구분합니다.\n\n## 현재 Release 상태\n\n> PlanetX 1.0 Mercury가 현재 Fab에 공개된 Build입니다. **예정됨**과 **검증 중**은 이 Build에서 수정됐다는 뜻이 아닙니다. 각 이슈는 출시 버전과 이슈별 검증 근거가 기록된 뒤에만 **Resolved**로 이동합니다.\n\n- **대상 Release:** PlanetX 1.0 Mercury\n- **유지보수 범위:** [1.0.x 유지보수 트랙](/release-notes)\n- **마지막 갱신:** 2026년 8월 23일\n- **문제 보고:** PlanetX와 Unreal Engine 버전, 정확한 재현 절차, Editor·PIE·패키지 Build 중 어디에서 발생하는지 포함해 주세요.\n\n## 상태와 종료 정책\n\n- **예정됨:** 향후 Batch에 포함되지만 아직 Release 검증을 통과하지 않았습니다.\n- **1.0.x 완화:** 진단 또는 복구를 개선하지만, 원래의 기능 제한은 열린 상태로 남습니다.\n- **Resolved:** 지원 기준 Unreal Engine 5.8 build, 새 프로젝트와 기존 1.0 업그레이드, Editor/PIE, 패키지 Win64, 이슈별 재현을 모두 통과한 경우에만 사용합니다.\n\n이번 계획 문서 갱신만으로 종료되는 이슈는 없습니다.\n\n## 활성 이슈\n\n### Coordinate Component Representation Domain 양방향 전환\n\n- **상태:** 1.0.x 유지보수 범위 이후로 연기\n- **범위:** `UPlanetXCoordinateComponent` / Representation Domain\n- **증상:** Actor를 Ground와 Orbit Representation Domain 사이에서 양방향으로 전환하는 워크플로가 일부 사례에서 일관되게 처리되지 않습니다.\n- **1.0.x 방향:** Representation Domain은 coordinate/load 계약으로 유지합니다. 별도의 shared-presentation 옵션을 양방향 상태 복원으로 취급하지 않습니다.\n- **현재 안내:** 각 Domain 변경을 명시적인 Handoff로 취급하고 양방향을 각각 검증하세요. Representation Domain 값만 변경하면 이전 Actor 상태가 자동으로 복원된다고 가정하지 마세요.\n- **종료 근거:** 수동 복원 없이 Ground → Orbit → Ground와 Orbit → Ground → Orbit에서 문서화된 transform, loading, presentation 계약이 복원되어야 합니다.\n\n### Landscape Material 호환성\n\n- **상태:** 1.0.x Batch A에서 완화, 완전 fidelity는 연기\n- **범위:** Proxy Bake / Landscape Material\n- **증상:** 복잡하거나 프로젝트 전용 경로를 사용하는 Material Graph의 경우 Bake된 Section Proxy에서 Landscape Material이 원본과 다르게 표현될 수 있습니다.\n- **1.0.x 방향:** publish 전에 지원되지 않는 graph 경로를 감지·표시하되, 임의 Material Graph fidelity를 약속하지 않습니다.\n- **현재 안내:** 대표 Material Instance로 Bake 결과를 확인하세요. 출력이 다르면 Proxy 전용 Material을 사용하거나 지원되지 않는 Graph 경로를 단순화하세요.\n- **종료 근거:** 지원하는 complex graph 집합을 문서화하고 Editor, PIE, 패키지 Win64에서 source와 baked output이 일치할 때까지 이슈를 유지합니다.\n\n### Multi-island Padding 생성\n\n- **상태:** 1.0.x Batch A에서 완화, 일반 reconstruction은 연기\n- **범위:** Proxy Bake / Boundary Reconstruction\n- **증상:** 서로 떨어진 여러 Island를 포함한 Source에서 각 Boundary를 독립적으로 계산하지 못하면 자동 Padding이 생성되지 않을 수 있습니다.\n- **1.0.x 방향:** publish 전에 boundary topology를 검증하고 영향받은 source를 표시합니다. 일반 multi-island reconstruction을 추가하는 Batch는 아닙니다.\n- **현재 안내:** Bake 전에 각 Island Boundary를 확인하세요. 출력에 Padding이 필요하면 Source를 분리하거나 명시적인 간격을 적용하세요.\n- **종료 근거:** 수동 source 분리 없이 서로 떨어진 여러 Island와 각 독립 Boundary에서 검증된 Padding이 생성되어야 합니다.\n\n### Transition Resource Build에서 PCG Resource 누락\n\n- **상태:** 1.0.x Batch A에서 완화, PCG 자동 orchestration은 연기\n- **범위:** Transition Resource Build / PCG\n- **증상:** 생성된 Transition Resource에 PCG 기반 Resource 또는 Reference가 누락될 수 있습니다.\n- **1.0.x 방향:** 누락·stale·미저장 PCG 출력을 Preflight에서 식별하고 복구 경로를 제공합니다. PCG를 조용히 generate/save/cook하지는 않습니다.\n- **현재 안내:** Transition Resource를 Build할 때마다 PCG 출력과 Reference를 확인하고, 배포 전에 패키지 Build에서도 다시 검증하세요.\n- **종료 근거:** 선택한 PCG 계약이 end-to-end로 구현되고, 사용 가능한 출력과 사용할 수 없는 출력이 패키지 Build에서 문서대로 동작해야 합니다.\n\n### Epic Scalability에서만 보이는 Section Proxy\n\n- **상태:** 1.0.x Batch A에서 진단, 낮은 preset fallback은 연기\n- **범위:** Section Proxy Rendering / Scalability\n- **증상:** Unreal Engine Scalability가 **Epic**일 때만 Section Proxy가 보이고 낮은 Preset에서는 사라질 수 있습니다.\n- **1.0.x 방향:** Runtime Budget/Scalability, authored instance culling, residency/loading, generated resource 중 어떤 이유로 보이지 않는지 보고합니다. 낮은 preset rendering fallback을 약속하지는 않습니다.\n- **현재 안내:** 현재 Proxy 결과를 검토할 때는 Epic Scalability를 사용하고, 배포 전에 프로젝트의 Scalability Override를 검증하세요.\n- **종료 근거:** 문서화된 fallback/progression 동작을 기준으로 High, Medium, Low를 PIE와 패키지 Win64에서 검증한 뒤에만 닫습니다.\n\n### Chrome 창이 여러 개일 때 Monitor 실패\n\n- **상태:** 1.0.x Batch A 예정\n- **범위:** Monitor / browser acknowledgement\n- **증상:** Chrome 창이 두 개 이상 열려 있으면 Monitor 초기화가 실패할 수 있습니다.\n- **1.0.x 목표:** browser acknowledgement를 best-effort로 취급하고, Bake 결과를 잘못 실패로 보고하지 않으면서 수동 URL과 재시도 경로를 유지합니다.\n- **현재 안내:** Monitor를 시작할 때 Chrome 창을 하나만 유지하세요. 이미 탐색에 실패했다면 중복 창을 닫고 Monitor Session을 다시 시작하세요.\n- **종료 근거:** Chrome 없음, 하나, 여러 개 시나리오를 검증합니다. acknowledgement가 없어도 Monitor의 복구 action이 유지되고, 완료된 Bake가 그 이유만으로 실패로 보고되면 안 됩니다.\n\n### 다중 선택에서 Coordinate Component Gizmo 누락\n\n- **상태:** 1.0.x Batch B 예정\n- **범위:** Editor / Coordinate Component Gizmo\n- **증상:** Coordinate Component가 있는 Actor를 여러 개 선택하면 Coordinate Component Gizmo가 보이지 않을 수 있습니다.\n- **1.0.x 목표:** 다중 선택에서 UE Native Transform Gizmo 접근을 복원합니다. PlanetX 전용 Coordinate Gizmo는 multi-edit 계약이 별도로 구현되지 않는 한 단일 Component 전용으로 유지합니다.\n- **현재 안내:** Coordinate Component Gizmo가 필요할 때는 Actor를 하나씩 선택해 편집하세요.\n- **종료 근거:** Editor 재시작 후 단일 Coordinate Actor, Coordinate 다중 선택, Coordinate가 섞인 선택을 모두 검증합니다.\n\n### PCG·Landscape 콘텐츠의 Runtime Section Proxy 거리 Culling\n\n- **상태:** 1.0.x Batch A에서 진단, Runtime rendering 수정은 열린 상태\n- **범위:** Runtime / Section Proxy / PCG 및 Landscape\n- **증상:** Electric Dreams 기반 재현 환경에서 PCG와 Landscape로 생성된 Section Proxy가 Runtime의 일정 거리 밖에서 보이지 않습니다.\n- **1.0.x 방향:** authored instance culling, Runtime Budget/Scalability, residency/loading, generated resource 누락을 구분하는 진단을 추가합니다. 근본 rendering 수정에는 Electric Dreams 재현이 계속 필요합니다.\n- **현재 안내:** Editor에서 보이는 것만으로 Runtime 가시성을 판단하지 마세요. PIE와 패키지 Build에서 Cull Distance, HLOD, World Partition, Spatial Loading 동작을 확인하세요.\n- **종료 근거:** 문서화된 거리에서 PCG와 Landscape source를 포함한 Electric Dreams 시나리오가 PIE와 패키지 Win64에서 재현·통과해야 합니다.\n\n### PlanetX가 Runtime Visibility를 변경함\n\n- **상태:** 1.0.x Batch C 예정\n- **범위:** Runtime / Actor 및 Component Visibility\n- **증상:** Editor Preview와 Authoring에만 적용되어야 하는 Visibility 변경이 Runtime에도 적용될 수 있습니다.\n- **1.0.x 목표:** 현 1.0 동작을 기본값으로 보존하고, editor-only filtering이 Runtime 상태를 바꾸지 않는 opt-in presentation/visibility policy를 추가합니다.\n- **현재 안내:** policy가 출시되기 전까지 PlanetX 상태 갱신 이후에도 수동 지정한 Runtime Visibility가 유지된다고 가정하지 마세요.\n- **종료 근거:** 기존 기본값 프로젝트와 opt-in 프로젝트를 Ground, Orbit, transition 상태의 PIE와 패키지 Win64에서 검증합니다. policy 범위 밖의 수동 Runtime Visibility는 바뀌면 안 됩니다.\n\n### PlanetX Mode의 Visibility Filtering 강제 및 UE Native Gizmo 제한\n\n- **상태:** 1.0.x Batch B 예정\n- **범위:** Editor / PlanetX Mode\n- **증상:** PlanetX Mode가 Visibility Filtering을 강제하고 Unreal Engine Native Transform Gizmo 사용을 제한할 수 있습니다.\n- **1.0.x 목표:** 강제 Visibility를 저장되는 editor-only filter로 교체하고, PlanetX가 전용 단일 Coordinate 동작을 제공하지 않는 경우 Native Gizmo passthrough를 제공합니다.\n- **현재 안내:** 프로젝트에서 관리하는 Visibility Filtering 또는 UE Native Gizmo가 필요하면 PlanetX Mode에서 나가 작업하세요.\n- **종료 근거:** Editor 재시작 후 저장된 filter 복원, filter 변경으로 인한 Runtime Visibility 미변경, 지정한 fallback 사례의 UE Native Gizmo 접근을 확인합니다.\n\n## 새 문제를 보고하기 전에\n\n1. [설치와 설정 문제](/docs/ko/setup-configuration), [Proxy Bake 문제](/docs/ko/proxy-bake-troubleshooting), [Runtime과 Travel 문제](/docs/ko/runtime-travel-troubleshooting), [FAQ](/faq)를 확인합니다.\n2. PlanetX와 Unreal Engine 버전을 기록합니다.\n3. 정확한 재현 절차와 Editor, PIE, 패키지 Build 중 어디에서 발생하는지 포함합니다.\n4. 안전하게 공유할 수 있는 관련 로그, 진단 결과, 최소 재현 프로젝트 상태를 포함합니다.\n",
+    "content": "이 페이지는 예정된 1.0.1 유지보수 업데이트로 해결되지 않는 활성 제한 사항을 정리합니다.\n\n## 현재 상태\n\n- **Fab 공개 버전:** PlanetX 1.0 Mercury\n- **다음 유지보수 업데이트:** 1.0.1\n- **문제 신고:** [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com)\n\n1.0.1 업데이트는 Browser Monitor 실패 보고, Native Transform Gizmo fallback, opt-in Global Presentation을 처리합니다. 자세한 내용은 [릴리스 노트](/release-notes)를 확인하세요.\n\n## 활성 이슈\n\n### Representation Domain 양방향 전환\n\nActor를 Ground와 Orbit 사이에서 변경해도 이전 상태가 양방향으로 복원되지는 않습니다. **Presentation Scope: Global**은 authored visibility를 표현 상태 전반에서 유지할 뿐이며, coordinate, transform, loading, state를 변환하지 않습니다.\n\n### Transition Resource Build와 PCG 출력\n\n생성된 PCG 출력이 없거나 stale 또는 미저장 상태라면 Transition Resource에서 PCG Resource가 빠질 수 있습니다. PlanetX는 PCG 출력을 자동으로 generate, save, cook하지 않습니다. Build 전과 패키지 Build에서 generated resource를 확인하세요.\n\n### 낮은 Scalability Preset의 Section Proxy\n\nSection Proxy 가시성은 Scalability, Runtime Budget, authored cull distance, residency, generated resource 존재 여부에 영향을 받을 수 있습니다. 프로젝트의 목표 preset을 PIE와 패키지 Win64에서 검증해야 하며, 일반적인 낮은 preset fallback은 1.0.1 범위가 아닙니다.\n\n### PCG·Landscape 콘텐츠의 Runtime 거리 Culling\n\nElectric Dreams 재현 환경에서 PCG와 Landscape 기반 Section Proxy가 Runtime 거리에서 보이지 않을 수 있습니다. rendering 수정 전에는 authored culling, Runtime Budget, residency/loading, generated resource coverage 중 원인을 분리해야 합니다.\n\n### PlanetX Mode Visibility Filtering\n\nPlanetX Mode는 editor에서 presentation filtering을 계속 적용할 수 있습니다. 1.0.1의 Native Gizmo fallback에는 저장되는 사용자 제어 Visibility Filter가 포함되지 않습니다. 프로젝트가 소유하는 visibility filtering이 필요하면 PlanetX Mode를 종료하세요.\n\n### Landscape Material 호환성 — 1.0.1 제외\n\n복잡하거나 프로젝트 전용 경로를 사용하는 Landscape Material Graph는 Proxy Bake 후 원본과 다르게 표현될 수 있습니다. 임의 Graph의 완전 fidelity는 1.0.1 범위가 아니며, 필요한 경우 Proxy 전용 Material을 사용하고 결과를 검증하세요.\n\n### Multi-island Padding — 1.0.1 제외\n\n서로 분리된 Island의 일반적인 Padding reconstruction은 1.0.1 범위가 아닙니다. Island마다 독립 Padding이 필요하면 Source를 분리하거나 명시적인 간격을 적용하세요.\n\n## 문제 보고 전 확인 사항\n\nPlanetX와 Unreal Engine 버전, 정확한 재현 절차, Editor·PIE·패키지 Win64 중 발생 환경, 관련 로그와 진단 결과를 포함하세요. 안전하게 공유할 수 있는 최소 재현을 [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com)으로 보내주세요.\n",
     "headings": [
       {
         "level": 1,
@@ -6761,13 +6691,8 @@
       },
       {
         "level": 2,
-        "title": "현재 Release 상태",
-        "id": "현재-release-상태"
-      },
-      {
-        "level": 2,
-        "title": "상태와 종료 정책",
-        "id": "상태와-종료-정책"
+        "title": "현재 상태",
+        "id": "현재-상태"
       },
       {
         "level": 2,
@@ -6776,58 +6701,43 @@
       },
       {
         "level": 3,
-        "title": "Coordinate Component Representation Domain 양방향 전환",
-        "id": "coordinate-component-representation-domain-양방향-전환"
+        "title": "Representation Domain 양방향 전환",
+        "id": "representation-domain-양방향-전환"
       },
       {
         "level": 3,
-        "title": "Landscape Material 호환성",
-        "id": "landscape-material-호환성"
+        "title": "Transition Resource Build와 PCG 출력",
+        "id": "transition-resource-build와-pcg-출력"
       },
       {
         "level": 3,
-        "title": "Multi-island Padding 생성",
-        "id": "multi-island-padding-생성"
+        "title": "낮은 Scalability Preset의 Section Proxy",
+        "id": "낮은-scalability-preset의-section-proxy"
       },
       {
         "level": 3,
-        "title": "Transition Resource Build에서 PCG Resource 누락",
-        "id": "transition-resource-build에서-pcg-resource-누락"
+        "title": "PCG·Landscape 콘텐츠의 Runtime 거리 Culling",
+        "id": "pcg-landscape-콘텐츠의-runtime-거리-culling"
       },
       {
         "level": 3,
-        "title": "Epic Scalability에서만 보이는 Section Proxy",
-        "id": "epic-scalability에서만-보이는-section-proxy"
+        "title": "PlanetX Mode Visibility Filtering",
+        "id": "planetx-mode-visibility-filtering"
       },
       {
         "level": 3,
-        "title": "Chrome 창이 여러 개일 때 Monitor 실패",
-        "id": "chrome-창이-여러-개일-때-monitor-실패"
+        "title": "Landscape Material 호환성 — 1.0.1 제외",
+        "id": "landscape-material-호환성-1-0-1-제외"
       },
       {
         "level": 3,
-        "title": "다중 선택에서 Coordinate Component Gizmo 누락",
-        "id": "다중-선택에서-coordinate-component-gizmo-누락"
-      },
-      {
-        "level": 3,
-        "title": "PCG·Landscape 콘텐츠의 Runtime Section Proxy 거리 Culling",
-        "id": "pcg-landscape-콘텐츠의-runtime-section-proxy-거리-culling"
-      },
-      {
-        "level": 3,
-        "title": "PlanetX가 Runtime Visibility를 변경함",
-        "id": "planetx가-runtime-visibility를-변경함"
-      },
-      {
-        "level": 3,
-        "title": "PlanetX Mode의 Visibility Filtering 강제 및 UE Native Gizmo 제한",
-        "id": "planetx-mode의-visibility-filtering-강제-및-ue-native-gizmo-제한"
+        "title": "Multi-island Padding — 1.0.1 제외",
+        "id": "multi-island-padding-1-0-1-제외"
       },
       {
         "level": 2,
-        "title": "새 문제를 보고하기 전에",
-        "id": "새-문제를-보고하기-전에"
+        "title": "문제 보고 전 확인 사항",
+        "id": "문제-보고-전-확인-사항"
       }
     ],
     "public": true,

@@ -14,6 +14,7 @@ const footerCopy = {
     faq: "FAQ",
     releases: "Release notes",
     about: "About Us",
+    support: "Report an issue",
     disclaimer: "PlanetX was independently developed by LabX while participating in the Epic Project, a developer-support program of the KRAFTON JUNGLE GameTech Lab. All rights, title, and interest in the product are exclusively vested in LabX. KRAFTON was not involved in its development or distribution and assumes no responsibility or liability for consequences arising from its use.",
     rights: "© 2026 LabX. PlanetX documentation version 1.0.",
   },
@@ -25,6 +26,7 @@ const footerCopy = {
     faq: "FAQ",
     releases: "릴리스 노트",
     about: "소개",
+    support: "문제 신고",
     disclaimer: "PlanetX는 KRAFTON JUNGLE GameTech Lab의 개발자 지원 프로그램인 Epic Project 참여 과정에서 LabX가 독립적으로 개발한 제품입니다. 제품에 관한 모든 권리와 소유권은 LabX에 있으며, KRAFTON은 개발 및 유통에 관여하지 않았고 제품 사용으로 발생하는 결과에 대해 책임을 부담하지 않습니다.",
     rights: "© 2026 LabX. PlanetX 문서 버전 1.0.",
   },
@@ -67,6 +69,7 @@ export function SiteFooter() {
         <Link href="/faq#main-content">{text.faq}</Link>
         <Link href="/release-notes#main-content">{text.releases}</Link>
         <Link href="/about#main-content">{text.about}</Link>
+        <a href="mailto:jungle.labx@gmail.com">{text.support}: jungle.labx@gmail.com</a>
         <a href="https://github.com/Jungle-LabX/PlanetX-Docs" target="_blank" rel="noreferrer">GitHub</a>
       </nav>
       <p className="site-footer__disclaimer">{text.disclaimer}</p>

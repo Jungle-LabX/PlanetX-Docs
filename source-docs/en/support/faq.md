@@ -34,4 +34,4 @@ PlanetX 1.0 targets Unreal Engine 5.8 and Win64, and requires GeometryProcessing
 
 ## What should I include in a problem report?
 
-Check [Known Issues](/known-issues), [Setup and Configuration](/docs/en/setup-configuration), [Proxy Bake Issues](/docs/en/proxy-bake-troubleshooting), and [Runtime and Travel Issues](/docs/en/runtime-travel-troubleshooting) first. Include the PlanetX version, Unreal Engine version, exact reproduction steps, relevant settings, and the complete error or diagnostic output.
+Check [Known Issues](/known-issues), [Setup and Configuration](/docs/en/setup-configuration), [Proxy Bake Issues](/docs/en/proxy-bake-troubleshooting), and [Runtime and Travel Issues](/docs/en/runtime-travel-troubleshooting) first. Include the PlanetX version, Unreal Engine version, exact reproduction steps, relevant settings, and the complete error or diagnostic output. Send the report to [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com).

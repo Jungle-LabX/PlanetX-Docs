@@ -34,4 +34,4 @@ PlanetX 1.0은 Unreal Engine 5.8과 Win64를 대상으로 하며 GeometryProcess
 
 ## 문제 보고에 무엇을 포함해야 하나요?
 
-먼저 [알려진 문제](/known-issues), [설치와 설정 문제](/docs/ko/setup-configuration), [Proxy Bake 문제](/docs/ko/proxy-bake-troubleshooting), [Runtime과 Travel 문제](/docs/ko/runtime-travel-troubleshooting)를 확인하세요. PlanetX 버전, Unreal Engine 버전, 정확한 재현 절차, 관련 설정, 전체 오류 또는 진단 출력을 포함하세요.
+먼저 [알려진 문제](/known-issues), [설치와 설정 문제](/docs/ko/setup-configuration), [Proxy Bake 문제](/docs/ko/proxy-bake-troubleshooting), [Runtime과 Travel 문제](/docs/ko/runtime-travel-troubleshooting)를 확인하세요. PlanetX 버전, Unreal Engine 버전, 정확한 재현 절차, 관련 설정, 전체 오류 또는 진단 출력을 포함하고 [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com)으로 보내주세요.
