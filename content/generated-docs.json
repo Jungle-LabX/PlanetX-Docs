@@ -44,7 +44,7 @@
       "status": "current",
       "counterpartId": "ko-introduction"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-introduction",
@@ -91,7 +91,7 @@
       "status": "current",
       "counterpartId": "en-introduction"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-key-features",
@@ -158,7 +158,7 @@
       "status": "current",
       "counterpartId": "ko-key-features"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-key-features",
@@ -225,7 +225,7 @@
       "status": "current",
       "counterpartId": "en-key-features"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-compatibility-limitations",
@@ -282,7 +282,7 @@
       "status": "current",
       "counterpartId": "ko-compatibility-limitations"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-compatibility-limitations",
@@ -339,7 +339,7 @@
       "status": "current",
       "counterpartId": "en-compatibility-limitations"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-quick-start-same-world",
@@ -541,7 +541,7 @@
       "status": "current",
       "counterpartId": "ko-quick-start-same-world"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-quick-start-same-world",
@@ -743,7 +743,7 @@
       "status": "current",
       "counterpartId": "en-quick-start-same-world"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-installation",
@@ -805,7 +805,7 @@
       "status": "current",
       "counterpartId": "ko-installation"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-installation",
@@ -867,7 +867,7 @@
       "status": "current",
       "counterpartId": "en-installation"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-create-first-planet",
@@ -959,7 +959,7 @@
       "status": "current",
       "counterpartId": "ko-create-first-planet"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-create-first-planet",
@@ -1051,7 +1051,7 @@
       "status": "current",
       "counterpartId": "en-create-first-planet"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-quick-start-level-handoff",
@@ -1363,7 +1363,7 @@
       "status": "current",
       "counterpartId": "ko-quick-start-level-handoff"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-quick-start-level-handoff",
@@ -1675,7 +1675,7 @@
       "status": "current",
       "counterpartId": "en-quick-start-level-handoff"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-planet-assets-identities",
@@ -1727,7 +1727,7 @@
       "status": "current",
       "counterpartId": "ko-planet-assets-identities"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-planet-assets-identities",
@@ -1779,7 +1779,7 @@
       "status": "current",
       "counterpartId": "en-planet-assets-identities"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-sections-level-pairs",
@@ -1831,7 +1831,7 @@
       "status": "current",
       "counterpartId": "ko-sections-level-pairs"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-sections-level-pairs",
@@ -1883,7 +1883,7 @@
       "status": "current",
       "counterpartId": "en-sections-level-pairs"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-coordinate-model",
@@ -1935,7 +1935,7 @@
       "status": "current",
       "counterpartId": "ko-coordinate-model"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-coordinate-model",
@@ -1987,7 +1987,7 @@
       "status": "current",
       "counterpartId": "en-coordinate-model"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-representation-runtime-load",
@@ -2039,7 +2039,7 @@
       "status": "current",
       "counterpartId": "ko-representation-runtime-load"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-representation-runtime-load",
@@ -2091,7 +2091,7 @@
       "status": "current",
       "counterpartId": "en-representation-runtime-load"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-transition-model",
@@ -2143,7 +2143,7 @@
       "status": "current",
       "counterpartId": "ko-transition-model"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-transition-model",
@@ -2195,7 +2195,7 @@
       "status": "current",
       "counterpartId": "en-transition-model"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-planet-asset-editor",
@@ -2247,7 +2247,7 @@
       "status": "current",
       "counterpartId": "ko-planet-asset-editor"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-planet-asset-editor",
@@ -2299,7 +2299,7 @@
       "status": "current",
       "counterpartId": "en-planet-asset-editor"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-planetx-mode",
@@ -2351,7 +2351,7 @@
       "status": "current",
       "counterpartId": "ko-planetx-mode"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-planetx-mode",
@@ -2403,7 +2403,7 @@
       "status": "current",
       "counterpartId": "en-planetx-mode"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-proxy-bake-editor",
@@ -2475,7 +2475,7 @@
       "status": "current",
       "counterpartId": "ko-proxy-bake-editor"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-proxy-bake-editor",
@@ -2547,7 +2547,7 @@
       "status": "current",
       "counterpartId": "en-proxy-bake-editor"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-validation-diagnostics",
@@ -2599,7 +2599,7 @@
       "status": "current",
       "counterpartId": "ko-validation-diagnostics"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-validation-diagnostics",
@@ -2651,7 +2651,7 @@
       "status": "current",
       "counterpartId": "en-validation-diagnostics"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-runtime-integration",
@@ -2703,7 +2703,7 @@
       "status": "current",
       "counterpartId": "ko-runtime-integration"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-runtime-integration",
@@ -2755,7 +2755,7 @@
       "status": "current",
       "counterpartId": "en-runtime-integration"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-coordinates-surface-queries",
@@ -2807,7 +2807,7 @@
       "status": "current",
       "counterpartId": "ko-coordinates-surface-queries"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-coordinates-surface-queries",
@@ -2859,7 +2859,7 @@
       "status": "current",
       "counterpartId": "en-coordinates-surface-queries"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-movement-gravity",
@@ -2911,7 +2911,7 @@
       "status": "current",
       "counterpartId": "ko-movement-gravity"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-movement-gravity",
@@ -2963,7 +2963,7 @@
       "status": "current",
       "counterpartId": "en-movement-gravity"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-same-world-travel",
@@ -3015,7 +3015,7 @@
       "status": "current",
       "counterpartId": "ko-same-world-travel"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-same-world-travel",
@@ -3067,7 +3067,7 @@
       "status": "current",
       "counterpartId": "en-same-world-travel"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-level-handoff-travel",
@@ -3119,7 +3119,7 @@
       "status": "current",
       "counterpartId": "ko-level-handoff-travel"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-level-handoff-travel",
@@ -3171,7 +3171,7 @@
       "status": "current",
       "counterpartId": "en-level-handoff-travel"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-runtime-preview-budget",
@@ -3223,7 +3223,7 @@
       "status": "current",
       "counterpartId": "ko-runtime-preview-budget"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-runtime-preview-budget",
@@ -3275,7 +3275,7 @@
       "status": "current",
       "counterpartId": "en-runtime-preview-budget"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-environment-runtime",
@@ -3322,7 +3322,7 @@
       "status": "current",
       "counterpartId": "ko-environment-runtime"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-environment-runtime",
@@ -3369,7 +3369,7 @@
       "status": "current",
       "counterpartId": "en-environment-runtime"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-visual-editor",
@@ -3421,7 +3421,7 @@
       "status": "current",
       "counterpartId": "ko-visual-editor"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-visual-editor",
@@ -3473,7 +3473,7 @@
       "status": "current",
       "counterpartId": "en-visual-editor"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-completion-padding",
@@ -3525,7 +3525,7 @@
       "status": "current",
       "counterpartId": "ko-completion-padding"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-completion-padding",
@@ -3577,7 +3577,7 @@
       "status": "current",
       "counterpartId": "en-completion-padding"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-materials-presets",
@@ -3629,7 +3629,7 @@
       "status": "current",
       "counterpartId": "ko-materials-presets"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-materials-presets",
@@ -3681,7 +3681,7 @@
       "status": "current",
       "counterpartId": "en-materials-presets"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-environment-authoring",
@@ -3733,7 +3733,7 @@
       "status": "current",
       "counterpartId": "ko-environment-authoring"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-environment-authoring",
@@ -3785,7 +3785,7 @@
       "status": "current",
       "counterpartId": "en-environment-authoring"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-settings-overview",
@@ -3837,7 +3837,7 @@
       "status": "current",
       "counterpartId": "ko-settings-overview"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-settings-overview",
@@ -3889,7 +3889,7 @@
       "status": "current",
       "counterpartId": "en-settings-overview"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-planet-visual-settings",
@@ -3976,7 +3976,7 @@
       "status": "current",
       "counterpartId": "ko-planet-visual-settings"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-planet-visual-settings",
@@ -4063,7 +4063,7 @@
       "status": "current",
       "counterpartId": "en-planet-visual-settings"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-proxy-bake-settings",
@@ -4140,7 +4140,7 @@
       "status": "current",
       "counterpartId": "ko-proxy-bake-settings"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-proxy-bake-settings",
@@ -4217,7 +4217,7 @@
       "status": "current",
       "counterpartId": "en-proxy-bake-settings"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-runtime-component-settings",
@@ -4304,7 +4304,7 @@
       "status": "current",
       "counterpartId": "ko-runtime-component-settings"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-runtime-component-settings",
@@ -4391,7 +4391,7 @@
       "status": "current",
       "counterpartId": "en-runtime-component-settings"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-proxy-transition-settings",
@@ -4483,7 +4483,7 @@
       "status": "current",
       "counterpartId": "ko-proxy-transition-settings"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-proxy-transition-settings",
@@ -4575,7 +4575,7 @@
       "status": "current",
       "counterpartId": "en-proxy-transition-settings"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-environment-settings",
@@ -4662,7 +4662,7 @@
       "status": "current",
       "counterpartId": "ko-environment-settings"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-environment-settings",
@@ -4749,7 +4749,7 @@
       "status": "current",
       "counterpartId": "en-environment-settings"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-project-settings",
@@ -4811,7 +4811,7 @@
       "status": "current",
       "counterpartId": "ko-project-settings"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-project-settings",
@@ -4873,7 +4873,7 @@
       "status": "current",
       "counterpartId": "en-project-settings"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-api-overview",
@@ -4925,7 +4925,7 @@
       "status": "current",
       "counterpartId": "ko-api-overview"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-api-overview",
@@ -4977,7 +4977,7 @@
       "status": "current",
       "counterpartId": "en-api-overview"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-subsystem-api",
@@ -5034,7 +5034,7 @@
       "status": "current",
       "counterpartId": "ko-subsystem-api"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-subsystem-api",
@@ -5091,7 +5091,7 @@
       "status": "current",
       "counterpartId": "en-subsystem-api"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-actors-api",
@@ -5143,7 +5143,7 @@
       "status": "current",
       "counterpartId": "ko-actors-api"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-actors-api",
@@ -5195,7 +5195,7 @@
       "status": "current",
       "counterpartId": "en-actors-api"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-coordinate-movement-components-api",
@@ -5252,7 +5252,7 @@
       "status": "current",
       "counterpartId": "ko-coordinate-movement-components-api"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-coordinate-movement-components-api",
@@ -5309,7 +5309,7 @@
       "status": "current",
       "counterpartId": "en-coordinate-movement-components-api"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-planet-transition-components-api",
@@ -5371,7 +5371,7 @@
       "status": "current",
       "counterpartId": "ko-planet-transition-components-api"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-planet-transition-components-api",
@@ -5433,7 +5433,7 @@
       "status": "current",
       "counterpartId": "en-planet-transition-components-api"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-assets-settings-api",
@@ -5490,7 +5490,7 @@
       "status": "current",
       "counterpartId": "ko-assets-settings-api"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-assets-settings-api",
@@ -5547,7 +5547,7 @@
       "status": "current",
       "counterpartId": "en-assets-settings-api"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-movement-handoff-api",
@@ -5594,7 +5594,7 @@
       "status": "current",
       "counterpartId": "ko-movement-handoff-api"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-movement-handoff-api",
@@ -5641,7 +5641,7 @@
       "status": "current",
       "counterpartId": "en-movement-handoff-api"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-data-types-cpp-api",
@@ -5703,7 +5703,7 @@
       "status": "current",
       "counterpartId": "ko-data-types-cpp-api"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-data-types-cpp-api",
@@ -5765,7 +5765,7 @@
       "status": "current",
       "counterpartId": "en-data-types-cpp-api"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-setup-configuration",
@@ -5817,7 +5817,7 @@
       "status": "current",
       "counterpartId": "ko-setup-configuration"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-setup-configuration",
@@ -5869,7 +5869,7 @@
       "status": "current",
       "counterpartId": "en-setup-configuration"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-proxy-bake-troubleshooting",
@@ -5926,7 +5926,7 @@
       "status": "current",
       "counterpartId": "ko-proxy-bake-troubleshooting"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-proxy-bake-troubleshooting",
@@ -5983,7 +5983,7 @@
       "status": "current",
       "counterpartId": "en-proxy-bake-troubleshooting"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-runtime-travel-troubleshooting",
@@ -6040,7 +6040,7 @@
       "status": "current",
       "counterpartId": "ko-runtime-travel-troubleshooting"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-runtime-travel-troubleshooting",
@@ -6097,7 +6097,7 @@
       "status": "current",
       "counterpartId": "en-runtime-travel-troubleshooting"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-diagnostic-tools",
@@ -6149,7 +6149,7 @@
       "status": "current",
       "counterpartId": "ko-diagnostic-tools"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-diagnostic-tools",
@@ -6201,7 +6201,7 @@
       "status": "current",
       "counterpartId": "en-diagnostic-tools"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-version-1-0",
@@ -6218,7 +6218,7 @@
     "scope": "offline",
     "sourceFile": "version-1-0.md",
     "sourcePath": "source-docs/en/release-notes/version-1-0.md",
-    "content": "## Release contract\n\n| Item | Value |\n| --- | --- |\n| Release name | 1.0 Mercury |\n| Version | 1 |\n| VersionName | 1.0 |\n| Engine baseline | Unreal Engine 5.8 project |\n| Runtime module | PlanetX |\n| Editor module | PlanetXEditor |\n| SupportedTargetPlatforms | Win64 |\n| Required plugins | GeometryProcessing, PCG |\n| CanContainContent | true |\n| Beta / Experimental | false / false |\n\n## Included capabilities\n\n- Planet Asset, Section, and Level Pair authoring\n- PlanetX Mode and dedicated Planet Asset Editor\n- Proxy Bake and external progress monitor\n- Coordinates, surface queries, movement, and gravity\n- Same World and Level Handoff travel\n- Runtime Preview and transition presentation\n- Completion, Padding, and generated materials\n- Atmosphere, clouds, sun, post process, and space background\n- Validation, runtime stats, and diagnostics\n\n## Distribution note\n\nThe plugin package includes this local-file `Docs` static site. The source does not provide a release-by-release changelog or historical compatibility matrix, so this page does not invent one.\n",
+    "content": "## Release contract\n\n| Item | Value |\n| --- | --- |\n| Release name | 1.0 Mercury |\n| Version | 1 |\n| VersionName | 1.0 |\n| Engine baseline | Unreal Engine 5.8 project |\n| Runtime module | PlanetX |\n| Editor module | PlanetXEditor |\n| SupportedTargetPlatforms | Win64 |\n| Required plugins | GeometryProcessing, PCG |\n| CanContainContent | true |\n| Beta / Experimental | false / false |\n\n## Included capabilities\n\n- Planet Asset, Section, and Level Pair authoring\n- PlanetX Mode and dedicated Planet Asset Editor\n- Proxy Bake and external progress monitor\n- Coordinates, surface queries, movement, and gravity\n- Same World and Level Handoff travel\n- Runtime Preview and transition presentation\n- Completion, Padding, and generated materials\n- Atmosphere, clouds, sun, post process, and space background\n- Validation, runtime stats, and diagnostics\n\n## Distribution note\n\nThe plugin package includes this local-file `Docs` static site. The source does not provide a release-by-release changelog or historical compatibility matrix, so this page does not invent one.\n\n## 1.0.x maintenance track (unreleased)\n\n> This is the planned maintenance-release scope, not a statement that a patch is already published. A change moves into the shipped notes only after its code, Editor/PIE behavior, packaged Win64 behavior, and upgrade behavior have passed the release gate below.\n\n### Batch A — release-safe diagnostics and recovery\n\n- Make the external Monitor startup resilient when Chrome acknowledgement is unavailable; retain a manual URL/retry recovery path instead of treating browser discovery as the bake result.\n- Add actionable preflight results for missing, stale, or unsaved PCG output before Transition Resource Build. This batch does **not** claim automatic PCG generation or save orchestration.\n- Report distinguishable causes for runtime proxy absence: authored-instance culling, runtime budget/scalability, residency/loading, or missing generated resources.\n- Detect unsupported complex Landscape Material paths and multi-island boundary/padding inputs before publish, with the affected Actor, component, or generated-resource path when available.\n\n### Batch B — editor visibility and gizmo usability\n\n- Replace hard PlanetX Mode visibility forcing with a persisted editor-only visibility filter.\n- Restore UE native transform-gizmo use for ordinary Actors and multi-selection; retain the PlanetX Coordinate gizmo only for its supported single-Coordinate-Component workflow.\n- Keep editor preview state separate from runtime visibility state.\n\n### Batch C — runtime presentation compatibility\n\n- Introduce an opt-in runtime presentation/visibility policy while preserving the current 1.0 behavior as the migration-safe default.\n- Provide an explicit shared-presentation option for content that must remain visible across Ground and Orbit; it is separate from Representation Domain and must not alter coordinate/load semantics.\n\n### Deferred beyond the 1.0.x maintenance scope\n\n- Full bidirectional Representation Domain state reconstruction.\n- General multi-island padding reconstruction.\n- Full fidelity for arbitrary Landscape Material Graphs.\n- Automatic PCG generate/save/cook orchestration.\n\n### Release gate and Known Issue closure\n\nEvery candidate must pass all applicable checks before it is advertised as fixed:\n\n1. Build the PlanetX Editor and Win64 target for the supported Unreal Engine 5.8 baseline without new warnings treated as errors.\n2. Verify a new project and an existing 1.0 project: open, save, proxy bake, transition, PIE, and packaged Win64 smoke test.\n3. Run the issue-specific reproduction at the affected scalability preset and at the documented recovery path.\n4. Confirm no legacy runtime-visibility, Representation Domain, or generated-resource behavior changed outside the chosen opt-in policy.\n5. Record the released version and validation evidence, then move the matching item from **Active** to **Resolved** in Known Issues. Partial diagnostics or a workaround alone do not close an issue.\n",
     "headings": [
       {
         "level": 1,
@@ -6239,6 +6239,36 @@
         "level": 2,
         "title": "Distribution note",
         "id": "distribution-note"
+      },
+      {
+        "level": 2,
+        "title": "1.0.x maintenance track (unreleased)",
+        "id": "1-0-x-maintenance-track-unreleased"
+      },
+      {
+        "level": 3,
+        "title": "Batch A — release-safe diagnostics and recovery",
+        "id": "batch-a-release-safe-diagnostics-and-recovery"
+      },
+      {
+        "level": 3,
+        "title": "Batch B — editor visibility and gizmo usability",
+        "id": "batch-b-editor-visibility-and-gizmo-usability"
+      },
+      {
+        "level": 3,
+        "title": "Batch C — runtime presentation compatibility",
+        "id": "batch-c-runtime-presentation-compatibility"
+      },
+      {
+        "level": 3,
+        "title": "Deferred beyond the 1.0.x maintenance scope",
+        "id": "deferred-beyond-the-1-0-x-maintenance-scope"
+      },
+      {
+        "level": 3,
+        "title": "Release gate and Known Issue closure",
+        "id": "release-gate-and-known-issue-closure"
       }
     ],
     "public": true,
@@ -6248,7 +6278,7 @@
       "status": "current",
       "counterpartId": "ko-version-1-0"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-version-1-0",
@@ -6265,7 +6295,7 @@
     "scope": "offline",
     "sourceFile": "version-1-0.md",
     "sourcePath": "source-docs/ko/release-notes/version-1-0.md",
-    "content": "## 릴리스 계약\n\n| 항목 | 값 |\n| --- | --- |\n| 릴리스 이름 | 1.0 Mercury |\n| Version | 1 |\n| VersionName | 1.0 |\n| Engine baseline | Unreal Engine 5.8 프로젝트 |\n| Runtime module | PlanetX |\n| Editor module | PlanetXEditor |\n| SupportedTargetPlatforms | Win64 |\n| Required plugins | GeometryProcessing, PCG |\n| CanContainContent | true |\n| Beta / Experimental | false / false |\n\n## 포함 기능\n\n- Planet Asset, Section, Level Pair 제작\n- PlanetX Mode와 전용 Planet Asset Editor\n- Proxy Bake와 외부 진행 Monitor\n- 좌표, 표면 Query, 이동, 중력\n- Same World와 Level Handoff travel\n- Runtime Preview와 transition presentation\n- Completion, Padding, generated material\n- Atmosphere, cloud, sun, post process, space background\n- Validation, runtime stats와 diagnostics\n\n## 배포 참고\n\nPlugin package에 로컬에서 직접 여는 이 `Docs` 정적 사이트가 포함됩니다. 릴리스별 자동 changelog나 과거 호환성 표는 현재 소스에 근거가 없으므로 이 문서에서 추정하지 않습니다.\n",
+    "content": "## 릴리스 계약\n\n| 항목 | 값 |\n| --- | --- |\n| 릴리스 이름 | 1.0 Mercury |\n| Version | 1 |\n| VersionName | 1.0 |\n| Engine baseline | Unreal Engine 5.8 프로젝트 |\n| Runtime module | PlanetX |\n| Editor module | PlanetXEditor |\n| SupportedTargetPlatforms | Win64 |\n| Required plugins | GeometryProcessing, PCG |\n| CanContainContent | true |\n| Beta / Experimental | false / false |\n\n## 포함 기능\n\n- Planet Asset, Section, Level Pair 제작\n- PlanetX Mode와 전용 Planet Asset Editor\n- Proxy Bake와 외부 진행 Monitor\n- 좌표, 표면 Query, 이동, 중력\n- Same World와 Level Handoff travel\n- Runtime Preview와 transition presentation\n- Completion, Padding, generated material\n- Atmosphere, cloud, sun, post process, space background\n- Validation, runtime stats와 diagnostics\n\n## 배포 참고\n\nPlugin package에 로컬에서 직접 여는 이 `Docs` 정적 사이트가 포함됩니다. 릴리스별 자동 changelog나 과거 호환성 표는 현재 소스에 근거가 없으므로 이 문서에서 추정하지 않습니다.\n\n## 1.0.x 유지보수 트랙 (미출시)\n\n> 이 내용은 계획된 유지보수 Release 범위이며, 패치가 이미 공개되었다는 뜻이 아닙니다. 각 변경은 아래 Release Gate에서 코드, Editor/PIE 동작, 패키지 Win64 동작, 기존 프로젝트 업그레이드 동작을 모두 통과한 뒤에만 공개 릴리스 노트로 이동합니다.\n\n### Batch A — Release 안전 진단과 복구\n\n- Chrome 확인 응답을 받지 못해도 외부 Monitor 시작이 실패로 확정되지 않도록 하고, 브라우저 탐색과 별개로 수동 URL/재시도 복구 경로를 유지합니다.\n- Transition Resource Build 전에 누락·stale·미저장 PCG 출력을 식별 가능한 Preflight 결과로 제공합니다. 이 Batch는 PCG 자동 생성이나 저장 orchestration을 약속하지 않습니다.\n- Runtime Proxy가 보이지 않는 원인을 authored instance culling, Runtime Budget/Scalability, residency/loading, generated resource 누락으로 구분해 보고합니다.\n- 복잡한 Landscape Material 경로와 multi-island boundary/padding 입력을 publish 전에 감지하고, 가능하면 영향받은 Actor, Component 또는 generated resource 경로를 표시합니다.\n\n### Batch B — Editor Visibility와 Gizmo 사용성\n\n- PlanetX Mode의 강제 Visibility 적용을 저장되는 editor-only Visibility Filter로 교체합니다.\n- 일반 Actor와 다중 선택에서 UE Native Transform Gizmo를 다시 사용할 수 있게 하고, PlanetX Coordinate Gizmo는 지원되는 단일 Coordinate Component 워크플로에만 유지합니다.\n- Editor Preview 상태와 Runtime Visibility 상태를 분리합니다.\n\n### Batch C — Runtime Presentation 호환성\n\n- migration 안전성을 위해 현 1.0 동작을 기본값으로 보존하면서 opt-in Runtime Presentation/Visibility Policy를 도입합니다.\n- Ground와 Orbit 모두에서 보여야 하는 콘텐츠에는 명시적인 shared-presentation 옵션을 제공합니다. 이는 Representation Domain과 분리되며 coordinate/load 의미를 바꾸지 않아야 합니다.\n\n### 1.0.x 유지보수 범위 이후로 미루는 항목\n\n- 완전한 Representation Domain 양방향 상태 복원.\n- 일반화된 multi-island padding reconstruction.\n- 임의 Landscape Material Graph의 완전한 fidelity 지원.\n- PCG 자동 generate/save/cook orchestration.\n\n### Release Gate와 Known Issue 종료 기준\n\n후보 변경은 모두 다음의 해당 검증을 통과해야 수정 완료로 공지합니다.\n\n1. 지원 기준인 Unreal Engine 5.8에서 PlanetX Editor와 Win64 target을 빌드하고, 새 warning이 error로 처리되는 상태가 없어야 합니다.\n2. 새 프로젝트와 기존 1.0 프로젝트에서 open, save, Proxy Bake, transition, PIE, 패키지 Win64 smoke test를 확인합니다.\n3. 영향받은 Scalability preset과 문서화한 복구 경로에서 이슈별 재현을 다시 검증합니다.\n4. 선택한 opt-in policy 이외의 기존 Runtime Visibility, Representation Domain, generated resource 동작이 변하지 않았음을 확인합니다.\n5. 출시 버전과 검증 근거를 기록한 뒤에만 Known Issues의 해당 항목을 **Resolved**로 옮깁니다. 진단 추가나 임시 workaround만으로는 이슈를 닫지 않습니다.\n",
     "headings": [
       {
         "level": 1,
@@ -6286,6 +6316,36 @@
         "level": 2,
         "title": "배포 참고",
         "id": "배포-참고"
+      },
+      {
+        "level": 2,
+        "title": "1.0.x 유지보수 트랙 (미출시)",
+        "id": "1-0-x-유지보수-트랙-미출시"
+      },
+      {
+        "level": 3,
+        "title": "Batch A — Release 안전 진단과 복구",
+        "id": "batch-a-release-안전-진단과-복구"
+      },
+      {
+        "level": 3,
+        "title": "Batch B — Editor Visibility와 Gizmo 사용성",
+        "id": "batch-b-editor-visibility와-gizmo-사용성"
+      },
+      {
+        "level": 3,
+        "title": "Batch C — Runtime Presentation 호환성",
+        "id": "batch-c-runtime-presentation-호환성"
+      },
+      {
+        "level": 3,
+        "title": "1.0.x 유지보수 범위 이후로 미루는 항목",
+        "id": "1-0-x-유지보수-범위-이후로-미루는-항목"
+      },
+      {
+        "level": 3,
+        "title": "Release Gate와 Known Issue 종료 기준",
+        "id": "release-gate와-known-issue-종료-기준"
       }
     ],
     "public": true,
@@ -6295,7 +6355,7 @@
       "status": "current",
       "counterpartId": "en-version-1-0"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-third-party-notices",
@@ -6362,7 +6422,7 @@
       "status": "current",
       "counterpartId": "ko-third-party-notices"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-third-party-notices",
@@ -6429,7 +6489,7 @@
       "status": "current",
       "counterpartId": "en-third-party-notices"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-faq",
@@ -6501,7 +6561,7 @@
       "status": "current",
       "counterpartId": "ko-faq"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-faq",
@@ -6573,7 +6633,7 @@
       "status": "current",
       "counterpartId": "en-faq"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "en-known-issues",
@@ -6581,7 +6641,7 @@
     "slug": "known-issues",
     "title": "Known Issues",
     "navigationTitle": "Known Issues",
-    "description": "Known issues currently acknowledged for PlanetX 1.0 Mercury. The LabX team is reproducing and patching the items below; this page will be updated as fixes are verified for release.",
+    "description": "Known issues currently acknowledged for PlanetX 1.0 Mercury. The maintenance batches below define what can safely ship in the 1.0.x line and what remains a later compatibility p...",
     "category": "support",
     "categoryTitle": "Support",
     "categoryOrder": 11,
@@ -6590,7 +6650,7 @@
     "scope": "web-supplemental",
     "sourceFile": "known-issues.md",
     "sourcePath": "source-docs/en/support/known-issues.md",
-    "content": "Known issues currently acknowledged for PlanetX 1.0 Mercury. The LabX team is reproducing and patching the items below; this page will be updated as fixes are verified for release.\n\n## Current release status\n\n> Every issue listed below is acknowledged. **Patch in progress** means that implementation or verification is underway; it does not guarantee that a fix is included in the currently published Fab build.\n\n- **Affected release:** PlanetX 1.0 Mercury\n- **Last updated:** August 17, 2026\n- **Reporting:** Include the PlanetX and Unreal Engine versions, exact reproduction steps, and whether the issue occurs in Editor, PIE, or a packaged build.\n\n## Active issues\n\n### Bidirectional Coordinate Component Representation Domain transitions\n\n- **Status:** Patch in progress\n- **Scope:** `UPlanetXCoordinateComponent` / Representation Domain\n- **Observed behavior:** Workflows that change an Actor between Ground and Orbit Representation Domains in both directions are not handled consistently in every case.\n- **Current guidance:** Treat each domain change as an explicit handoff and validate both directions independently. Do not assume that changing Representation Domain alone reconstructs the previous Actor state.\n\n### Landscape Material compatibility\n\n- **Status:** Patch in progress\n- **Scope:** Proxy Bake / Landscape Material\n- **Observed behavior:** A baked Section Proxy may not reproduce a Landscape Material correctly when its Material Graph uses complex or project-specific paths.\n- **Current guidance:** Review the baked proxy with representative Material Instances. If the output diverges, use a dedicated proxy material or simplify the unsupported graph path until the compatibility patch is available.\n\n### Multi-island padding generation\n\n- **Status:** Patch in progress\n- **Scope:** Proxy Bake / Boundary reconstruction\n- **Observed behavior:** Automatic padding may not be generated for sources containing multiple disconnected islands when their boundaries cannot be resolved independently.\n- **Current guidance:** Inspect every island boundary before Bake. Split the source or provide explicit spacing when automatic padding is required for the output.\n\n### Transition Resource Build can omit PCG resources\n\n- **Status:** Patch in progress\n- **Scope:** Transition Resource Build / PCG\n- **Observed behavior:** PCG-generated resources or references may be missing from the generated Transition Resource.\n- **Current guidance:** Verify PCG outputs and references after every Transition Resource Build, and confirm the result again in a packaged build before distribution.\n\n### Section Proxy visibility depends on Epic scalability\n\n- **Status:** Patch in progress\n- **Scope:** Section Proxy rendering / Scalability\n- **Observed behavior:** A Section Proxy may be visible only when Unreal Engine scalability is set to **Epic** and disappear at lower presets.\n- **Current guidance:** Use Epic scalability while reviewing the current proxy output and validate the project's scalability overrides before shipping.\n\n### Monitor can fail with multiple Chrome windows\n\n- **Status:** Patch in progress\n- **Scope:** Monitor / Chrome session discovery\n- **Observed behavior:** Monitor initialization may fail when more than one Chrome window is open.\n- **Current guidance:** Keep a single Chrome window open while starting Monitor. If discovery has already failed, close duplicate windows and restart the Monitor session.\n\n### Coordinate Component Gizmo is missing during multi-selection\n\n- **Status:** Patch in progress\n- **Scope:** Editor / Coordinate Component Gizmo\n- **Observed behavior:** The Coordinate Component Gizmo may not appear when multiple Actors with Coordinate Components are selected.\n- **Current guidance:** Select and edit one Actor at a time when the Coordinate Component Gizmo is required.\n\n### Runtime Section Proxy distance culling with PCG and Landscape content\n\n- **Status:** Patch in progress\n- **Scope:** Runtime / Section Proxy / PCG and Landscape\n- **Observed behavior:** In the reproduced Electric Dreams-based case, Section Proxies generated from both PCG and Landscape content stop rendering beyond a certain runtime distance.\n- **Current guidance:** Do not use Editor visibility as proof of runtime coverage. Validate cull distance, HLOD, World Partition, and spatial-loading behavior in PIE and a packaged build. No universal workaround has been verified yet.\n\n### PlanetX overrides Visibility during Runtime\n\n- **Status:** Patch in progress\n- **Scope:** Runtime / Actor and Component Visibility\n- **Observed behavior:** PlanetX may change Visibility during Runtime even when the behavior should be limited to Editor preview and authoring.\n- **Current guidance:** Do not rely on manually assigned runtime Visibility remaining unchanged across PlanetX state updates. Revalidate affected Actors after transitions until the fix restricts this behavior to the Editor.\n\n### PlanetX Mode forces Visibility Filtering and blocks the native UE Gizmo\n\n- **Status:** Patch in progress\n- **Scope:** Editor / PlanetX Mode\n- **Observed behavior:** PlanetX Mode can force Visibility Filtering and prevent use of the native Unreal Engine transform Gizmo.\n- **Current guidance:** Exit PlanetX Mode when project-owned Visibility Filtering or the native UE Gizmo is required. A planned patch will stop forcing the filter and restore native Gizmo access.\n\n## Before reporting a new issue\n\n1. Check [Setup and Configuration](/docs/en/setup-configuration), [Proxy Bake Issues](/docs/en/proxy-bake-troubleshooting), [Runtime and Travel Issues](/docs/en/runtime-travel-troubleshooting), and the [FAQ](/faq).\n2. Record PlanetX and Unreal Engine versions.\n3. Include exact reproduction steps and whether the problem occurs in Editor, PIE, packaged builds, or all three.\n4. Include relevant logs, diagnostics, and the smallest reproducible project state that can be shared safely.\n",
+    "content": "Known issues currently acknowledged for PlanetX 1.0 Mercury. The maintenance batches below define what can safely ship in the 1.0.x line and what remains a later compatibility project.\n\n## Current release status\n\n> PlanetX 1.0 Mercury is the currently published Fab build. **Scheduled** and **in verification** items are not fixed in that build. An item is moved to **Resolved** only after its released version and its issue-specific validation evidence are recorded.\n\n- **Affected release:** PlanetX 1.0 Mercury\n- **Maintenance scope:** [1.0.x maintenance track](/release-notes)\n- **Last updated:** August 23, 2026\n- **Reporting:** Include the PlanetX and Unreal Engine versions, exact reproduction steps, and whether the issue occurs in Editor, PIE, or a packaged build.\n\n## Status and closure policy\n\n- **Scheduled:** included in a future batch but not yet validated for release.\n- **Mitigation in 1.0.x:** the batch improves diagnosis or recovery; the original capability limitation remains open.\n- **Resolved:** used only after the supported Unreal Engine 5.8 build, new-project and existing-1.0 upgrade checks, Editor/PIE, packaged Win64, and the issue-specific reproduction have passed.\n\nNo issue below is resolved by this planning update alone.\n\n## Active issues\n\n### Bidirectional Coordinate Component Representation Domain transitions\n\n- **Status:** Deferred beyond the 1.0.x maintenance scope\n- **Scope:** `UPlanetXCoordinateComponent` / Representation Domain\n- **Observed behavior:** Workflows that change an Actor between Ground and Orbit Representation Domains in both directions are not handled consistently in every case.\n- **1.0.x position:** Representation Domain remains a coordinate/load contract. A separate shared-presentation option must not be treated as bidirectional state reconstruction.\n- **Current guidance:** Treat each domain change as an explicit handoff and validate both directions independently. Do not assume that changing Representation Domain alone reconstructs the previous Actor state.\n- **Closure evidence:** A stateful Ground → Orbit → Ground and Orbit → Ground → Orbit test must restore the documented transform, loading, and presentation contracts without manual reconstruction.\n\n### Landscape Material compatibility\n\n- **Status:** Mitigation in 1.0.x Batch A; full fidelity deferred\n- **Scope:** Proxy Bake / Landscape Material\n- **Observed behavior:** A baked Section Proxy may not reproduce a Landscape Material correctly when its Material Graph uses complex or project-specific paths.\n- **1.0.x position:** Detect and name unsupported graph paths before publish; do not claim arbitrary Material Graph fidelity.\n- **Current guidance:** Review the baked proxy with representative Material Instances. If the output diverges, use a dedicated proxy material or simplify the unsupported graph path.\n- **Closure evidence:** The issue remains open until the supported complex-graph set is documented and its source and baked outputs match in Editor, PIE, and packaged Win64.\n\n### Multi-island padding generation\n\n- **Status:** Mitigation in 1.0.x Batch A; general reconstruction deferred\n- **Scope:** Proxy Bake / Boundary reconstruction\n- **Observed behavior:** Automatic padding may not be generated for sources containing multiple disconnected islands when their boundaries cannot be resolved independently.\n- **1.0.x position:** Validate the boundary topology before publish and identify the affected source. It does not add general multi-island reconstruction.\n- **Current guidance:** Inspect every island boundary before Bake. Split the source or provide explicit spacing when automatic padding is required for the output.\n- **Closure evidence:** The issue remains open until multiple disconnected islands and their independent boundaries generate validated padding without manual source splitting.\n\n### Transition Resource Build can omit PCG resources\n\n- **Status:** Mitigation in 1.0.x Batch A; automatic PCG orchestration deferred\n- **Scope:** Transition Resource Build / PCG\n- **Observed behavior:** PCG-generated resources or references may be missing from the generated Transition Resource.\n- **1.0.x position:** Preflight must identify missing, stale, or unsaved PCG output and give a recovery path. It does not silently generate, save, or cook PCG output.\n- **Current guidance:** Verify PCG outputs and references after every Transition Resource Build, and confirm the result again in a packaged build before distribution.\n- **Closure evidence:** The issue remains open until the chosen PCG contract is implemented end-to-end and both an available-output and unavailable-output case behave as documented in a packaged build.\n\n### Section Proxy visibility depends on Epic scalability\n\n- **Status:** Diagnosis in 1.0.x Batch A; lower-preset fallback deferred\n- **Scope:** Section Proxy rendering / Scalability\n- **Observed behavior:** A Section Proxy may be visible only when Unreal Engine scalability is set to **Epic** and disappear at lower presets.\n- **1.0.x position:** Report whether runtime budget/scalability, authored-instance culling, residency/loading, or generated resources explain the absence. This does not promise a lower-preset rendering fallback.\n- **Current guidance:** Use Epic scalability while reviewing the current proxy output and validate the project's scalability overrides before shipping.\n- **Closure evidence:** Validate High, Medium, and Low in PIE and packaged Win64 against the documented fallback/progression behavior before closing.\n\n### Monitor can fail with multiple Chrome windows\n\n- **Status:** Scheduled for 1.0.x Batch A\n- **Scope:** Monitor / browser acknowledgement\n- **Observed behavior:** Monitor initialization may fail when more than one Chrome window is open.\n- **1.0.x target:** Treat browser acknowledgement as best-effort; preserve a manual URL and retry path without misreporting the bake result as failed.\n- **Current guidance:** Keep a single Chrome window open while starting Monitor. If discovery has already failed, close duplicate windows and restart the Monitor session.\n- **Closure evidence:** Verify no-Chrome, one-Chrome, and multiple-Chrome scenarios. The Monitor must retain its recovery actions and a completed bake must not be reported as failed solely because acknowledgement is missing.\n\n### Coordinate Component Gizmo is missing during multi-selection\n\n- **Status:** Scheduled for 1.0.x Batch B\n- **Scope:** Editor / Coordinate Component Gizmo\n- **Observed behavior:** The Coordinate Component Gizmo may not appear when multiple Actors with Coordinate Components are selected.\n- **1.0.x target:** Restore native UE transform-gizmo access for multi-selection; PlanetX's specialized Coordinate gizmo remains single-component only unless its multi-edit contract is separately implemented.\n- **Current guidance:** Select and edit one Actor at a time when the Coordinate Component Gizmo is required.\n- **Closure evidence:** Validate single Coordinate Actor, multi-selection with Coordinates, and mixed/non-Coordinate selection after an Editor restart.\n\n### Runtime Section Proxy distance culling with PCG and Landscape content\n\n- **Status:** Diagnosis in 1.0.x Batch A; runtime rendering fix remains open\n- **Scope:** Runtime / Section Proxy / PCG and Landscape\n- **Observed behavior:** In the reproduced Electric Dreams-based case, Section Proxies generated from both PCG and Landscape content stop rendering beyond a certain runtime distance.\n- **1.0.x position:** Add a diagnostic distinction between authored-instance culling, runtime budget/scalability, residency/loading, and missing generated resources. The Electric Dreams reproduction remains required for the underlying rendering fix.\n- **Current guidance:** Do not use Editor visibility as proof of runtime coverage. Validate cull distance, HLOD, World Partition, and spatial-loading behavior in PIE and a packaged build.\n- **Closure evidence:** Reproduce and pass the Electric Dreams scenario at the documented distance in PIE and packaged Win64, including PCG and Landscape sources.\n\n### PlanetX overrides Visibility during Runtime\n\n- **Status:** Scheduled for 1.0.x Batch C\n- **Scope:** Runtime / Actor and Component Visibility\n- **Observed behavior:** PlanetX may change Visibility during Runtime even when the behavior should be limited to Editor preview and authoring.\n- **1.0.x target:** Add an opt-in presentation/visibility policy that preserves the existing 1.0 behavior by default and keeps editor-only filtering out of runtime state changes.\n- **Current guidance:** Do not rely on manually assigned runtime Visibility remaining unchanged across PlanetX state updates. Revalidate affected Actors after transitions until the policy is released.\n- **Closure evidence:** Validate legacy-default projects and opt-in projects through Ground, Orbit, and transition states in PIE and packaged Win64; manual runtime visibility outside the policy must remain unchanged.\n\n### PlanetX Mode forces Visibility Filtering and blocks the native UE Gizmo\n\n- **Status:** Scheduled for 1.0.x Batch B\n- **Scope:** Editor / PlanetX Mode\n- **Observed behavior:** PlanetX Mode can force Visibility Filtering and prevent use of the native Unreal Engine transform Gizmo.\n- **1.0.x target:** Replace forced visibility with a persisted editor-only filter and provide native-gizmo passthrough where PlanetX has no specialized single-Coordinate operation.\n- **Current guidance:** Exit PlanetX Mode when project-owned Visibility Filtering or the native UE Gizmo is required.\n- **Closure evidence:** Confirm saved filter restoration after an Editor restart, no runtime visibility mutation from filter changes, and UE native gizmo access in the specified fallback cases.\n\n## Before reporting a new issue\n\n1. Check [Setup and Configuration](/docs/en/setup-configuration), [Proxy Bake Issues](/docs/en/proxy-bake-troubleshooting), [Runtime and Travel Issues](/docs/en/runtime-travel-troubleshooting), and the [FAQ](/faq).\n2. Record PlanetX and Unreal Engine versions.\n3. Include exact reproduction steps and whether the problem occurs in Editor, PIE, packaged builds, or all three.\n4. Include relevant logs, diagnostics, and the smallest reproducible project state that can be shared safely.\n",
     "headings": [
       {
         "level": 1,
@@ -6601,6 +6661,11 @@
         "level": 2,
         "title": "Current release status",
         "id": "current-release-status"
+      },
+      {
+        "level": 2,
+        "title": "Status and closure policy",
+        "id": "status-and-closure-policy"
       },
       {
         "level": 2,
@@ -6670,7 +6735,7 @@
       "status": "current",
       "counterpartId": "ko-known-issues"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   },
   {
     "id": "ko-known-issues",
@@ -6678,7 +6743,7 @@
     "slug": "known-issues",
     "title": "알려진 문제",
     "navigationTitle": "알려진 문제",
-    "description": "현재 LabX가 인지한 PlanetX 1.0 Mercury의 Known Issues입니다. 아래 항목은 재현 및 패치 작업이 진행 중이며, 수정 사항의 Release 반영이 검증되면 이 페이지를 갱신합니다.",
+    "description": "현재 LabX가 인지한 PlanetX 1.0 Mercury의 Known Issues입니다. 아래 유지보수 Batch는 1.0.x에서 안전하게 Release할 수 있는 범위와 이후 호환성 프로젝트로 남겨야 할 범위를 구분합니다.",
     "category": "support",
     "categoryTitle": "지원",
     "categoryOrder": 11,
@@ -6687,7 +6752,7 @@
     "scope": "web-supplemental",
     "sourceFile": "known-issues.md",
     "sourcePath": "source-docs/ko/support/known-issues.md",
-    "content": "현재 LabX가 인지한 PlanetX 1.0 Mercury의 Known Issues입니다. 아래 항목은 재현 및 패치 작업이 진행 중이며, 수정 사항의 Release 반영이 검증되면 이 페이지를 갱신합니다.\n\n## 현재 Release 상태\n\n> 아래 이슈는 모두 LabX가 인지하고 있습니다. **패치 진행 중**은 구현 또는 검증이 진행 중이라는 뜻이며, 현재 Fab에 공개된 Build에 수정이 포함되었다는 의미는 아닙니다.\n\n- **대상 Release:** PlanetX 1.0 Mercury\n- **마지막 갱신:** 2026년 8월 17일\n- **문제 보고:** PlanetX와 Unreal Engine 버전, 정확한 재현 절차, Editor·PIE·패키지 Build 중 어디에서 발생하는지 포함해 주세요.\n\n## 활성 이슈\n\n### Coordinate Component Representation Domain 양방향 전환\n\n- **상태:** 패치 진행 중\n- **범위:** `UPlanetXCoordinateComponent` / Representation Domain\n- **증상:** Actor를 Ground와 Orbit Representation Domain 사이에서 양방향으로 전환하는 워크플로가 일부 사례에서 일관되게 처리되지 않습니다.\n- **현재 안내:** 각 Domain 변경을 명시적인 Handoff로 취급하고 양방향을 각각 검증하세요. Representation Domain 값만 변경하면 이전 Actor 상태가 자동으로 복원된다고 가정하지 마세요.\n\n### Landscape Material 호환성\n\n- **상태:** 패치 진행 중\n- **범위:** Proxy Bake / Landscape Material\n- **증상:** 복잡하거나 프로젝트 전용 경로를 사용하는 Material Graph의 경우 Bake된 Section Proxy에서 Landscape Material이 원본과 다르게 표현될 수 있습니다.\n- **현재 안내:** 대표 Material Instance로 Bake 결과를 확인하세요. 출력이 다르면 호환성 패치 전까지 Proxy 전용 Material을 사용하거나 지원되지 않는 Graph 경로를 단순화하세요.\n\n### Multi-island Padding 생성\n\n- **상태:** 패치 진행 중\n- **범위:** Proxy Bake / Boundary Reconstruction\n- **증상:** 서로 떨어진 여러 Island를 포함한 Source에서 각 Boundary를 독립적으로 계산하지 못하면 자동 Padding이 생성되지 않을 수 있습니다.\n- **현재 안내:** Bake 전에 각 Island Boundary를 확인하세요. 출력에 Padding이 필요하면 Source를 분리하거나 명시적인 간격을 적용하세요.\n\n### Transition Resource Build에서 PCG Resource 누락\n\n- **상태:** 패치 진행 중\n- **범위:** Transition Resource Build / PCG\n- **증상:** 생성된 Transition Resource에 PCG 기반 Resource 또는 Reference가 누락될 수 있습니다.\n- **현재 안내:** Transition Resource를 Build할 때마다 PCG 출력과 Reference를 확인하고, 배포 전에 패키지 Build에서도 다시 검증하세요.\n\n### Epic Scalability에서만 보이는 Section Proxy\n\n- **상태:** 패치 진행 중\n- **범위:** Section Proxy Rendering / Scalability\n- **증상:** Unreal Engine Scalability가 **Epic**일 때만 Section Proxy가 보이고 낮은 Preset에서는 사라질 수 있습니다.\n- **현재 안내:** 현재 Proxy 결과를 검토할 때는 Epic Scalability를 사용하고, 배포 전에 프로젝트의 Scalability Override를 검증하세요.\n\n### Chrome 창이 여러 개일 때 Monitor 실패\n\n- **상태:** 패치 진행 중\n- **범위:** Monitor / Chrome Session 탐색\n- **증상:** Chrome 창이 두 개 이상 열려 있으면 Monitor 초기화가 실패할 수 있습니다.\n- **현재 안내:** Monitor를 시작할 때 Chrome 창을 하나만 유지하세요. 이미 탐색에 실패했다면 중복 창을 닫고 Monitor Session을 다시 시작하세요.\n\n### 다중 선택에서 Coordinate Component Gizmo 누락\n\n- **상태:** 패치 진행 중\n- **범위:** Editor / Coordinate Component Gizmo\n- **증상:** Coordinate Component가 있는 Actor를 여러 개 선택하면 Coordinate Component Gizmo가 보이지 않을 수 있습니다.\n- **현재 안내:** Coordinate Component Gizmo가 필요할 때는 Actor를 하나씩 선택해 편집하세요.\n\n### PCG·Landscape 콘텐츠의 Runtime Section Proxy 거리 Culling\n\n- **상태:** 패치 진행 중\n- **범위:** Runtime / Section Proxy / PCG 및 Landscape\n- **증상:** Electric Dreams 기반 재현 환경에서 PCG와 Landscape로 생성된 Section Proxy가 Runtime의 일정 거리 밖에서 보이지 않습니다.\n- **현재 안내:** Editor에서 보이는 것만으로 Runtime 가시성을 판단하지 마세요. PIE와 패키지 Build에서 Cull Distance, HLOD, World Partition, Spatial Loading 동작을 확인하세요. 아직 모든 프로젝트에 적용할 수 있는 우회 방법은 검증되지 않았습니다.\n\n### PlanetX가 Runtime Visibility를 변경함\n\n- **상태:** 패치 진행 중\n- **범위:** Runtime / Actor 및 Component Visibility\n- **증상:** Editor Preview와 Authoring에만 적용되어야 하는 Visibility 변경이 Runtime에도 적용될 수 있습니다.\n- **현재 안내:** PlanetX 상태 갱신 이후에도 수동 지정한 Runtime Visibility가 유지된다고 가정하지 마세요. 해당 동작이 Editor로 제한되는 패치 전까지 Transition 이후 대상 Actor 상태를 다시 검증하세요.\n\n### PlanetX Mode의 Visibility Filtering 강제 및 UE Native Gizmo 제한\n\n- **상태:** 패치 진행 중\n- **범위:** Editor / PlanetX Mode\n- **증상:** PlanetX Mode가 Visibility Filtering을 강제하고 Unreal Engine Native Transform Gizmo 사용을 제한할 수 있습니다.\n- **현재 안내:** 프로젝트에서 관리하는 Visibility Filtering 또는 UE Native Gizmo가 필요하면 PlanetX Mode에서 나가 작업하세요. 후속 패치에서 Filter 강제를 제거하고 Native Gizmo를 사용할 수 있도록 수정할 예정입니다.\n\n## 새 문제를 보고하기 전에\n\n1. [설치와 설정 문제](/docs/ko/setup-configuration), [Proxy Bake 문제](/docs/ko/proxy-bake-troubleshooting), [Runtime과 Travel 문제](/docs/ko/runtime-travel-troubleshooting), [FAQ](/faq)를 확인합니다.\n2. PlanetX와 Unreal Engine 버전을 기록합니다.\n3. 정확한 재현 절차와 Editor, PIE, 패키지 Build 중 어디에서 발생하는지 포함합니다.\n4. 안전하게 공유할 수 있는 관련 로그, 진단 결과, 최소 재현 프로젝트 상태를 포함합니다.\n",
+    "content": "현재 LabX가 인지한 PlanetX 1.0 Mercury의 Known Issues입니다. 아래 유지보수 Batch는 1.0.x에서 안전하게 Release할 수 있는 범위와 이후 호환성 프로젝트로 남겨야 할 범위를 구분합니다.\n\n## 현재 Release 상태\n\n> PlanetX 1.0 Mercury가 현재 Fab에 공개된 Build입니다. **예정됨**과 **검증 중**은 이 Build에서 수정됐다는 뜻이 아닙니다. 각 이슈는 출시 버전과 이슈별 검증 근거가 기록된 뒤에만 **Resolved**로 이동합니다.\n\n- **대상 Release:** PlanetX 1.0 Mercury\n- **유지보수 범위:** [1.0.x 유지보수 트랙](/release-notes)\n- **마지막 갱신:** 2026년 8월 23일\n- **문제 보고:** PlanetX와 Unreal Engine 버전, 정확한 재현 절차, Editor·PIE·패키지 Build 중 어디에서 발생하는지 포함해 주세요.\n\n## 상태와 종료 정책\n\n- **예정됨:** 향후 Batch에 포함되지만 아직 Release 검증을 통과하지 않았습니다.\n- **1.0.x 완화:** 진단 또는 복구를 개선하지만, 원래의 기능 제한은 열린 상태로 남습니다.\n- **Resolved:** 지원 기준 Unreal Engine 5.8 build, 새 프로젝트와 기존 1.0 업그레이드, Editor/PIE, 패키지 Win64, 이슈별 재현을 모두 통과한 경우에만 사용합니다.\n\n이번 계획 문서 갱신만으로 종료되는 이슈는 없습니다.\n\n## 활성 이슈\n\n### Coordinate Component Representation Domain 양방향 전환\n\n- **상태:** 1.0.x 유지보수 범위 이후로 연기\n- **범위:** `UPlanetXCoordinateComponent` / Representation Domain\n- **증상:** Actor를 Ground와 Orbit Representation Domain 사이에서 양방향으로 전환하는 워크플로가 일부 사례에서 일관되게 처리되지 않습니다.\n- **1.0.x 방향:** Representation Domain은 coordinate/load 계약으로 유지합니다. 별도의 shared-presentation 옵션을 양방향 상태 복원으로 취급하지 않습니다.\n- **현재 안내:** 각 Domain 변경을 명시적인 Handoff로 취급하고 양방향을 각각 검증하세요. Representation Domain 값만 변경하면 이전 Actor 상태가 자동으로 복원된다고 가정하지 마세요.\n- **종료 근거:** 수동 복원 없이 Ground → Orbit → Ground와 Orbit → Ground → Orbit에서 문서화된 transform, loading, presentation 계약이 복원되어야 합니다.\n\n### Landscape Material 호환성\n\n- **상태:** 1.0.x Batch A에서 완화, 완전 fidelity는 연기\n- **범위:** Proxy Bake / Landscape Material\n- **증상:** 복잡하거나 프로젝트 전용 경로를 사용하는 Material Graph의 경우 Bake된 Section Proxy에서 Landscape Material이 원본과 다르게 표현될 수 있습니다.\n- **1.0.x 방향:** publish 전에 지원되지 않는 graph 경로를 감지·표시하되, 임의 Material Graph fidelity를 약속하지 않습니다.\n- **현재 안내:** 대표 Material Instance로 Bake 결과를 확인하세요. 출력이 다르면 Proxy 전용 Material을 사용하거나 지원되지 않는 Graph 경로를 단순화하세요.\n- **종료 근거:** 지원하는 complex graph 집합을 문서화하고 Editor, PIE, 패키지 Win64에서 source와 baked output이 일치할 때까지 이슈를 유지합니다.\n\n### Multi-island Padding 생성\n\n- **상태:** 1.0.x Batch A에서 완화, 일반 reconstruction은 연기\n- **범위:** Proxy Bake / Boundary Reconstruction\n- **증상:** 서로 떨어진 여러 Island를 포함한 Source에서 각 Boundary를 독립적으로 계산하지 못하면 자동 Padding이 생성되지 않을 수 있습니다.\n- **1.0.x 방향:** publish 전에 boundary topology를 검증하고 영향받은 source를 표시합니다. 일반 multi-island reconstruction을 추가하는 Batch는 아닙니다.\n- **현재 안내:** Bake 전에 각 Island Boundary를 확인하세요. 출력에 Padding이 필요하면 Source를 분리하거나 명시적인 간격을 적용하세요.\n- **종료 근거:** 수동 source 분리 없이 서로 떨어진 여러 Island와 각 독립 Boundary에서 검증된 Padding이 생성되어야 합니다.\n\n### Transition Resource Build에서 PCG Resource 누락\n\n- **상태:** 1.0.x Batch A에서 완화, PCG 자동 orchestration은 연기\n- **범위:** Transition Resource Build / PCG\n- **증상:** 생성된 Transition Resource에 PCG 기반 Resource 또는 Reference가 누락될 수 있습니다.\n- **1.0.x 방향:** 누락·stale·미저장 PCG 출력을 Preflight에서 식별하고 복구 경로를 제공합니다. PCG를 조용히 generate/save/cook하지는 않습니다.\n- **현재 안내:** Transition Resource를 Build할 때마다 PCG 출력과 Reference를 확인하고, 배포 전에 패키지 Build에서도 다시 검증하세요.\n- **종료 근거:** 선택한 PCG 계약이 end-to-end로 구현되고, 사용 가능한 출력과 사용할 수 없는 출력이 패키지 Build에서 문서대로 동작해야 합니다.\n\n### Epic Scalability에서만 보이는 Section Proxy\n\n- **상태:** 1.0.x Batch A에서 진단, 낮은 preset fallback은 연기\n- **범위:** Section Proxy Rendering / Scalability\n- **증상:** Unreal Engine Scalability가 **Epic**일 때만 Section Proxy가 보이고 낮은 Preset에서는 사라질 수 있습니다.\n- **1.0.x 방향:** Runtime Budget/Scalability, authored instance culling, residency/loading, generated resource 중 어떤 이유로 보이지 않는지 보고합니다. 낮은 preset rendering fallback을 약속하지는 않습니다.\n- **현재 안내:** 현재 Proxy 결과를 검토할 때는 Epic Scalability를 사용하고, 배포 전에 프로젝트의 Scalability Override를 검증하세요.\n- **종료 근거:** 문서화된 fallback/progression 동작을 기준으로 High, Medium, Low를 PIE와 패키지 Win64에서 검증한 뒤에만 닫습니다.\n\n### Chrome 창이 여러 개일 때 Monitor 실패\n\n- **상태:** 1.0.x Batch A 예정\n- **범위:** Monitor / browser acknowledgement\n- **증상:** Chrome 창이 두 개 이상 열려 있으면 Monitor 초기화가 실패할 수 있습니다.\n- **1.0.x 목표:** browser acknowledgement를 best-effort로 취급하고, Bake 결과를 잘못 실패로 보고하지 않으면서 수동 URL과 재시도 경로를 유지합니다.\n- **현재 안내:** Monitor를 시작할 때 Chrome 창을 하나만 유지하세요. 이미 탐색에 실패했다면 중복 창을 닫고 Monitor Session을 다시 시작하세요.\n- **종료 근거:** Chrome 없음, 하나, 여러 개 시나리오를 검증합니다. acknowledgement가 없어도 Monitor의 복구 action이 유지되고, 완료된 Bake가 그 이유만으로 실패로 보고되면 안 됩니다.\n\n### 다중 선택에서 Coordinate Component Gizmo 누락\n\n- **상태:** 1.0.x Batch B 예정\n- **범위:** Editor / Coordinate Component Gizmo\n- **증상:** Coordinate Component가 있는 Actor를 여러 개 선택하면 Coordinate Component Gizmo가 보이지 않을 수 있습니다.\n- **1.0.x 목표:** 다중 선택에서 UE Native Transform Gizmo 접근을 복원합니다. PlanetX 전용 Coordinate Gizmo는 multi-edit 계약이 별도로 구현되지 않는 한 단일 Component 전용으로 유지합니다.\n- **현재 안내:** Coordinate Component Gizmo가 필요할 때는 Actor를 하나씩 선택해 편집하세요.\n- **종료 근거:** Editor 재시작 후 단일 Coordinate Actor, Coordinate 다중 선택, Coordinate가 섞인 선택을 모두 검증합니다.\n\n### PCG·Landscape 콘텐츠의 Runtime Section Proxy 거리 Culling\n\n- **상태:** 1.0.x Batch A에서 진단, Runtime rendering 수정은 열린 상태\n- **범위:** Runtime / Section Proxy / PCG 및 Landscape\n- **증상:** Electric Dreams 기반 재현 환경에서 PCG와 Landscape로 생성된 Section Proxy가 Runtime의 일정 거리 밖에서 보이지 않습니다.\n- **1.0.x 방향:** authored instance culling, Runtime Budget/Scalability, residency/loading, generated resource 누락을 구분하는 진단을 추가합니다. 근본 rendering 수정에는 Electric Dreams 재현이 계속 필요합니다.\n- **현재 안내:** Editor에서 보이는 것만으로 Runtime 가시성을 판단하지 마세요. PIE와 패키지 Build에서 Cull Distance, HLOD, World Partition, Spatial Loading 동작을 확인하세요.\n- **종료 근거:** 문서화된 거리에서 PCG와 Landscape source를 포함한 Electric Dreams 시나리오가 PIE와 패키지 Win64에서 재현·통과해야 합니다.\n\n### PlanetX가 Runtime Visibility를 변경함\n\n- **상태:** 1.0.x Batch C 예정\n- **범위:** Runtime / Actor 및 Component Visibility\n- **증상:** Editor Preview와 Authoring에만 적용되어야 하는 Visibility 변경이 Runtime에도 적용될 수 있습니다.\n- **1.0.x 목표:** 현 1.0 동작을 기본값으로 보존하고, editor-only filtering이 Runtime 상태를 바꾸지 않는 opt-in presentation/visibility policy를 추가합니다.\n- **현재 안내:** policy가 출시되기 전까지 PlanetX 상태 갱신 이후에도 수동 지정한 Runtime Visibility가 유지된다고 가정하지 마세요.\n- **종료 근거:** 기존 기본값 프로젝트와 opt-in 프로젝트를 Ground, Orbit, transition 상태의 PIE와 패키지 Win64에서 검증합니다. policy 범위 밖의 수동 Runtime Visibility는 바뀌면 안 됩니다.\n\n### PlanetX Mode의 Visibility Filtering 강제 및 UE Native Gizmo 제한\n\n- **상태:** 1.0.x Batch B 예정\n- **범위:** Editor / PlanetX Mode\n- **증상:** PlanetX Mode가 Visibility Filtering을 강제하고 Unreal Engine Native Transform Gizmo 사용을 제한할 수 있습니다.\n- **1.0.x 목표:** 강제 Visibility를 저장되는 editor-only filter로 교체하고, PlanetX가 전용 단일 Coordinate 동작을 제공하지 않는 경우 Native Gizmo passthrough를 제공합니다.\n- **현재 안내:** 프로젝트에서 관리하는 Visibility Filtering 또는 UE Native Gizmo가 필요하면 PlanetX Mode에서 나가 작업하세요.\n- **종료 근거:** Editor 재시작 후 저장된 filter 복원, filter 변경으로 인한 Runtime Visibility 미변경, 지정한 fallback 사례의 UE Native Gizmo 접근을 확인합니다.\n\n## 새 문제를 보고하기 전에\n\n1. [설치와 설정 문제](/docs/ko/setup-configuration), [Proxy Bake 문제](/docs/ko/proxy-bake-troubleshooting), [Runtime과 Travel 문제](/docs/ko/runtime-travel-troubleshooting), [FAQ](/faq)를 확인합니다.\n2. PlanetX와 Unreal Engine 버전을 기록합니다.\n3. 정확한 재현 절차와 Editor, PIE, 패키지 Build 중 어디에서 발생하는지 포함합니다.\n4. 안전하게 공유할 수 있는 관련 로그, 진단 결과, 최소 재현 프로젝트 상태를 포함합니다.\n",
     "headings": [
       {
         "level": 1,
@@ -6698,6 +6763,11 @@
         "level": 2,
         "title": "현재 Release 상태",
         "id": "현재-release-상태"
+      },
+      {
+        "level": 2,
+        "title": "상태와 종료 정책",
+        "id": "상태와-종료-정책"
       },
       {
         "level": 2,
@@ -6767,6 +6837,6 @@
       "status": "current",
       "counterpartId": "en-known-issues"
     },
-    "lastReviewed": "2026-08-11"
+    "lastReviewed": "2026-08-23"
   }
 ]
