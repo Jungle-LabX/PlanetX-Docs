@@ -6207,9 +6207,9 @@
     "id": "en-version-1-0",
     "lang": "en",
     "slug": "version-1-0",
-    "title": "Version 1.0.1",
+    "title": "PlanetX 1.0.1 - Pending",
     "navigationTitle": "Version 1.0 Mercury",
-    "description": "Maintenance release for PlanetX 1.0 Mercury.",
+    "description": "Pending maintenance update. Fab currently distributes PlanetX 1.0 Mercury; the changes below are not available in the Fab build until 1.0.1 is published.",
     "category": "release-notes",
     "categoryTitle": "Release Notes",
     "categoryOrder": 9,
@@ -6218,32 +6218,22 @@
     "scope": "offline",
     "sourceFile": "version-1-0.md",
     "sourcePath": "source-docs/en/release-notes/version-1-0.md",
-    "content": "Maintenance release for PlanetX 1.0 Mercury.\n\n## Fixed\n\n- **External Browser Monitor:** a missing browser acknowledgement no longer makes the Monitor endpoint or an external bake appear to have failed. Browser launch is best-effort and the endpoint remains available for recovery.\n- **PlanetX Mode transform gizmo:** ordinary Actors and multi-selection now fall back to Unreal Engine's native transform gizmo. PlanetX keeps its specialized gizmo for one selected Actor with a Coordinate Component.\n- **Global presentation:** `UPlanetXCoordinateComponent` now exposes **Presentation Scope**. Set it to **Global** when an Actor must remain visible in Ground, Orbit, and Transition. This is presentation-only; its Representation Domain, coordinates, Proxy Bake eligibility, and physical-frame ownership do not change.\n\n## Upgrade notes\n\n- Existing content remains **Domain Only** by default and preserves the 1.0 presentation behavior.\n- Use **Global** only for Actors that intentionally need their authored presentation preserved across all three states.\n- Global is not bidirectional Representation Domain conversion. Ground and Orbit remain the coordinate and loading contracts.\n\n## Not included in 1.0.1\n\n- Bidirectional Ground/Orbit state reconstruction\n- Automatic PCG generate, save, and cook orchestration\n- Lower-scalability Section Proxy fallback or the Electric Dreams distance-culling fix\n- Full-fidelity support for arbitrary Landscape Material Graphs\n- General multi-island padding reconstruction\n- Persisted PlanetX Mode visibility filtering\n\n## Support\n\nFor reproducible issues, email [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com) with the PlanetX and Unreal Engine versions, reproduction steps, and relevant logs or diagnostics.\n",
+    "content": "Pending maintenance update. Fab currently distributes PlanetX 1.0 Mercury; the changes below are not available in the Fab build until 1.0.1 is published.\n\n## Planned fixes\n\n- **External Browser Monitor:** a missing browser acknowledgement no longer makes the Monitor endpoint or an external bake appear to have failed. Browser launch is best-effort and the endpoint remains available for recovery.\n- **PlanetX Mode transform gizmo:** ordinary Actors and multi-selection now fall back to Unreal Engine's native transform gizmo. PlanetX keeps its specialized gizmo for one selected Actor with a Coordinate Component.\n- **Global presentation:** `UPlanetXCoordinateComponent` now exposes **Presentation Scope**. Set it to **Global** when an Actor must remain visible in Ground, Orbit, and Transition. This is presentation-only; its Representation Domain, coordinates, Proxy Bake eligibility, and physical-frame ownership do not change.\n\n## Compatibility note\n\n- Existing content remains **Domain Only** by default and preserves the 1.0 presentation behavior.\n- Use **Global** only for Actors that intentionally need their authored presentation preserved across all three states.\n- Global is not bidirectional Representation Domain conversion. Ground and Orbit remain the coordinate and loading contracts.\n",
     "headings": [
       {
         "level": 1,
-        "title": "Version 1.0.1",
-        "id": "version-1-0-1"
+        "title": "PlanetX 1.0.1 - Pending",
+        "id": "planetx-1-0-1-pending"
       },
       {
         "level": 2,
-        "title": "Fixed",
-        "id": "fixed"
+        "title": "Planned fixes",
+        "id": "planned-fixes"
       },
       {
         "level": 2,
-        "title": "Upgrade notes",
-        "id": "upgrade-notes"
-      },
-      {
-        "level": 2,
-        "title": "Not included in 1.0.1",
-        "id": "not-included-in-1-0-1"
-      },
-      {
-        "level": 2,
-        "title": "Support",
-        "id": "support"
+        "title": "Compatibility note",
+        "id": "compatibility-note"
       }
     ],
     "public": true,
@@ -6259,9 +6249,9 @@
     "id": "ko-version-1-0",
     "lang": "ko",
     "slug": "version-1-0",
-    "title": "Version 1.0.1",
+    "title": "PlanetX 1.0.1 - Pending",
     "navigationTitle": "Version 1.0 Mercury",
-    "description": "PlanetX 1.0 Mercury의 유지보수 릴리스입니다.",
+    "description": "예정된 유지보수 업데이트입니다. 현재 Fab에는 PlanetX 1.0 Mercury가 배포되어 있으며, 아래 변경 사항은 1.0.1이 게시되기 전까지 Fab 빌드에서 사용할 수 없습니다.",
     "category": "release-notes",
     "categoryTitle": "릴리스 정보",
     "categoryOrder": 9,
@@ -6270,32 +6260,22 @@
     "scope": "offline",
     "sourceFile": "version-1-0.md",
     "sourcePath": "source-docs/ko/release-notes/version-1-0.md",
-    "content": "PlanetX 1.0 Mercury의 유지보수 릴리스입니다.\n\n## 수정\n\n- **외부 Browser Monitor:** 브라우저 acknowledgement가 없더라도 Monitor endpoint나 외부 Bake가 실패한 것처럼 처리되지 않습니다. 브라우저 실행은 best-effort이며 endpoint는 복구를 위해 계속 사용할 수 있습니다.\n- **PlanetX Mode Transform Gizmo:** 일반 Actor와 다중 선택은 Unreal Engine Native Transform Gizmo로 fallback됩니다. PlanetX 전용 Gizmo는 Coordinate Component가 있는 Actor 하나를 선택한 경우에만 사용합니다.\n- **Global Presentation:** `UPlanetXCoordinateComponent`에 **Presentation Scope**가 추가되었습니다. Actor가 Ground, Orbit, Transition에서 계속 보여야 하면 **Global**로 설정하세요. 이는 presentation 전용이며 Representation Domain, coordinate, Proxy Bake 대상 여부, physical-frame 소유권은 바꾸지 않습니다.\n\n## 업그레이드 참고\n\n- 기존 콘텐츠는 기본값 **Domain Only**를 유지하며 1.0의 presentation 동작을 보존합니다.\n- 세 상태에서 authored presentation을 의도적으로 유지해야 하는 Actor에만 **Global**을 사용하세요.\n- Global은 Representation Domain 양방향 변환이 아닙니다. Ground와 Orbit은 계속 coordinate와 loading 계약입니다.\n\n## 1.0.1에 포함하지 않은 항목\n\n- Ground/Orbit 양방향 상태 복원\n- PCG 자동 generate, save, cook orchestration\n- 낮은 Scalability의 Section Proxy fallback 또는 Electric Dreams 거리 culling 수정\n- 임의 Landscape Material Graph의 완전한 fidelity 지원\n- 일반 multi-island padding reconstruction\n- 저장되는 PlanetX Mode visibility filtering\n\n## 지원\n\n재현 가능한 문제는 PlanetX 및 Unreal Engine 버전, 재현 절차, 관련 로그 또는 진단 결과와 함께 [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com)으로 보내주세요.\n",
+    "content": "예정된 유지보수 업데이트입니다. 현재 Fab에는 PlanetX 1.0 Mercury가 배포되어 있으며, 아래 변경 사항은 1.0.1이 게시되기 전까지 Fab 빌드에서 사용할 수 없습니다.\n\n## 예정된 수정\n\n- **외부 Browser Monitor:** 브라우저 acknowledgement가 없더라도 Monitor endpoint나 외부 Bake가 실패한 것처럼 처리되지 않습니다. 브라우저 실행은 best-effort이며 endpoint는 복구를 위해 계속 사용할 수 있습니다.\n- **PlanetX Mode Transform Gizmo:** 일반 Actor와 다중 선택은 Unreal Engine Native Transform Gizmo로 fallback됩니다. PlanetX 전용 Gizmo는 Coordinate Component가 있는 Actor 하나를 선택한 경우에만 사용합니다.\n- **Global Presentation:** `UPlanetXCoordinateComponent`에 **Presentation Scope**가 추가되었습니다. Actor가 Ground, Orbit, Transition에서 계속 보여야 하면 **Global**로 설정하세요. 이는 presentation 전용이며 Representation Domain, coordinate, Proxy Bake 대상 여부, physical-frame 소유권은 바꾸지 않습니다.\n\n## 호환성 참고\n\n- 기존 콘텐츠는 기본값 **Domain Only**를 유지하며 1.0의 presentation 동작을 보존합니다.\n- 세 상태에서 authored presentation을 의도적으로 유지해야 하는 Actor에만 **Global**을 사용하세요.\n- Global은 Representation Domain 양방향 변환이 아닙니다. Ground와 Orbit은 계속 coordinate와 loading 계약입니다.\n",
     "headings": [
       {
         "level": 1,
-        "title": "Version 1.0.1",
-        "id": "version-1-0-1"
+        "title": "PlanetX 1.0.1 - Pending",
+        "id": "planetx-1-0-1-pending"
       },
       {
         "level": 2,
-        "title": "수정",
-        "id": "수정"
+        "title": "예정된 수정",
+        "id": "예정된-수정"
       },
       {
         "level": 2,
-        "title": "업그레이드 참고",
-        "id": "업그레이드-참고"
-      },
-      {
-        "level": 2,
-        "title": "1.0.1에 포함하지 않은 항목",
-        "id": "1-0-1에-포함하지-않은-항목"
-      },
-      {
-        "level": 2,
-        "title": "지원",
-        "id": "지원"
+        "title": "호환성 참고",
+        "id": "호환성-참고"
       }
     ],
     "public": true,
@@ -6591,7 +6571,7 @@
     "slug": "known-issues",
     "title": "Known Issues",
     "navigationTitle": "Known Issues",
-    "description": "This page lists active limitations that are not resolved by the upcoming 1.0.1 maintenance update.",
+    "description": "This page lists active limitations. The pending 1.0.1 update does not resolve the items below unless its published release notes explicitly say otherwise.",
     "category": "support",
     "categoryTitle": "Support",
     "categoryOrder": 11,
@@ -6600,7 +6580,7 @@
     "scope": "web-supplemental",
     "sourceFile": "known-issues.md",
     "sourcePath": "source-docs/en/support/known-issues.md",
-    "content": "This page lists active limitations that are not resolved by the upcoming 1.0.1 maintenance update.\n\n## Current status\n\n- **Published Fab release:** PlanetX 1.0 Mercury\n- **Next maintenance update:** 1.0.1\n- **Report issues:** [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com)\n\nThe 1.0.1 update addresses Browser Monitor failure reporting, native transform-gizmo fallback, and opt-in Global Presentation. See [Release Notes](/release-notes).\n\n## Active issues\n\n### Bidirectional Representation Domain conversion\n\nChanging an Actor between Ground and Orbit does not reconstruct the previous state in both directions. **Presentation Scope: Global** only keeps authored visibility across presentations; it is not coordinate, transform, loading, or state conversion.\n\n### Transition Resource Build and PCG output\n\nPCG-generated resources can be absent from a Transition Resource when the generated output is unavailable, stale, or unsaved. PlanetX does not automatically generate, save, or cook PCG output. Verify the generated resources before building and again in a packaged build.\n\n### Section Proxy at lower scalability presets\n\nSection Proxy visibility can depend on scalability, runtime budget, authored cull distance, residency, or generated-resource availability. Validate the project's target presets in PIE and packaged Win64; a general lower-preset fallback is not part of 1.0.1.\n\n### Runtime distance culling with PCG and Landscape content\n\nIn the Electric Dreams reproduction, PCG- and Landscape-derived Section Proxies can stop rendering at runtime distance. The root cause must be isolated between authored culling, runtime budget, residency/loading, and generated-resource coverage before a rendering fix is released.\n\n### PlanetX Mode visibility filtering\n\nPlanetX Mode can still apply its presentation filtering in the editor. The 1.0.1 native-gizmo fallback does not add persisted user-controlled visibility filters. Exit PlanetX Mode when project-owned visibility filtering is required.\n\n### Landscape Material compatibility — excluded from 1.0.1\n\nComplex or project-specific Landscape Material Graphs can diverge after Proxy Bake. Full arbitrary-graph fidelity is not part of 1.0.1; use and validate a dedicated proxy material where needed.\n\n### Multi-island padding — excluded from 1.0.1\n\nGeneral padding reconstruction for disconnected islands is not part of 1.0.1. Split the source or provide explicit spacing when independent island padding is required.\n\n## Before reporting\n\nInclude the PlanetX and Unreal Engine versions, exact reproduction steps, whether the issue occurs in Editor, PIE, or packaged Win64, and relevant logs or diagnostics. Send the smallest safe reproduction to [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com).\n",
+    "content": "This page lists active limitations. The pending 1.0.1 update does not resolve the items below unless its published release notes explicitly say otherwise.\n\n## Current status\n\n- **Published Fab release:** PlanetX 1.0 Mercury\n- **Next maintenance update:** 1.0.1\n- **Report issues:** [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com)\n\nThe pending 1.0.1 update is planned to address Browser Monitor failure reporting, native transform-gizmo fallback, and opt-in Global Presentation. See [Release Notes](/release-notes). These changes are not available in the current Fab build.\n\n## Active issues\n\n### Bidirectional Representation Domain conversion\n\nChanging an Actor between Ground and Orbit does not reconstruct the previous state in both directions. **Presentation Scope: Global** only keeps authored visibility across presentations; it is not coordinate, transform, loading, or state conversion.\n\n### Transition Resource Build and PCG output\n\nPCG-generated resources can be absent from a Transition Resource when the generated output is unavailable, stale, or unsaved. PlanetX does not automatically generate, save, or cook PCG output. Verify the generated resources before building and again in a packaged build.\n\n### Section Proxy at lower scalability presets\n\nSection Proxy visibility can depend on scalability, runtime budget, authored cull distance, residency, or generated-resource availability. Validate the project's target presets in PIE and packaged Win64; a general lower-preset fallback is not part of 1.0.1.\n\n### Runtime distance culling with PCG and Landscape content\n\nIn the Electric Dreams reproduction, PCG- and Landscape-derived Section Proxies can stop rendering at runtime distance. The root cause must be isolated between authored culling, runtime budget, residency/loading, and generated-resource coverage before a rendering fix is released.\n\n### PlanetX Mode visibility filtering\n\nPlanetX Mode can still apply its presentation filtering in the editor. The 1.0.1 native-gizmo fallback does not add persisted user-controlled visibility filters. Exit PlanetX Mode when project-owned visibility filtering is required.\n\n### Landscape Material compatibility — excluded from 1.0.1\n\nComplex or project-specific Landscape Material Graphs can diverge after Proxy Bake. Full arbitrary-graph fidelity is not part of 1.0.1; use and validate a dedicated proxy material where needed.\n\n### Multi-island padding — excluded from 1.0.1\n\nGeneral padding reconstruction for disconnected islands is not part of 1.0.1. Split the source or provide explicit spacing when independent island padding is required.\n\n## Before reporting\n\nInclude the PlanetX and Unreal Engine versions, exact reproduction steps, whether the issue occurs in Editor, PIE, or packaged Win64, and relevant logs or diagnostics. Send the smallest safe reproduction to [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com).\n",
     "headings": [
       {
         "level": 1,
@@ -6673,7 +6653,7 @@
     "slug": "known-issues",
     "title": "알려진 문제",
     "navigationTitle": "알려진 문제",
-    "description": "이 페이지는 예정된 1.0.1 유지보수 업데이트로 해결되지 않는 활성 제한 사항을 정리합니다.",
+    "description": "이 페이지는 활성 제한 사항을 정리합니다. 예정된 1.0.1 업데이트는 게시된 릴리스 노트에서 명시하지 않는 한 아래 항목을 해결하지 않습니다.",
     "category": "support",
     "categoryTitle": "지원",
     "categoryOrder": 11,
@@ -6682,7 +6662,7 @@
     "scope": "web-supplemental",
     "sourceFile": "known-issues.md",
     "sourcePath": "source-docs/ko/support/known-issues.md",
-    "content": "이 페이지는 예정된 1.0.1 유지보수 업데이트로 해결되지 않는 활성 제한 사항을 정리합니다.\n\n## 현재 상태\n\n- **Fab 공개 버전:** PlanetX 1.0 Mercury\n- **다음 유지보수 업데이트:** 1.0.1\n- **문제 신고:** [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com)\n\n1.0.1 업데이트는 Browser Monitor 실패 보고, Native Transform Gizmo fallback, opt-in Global Presentation을 처리합니다. 자세한 내용은 [릴리스 노트](/release-notes)를 확인하세요.\n\n## 활성 이슈\n\n### Representation Domain 양방향 전환\n\nActor를 Ground와 Orbit 사이에서 변경해도 이전 상태가 양방향으로 복원되지는 않습니다. **Presentation Scope: Global**은 authored visibility를 표현 상태 전반에서 유지할 뿐이며, coordinate, transform, loading, state를 변환하지 않습니다.\n\n### Transition Resource Build와 PCG 출력\n\n생성된 PCG 출력이 없거나 stale 또는 미저장 상태라면 Transition Resource에서 PCG Resource가 빠질 수 있습니다. PlanetX는 PCG 출력을 자동으로 generate, save, cook하지 않습니다. Build 전과 패키지 Build에서 generated resource를 확인하세요.\n\n### 낮은 Scalability Preset의 Section Proxy\n\nSection Proxy 가시성은 Scalability, Runtime Budget, authored cull distance, residency, generated resource 존재 여부에 영향을 받을 수 있습니다. 프로젝트의 목표 preset을 PIE와 패키지 Win64에서 검증해야 하며, 일반적인 낮은 preset fallback은 1.0.1 범위가 아닙니다.\n\n### PCG·Landscape 콘텐츠의 Runtime 거리 Culling\n\nElectric Dreams 재현 환경에서 PCG와 Landscape 기반 Section Proxy가 Runtime 거리에서 보이지 않을 수 있습니다. rendering 수정 전에는 authored culling, Runtime Budget, residency/loading, generated resource coverage 중 원인을 분리해야 합니다.\n\n### PlanetX Mode Visibility Filtering\n\nPlanetX Mode는 editor에서 presentation filtering을 계속 적용할 수 있습니다. 1.0.1의 Native Gizmo fallback에는 저장되는 사용자 제어 Visibility Filter가 포함되지 않습니다. 프로젝트가 소유하는 visibility filtering이 필요하면 PlanetX Mode를 종료하세요.\n\n### Landscape Material 호환성 — 1.0.1 제외\n\n복잡하거나 프로젝트 전용 경로를 사용하는 Landscape Material Graph는 Proxy Bake 후 원본과 다르게 표현될 수 있습니다. 임의 Graph의 완전 fidelity는 1.0.1 범위가 아니며, 필요한 경우 Proxy 전용 Material을 사용하고 결과를 검증하세요.\n\n### Multi-island Padding — 1.0.1 제외\n\n서로 분리된 Island의 일반적인 Padding reconstruction은 1.0.1 범위가 아닙니다. Island마다 독립 Padding이 필요하면 Source를 분리하거나 명시적인 간격을 적용하세요.\n\n## 문제 보고 전 확인 사항\n\nPlanetX와 Unreal Engine 버전, 정확한 재현 절차, Editor·PIE·패키지 Win64 중 발생 환경, 관련 로그와 진단 결과를 포함하세요. 안전하게 공유할 수 있는 최소 재현을 [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com)으로 보내주세요.\n",
+    "content": "이 페이지는 활성 제한 사항을 정리합니다. 예정된 1.0.1 업데이트는 게시된 릴리스 노트에서 명시하지 않는 한 아래 항목을 해결하지 않습니다.\n\n## 현재 상태\n\n- **Fab 공개 버전:** PlanetX 1.0 Mercury\n- **다음 유지보수 업데이트:** 1.0.1\n- **문제 신고:** [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com)\n\n예정된 1.0.1 업데이트는 Browser Monitor 실패 보고, Native Transform Gizmo fallback, opt-in Global Presentation을 처리할 예정입니다. 자세한 내용은 [릴리스 노트](/release-notes)를 확인하세요. 이 변경 사항은 현재 Fab 빌드에서 사용할 수 없습니다.\n\n## 활성 이슈\n\n### Representation Domain 양방향 전환\n\nActor를 Ground와 Orbit 사이에서 변경해도 이전 상태가 양방향으로 복원되지는 않습니다. **Presentation Scope: Global**은 authored visibility를 표현 상태 전반에서 유지할 뿐이며, coordinate, transform, loading, state를 변환하지 않습니다.\n\n### Transition Resource Build와 PCG 출력\n\n생성된 PCG 출력이 없거나 stale 또는 미저장 상태라면 Transition Resource에서 PCG Resource가 빠질 수 있습니다. PlanetX는 PCG 출력을 자동으로 generate, save, cook하지 않습니다. Build 전과 패키지 Build에서 generated resource를 확인하세요.\n\n### 낮은 Scalability Preset의 Section Proxy\n\nSection Proxy 가시성은 Scalability, Runtime Budget, authored cull distance, residency, generated resource 존재 여부에 영향을 받을 수 있습니다. 프로젝트의 목표 preset을 PIE와 패키지 Win64에서 검증해야 하며, 일반적인 낮은 preset fallback은 1.0.1 범위가 아닙니다.\n\n### PCG·Landscape 콘텐츠의 Runtime 거리 Culling\n\nElectric Dreams 재현 환경에서 PCG와 Landscape 기반 Section Proxy가 Runtime 거리에서 보이지 않을 수 있습니다. rendering 수정 전에는 authored culling, Runtime Budget, residency/loading, generated resource coverage 중 원인을 분리해야 합니다.\n\n### PlanetX Mode Visibility Filtering\n\nPlanetX Mode는 editor에서 presentation filtering을 계속 적용할 수 있습니다. 1.0.1의 Native Gizmo fallback에는 저장되는 사용자 제어 Visibility Filter가 포함되지 않습니다. 프로젝트가 소유하는 visibility filtering이 필요하면 PlanetX Mode를 종료하세요.\n\n### Landscape Material 호환성 — 1.0.1 제외\n\n복잡하거나 프로젝트 전용 경로를 사용하는 Landscape Material Graph는 Proxy Bake 후 원본과 다르게 표현될 수 있습니다. 임의 Graph의 완전 fidelity는 1.0.1 범위가 아니며, 필요한 경우 Proxy 전용 Material을 사용하고 결과를 검증하세요.\n\n### Multi-island Padding — 1.0.1 제외\n\n서로 분리된 Island의 일반적인 Padding reconstruction은 1.0.1 범위가 아닙니다. Island마다 독립 Padding이 필요하면 Source를 분리하거나 명시적인 간격을 적용하세요.\n\n## 문제 보고 전 확인 사항\n\nPlanetX와 Unreal Engine 버전, 정확한 재현 절차, Editor·PIE·패키지 Win64 중 발생 환경, 관련 로그와 진단 결과를 포함하세요. 안전하게 공유할 수 있는 최소 재현을 [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com)으로 보내주세요.\n",
     "headings": [
       {
         "level": 1,

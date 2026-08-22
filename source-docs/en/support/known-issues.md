@@ -1,6 +1,6 @@
 # Known Issues
 
-This page lists active limitations that are not resolved by the upcoming 1.0.1 maintenance update.
+This page lists active limitations. The pending 1.0.1 update does not resolve the items below unless its published release notes explicitly say otherwise.
 
 ## Current status
 
@@ -8,7 +8,7 @@ This page lists active limitations that are not resolved by the upcoming 1.0.1 m
 - **Next maintenance update:** 1.0.1
 - **Report issues:** [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com)
 
-The 1.0.1 update addresses Browser Monitor failure reporting, native transform-gizmo fallback, and opt-in Global Presentation. See [Release Notes](/release-notes).
+The pending 1.0.1 update is planned to address Browser Monitor failure reporting, native transform-gizmo fallback, and opt-in Global Presentation. See [Release Notes](/release-notes). These changes are not available in the current Fab build.
 
 ## Active issues
 

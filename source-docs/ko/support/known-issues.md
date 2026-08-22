@@ -1,6 +1,6 @@
 # 알려진 문제
 
-이 페이지는 예정된 1.0.1 유지보수 업데이트로 해결되지 않는 활성 제한 사항을 정리합니다.
+이 페이지는 활성 제한 사항을 정리합니다. 예정된 1.0.1 업데이트는 게시된 릴리스 노트에서 명시하지 않는 한 아래 항목을 해결하지 않습니다.
 
 ## 현재 상태
 
@@ -8,7 +8,7 @@
 - **다음 유지보수 업데이트:** 1.0.1
 - **문제 신고:** [jungle.labx@gmail.com](mailto:jungle.labx@gmail.com)
 
-1.0.1 업데이트는 Browser Monitor 실패 보고, Native Transform Gizmo fallback, opt-in Global Presentation을 처리합니다. 자세한 내용은 [릴리스 노트](/release-notes)를 확인하세요.
+예정된 1.0.1 업데이트는 Browser Monitor 실패 보고, Native Transform Gizmo fallback, opt-in Global Presentation을 처리할 예정입니다. 자세한 내용은 [릴리스 노트](/release-notes)를 확인하세요. 이 변경 사항은 현재 Fab 빌드에서 사용할 수 없습니다.
 
 ## 활성 이슈
 

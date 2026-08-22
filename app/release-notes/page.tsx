@@ -3,8 +3,8 @@ import { StandalonePage } from "../components/StandalonePage";
 import { getDoc } from "@/content/docs";
 
 export const metadata: Metadata = {
-  title: "Release Notes",
-  description: "PlanetX 1.0 release contract, module scope, required dependencies, and distribution note.",
+  title: "PlanetX 1.0.1 - Pending",
+  description: "Pending PlanetX 1.0.1 maintenance update. Fab currently distributes PlanetX 1.0 Mercury.",
   alternates: { canonical: "/release-notes" },
 };
 

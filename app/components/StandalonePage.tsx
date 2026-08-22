@@ -19,13 +19,13 @@ const pageCopy = {
   en: {
     "known-issues": { eyebrow: "Product status", title: "Known Issues", intro: "Publication status and reporting guidance for product-reviewed issues." },
     faq: { eyebrow: "Product guidance", title: "Frequently Asked Questions", intro: "Direct answers about PlanetX scope, runtime ownership, Bake, and integration." },
-    "release-notes": { eyebrow: "PlanetX 1.0", title: "Release Notes", intro: "Published 1.0 contract, module scope, required dependencies, and distribution note." },
+    "release-notes": { eyebrow: "PlanetX updates", title: "Release Notes", intro: "Published and pending PlanetX update notes." },
     about: { eyebrow: "Independent product team", title: "About LabX", intro: "LabX builds focused tools that make ambitious Unreal Engine workflows easier to author, review, and ship." },
   },
   ko: {
     "known-issues": { eyebrow: "제품 상태", title: "알려진 문제", intro: "제품 검토를 거친 이슈의 게시 상태와 문제 보고 준비 사항을 안내합니다." },
     faq: { eyebrow: "제품 안내", title: "자주 묻는 질문", intro: "PlanetX의 범위, Runtime 책임, Bake, 통합 과정에 관한 핵심 답변을 확인하세요." },
-    "release-notes": { eyebrow: "PlanetX 1.0", title: "릴리스 노트", intro: "공개된 1.0 계약, 모듈 범위, 필수 의존성, 배포 참고 사항을 정리합니다." },
+    "release-notes": { eyebrow: "PlanetX 업데이트", title: "릴리스 노트", intro: "공개 및 예정된 PlanetX 업데이트 노트입니다." },
     about: { eyebrow: "독립 개발 팀", title: "LabX 소개", intro: "LabX는 Unreal Engine의 복잡한 제작 과정을 더 쉽게 구성하고 검토하며 배포할 수 있도록 집중도 높은 도구를 만듭니다." },
   },
 } as const;
@@ -76,10 +76,14 @@ export function StandalonePage({ kind, documents, initialLanguage = "en" }: Stan
   const copy = pageCopy[language][kind];
   const document = documents?.[language] ?? documents?.en ?? documents?.ko;
   const about = aboutCopy[language];
-  const title = document && kind !== "release-notes"
-    ? getCanonicalDocTitle(document.slug, language, copy.title)
+  // Release notes must expose their document title and status in the hero.
+  // A static "PlanetX 1.0" hero made a pending update look already shipped.
+  const title = document
+    ? (kind === "release-notes"
+      ? document.title
+      : getCanonicalDocTitle(document.slug, language, copy.title))
     : copy.title;
-  const intro = document && kind !== "release-notes"
+  const intro = document
     ? getCanonicalDocDescription(document.slug, language, copy.intro)
     : copy.intro;
 
